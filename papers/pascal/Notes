@@ -1,0 +1,44 @@
+f(t,p)= sum for i=0 to t of f(i,p-1)
+
+C(t+p-1, t) = Sum(i=0..t, C(i+p-2, i))
+C(t+p, t) = Sum(i=0..t, C(i+p-1, i))
+
+f(t,p)= sum for i=1 to p of f(t-1,i)
+
+C(t+p-1, t) = Sum(i=1..p, C(i+t-2, t-1))
+
+C(t+p-1, t) is the number of ways a sequence of length t can be
+partitioned into p sub-sequences
+
+OEIS submission:
+
+      1
+      1 1
+     1 2 1
+    1 3 3 1
+   1 4 6 4 1
+
+C(t+p-1, t) = Sum(i=0..t, C(i+p-2, i)) = Sum(i=1..p, C(i+t-2, t-1))
+A binomial number is the sum of its left parent and all that parent's
+right ancestors, which equals the sum of its right parent and all that
+parent's left ancestors.
+
+Lee Naish <a href="http://people.eng.unimelb.edu.au/lee/papers/pascal/">Pascal's
+Triangle and debugging software</a>
+
+(n+k-1, k) is the number of ways a sequence of length k can be 
+partitioned into n sub-sequences (see <a
+href="http://people.eng.unimelb.edu.au/lee/papers/pascal/">an application to
+debugging software</a>).
+
+C(n+k-1, k) is the number of n-digit (or less) numbers written in radix
+k (or more) whose digits sum to k.  For example, in decimal, there are
+C(3+3-1,3)=10  3-digit numbers whose digits sum to 3 (see A052217) and
+also C(4+2-1,2)=10 4-digit numbers whose digits sum to 2 (see A052216).
+This relationship can be used to generate the numbers of sequences
+A052216 to A052224 (and further sequences using radix greater than 10).
+
+Cf. A052216, A052217, A052218, A052219, A052220, A052221, A052222,
+A052223 
+
+

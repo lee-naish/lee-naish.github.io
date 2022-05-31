@@ -1,0 +1,206 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.2beta8 (1.42)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Missing answers and negation</TITLE>
+<META NAME="description" CONTENT="Missing answers and negation">
+<META NAME="keywords" CONTENT="naishsem3">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.2beta8">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="naishsem3.css">
+
+<LINK REL="next" HREF="node9.html">
+<LINK REL="previous" HREF="node7.html">
+<LINK REL="up" HREF="node3.html">
+<LINK REL="next" HREF="node9.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html119"
+  HREF="node9.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/lib/latex2html/icons/next.png"></A> 
+<A NAME="tex2html117"
+  HREF="node3.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/lib/latex2html/icons/up.png"></A> 
+<A NAME="tex2html111"
+  HREF="node7.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/lib/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html120"
+  HREF="node9.html">Programs naturally have more</A>
+<B> Up:</B> <A NAME="tex2html118"
+  HREF="node3.html">Motivation and background</A>
+<B> Previous:</B> <A NAME="tex2html112"
+  HREF="node7.html">Three-valued declarative debugging</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00035000000000000000"></A>
+<A NAME="sec_bg_neg"></A>
+<BR>
+Missing answers and negation
+</H2>
+
+<P>
+As well as finding wrong answers, Prolog programs can miss correct
+answers.  Missing answers can be diagnosed with the same algorithm
+but a different kind of tree.   Tree nodes can contain calls together
+with sets of answers returned and the children of a node can be all
+the calls in the bodies of matching clauses.  A node is correct if all
+correct answers are returned and can be considered inadmissible if the
+input arguments violate some condition.  Diagnosis of both wrong and
+missing answers can be done using a combination of both kinds of trees.
+Such a combined tree can be used to diagnose bugs in program containing
+negation -- ``<TT>not p</TT>'' returns a wrong answer if <TT>p</TT>
+misses an answer and vice versa.
+
+<P>
+Treating inadmissible atoms as being true, though somewhat
+counter-intuitive, results in accurate diagnoses using two-valued
+declarative debugging if we restrict attention to a single wrong answer
+diagnosis in a definite clause program.  This corresponds to saying
+inadmissible atoms are true in the intended interpretation.  However, we
+often repeatedly diagnose a bug, modify the program and re-test it until
+the intended interpretation is a model.  If the oracle retains information
+about the intended interpretation during this process, as we would expect,
+or we are interested in diagnosing missing answers or negation is used, a
+single two-valued intended interpretation can lead to incorrect diagnosis.
+
+<P>
+For example, suppose <TT>merge([2,3], [2,1], X)</TT> returns <TT>X =
+[2,1,2,3]</TT> as the only answer and the user says it is true.  The user
+must not say that <TT>merge([2,3], [2,1], [2,2,1,3])</TT> is true during
+missing answer diagnosis or a bug would be incorrectly diagnosed in
+<TT>merge/3</TT>.  In a later version of the program <TT>merge/3</TT>
+may have been modified (to fix a real or imagined bug or make it more
+general or more efficient), so <TT>merge([2,3], [2,1], X)</TT> returns
+<TT>X = [2,2,1,3]</TT> as the only answer.  Missing answer diagnosis
+of <TT>merge([2,3], [2,1], [2,1,2,3])</TT> would then be incorrect
+(since the atom fails but has been previously declared to be true).
+Similarly, if the oracle knew that <TT>merge/3</TT> was intended to be
+a function in this mode (from a user assertion or a declaration in the
+program, such as ``det'' in Mercury or Ciao), wrong answer diagnosis
+of <TT>merge([2,3], [2,1], [2,2,1,3])</TT> would be incorrect (this is
+another use of negation, in the oracle rather than the program).
+
+<P>
+There are several possible solutions to these problems, but at their
+core is a three-valued interpretation.  One solution is for the debugger
+to be more procedural, saying whether an atom succeeded or failed and
+asking if that behaviour is correct.  Inadmissible atoms are precisely
+those for which both success and failure are considered correct.
+Another solution is to use two separate two-valued interpretations (an
+upper and lower bound on what is expected to succeed) for diagnosis of
+wrong and missing answers, respectively.  The lower bound should be a
+subset of the least model but (if it is not empty) means correct programs
+cannot simply fail.  Inadmissible atoms are those with differing truth
+values in these two interpretations.  The verification method proposed
+in [<A
+ HREF="node22.html#drabentTPLP">Drabent and Mi<IMG
+ WIDTH="5" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img130.png"
+ ALT="\l">kowskaDrabent and
+  Mi<IMG
+ WIDTH="5" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img130.png"
+ ALT="\l">kowskapear</A>], which we discuss in more detail in Section
+<A HREF="node20.html#sec_verif">6</A>, essentially uses this approach.  The approach of
+[<A
+ HREF="node22.html#naish:90">NaishNaish1992b</A>] which uses two separate programs, one with additional
+``type'' (admissibility) checks, is also similar.  Atoms which succeed in
+the original program and fail in the augmented program are inadmissible,
+though there may also be other inadmissible atoms which fail in both
+programs (so there is a procedural element to this approach which we
+avoid here).
+
+<P>
+
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="977"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 2:</STRONG>
+Various definitions of <TT>even/1</TT> and <TT>odd/1</TT></CAPTION>
+<TR><TD><IMG
+ WIDTH="556" HEIGHT="183" BORDER="0"
+ SRC="img15.png"
+ ALT="\begin{figure}\figrule
+\begin{tabular}{ll}
+\texttt{even(N) :- e4(N). \% or e1/e2...
+... odd(N). }&amp;\texttt{ o4(N) :- not even(N).}\\
+\end{tabular}\figrule
+\end{figure}"></TD></TR>
+</TABLE>
+</DIV><P></P>
+
+<P>
+Figure   shows some of the multitude of different ways
+<TT>even/1</TT> and <TT>odd/1</TT> can be defined using ``successor''
+notation for numbers.  Some of the 16 possible combinations (such as
+the one shown, using <TT>e4</TT> and <TT>o2</TT>) rely on negation.
+A semantics which allows us to easily check the partial correctness of
+these programs is desirable.  Different version have different success
+sets: in some versions various inadmissible atoms succeed (for example,
+<TT>even(s(s([])))</TT>) and for one version nothing succeeds (everything
+loops).  However, these differences do not reflect different programmer
+intentions and the programmer does not know or care which inadmissible
+atoms succeed in the different versions.  Any semantics which varies
+between the different versions makes it impossible for the programmer
+to first decide on the intended meaning then have the freedom to code
+any of the versions.  The semantics we provide in this paper allows
+the same intended model for all versions of even and odd, respectively,
+giving this freedom.
+
+<P>
+The freedom to write looping programs is not a good thing in itself.
+This is a disadvantage of our semantics but is an unavoidable consequence
+of using a simple semantics which deals only with partial correctness.
+Programmers do need to consider termination (and efficiency), but we
+believe separate tools are desirable for these purposes.  Separation of
+concerns can help with program construction and is particularly useful
+for debugging, where termination can be observed instead of proven
+(or conjectured or hoped for).
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html119"
+  HREF="node9.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/lib/latex2html/icons/next.png"></A> 
+<A NAME="tex2html117"
+  HREF="node3.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/lib/latex2html/icons/up.png"></A> 
+<A NAME="tex2html111"
+  HREF="node7.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/lib/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html120"
+  HREF="node9.html">Programs naturally have more</A>
+<B> Up:</B> <A NAME="tex2html118"
+  HREF="node3.html">Motivation and background</A>
+<B> Previous:</B> <A NAME="tex2html112"
+  HREF="node7.html">Three-valued declarative debugging</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+
+2005-08-02
+</ADDRESS>
+</BODY>
+</HTML>

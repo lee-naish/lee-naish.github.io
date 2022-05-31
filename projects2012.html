@@ -1,0 +1,1061 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>Suggested Computer Science Projects</title><!-- base href="http://www.cs.mu.oz.au/honours/topics.html" --></head><body>
+<h1>Proposed Computer Science Projects</h1>
+<p>
+
+This is the list of proposed Computer Science research projects
+(for Honours, Postgrad Diploma and MSc Comp. Sci.)
+for 2012, based on the list for 2011.  It will be updated periodically.
+If you want to add a new project or update/delete an existing one,
+contact Lee.
+
+</p><p>
+
+This list should be thought of mainly as a guide to the kinds of
+projects different staff members might supervise, and as a useful
+<em>starting</em> point in the search for an appropriate
+project.
+
+Students are strongly encouraged to speak to staff
+about a project as early in their studies as possible.
+
+</p>
+
+
+<hr>
+<h3>Proteomic Bioinformatics </h3>
+<p>
+These projects are associated with Bio21 (The university of Melbourne).
+We offer several projects in the area of Proteomic Bioinformatics
+(using computational methods to explore protein datasets).  As proteomic
+bioinformatics is a rapidly expanding field with few practitioners (most
+bioinformaticians have worked on DNA or genomic problems), this project
+will appeal to those who would like to pursue a professional career
+in bioinformatics with the advantage of a rare but highly desirable
+skill set.
+</p>
+<p>
+
+Definition of Protein Sequence Motifs Important regions of protein
+sequences are conserved over different species and in some cases
+between proteins of different functions. A good example of this is the
+Major Histocompatibility Complex (MHC) binding regions of some proteins
+associated with auto-immune diseases such as arthritis. In this case there
+are two major classes, class I has a well defined conserved binding motif
+whereas class II is less well characterized. We have identified a large
+number of potentially novel MHC binding proteins and this project is
+designed to mine this data for prognostic amino acid patterns. Various
+alignment, motif definition and sequence searching algorithms will
+be tested and benchmarked to ultimately produce a system for the
+identification of predictive amino acid patterns within MHC binding
+proteins. Preferred knowledge: either C,C++ or Java programming and PERL
+scripting. Some biological background or interest would be beneficial
+</p>
+<p>
+
+Improving Protein Identification from Mass Spectrometry Data Modern
+methods for identifying and sequencing proteins associated with disease
+are based on the accurate mass measurements of protein fragments using
+mass spectrometers. From this very accurate mass data, peptide sequences
+are reconstituted and ultimately proteins are identified by combining the
+peptide sequences. A major concern is accurately identifying which peptide
+belongs to which protein, this project aims to address this issue using
+modern bioinformatics techniques and algorithms.  Preferred knowledge:
+either C,C++ or Java programming and PERL scripting. Some biological
+background or interest would be beneficial
+</p>
+<p>
+
+Modeling Peptide Fragmentation Proteins are sequenced and identified
+by reconstituting sequences from fragment mass data collected on mass
+spectrometers. An important part of this process is attempting to
+distinguish real protein data from chemical and electronic noise. This
+project will model the fragmentation efficiency of proteins based on
+a number of parameters associated with their sequence. Using these
+models it will be possible to predict the actual fragmentation patterns
+of proteins and compare this to experimental data allowing protein
+identification to be both faster and have a higher degree of confidence.
+Preferred knowledge: either C,C++ programming, R or SPSS or MATLAB. Some
+biological background or interest would be beneficial </p>
+<p>
+
+Supervisors:  Dr David Perkins and Dr Nicholas Williamson
+(nawill@unimelb.edu.au), local contact:
+<a href="http://ww2.cs.mu.oz.au/~jz/">
+Justin Zobel</a>
+</p>
+<hr>
+<h3>Electronic Voting for Australia</h3>
+<p>Electronic voting could be more secure and transparent than paper-based 
+voting, because recent advances in cryptography allow voters to verify that 
+their vote is cast as they intended, included in the count, and tallied 
+correctly, without compromising privacy. Computers could also prevent people 
+from accidentally voting informally and produce almost-instant Senate results. 
+However, international research generally overlooks complex voting systems like 
+Australia's, so Australian electoral authorities have had to resort to software 
+systems that are not verifiable, and hence not trustworthy. The aim of our 
+research agenda is to design a secure and verifiable system suitable for 
+Australian elections. </p>
+<p>The size and focus of the project could be tailored to suit the students' 
+interests and aptitudes. Some examples are: </p>
+<ul><li>Designing the cryptographic building blocks of a secure voting scheme. 
+  </li><li>Implementing the front end to a voting system. </li><li>Investigating empirically some questions about Australian voting. (I'd 
+  like to know how often you can predict the winners in an upper-house election 
+  based only on the ticket or first-preference of the vote. I have the data for 
+  several past state and federal elections. You would figure out some conditions 
+  for inferring a particular result and then write a program to test whether 
+  those conditions appear in the data.)
+  </li></ul>
+<p>This could be either a programming project for maths majors, or a 
+mathematical project for computer scientists. The underlying cryptography uses 
+some number theory, which would be useful (but not essential) background. </p>
+<p>Supervisor: Vanessa Teague <a href="mailto:vteague@csse.unimelb.edu.au">
+vteague@csse.unimelb.edu.au</a> and <a href="http://ww2.cs.mu.oz.au/%7Elee">Lee 
+Naish</a>. </p>
+<hr>
+<h3>Debugging using program spectra</h3>
+<p>The primary aim of this project is to find better ways of helping a 
+programmer find precisely which parts of their program are buggy using execution 
+profile data (aka program spectra) gathered from running the program on a suite 
+of tests. The basic idea is to instrument the program to gather data on which 
+parts are executed in each test, and to record this data for each test, together 
+with the outcome of the test (either passed or failed). Compared to correct 
+code, buggy code tends to be executed more often in failed tests and less often 
+in passed tests. The set of tests in which a buggy statement is executed tends 
+to be "similar" to the set of tests which fail, so set similarity can be used to 
+rank statements according to how likely they are buggy. However, there are <em>
+many</em> different ways of measuring similarity of sets, and some work much 
+better than others. </p>
+<p>There are lots of ways of extending current reseach in this area, for 
+example: </p>
+<ul><li>Improving some of the existing debugging tools based on program spectra, 
+  such as the Collaborative Bug Isolation (CBI) system. </li><li>Using program spectra to improve the declarative debugger for Mercury (see 
+  the project listed by Zoltan Somogyi). </li><li>Using different forms of spectra (not just what statements are executed), 
+  using the number of times statements are executed in each test or other 
+  information in order to improve debugging performance. </li><li>Finding the best possible set similarity metric for particular models of 
+  buggy programs. We have some
+  <a href="http://www.cs.mu.oz.au/%7Elee/papers/model/">results for simple cases</a>. 
+  For more complicated cases, good maths ability could help. Alternatively, good 
+  algorithm skills may allows us to get computers to find such metrics using 
+  search techniques. </li><li>Examining some of the philosophical issues concerning set similarity, 
+  which is important in many areas of science.
+  </li></ul>
+<p>Supervisor: <a href="http://www.cs.mu.oz.au/%7Elee">Lee Naish</a>. </p>
+<hr>
+<h3>A Facility Location Problem on Road Networks</h3>
+<p>When planning a meeting for a group of people, a venue can be found from all 
+available locations by issuing a group nearest neighbor query, to find the one 
+minimizing their total (or equivalently, average) travel distance. With the 
+maturity of teleconference techniques, people can aggregate to several 
+convenient locations in order to further reduce the traveling cost. Due to the 
+consideration such as the budget limit or administration cost, the maximum 
+number of venues k is usually limited. Under this constraint, we are interested 
+in how to efficiently select a set of venues from the database containing all 
+the candidate locations, such that the average distance for people to go to 
+their respective venues is minimal. </p>
+<p>In general, a few similar geometric facility location problems have been 
+addressed in Euclidean space where the transportation cost is decided by spatial 
+coordinates. However, on road networks, the cost metric based on the distances 
+should be re-defined. The query processing should be based on shortest path 
+calculation on road networks. </p>
+<p>Preferred knowledge: C/Java programming required; data structures and 
+algorithms, mathematics/geometry. </p>
+<p>Supervisor: <a href="http://www.csse.unimelb.edu.au/%7Erui/">Rui Zhang</a> </p>
+<hr>
+<h3>Web Information Extraction and Mining</h3>
+<p>This project aims to extract information from personal homepages and perform 
+mining tasks on them, e.g., finding persons' interests, contacts, relationships, 
+etc. </p>
+<p>Preferred knowledge: web programming skills, data structures and algorithms, 
+database systems </p>
+<p>Supervisor: <a href="http://www.csse.unimelb.edu.au/%7Erui/">Rui Zhang</a></p>
+<hr>
+<h3>Mining Trends in Sequence Data </h3>
+<p>Many important applications have sequence data such as biological data 
+(proteins, genes), stock price changes, video sequences, music scores. Analyzing 
+trends in these data can help finding similar sequences, predicting important 
+events, identifying features, etc. </p>
+<p>This project exploits various data mining techniques to efficiently complete 
+the above tasks, especially in case of a huge volume of data. </p>
+<p>Preferred knowledge: C/Java programming required; data structures and 
+algorithms, mathematics, database systems. </p>
+<p>Supervisor: <a href="http://www.csse.unimelb.edu.au/%7Erui/">Rui Zhang</a></p>
+<hr>
+<h3>Semantic Concepts in AI and Boolean Function Classes </h3>
+<p>In the field of artificial intelligence, much of the literature on Boolean 
+classes assumes that functions are represented in conjunctive normal form, and 
+the taxonomic toolbox is mainly "syntactic". For example, classes are defined as 
+"closed under resolution" or "closed under substitution". It would be 
+interesting to see if there are semantic characterisations that subsume the 
+syntactic ones while weakening the assumptions about how functions are 
+represented. Maybe this would allow a better characterisation/understanding of 
+Boolean classes such as "unate", "renamable Horn", and "k-quasi-Horn". There is 
+plenty of scope in this for a 75 point project, but a smaller project could 
+possibly also be carved out. </p>
+<p><i>Supervisors:</i> <a href="mailto:schachte@csse.unimelb.edu.au">Peter 
+Schachte</a> and <a href="mailto:harald@unimelb.edu.au">Harald Sondergaard</a>.
+</p>
+<p><i>Preferred knowledge:</i> Discrete maths, computational logic. </p>
+<p><i>Reading:</i> P. Schachte and H. Sondergaard, Closure operators for ROBDDs, 
+Verification, Model Checking and Abstract Interpretation (Lecture Notes in 
+Computer Science 3855), pages 1-16, Springer 2006. </p>
+<hr>
+<h3>Algorithms for Boolean Approximation </h3>
+<p>The project is to implement and experiment with various Boolean approximation 
+algorithms, for example, some using binary decision diagrams, some based on 
+resolution and CNF. The project may include a study of CNF simplification, 
+including the use of blocked clause elimination. </p>
+<p><i>Supervisors:</i> <a href="mailto:schachte@csse.unimelb.edu.au">Peter 
+Schachte</a> and <a href="mailto:harald@unimelb.edu.au">Harald Sondergaard</a>.
+</p>
+<p><i>Preferred knowledge:</i> Computational logic, data structures, good 
+programming skills. </p>
+<p><i>Reading:</i> P. Schachte and H. Sondergaard, Boolean approximation 
+revisited, Abstraction, Reformulation and Approximation (Lecture Notes in 
+Artificial Intelligence 4612), pages 329-343. Springer, 2007. </p>
+<hr>
+<h3>Bit-Precise Program Analysis </h3>
+<p>Many proposed program analyses (for C, Java or assembly code, say) work only 
+for linear integer expressions (as in the C assignment z = 2*x + y). However, 
+for limited chunks of code, so-called bit-blasting is feasible, also for 
+non-linear expressions (as in the C assignment <code>z = x &amp;amp; y</code>). 
+Bit-blasting means expressing or approximating all relations amongst the 
+variables' bits as a (large!) Boolean function. The first step of the project is 
+to implement bit-precise summarisation for program basic blocks. The next task 
+is to utilize this for so-called linear congruence analysis and to discuss the 
+applications of this analysis in compiler optimization and/or software 
+verification. A final, optional, task is to explore whether the ideas from the 
+congruence analysis can be transferred to other numerical analyses based on 
+geometric domains, such as variants of convex polyhedra, and possibly also how 
+state-of-the-art SAT/SMT solver technology can be utilised. This is a 75 point 
+project, not suited as a smaller project. </p>
+<p><i>Supervisors:</i> <a href="mailto:schachte@csse.unimelb.edu.au">Peter 
+Schachte</a> and <a href="mailto:harald@unimelb.edu.au">Harald Sondergaard</a>.
+</p>
+<p><i>Preferred knowledge:</i> Good programming skills, mathematical maturity, 
+understanding of propositional logic and linear algebra. </p>
+<p><i>Reading:</i> A. King and H. Sondergaard, Automatic abstraction for 
+congruences, Verification, Model Checking and Abstract Interpretation (Lecture 
+Notes in Computer Science 5944), pages 197-213, Springer, 2010. </p>
+<hr>
+<h3>Sharing and Groundness Dependencies in Logic Programs </h3>
+<p>The two most important types of dataflow analysis for (constraint) logic 
+programs are sharing and groundness analysis. Although the two look very 
+different on the surface, closer inspection shows that they have much in common. 
+Because of this commonality, it should be possible to implement the combination 
+of the two analyses in a way that is more efficient than simply performing them 
+separately. The proposed project would be to (a) get an understanding of the two 
+analyses and the so-called reduced product in abstract interpretation and (b) 
+experiment with two or three different ways to implement the combination, 
+comparing the resulting analyses. It would also be interesting to explore 
+whether Gulwani and Tiwari's "logical product" is applicable to abstract domains 
+used in analysis of logic programs. Probably best as a 75 point project. </p>
+<p><i>Supervisors:</i> <a href="mailto:schachte@csse.unimelb.edu.au">Peter 
+Schachte</a> and <a href="mailto:harald@unimelb.edu.au">Harald Sondergaard</a>.
+</p>
+<p><i>Preferred knowledge:</i> Good understanding of propositional logic and 
+logic programming, together with solid programming skills. </p>
+<p> <i>Reading:</i> M. Codish, H. Sondergaard and P. J. Stuckey, Sharing and 
+groundness dependencies in logic programs, ACM Transactions on Programming 
+Languages and Systems 21: 948-976, 1999. </p>
+<hr>
+<h3>Combinatory Logic and Bracket Abstraction </h3>
+<p>Variables seem indispensable when we define functions and predicates. But in 
+1924 Moses SchÃ¶nfinkel showed how variables are unnecessary. A small set of 
+so-called combinators suffice to generate all functions. Since then, many 
+different sets of combinators have studied. In the 1970s, David Turner suggested 
+the use of one particular set as a basis for the implementation of lazy 
+functional languages, leading to renewed interest in combinatory logic. A 25 or 
+37.5 point project could study and compare a raft of different proposals (by 
+Abdali, Turner, Sheevel, Noshita, Hughes, Piperno, Statman, Broda/Damas, and 
+Bunder). A 75 point project would be to explore whether the more recent 
+proposals would lend themselves to functional programming language 
+implementation based on graph reduction. </p>
+<p><i>Supervisor:</i> <a href="mailto:harald@unimelb.edu.au">Harald Sondergaard</a>.
+</p>
+<p><i>Preferred knowledge:</i> Discrete maths, mathematical maturity and, for 
+the larger version of the project, a good understanding of functional 
+programming. </p>
+<p><i>Reading:</i> Chapter 16 of Peyton Jones's "The Implementation of 
+Functional Programming Languages", Prentice-Hall, 1987. Possibly also S. Broda 
+and L. Damas, Compact bracket abstraction in combinatory logic, Journal of 
+Symbolic Logic 62: 729-740, 1997. </p>
+<hr>
+<h3>Parallelizing Lazy Clause Generation </h3>
+<p>Lazy clause generation is a hybrid approach to solving complex combinatorial 
+optimization problems that defines the state of the art for many problem 
+classes. It was awarded the 2010 Eureka Prize for Innovation in Computer Science 
+(the "Australian Academy Awards for Science"). Lazy clause generation solves 
+these problems by very large, and very fast search, while recording information 
+to avoid searching similar things again. </p>
+<p>Parallelizing lazy clause generation requires sending information from a 
+CPU/core in one part of the search to that in another. The question of how much 
+and what information to be sent, as well as when and how to work steal when a 
+core runs out of work are crucial for making this technology effective on 
+multi-core CPUs and distributed computing platforms. </p>
+<p><i>Supervisor:</i><a href="mailto:pjs+123@cs.mu.oz.au">Peter Stuckey</a> </p>
+<p><i>Preferred knowledge:</i> Parallel Computing, Discrete Maths, Data 
+Structures and Algorithms, </p>
+<hr>
+<h3>Lazy lex with explanations</h3>
+<p>The <tt>lex</tt> constraint represents when one array is lexicographically 
+less than another: e.g. <tt>lex(x,y)</tt> if x[0] &lt; y[0] || ( x[0] == y[0] &amp;&amp; ( 
+x[1] &lt; y[1] || (x[1] == y[1] &amp;&amp; ... ))). The aim of this project is to 
+investigate the best way to implement <tt>lex</tt> in a state-of-the-art 
+constraint programming system using explanation. The project will implement and 
+extend various algorithms for <tt>lex</tt> and compare them on hard 
+combinatorial problems. </p>
+<p><i>Supervisor:</i><a href="mailto:pjs+123@cs.mu.oz.au">Peter Stuckey</a> </p>
+<p><i>Preferred knowledge:</i> Discrete Maths, Data Structures and Algorithms
+</p>
+<hr>
+<h3>How to characterize CP problems</h3>
+<p>In the context of propositional satisfiability one is able to approximately 
+characterize problem instances by a set of features (e.g., variable/constraint 
+ratio) that can be successfully used to perform, for instance, classification 
+(e.g., into 'easy'/'hard' to solve problems). Given an appropriate 
+characterization of problem instances one is able to employ various kinds of 
+automated reasoning methods that can result in solving problems much more 
+effectively (e.g., by automatically selecting a solver from a range of solvers 
+that is most effective on the (sub-)problem at hand). </p>
+<p>While various attempts exist to determine features that aim at characterizing 
+Constraint Programming (CP) problems, no appropriate characterization has been 
+established so far. Besides the basic and commonly used features (e.g., problem 
+size), we want to explore the use of annotations during the modelling process 
+and information collected during model transformation to properly characterize 
+CP problems. Once an appropriate characterization has been established, the aim 
+is to automatically predict which solver is most suitable and how to compose a 
+hybrid-solver for a given problem. </p>
+<p><i>Supervisors:</i><a href="mailto:pjs+123@cs.mu.oz.au">Peter Stuckey</a>,
+<a href="mailto:sbrand@csse.unimelb.edu.au">Sebastian Brand</a> </p>
+<p><i>Preferred knowledge:</i> Discrete Maths, Data Structures and Algorithms, 
+Machine Learning. </p>
+<hr>
+<h3>Transformation of SAT Problems during Search</h3>
+<p>Constraint Programming (CP) solvers typically infer simple variable domain 
+constraints during the solving process. Recent solvers infer also more complex 
+constraints, whose propagation, it is hoped, guide the search towards a solution 
+more effectively by preventing it from revisiting previously explored parts of 
+the search space. The newly inferred constraints are, for example, represented 
+in represented in propositional logic. Since we are interested in the 
+satisfiability of various propositional logic formulae, such constraints are 
+usually called SAT constraints. </p>
+<p>The SAT research community determined a range of different processing 
+techniques that can be used to make the knowledge contained in a given SAT 
+theory more explicit. For instance, one can apply various forms of binary 
+resolution, variable elimination and subsumption on the current SAT theory. The 
+newly inferred knowledge can potentially guide the CP solver even more 
+effectively than the original SAT theory. The more compactly represented 
+knowledge can potentially guide the CP solver even more effectively than the 
+original SAT theory. </p>
+<p>In this project we want to explore SAT constraints processing techniques not 
+just before but repeatedly during search. This means the processing needs to 
+strike a balance between being efficient and effective. We want to examine 
+existing techniques as well as develop new ones for the specific context of CP 
+solving. </p>
+<p><i>Supervisors:</i>&gt;<a href="mailto:pjs+123@cs.mu.oz.au">Peter Stuckey</a>,
+<a href="mailto:sbrand@csse.unimelb.edu.au">Sebastian Brand</a>, </p>
+<p><i>Preferred knowledge:</i> Discrete Maths, Data Structures and Algorithms, 
+Propositional Logic. </p>
+<hr>
+
+<p><h3>Social Networks and Emergence in Automated Trading Systems</h3> 
+
+JCAT (<a href="https://sourceforge.net/projects/jcat" class="moz-txt-link-freetext">https://sourceforge.net/projects/jcat</a>) 
+is an open-source 
+multi-agent platform used to simulate a market place consisting of a 
+collection of competing buyers, sellers, and specialist 
+markets. Buyers and sellers trade commodities automatically via the 
+specialist markets, who have to match buyers and sellers efficiently 
+to maximise their profit. By changing the parameters of the traders 
+and specialist markets, the platform can be used to investigate 
+emergent behaviour within the market place. The platform has been used 
+in the TAC Market Design Tournament since 2007 
+(<a href="http://www.marketbasedcontrol.com/blog/?page_id=5" class="moz-txt-link-freetext">http://www.marketbasedcontrol.com/blog/?page_id=5</a>).
+
+</p>
+<p>
+
+This project will use the JCAT platform to explore the impacts of 
+social networks on automated software trading. Some possible project 
+topics include: 
+
+1. The impact of trust and reputation within social networks in markets. 
+
+2. Information asymmetry and its effects on market dynamics. 
+
+3. Strategies for taking advantage of information dispersed over 
+social networks in markets. 
+
+This project will suit independent students with strong programming 
+abilities, particularly in Java, an interest in economics, marketing, 
+or emergent behaviour in social networks, and an interest in 
+artificial intelligence and simulation. 
+
+</p>
+<p>
+Supervisors: Tim Miller (<a href="mailto:tmiller@unimelb.edu.au" class="moz-txt-link-abbreviated">tmiller@unimelb.edu.au</a>), 
+Michael Kirley, and 
+Liz Sonenberg </p>
+<hr>
+<p>
+<h3>Investigating the effects of competition in ad exchange networks
+</h3>
+
+Ad exchanges, such as Google's DoubleClick or Microsoft's AdECN, are 
+automated auction mechanisms that facilitate the buying and selling of 
+online advertising space between multiple buyers and multiple 
+sellers. Existing economic research into ad exchanges only considers 
+isolated exchanges. However, ad exchanges operate in a market, in 
+which many exchanges compete against each other for marketshare of 
+publishers and advertisers. Advertisers also compete against each 
+other for marketshare of publishers.  This competition encourages 
+exchanges to improve their efficiency and reduce their 
+prices. Advertisers are encouraged to do the same, as well as 
+improving the quality of ad display. Advertisers can take advantage of 
+the competition by searching out the exchanges that provide them with 
+the highest reward. 
+
+This work investigates the effects of competition within ad exchange 
+markets by extending an existing multi-agent, ad auction simulation 
+platform. The use of a multi-agent simulation platform enables the 
+investigation of competition between ad exchanges and between 
+advertisers, which is otherwise considered too complex to investigate 
+using game theoretic techniques. 
+
+This project will suit independent students with strong programming 
+abilities, particularly in Java, an interest in economics, marketing, 
+or ad exchanges, and an interest in artificial intelligence and 
+simulation. 
+</p>
+<p>
+
+Supervisors: Tim Miller (<a href="mailto:tmiller@unimelb.edu.au" class="moz-txt-link-abbreviated">tmiller@unimelb.edu.au</a>), 
+Michael Kirley, and 
+Liz Sonenberg </p>
+<hr>
+<p><h3>Test case prioritisation </h3>
+
+Test case prioritisation is the process of ordering a set of test 
+cases to increase the rate of fault detection. This is useful for 
+large test suites that take days or weeks to execute, such as the 
+Windows NT 4.0 test suite, that took four weeks to execute, despite 
+the fact that all tests were automatically executed. Test engineers 
+executed the tests in a particular order so that the earlier tests 
+were more likely to find faults, providing earlier feedback to 
+programmers for debugging. 
+
+Most test prioritisation techniques assume that all tests are 
+independent of each other, however, in many test suites, some tests 
+must be executed before others; e.g. because there is a functional 
+dependency between them. This project will investigate methods for 
+prioritising test cases that contain dependencies. 
+
+This project will suit independent students with strong programming 
+abilities, an interest in empirical software engineering or software 
+verification. 
+
+</p>
+<p>
+Supervisors: Tim Miller (<a href="mailto:tmiller@unimelb.edu.au" class="moz-txt-link-abbreviated">tmiller@unimelb.edu.au</a>)
+</p>
+<hr>
+<p><h3>Computational Methods for Identifying Genetic Contamination</h3>
+
+New technologies have drastically reduced the cost of sequencing
+genomes, from $3 billion for a human in 2001 to around $3000 today
+(and still falling). This collapse in cost has opened up many
+new applications for sequencing, including disease diagnosis and
+treatment, accelerated breeding of variant crops, and population-wide
+investigation of genetic variant. These technologies promise to
+revolutionise health delivery and agriculture, but are presenting
+new computational challenges, in particular because the data they
+produce is highly fragmented. We are pursing research into new ways
+of storing, validating, processing, and interpreting this data,
+in the context of the massive collections of reference DNA material
+that are now freely available.
+
+Some of the data produced by current sequencing machines - sometimes
+more than third - cannot be identified using current widely used
+matching techniques. In this project, the aim is to investigate
+methods for assigning this data to other species (that is, determining
+if it is contaminant DNA) through search of genome repositories.
+Specific challenges include making this search efficient in the
+presence of large data volumes, and determining whether error or
+contamination is the most likely explanation. A related challenge is
+removal of DNA data from a sample to a level that guarantees that a
+human individual cannot be identified from what remains.
+
+This project is expected to involve academics based in biomedical
+research groups.
+
+ </p>
+ <p>
+Supervisors: Justin Zobel, Thomas Conway
+ </p>
+<hr>
+<p><h3>Dictionary Construction for Compression of Genomes</h3>
+
+Effective compression of genome databases involves construction of
+dictionaries of common genetic sequences, which must be discovered
+in the stored data. This discovery process is hampered by the
+lack of a sufficiently strict 'grammar' in DNA (a factor that is
+exploited in compression of other materials) and by the fact that
+significant repetitions may be separated by gigabytes. We have
+recently developed a new compact representation of DNA sequences
+based on short substrings. This project will explore how to use
+this representation to extract long repetitions, and demonstrate
+its value in compression. Another related challenge is to integrate
+representations of separate sequences, for example as a mechanism for
+discovering features that distinguish one sequence from another. These
+mechanisms have the potential to enable drastic compression of DNA,
+reducing the cost of genetic-based diagnosis.
+
+ </p>
+ <p>
+Supervisors: Justin Zobel, Thomas Conway
+ </p>
+<hr>
+<p><h3>Algorithms for Efficient Use of Transcriptomes</h3>
+
+New technologies are producing richly detailed maps of genetic
+activity for individual cells, helping to determine what constitutes
+normal activity and producing new diagnostic techniques. These very
+rich data sets, when generated from cellular RNA, give a very high
+resolution snapshot that can be linked to other information such as
+the base genome and cellular health. Datasets of this kind exist
+for various tissues, conditions and time-points for mouse reference
+organisms, but are massive and difficult to interpret using current
+techniques. Using advanced data structures we have developed the
+capacity to process large datasets of this kind. The challenge in
+this project is to process these datasets to reliably find common
+elements and distinguishing features, thus enabling their use in
+medicine and research.
+
+ <p>
+Supervisors: Thomas Conway, Bryan Beresford-Smith, Justin Zobel.</p>
+ </p>
+<hr>
+<p><h3>Compression models for dynamic succinct bitmaps</h3>
+
+New technologies have drastically reduced the cost of sequencing
+DNA, with a single run of a sequencing machine producing hundreds
+of gigabytes of genetic data. Our current work is exploiting
+state-of-the-art succinct data structures to enable us to work with
+large data volumes on commodity hardware. Some of the data structures
+have some practical problems, such as tuning parameters that are
+crucial for good performance, but hard to set well. In other cases
+good data structures exist for static data which would be more useful
+if they could be adapted for dynamic data. How to make these data
+structures work well on the scale of data we have is an area that
+could benefit greatly from further research.
+ </p>
+
+ <p>
+Supervisor: Thomas Conway, Andrew Bromage
+ </p>
+<hr>
+<p><h3>Automatic Mapping of Dynamic Elements in Genomes</h3>
+
+Most non-trivial genomes contain "transposable elements" such as
+retroviruses: sections of DNA that can jump around and replicate within
+the genome. Although many are not well understood, it seems clear that
+the number and location of TEs influence the biological function of the
+organism. In most cases these TEs present significant obstacles for
+genome assembly, interpretation, and annotation. Currently they are
+mostly annotated by hand. Finding them without a reference database
+is a problem that has received significant attention, but remains
+open. Our preliminary work has suggested new ways of identifying and
+classifying TEs in genomic sequences. The aim of this research is to
+develop new methods for identification of TEs, with the longer term
+aim of improving the automatic of genetic sequencing techniques.
+
+This project is expected to involve academics based in biomedical
+research groups.
+
+ </p>
+ <p>
+Supervisors: Thomas Conway, Bryan Beresford-Smith, Justin Zobel.
+ </p>
+<hr>
+<p><h3>Accurate Measurement of Computational Methods</h3>
+
+Computer science research often involves proposals of new computational
+methods. Validating these methods - that is, demonstrating that they
+are superior in some respect to their predecessors - requires the use
+of robust and trusted measurement techniques. However, in many areas of
+research there is no agreement on best approaches to measurement, and
+methods are often measured in incomparable ways. In this wide-ranging
+and long-standing research activity, projects have involved surveys
+of existing approaches, development of frameworks for comparative
+measurement, development and application of statistical techniques,
+and practical demonstrations of the strengths and failings of existing
+and proposed approaches. Application areas where new contributions in
+approaches to measurement can have impact include text retrieval,
+distributed computing, and machine learning. We seek to engage
+interested students to advance work in this area, and thus help set
+computer science research in general on a stronger footing.
+
+ </p>
+<p>
+Lead supervisor: Justin Zobel
+Supervisors: Alistair Moffat, Tim Baldwin, Aaron Harwood, William Webber
+</p>
+<hr>
+<h3>Optimizations for the memory hierarchy </h3>
+<p>While CPU chips have doubled in capability every eighteen months (partly by 
+increasing their speed, partly by increasing the number of cores per chip), the 
+speed of main memory has been improving much more slowly: its access time has 
+only halved over the last decade. As a result, the runtime of many programs is 
+now dominated by the cost of accessing main memory, and reducing this cost is an 
+important target for optimizations. </p>
+<p>This project aims to improve spatial locality. Many data structures are big 
+enough to take up more than one cache block. When a piece of code accesses a 
+subset of the fields in the structure, you get fewer cache misses (and thus 
+better performance) if those fields are concentrated in only one or two cache 
+blocks, instead of being spread across several cache blocks. This project 
+involves instrumenting the code generated by the Mercury compiler to find out 
+which fields of structures are often accessed together, and exploiting this 
+information to reorder fields where this helps performance. </p>
+<p><a href="http://portal.acm.org/citation.cfm?id=301635&amp;dl=ACM&amp;coll=portal">
+related reading</a> </p>
+<p><i>Supervisor:</i><a href="mailto:zs@csse.unimelb.edu.au">zs</a>. </p>
+<hr>
+<h3>Low level profiling tools </h3>
+<p>Modern CPUs are so highly optimized that many operations (e.g. adding two 
+integers, or moving a value from one register to another) are basically free, 
+because the runtime of the programs dominated by the cost of the few operations 
+that CPU designers could not optimize. Memory access is one of these expensive 
+operations; branches whose outcome cannot be predicted in advance are another. 
+One study shows that the cost of these two operations account for a staggering 
+85% of the runtime of a set of benchmark programs; everything else accounts for 
+only 15%. </p>
+<p>The previous project aims to implement some fixed algorithms to reduce these 
+costs. However, while these may be useful in many cases, many other cases will 
+require different approaches. At the moment, programmers have only very limited 
+tools even to alert them to such performance problems. Conventional profiling 
+tools can tell them that e.g. a given function takes e.g. 10% of the program's 
+running time, but they cannot tell the programmer whether this is due to cache 
+misses (and if so, on which accesses to which data structures) to unpredicted 
+branches (and if so, on which branches), or something else. </p>
+<p>Modern CPUs have the infrastructure required to gather the information about 
+cache misses and branch mispredictions that a low level profiler would need, and 
+some profilers (such as Intel's VTune) use them to present the information they 
+collect to the user. However, there is no tool at present that relates this kind 
+of low level information back to the source code of a program written in a 
+declarative language such as Mercury. This project would involve designing and 
+implementing such a tool. </p>
+<p><i>Supervisor: </i><a href="mailto:zs@csse.unimelb.edu.au">zs</a>. </p>
+<hr>
+<h3>Intermodule analysis and optimization </h3>
+<p>The Mercury compiler includes several program analysis and optimization 
+algorithms. They normally process one module at a time, which limits their 
+scope. We have recently built a framework for extending these algorithms to 
+allow information from one module to be used when optimizing other modules. The 
+project is to take one or more existing optimization algorithms and the program 
+analysis they require and use the framework to make them work across modules.
+</p>
+<p><i>Supervisor:</i><a href="mailto:zs@csse.unimelb.edu.au">zs</a>. </p>
+<hr>
+<h3>Closure analysis </h3>
+<p>One advantage of logic programming languages such as Mercury over imperative 
+programming languages such as C or Java is that their clean semantics allows 
+compilers to find out a lot more about their programs. Compilers can use this 
+extra information to perform more rigorous checks for errors (for example, the 
+Mercury compiler contains an algorithm that can prove that a predicate 
+terminates for all inputs) and to perform more optimizations (such as reordering 
+computations to reduce the number of passes over the data). </p>
+<p>Higher order calls, calls in which the identity of the call is not specified 
+at the call site, can be very useful: many programming problems can be expressed 
+much more concisely with higher order calls than without. Method calls in 
+object-oriented languages are a form of higher order call; object-oriented 
+languages get much of their power from this fact. </p>
+<p>Unfortunately, higher order calls make program analysis significantly harder. 
+With ordinary, first order calls, you can find out the properties of the call by 
+simply looking up the properties of the entity (procedure/function/method) being 
+called. With higher order calls, this is not possible. </p>
+<p>The project is to design, implement and evaluate a program analysis designed 
+to solve this problem by finding out, for every higher order call site, which 
+entities can possibly be called from that call site. Other program analyses can 
+then look up the properties of all those entities, and compute the properties of 
+the call from that. In Mercury, the relevant entities are closures, i.e. 
+predicate or function calls which may specify the values of some of the 
+predicate or function's input arguments. The evaluation would be done by taking 
+a program analysis that already exists in the Mercury compiler and extending it 
+to exploit the information gather by the new algorithm. </p>
+<p><i>Supervisor:</i><a href="mailto:zs@csse.unimelb.edu.au">zs</a> and/or
+<a href="mailto:harald@csse.unimelb.edu.au">harald</a>. </p>
+<hr>
+<h3>Parallel Mercury </h3>
+<p>Most current CPU chips have two or four cores, and in later in this decade, 
+most CPU chips will have 8, 16 or even 32 cores. The full exploitation of such 
+chips requires parallel programs. Imperative languages assume a sequential 
+machine, which makes writing parallel programs in them notoriously hard and 
+error prone. Declarative languages don't assume sequential execution, so their 
+compilers are free to automatically generate code for parallel machines. </p>
+<p>The Mercury system already has some support for parallelism. Mercury 
+programmers can turn sequential code into parallel code just by ASKING that two 
+computations be done in parallel, with all the synchronization being taken care 
+of automatically by the Mercury implementation. Selecting the right computations 
+to execute in parallel is currently more an art than a science, but we are 
+attempting to turn it into a science: we also have an experimental system to 
+select AUTOMATICALLY which computations should be executed in parallel. However, 
+this is only a beginning; there are many projects that need to be done, 
+including the following. </p>
+<ul><li>Real machines have bottlenecks: speed limits that cannot be transcended by 
+  simply parallelising a program. One such limit is memory bandwidth, the number 
+  of memory accesses the CPU chip can make each second. If the program makes 
+  close to the maximum number of memory accesses each second even when running 
+  on a single core, then running parts of the program in parallel on several 
+  cores cannot speed up the program. Our current autoparallelization system does 
+  not take such bottlenecks into account. The project would involve locating the 
+  relevant bottlenecks, and finding and implementing ways to take them into 
+  account. </li><li>Suppose a parallel program runs on a machine with N cores, and at any 
+  given moment there are M computations to be executed. If M &gt; N, which is the 
+  ideal case (since it guarantees that no core is idle), the system's scheduler 
+  must select which N computations should run on the available cores. There are 
+  many possible scheduling algorithms. The project would involve investigating, 
+  designing, implementing and evaluating a bunch of scheduling algorithms, each 
+  one hopefully better than the ones before; it may also involve desiging and 
+  implementing tools to help evaluate scheduling algorithms. </li><li>The current system can exploit parallelism only between the CPUs of a 
+  multicore machine. If you want more parallelism than is available on a single 
+  chip, you need to exploit parallelism not just INSIDE one machine, but also 
+  BETWEEN several machines as well. Since communication between different 
+  machines is inherently much more expensive than communication inside one 
+  machine, this requires totally different techniques. The project would involve 
+  designing and implementing those techniques.
+  </li></ul>
+<p><i>Supervisor:</i><a href="mailto:zs@csse.unimelb.edu.au">zs</a>. </p>
+<hr>
+<h3>Debugging constraint logic programs </h3>
+<p>In the last few years, the G12 project has written several constraint solving 
+systems in Mercury. The idea is to allow experts in constraint systems to write 
+constraint solvers, with each solver handling a particular kind of constraints, 
+e.g. linear arithmetic constraints, which have the form aX + bY =&lt; c. Users who 
+have problems (such as timetabling, resource scheduling) that can be expressed 
+in terms of constraints should then be able to write down those constraints in 
+Mercury and have the solvers solve them. </p>
+<p>The Mercury implementation includes a debugger, mdb, which is the Mercury 
+equivalent of gdb. Currently, this debugger knows nothing about constraints, and 
+doesn't really help experts debug their solvers, nor does it help application 
+programmers debug their programs if those programs use constraints. The project 
+would be to investigate methods to help either the solver writers, the solver 
+users, or (preferably) both, to implement those methods, and to evaluate them in 
+practice. </p>
+<p>The help can be in the form of support for locating bugs (the usual form of 
+debugging, also called debugging for correctness) or in the form of support for 
+diagnosing performance problems (performance debugging). The latter may involve 
+the adaptation of existing visualization tools to the task of helping 
+programmers visualize some aspects of program execution. </p>
+<p><i>Supervisor: </i><a href="mailto:zs@csse.unimelb.edu.au">zs</a>, possibly 
+with <a href="mailto:pjs@csse.unimelb.edu.au">pjs</a>. </p>
+<hr>
+
+<p><h3>Randomness Testing of Popular Stream ciphers.</h3>
+
+
+Research on Sequences: Pseudo-random sequences are important building
+blocks of modern security and communication systems. Recently Serdar
+BoztaÂ¸Simon J. Puglisi, and Andrew Turpin presented an algorithm to
+find the longest substring of x with certain density Î¸ in a string of
+length n with O (n logn) complexity. Further there are now
+improvements to this algorithm and theoretically it is possible to
+implement this algorithm in O (n) complexity. The work will involve
+writing efficient implementation of this algorithm in C and to develop
+a random testing procedure for popular stream ciphers like Dragon and
+Bluetooth. For more details contact Udaya.
+ </p>
+ <p>
+
+Supervisors: Udaya Parampalli and AndrewTurpin.
+ </p>
+<hr>
+<p><h3>Implementations of elliptic curve cryptosystems over prime and
+prime power fields.</h3>
+
+The work will be the extension of earlier work done in the group. We
+will use recent representation of Elliptic curve groups by Edwardâ&#8364;&#8482;s
+and Hessian. We will also look at the implementations from the
+perspective of side channel attacks. Several optimizations are
+proposed for hardware implementations in the literature. In this
+project we will concentrate on software implementations. For more
+details contact Udaya.
+ </p>
+ <p>
+
+Supervisor: Udaya Parampalli
+Preferred knowledge: C and Java, Background in Discrete mathematics.
+ </p>
+<hr>
+<p><h3>Watermarking Technique using pseudorandom arrays.</h3>
+
+
+Digital media like images, audio and video are vulnerable to theft,
+misuse or manipulation when distributed over Internet. Watermarking is
+a technology which can thwart such vulnerabilities. This project is
+about constructing watermarking techniques for video and images using
+pseudorandom arrays.
+
+Pseudorandom sequences have been used in watermarking in the
+literature. Here a random signature sequence with good correlations
+will be embedded in image or video such that they are not easily
+erased during the transmission. The embedded sequence can be retrieved
+from the image or video to ascertain the ownership due to its
+correlation property.
+
+In this project, we will use recently constructed multi-dimensional
+pseudorandom arrays with good cross-correlation properties.
+Multi-dimensional arrays will perfectly suit the modern media which
+inherently multi-dimensional.
+ </p>
+ <p>
+
+Anyone interested can contact Udaya.
+Supervisor: Udaya Parampalli and Shanika Karunasekera
+Preferred knowledge: C and Java, and some experience in handling JPEG
+and MPEG formats.</p>
+<hr>
+<p><h3>Person Controlled Encryption Prototype for Electronic Health
+Records</h3>
+
+This project will design a new web based secure electronic health data
+repository (HDR) for storing patient records. Our HDR is modeled on
+the lines of secure Electronic Health Record system mandated by NEHTA.
+Such methods will preserve the privacy of patientâ&#8364;&#8482;s health data
+received from hospitals and health professionals. The HDR is secure
+even if the records are stored by un-trusted data centers. Our
+approach is to use novel cryptographic techniques and role based
+access control for electronic health records. This allows the records
+to be stored on un-trusted data centers without privacy leak. The
+method lets authorized higher authorities to search for key words in
+encrypted data which is an important requirement from
+hospitals/Doctors/healthcare service providersâ&#8364;&#8482; perspective.
+The aim of the project is to develop a modular software prototype to
+test effectiveness of our design. The experience realized from this
+project will be used to develop future funding applications.
+ </p>
+ <p>
+
+Supervisor: Udaya Parampalli</p>
+<hr>
+<p><h3>Implementation of Identity Based Signcryption scheme- A primitive
+for one pass key exchange protocol.</h3>
+
+Most of the current security applications are based on directory
+based crypto services
+and use public key infrastructure. These systems make use of random looking key
+materials for entities and relating the key material to the actual
+identity of the
+entities is an important authentication problem. Non directory based
+framework can be
+defined using the actual identities as the key material and this
+framework can handle
+the authentication problems in a simplified and scaled manner.
+However, till recently
+there were not many cryptographic options to implement this framework.
+Recently a
+concrete realization of Identity Based Cryptography was discovered
+when Boneh and
+Franklin proposed a practical Identity Based Encryption (IBE) Schemes
+using Weil Pairing defined over super singular elliptic curve groups.
+After this there are several
+cryptographic schemes developed based pairing based cryptography (signatures,
+signcryption etc). Coming up with practical protocols and their
+analysis is an active
+research area.
+
+In this project we plan to implement efficient Identity based
+signcryption primitives for groups defined non-super singular curves.
+Signcryption schemes over non-super singular curves are compact and
+can be used in one pass key exchange protocols.
+ </p>
+ <p>
+
+Supervisor: Udaya Parampalli
+Preferred knowledge: C and Java, Background in Discrete mathematics.</p>
+<hr>
+<p><h3>Cooperative Repair of Wireless Broadcasts</h3> 
+
+Digital Video Broadcasting (DVB) and other forms of wireless 
+broadcasting are subject to interference that leads to corrupted data at 
+the receivers. Forward error correction (FEC) is one way to overcome 
+this. However, FEC requires redundant data that is only useful for the 
+receivers that actually suffer from interference. Other methods to 
+overcome interference include decreasing the bitrate of the transmission 
+(more power per bit), increasing the power of the transmitter or using 
+more transmitters, none of which are particularly desirable. In this 
+project we explore the use of cooperative repair among the receivers. 
+The primary channel is the wireless broadcast, and the receivers 
+cooperate, using a peer-to-peer model, over a secondary channel (LAN or 
+WAN) to recover lost information. The project requires Python 
+programming skills (an existing code base will be used and further 
+developed), a familiarity with Ubuntu and an interest in digital 
+television and MPEG video stream processing. There will be an 
+opportunity to collaborate with researchers from Vrije University, the 
+Netherlands, as part of a data collection effort to support the project. </p>
+<p>Supervisor: Aaron Harwood</p>
+<hr>
+
+<h3>
+Event mining and correlation in marine environments
+</h3>
+
+<p>
+Marine environments such as the Great Barrier Reef are facing pressure
+from climate change, pollution and increased fishing and tourism. Once
+damaged, reef systems can take decades to recover. To understand how
+reef systems are affected by these pressures, marine scientists need
+detailed environmental measurements. Recently, a wireless sensor network
+has been deployed to provide measurements at high spatial resolution in
+the Great Barrier Reef. However, the challenge remains to interpret the
+stream of data that this sensor network provides in order to detect
+events of interest to marine scientists.  
+</p>
+
+<p>
+This project will investigate the use of data mining techniques to (1)
+detect unusual changes in water conditions on the reef (such as an
+influx of warm or cold water), (2) correlate these change events among
+sensors at different geographical locations, and (3) correlate these
+localised events with wider scale weather observations. This project
+will provide the opportunity to learn about data mining and machine
+learning techniques, and apply these techniques to real-life data in an
+important environmental management problem.
+</p>
+
+<p>
+Supervisor: Chris Leckie (caleckie@unimelb.edu.au)
+</p>
+
+<p>
+Preferred knowledge: C and Java.
+</p>
+
+<hr>
+
+
+
+
+
+
+<p wrap=""><h3>Agent-based foraging models</h3></p>
+<p wrap="">Agent based computational models can be used to generate explanatory and
+predictive accounts of individual and population-level dynamics in a range
+of social, ecological and economic phenomena.
+
+In this project, an agent based computational model will be developed to
+investigate adaptive behaviour in social dilemmas such as the common pool
+resource game or foraging tasks. The individual agents are engaged in the
+iterative process of choosing a joint activity from a set of  available
+activities at a time.  The agents are mapped to a virtual environment, 
+where
+resources are spatially and temporally distributed. Movement and harvest
+decision rules can be encapsulated within an agent. Computational
+simulations can then be used to explore the effects that variation among
+individual agents has on the global behaviour of the system.
+
+ </p>
+ <p>
+
+Supervisors: Michael Kirley, Tim Miller
+ </p>
+ <p>
+
+Background reading:
+
+Roberts, M.E., &amp; Goldstone, R.L., (2006). EPICURE: Spatial and Knowledge
+Limitations in Group Foraging. Adaptive Behavior 14: 291</p>
+<hr>
+<p wrap=""><h3>Optimal correlation clustering solutions</h3>
+
+The correlation clustering and cluster editing problems have been at
+the forefront of the graph clustering algorithms and communities for
+almost a decade. They have application in the co-reference problem in
+natural language processing, aggregating clusterings from other
+algorithms, and removing duplicate entries in databases. The problems
+are inherently hard to solve, but even good approximation algorithms
+require vast amounts of memory. In this project we seek combinatorial
+approaches to find optimal solutions for problems of up to, say 10,000
+items. There is the potential for collaboration with an international
+industry research lab.
+ </p>
+ <p>
+
+Supervisor: Tony Wirth</p>
+<hr>
+<p wrap=""><h3>Non-Bayesian psychometric function estimation</h3>
+
+Pscyhophysics is the study of the human response to physical stimuli.
+Often we can model this response with a psychometric function. We aim
+to estimate this function, and therefore classify the behaviour of the
+subject, by exposing the subject to a small number of stimuli. How can
+we choose these stimuli so that the estimation is efficient?
+
+So far Bayesian techniques have dominated psychometric function
+estimation. In collaboration with Dr Guoqi Qian (Math/Stat dept) and
+A/Prof Andrew Turpin we would like to design and implement some
+non-Bayesian regression-based techniques.
+ </p>
+ <p>
+
+Preferred knowledge: Basics of algorithms and probability and statistics.
+ </p>
+ <p>
+
+Supervisors: Andrew Turpin, Tony WIrth</p>
+<hr>
+<p wrap=""><h3>Bin packing on external memory</h3>
+
+The bin packing problem is one of the fundamental optimization
+problems and has vast industrial application. Most existing algorithms
+either treat memory as an infinite resource, or place strict bounds on
+the number of open bins. In this project we consider how to solve bin
+packing problems efficiently when the data is stored on disk. There is
+the potential for collaboration with an international industry
+research lab.
+ </p>
+ <p>
+
+Supervisor: Tony Wirth</p>
+<hr>
+<pre wrap=""><font size="3">Cloud Computing / Distributed Systems Projects. Check out: </font><a href="http://www.cloudbus.org/research_probes.html" class="moz-txt-link-freetext"><font size="3">http://www.cloudbus.org/research_probes.html</font></a></pre>
+<hr>
+<p wrap="">&nbsp;</p><p style="font-weight: bold;">Modelling use of an on-line educational platform</p>
+<p> linda  </p>
+
+<p> On-line learning is being used more and more.  Where subjects are
+delivered on-line, educators often have little or no idea how the
+materials they make available are being used.  In fact, educators of
+such subjects have little insight into what students' goals in using
+the platform are.
+</p>
+
+<p> We have access to data collected in another university that logs
+student access to an on-line learning platform.  The data can be
+accessed as a spreadsheet. In this project, we will model how students
+use the platform -- are they looking for information, or for content,
+or for social interaction, etc.?  
+</p>
+
+
+<p> Simple questions can be answered easily, simply by looking at
+statistics of use. More complex questions can be modelled using a
+finite state automaton, as shown in our previous work on modelling
+educational software.  
+</p>
+
+<p> The results of this project will help educators using on-line
+platforms, by guiding them in their choice of where to put their
+effort for the best educational results.
+</p>
+
+
+
+
+<p>Pre-requisites: The early part of the project reauires experience
+with -- or interest in learning how to use -- spreadsheets, including
+Visual Basic macro programming.  The finite state automata will be programmed in
+Java.</p>
+</body></html>

@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Member</TITLE>
+<META NAME="description" CONTENT="Member">
+<META NAME="keywords" CONTENT="naish">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="naish.css">
+<LINK REL="next" HREF="node17.html">
+<LINK REL="previous" HREF="node15.html">
+<LINK REL="up" HREF="node14.html">
+<LINK REL="next" HREF="node17.html">
+</HEAD>
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html192"
+ HREF="node17.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/next_motif.gif"></A> 
+<A NAME="tex2html190"
+ HREF="node14.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/up_motif.gif"></A> 
+<A NAME="tex2html184"
+ HREF="node15.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html193"
+ HREF="node17.html">Other predicates</A>
+<B> Up:</B> <A NAME="tex2html191"
+ HREF="node14.html">Experiences with higher order</A>
+<B> Previous:</B> <A NAME="tex2html185"
+ HREF="node15.html">Map</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00082000000000000000">
+Member</A>
+</H2>
+
+<P>
+The predicate <TT>member/2</TT> is commonly used for either searching a
+list for a particular element or generating all elements of a list using
+backtracking.  Analogous operations are also useful for other data
+structures, though searching is often best treated separately for
+efficiency reasons.  To generalise <TT>member/2</TT> we noted that it can
+succeed with non-lists, since solutions can be returned without the whole
+data structure being traversed.  In our transformation all non-recursive
+calls are simply deleted.  We add one extra argument which is bound to
+successive members of the data structure; there are no ``higher order''
+arguments added. Conjunctions of calls are transformed into disjunctions,
+with the same variable used as the extra argument in the head and each
+call.  Additional disjuncts are added which unify this variable with each
+variable which occurs in the clause head but not in a recursive call.
+Clauses with no recursive calls or head variables have <TT>fail</TT> (an
+empty disjunction) as the body; such clauses could also be deleted.
+Program 19 shows the result of transforming <code>rtree_any/1</code>.
+
+<P>
+<PRE>
+member_rtree_any(rt(A, B), C) :-
+    (    C = A
+    ;    member_list_rtree_any(B, C)
+    ).
+
+member_list_rtree_any([], A) :-
+    fail.
+member_list_rtree_any([A|B], C) :-
+    (   member_rtree_any(A, C)
+    ;   member_list_rtree_any(B, C)
+    ).
+</PRE><B>Program 19</B>:  Member transformation for <code>rtree_any/1</code>
+<BR> 
+
+<P>
+<BR><HR>
+<ADDRESS>
+<I>Lee Naish</I>
+<BR><I>2000-07-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

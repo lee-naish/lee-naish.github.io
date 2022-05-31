@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Experiences with higher order coding in Prolog</TITLE>
+<META NAME="description" CONTENT="Experiences with higher order coding in Prolog">
+<META NAME="keywords" CONTENT="naish">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="naish.css">
+<LINK REL="next" HREF="node18.html">
+<LINK REL="previous" HREF="node13.html">
+<LINK REL="up" HREF="naish.html">
+<LINK REL="next" HREF="node15.html">
+</HEAD>
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html169"
+ HREF="node15.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/next_motif.gif"></A> 
+<A NAME="tex2html167"
+ HREF="naish.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/up_motif.gif"></A> 
+<A NAME="tex2html161"
+ HREF="node13.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html170"
+ HREF="node15.html">Map</A>
+<B> Up:</B> <A NAME="tex2html168"
+ HREF="naish.html">Stepwise Enhancement and Higher</A>
+<B> Previous:</B> <A NAME="tex2html162"
+ HREF="node13.html">Tools for program development</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00080000000000000000">&#160;</A>
+<A NAME="newtrfs">&#160;</A>
+<BR>
+Experiences with higher order coding in Prolog
+</H1>
+
+<P>
+Several years ago the first author implemented some higher order predicates
+for his own use in programming.  The initial set was a Prolog version of
+the Miranda<A NAME="tex2html3"
+ HREF="footnode.html#foot211"><SUP>1</SUP></A>
+standard library.  Some functions were not implemented because they rely on
+lazy evaluation.  This was the first divergence between the higher order
+primitives used in Prolog and functional programming.  The set of higher
+order predicates was expanded as new code was developed and patterns were
+noted, resulting in further divergence.  The usage pattern of higher order
+primitives reported below is based on around 1400 lines of recently
+developed code (comments and blank lines excluded) for program analysis and
+transformation.  The coding style was ``pure'', avoiding non-logical
+primitives where possible, and efficiency was generally ignored.  Analysis
+of a larger body of code would obviously be desirable.
+
+<P>
+More recently we implemented the prototype transformation tools for
+<EM>foldr</EM> and <EM>foldl</EM> and implemented extra transformations as it
+became evident they were useful.  The main application to date is a program
+analysis system which manipulates systems of constraints.
+The task was to change the representation of constraints to allow greater
+flexibility (such as adding disjunctive constraints which were previously
+not supported).  The transformation tools proved to be very useful.
+
+<P>
+The new data structure for constraints was quite complicated, one type
+having fifteen different constructors.  In addition, the design took
+advantage of Prolog's flexibility with respect to types and used
+overloading of representations (multisets and conjunctions used the same
+representation) and subtypes (at different program points several different
+sub-types of the constraint type were used).  Partly because of this we
+edited the output of the transformation tools in several instances.
+Although the tools were designed with the higher order coding style in
+mind, we used a mixture of the higher order style and the stepwise
+enhancement style.  With a more disciplined use of types, which would have
+required more explicit type definitions and type conversions, it is likely
+that fewer modifications to the output of the tools would have been
+required.  However, editing the output of the tools would still have been
+useful in cases where the program pattern was similar but not identical to
+an instance of one of the abstractions supported by the tools.  Around 500
+lines of generated code were used in the final system (more
+than the number of lines of code used to implement the tools).
+We believe the tools significantly improved productivity.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS">&#160;</A>
+<UL>
+<LI><A NAME="tex2html171"
+ HREF="node15.html">Map</A>
+<LI><A NAME="tex2html172"
+ HREF="node16.html">Member</A>
+<LI><A NAME="tex2html173"
+ HREF="node17.html">Other predicates</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html169"
+ HREF="node15.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/next_motif.gif"></A> 
+<A NAME="tex2html167"
+ HREF="naish.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/up_motif.gif"></A> 
+<A NAME="tex2html161"
+ HREF="node13.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html170"
+ HREF="node15.html">Map</A>
+<B> Up:</B> <A NAME="tex2html168"
+ HREF="naish.html">Stepwise Enhancement and Higher</A>
+<B> Previous:</B> <A NAME="tex2html162"
+ HREF="node13.html">Tools for program development</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>Lee Naish</I>
+<BR><I>2000-07-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

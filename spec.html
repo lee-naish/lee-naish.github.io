@@ -1,0 +1,417 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml; charset=ISO-8859-1"/>
+<title>433-326 Declarative Programming Project 2</title>
+</head>
+<body>
+
+<center>
+<h1>433-326 Declarative Programming</h1>
+<h1>Project 2</h1>
+</center>
+
+<h2>Aim</h2>
+
+<p>
+The primary aim of this project is for you to get further experience
+with understanding and writing Haskell code, particularly higher order
+code, where functions can be passed as arguments and embedded in data
+structures.
+You may do this project individually or in pairs.
+</p>
+
+
+<h2>Background</h2>
+
+<p> XML is a simple markup language used for representing many forms
+of data.  For example, this document is written in XHTML, which is a
+subset of XML.  There are
+several existing languages and packages for searching or <em>querying</em>
+XML data.  In this project you will be implementing some Haskell functions
+for querying XML.  A prototype will be provided; your task will be to
+enhance it.  </p>
+
+<p> An XML document can be seen as a textual representation of an M-way
+tree.  There are two kinds of nodes.  First, there are <em>text</em>
+nodes, which contain just text and have no children.  Second, there
+nodes called <em>elements</em> which have a tag (a string, which appears
+in angle brackets at the start of the element and in angle brackets
+with a slash at the end of the element), a list of <em>attributes</em>
+which are name-value pairs (also both strings, apearing in the first
+set of angle brackets), and a list of subtrees (other elements or text
+appearing between the instances of the tag).  Below is an example of the
+syntax which uses a mix of standard HTML tags and specialised tags for
+maintaining a blog.  The meaning of these tags, how they are displayed
+and restrictions on how they may be arranged can be defined separately
+in a schema, but for this project we ignore the precise meaning.
+</p>
+
+<pre>
+&lt;blog&gt;
+  &lt;message author="Alice" date="Wed, 05 May 2010 06:40:22"&gt;
+    &lt;title&gt;A new blog&lt;/title&gt;
+    &lt;content&gt;I discovered a new &lt;b&gt;blogging engine&lt;/b&gt;. Trying it
+      out.&lt;/content&gt;
+    &lt;tag&gt;blogging&lt;/tag&gt;
+    &lt;tag&gt;short&lt;/tag&gt;
+    &lt;comment author="Bob" date="Wed, 05 May 2010 06:52:10"&gt;
+      You should link it to your &lt;i&gt;Twitter&lt;/i&gt; feed.
+      &lt;comment author="Alice" date="Thu, 06 May 2010 03:39:41"&gt;
+        I might, if I can figure out how to do that.
+      &lt;/comment&gt;
+    &lt;/comment&gt;
+    &lt;comment author="Dennis" date="Thu, 06 May 2010 01:14:08"&gt;
+      Yes, this is a good one, Alice.
+    &lt;/comment&gt;
+  &lt;/message&gt;
+&lt;/blog&gt;
+</pre>
+
+<p>
+In Haskell, XML can be represented as follows:
+</p>
+
+<pre>
+>data XML =
+>	Text String |		-- text only (no subtrees)
+>	Element String		-- tag
+>		[Attr]		-- attributes
+>		[XML]		-- subtrees
+
+>type Attr = (String, String)
+</pre>
+
+<p>
+This representation has the advantage that it can represent any XML
+document.  However, this can also be a disadvantage, since it can represent
+XML documents which do not conform to a given schema (for example, it is
+unlikely we want to allow comments inside titles but this data type does
+not prevent it).  The blog example above would be represented as follows:
+</p>
+
+<pre>
+>blog :: XML
+>blog =
+>  Element "blog" []
+>  [
+>    Element "message" [("author", "Alice"),
+>                         ("date", "Wed, 05 May 2010 06:40:22")]
+>    [
+>      Element "title" [] [Text "A new blog"],
+>      Element "content" []
+>      [
+>        Text "I discovered a new ",
+>        Element "b" [] [Text "blogging engine"],
+>        Text ". Trying it out."
+>      ],
+>      Element "tag" [] [Text "blogging"],
+>      Element "tag" [] [Text "short"],
+>      Element "comment" [("author", "Bob"),
+>                           ("date", "Wed, 05 May 2010 06:52:10")]
+>      [
+>        Text "You should link it to your ",
+>        Element "i" [] [Text "Twitter"],
+>        Text " feed.",
+>        Element "comment" [("author", "Alice"),
+>                             ("date", "Thu, 06 May 2010 03:39:41")]
+>          [Text "I might, if I can figure out how to do that."]
+>      ],
+>      Element "comment" [("author", "Dennis"),
+>                           ("date", "Thu, 06 May 2010 01:14:08")]
+>        [Text "Yes, this is a good one, Alice."]
+>    ]
+>  ]
+</pre>
+
+<h2>Querying XML</h2>
+
+<p>
+Various languages and packages have been developed for querying XML.
+Here we will develop a framework for querying XML using Haskell.
+</p>
+
+<h3>Checking the content of single nodes</h3>
+
+<p> One of the most basic things we often want to do is match an element
+by checking whether the tag and/or attributes and values have certain
+properties.  In Haskell this can be done in a general way by having a
+function which takes this data and returns a Boolean.  Note this ignores
+any subtrees; we handle the overall tree structure in a separate way,
+described below.  Similarly we can use Boolean functions to check if
+text nodes have desired properties.  The two types below thus describe
+important basic matching operations.
+</p>
+
+<pre>
+>type CheckElem = String -> [Attr] -> Bool
+>type CheckText = String -> Bool
+</pre>
+
+<p>
+For example, we could check if a text node contains the word "XML" and
+an element node is a title (a tag of "title") as follows (more
+general-purpose functions along the same lines can clearly be defined):
+</p>
+
+<pre>
+>has_word_XML :: CheckText
+>has_word_XML cs = not (null (filter (=="XML") (words cs)))
+
+>is_title :: CheckElem
+>is_title = has_tag "title"
+
+>has_tag :: String -> CheckElem
+>has_tag t tag _avs = tag = t
+</pre>
+
+<h3>Matching the overall tree structure</h3>
+
+<p> To support queries which depend on the overall tree structure we
+devise a data type for "patterns" which can be used to match XML trees.
+Individual nodes can be matched using the <code>CheckElem</code> and
+<code>CheckText</code> types, but we also want to constrain how the
+node is related to other nodes.  For text nodes (where there are no
+children), the pattern has a <code>CheckText</code> and a description
+of what the list of ancestors nodes must be like.  The ancestors of
+a node X are all elements, starting with the root node of the tree,
+then a child of the root, <i>et cetera</i>, down to the parent of X.
+For element nodes we have a <code>CheckElem</code>, a description of
+the ancestors (as for text nodes) and also a description of the list
+of children.  The children are subtrees and we allow nested patterns
+to match these subtrees recursively (within these recursive matches,
+the ancestors start with the root of the subtree).  </p>
+
+<p> To constrain both the list of ancestors and the list of children,
+we use a data type which is a more general version of lists, called
+<code>Sequence</code>.  A Sequence of some type <code>t</code> is like
+a list of <code>t</code>'s but more flexible.  For example, we can
+say some element is anything (rather than a specific value of type
+<code>t</code>) and we can say there are one or more occurrences of
+some element or sub-sequence.  We define <code>Sequence</code> below.
+The ancestors are described by a Sequence of <code>CheckElem</code>'s.
+The children are described by a Sequence of patterns.  </p>
+
+<p>
+Thus patterns can be defined as follows:
+</p>
+
+<pre>
+>data Pat =
+>	TextPat (Sequence CheckElem)		-- ancestors
+>		CheckText |			-- node check
+>	ElemPat (Sequence CheckElem)		-- ancestors
+>		CheckElem			-- node check
+>		(Sequence Pat)			-- subtrees
+</pre>
+
+<p>
+If the ancestors are always the empty sequence and the sequence
+of subtrees is essentially the same as a list then the patterns are
+essentialy the same structure as XML, but with Boolean functions instead
+of data in the nodes.
+</p>
+
+<p> Sequences are defined as follows.  There are three data constructors
+which are equivalent to <code>Nil</code>,  <code>Leaf</code>, and
+<code>Branch</code> in the cord representation given in lectures (this
+allows lists to be represented precisely).  They are <code>Empty</code>,
+<code>One</code> and <code>Then</code>, respectively.  Additionally,
+there is <code>Any1</code> which means any single element, <code>Several
+s</code>, which means one or more occurrences of sequence <code>s</code>
+and <code>Or s1 s2</code>, which means either sequence <code>s1</code>
+or sequence <code>s2</code>.
+</p>
+
+<pre>
+>data Sequence t =
+>	Empty |                          -- the empty sequence
+>	One t |                          -- a single item t
+>	Any1  |                          -- any single item
+>	Then (Sequence t) (Sequence t) | -- a sequence then another sequence
+>	Or (Sequence t) (Sequence t) |   -- or sequence or another sequence
+>	Several (Sequence t)             -- one or more occurrences
+>		deriving Show
+</pre>
+
+<p> Note there is more than one way of specifying the same sequence.
+For example, <code>One is_title</code> means the same as <code>Then
+(One is_title) Empty</code>.  Consider the following examples.
+<code>any_seq</code> is a sequence which matches anything.
+<code>pat1</code> will match an element which has no ancestors (it must
+be the root node) and which has tag "blog"; it can have any children.
+<code>pat2</code> will match an element with any ancestors and tag
+"message" and its first child must be an element with tag "title".
+<code>pat3</code> will match a text node with at least one ancestor
+(it must not be the root node) containing the word XML.
+</p>
+
+<pre>
+>any_seq = (Or (Several Any1) Empty)
+>pat1 = ElemPat Empty (has_tag "blog") any_seq
+>pat2 = ElemPat any_seq (has_tag "message")
+>       (Then (One (ElemPat Empty is_title any_seq)) any_seq)
+>pat3 = TextPat (Several Any1) has_word_XML
+</pre>
+
+<!-- any_text = TextPat Empty (const True) -->
+<!-- any_elem = ElemPat Empty (\x-> \y-> True) any_seq -->
+
+
+<h3>A prototype implementation</h3>
+
+<p>
+A prototype implementation will be provided in
+<code>/home/subjects/326/local/proj1/</code>.  It includes the Haskell
+code in this document as well as other sample code for queries and a
+definition of the function
+</p>
+
+<pre>
+>match_pat :: Pat -> XML -> Bool
+</pre>
+
+<p>
+which checks if a pattern matches some XML.  There are some cases in
+which the code fails to find a match, even though it ideally should.
+The reason for this is described in more detail the code; the solution
+is one of the enhancements described below.  </p>
+
+<a name="task">
+</a>
+<h2>Your task</h2>
+
+<p>
+You main task is to implement (at least some of) the following
+enhancements to the prototype code.  You should not change the
+representation of XML or patterns, except in the case explicitly
+mentioned below.  How you structure your code is up to you, but you
+should submit all your code and a <code>Makefile</code> which build an
+executable called <code>demo</code>.  When this is run it should execute
+some examples which demonstrate the features you have implemented.
+Additionally, you should submit a faile named <code>Readme</code> which
+summarises you submission (for example, the contents of the other
+files).  If you are working in pairs, only one of the pair should submit
+the code, but both should submit a filed named <code>Team</code> which
+contains the names and CSSE login ids of the two team members.
+</p>
+
+<h3>Returning a subtree instead of a Boolean</h3>
+
+<p>
+The current code only allows us to determine if a match exists.
+If <code>match_pat</code> returns True there is generally no indication
+of which subtree matched (at least in the case where the ancestors can
+be any sequence).  It is more useful to return the subtree which matched
+the top level of the pattern.  The most convenient way to do this is for
+<code>match_pat</code> to return <code>Just</code> the subtree if a
+match is found, or <code>Nothing</code> otherwise.
+</p>
+
+<h3>Returning all matches</h3>
+
+<p>
+The current code terminates after finding the first possible match. With
+recursive matching, this is the reason why it sometimes fails to find
+a match when it should.  To overcome the problem of missed matches,
+and also to return more useful information, <code>match_pat</code>
+could return a list of all matches.
+</p>
+
+<h3>Returning a path as well as a subtree</h3>
+
+<p> As well as returning the subtree(s) explicitly, it is helpful if the
+location of the subtree(s) within the whole tree is returned.  A location
+within the tree is most easily specified with a list of numbers (the
+path from the root), where [] means the whole tree, [1] means the first
+subtree of the root node, [1,3] means the third subtree of that subtree,
+et cetera.  You could either return (lists of) subtree-path pairs or
+simply paths and provide code to extract a subtree given a path.  </p>
+
+<h3>Returning mappings from query variables to subtrees</h3>
+
+<p> For many more complex queries, we want to relate information in
+one subtree to that in another.  For example, we may want to find
+comments in a blog which have the same author as the original message.
+To enable such queries it is helpful to be able to associate "query
+variables" to different pattern nodes.  For example, we may want to say
+let <code>M</code> be an element with a "message" tag and <code>C</code>
+be an element within <code>M</code> with a "comment" tag.  If we can find
+all such matches it is a simple matter to filter out the ones where the
+"author" attribute is the same in <code>M</code> and <code>C</code>.
+<code>match_pat</code> could return (for example) a list of matches,
+where each match is a list of pairs made up of a query variable and
+a subtree (or path).  In order to include query variables in patterns, the
+<code>Pat</code> type must be changed.  One possibility is to have
+more complex <code>CheckElem</code> and <code>CheckText</code> types
+which allow (possibly optional) query variables and return a Maybe type
+instead of a Boolean.  For example, a patterm such as the one below may
+be supported to express the query above:
+</p>
+
+<pre>
+>pat4 = ElemPat any_seq (qvar "M" (has_tag "message"))
+>       (Then (Then any_seq
+>		(One (ElemPat any_seq (qvar "C" (has_tag "comment")) any_seq)))
+>	any_seq)
+</pre>
+
+<h2>Marking scheme</h2>
+
+<p> This project is worth 20 marks (20% of the overall assessment for
+the subject).  You can obtain up to 6 marks for returning the subtree and
+no other enhancements.  You can obtain up to 11 marks if you return all
+matches (and avoid any missed matches).  You can get up to additional 6
+marks (a total of 17) for returning paths as well as trees.  The final
+3 marks will be allocated for support of query variables.  Project done
+in pairs will be marked identically to projects done individually and
+both student in the team will get the same mark.  </p>
+
+
+<h2>Questions and answers</h2>
+
+<p> Questions and answers pertaining to the project will primarily be on
+the LMS discussion forum.  Any particularly important point will also be
+put on <a href="./QandA.html">the web page</a> and will be considered
+part of the specification of the project.  Questions about the project
+are best asked in a workshop or the discussion forum.  </p>
+
+
+<h2>Submission</h2>
+
+<p> Submit your code and other files (see <a href="#task">above</a>)
+using the command
+</p>
+<pre>
+submit 326 2
+</pre>
+<p>
+on a Computer Science machine by
+<em>11:59pm on Friday, May 28</em>.
+Note that each time you run <code>submit</code> any previous submissions
+will be lost so all your files must be submitted together.
+Verify your submission using the command <code>verify 326 2</code>.
+</p>
+
+<p>
+Late submissions will incur a penalty
+of four marks per day (or part thereof) late.
+If you cannot submit on time,
+you should contact both lecturers at the soonest possible opportunity;
+in the absence of really extraordinary circumstances,
+this means <em>before</em> the deadline.
+Late submission can be done using the command <code>submit 326
+2.late</code>.
+</p>
+
+<p>
+You may discuss algorithms, overall code structure and testing
+with colleagues, but all submitted code must be your own (or your
+team's).
+</p>
+
+</body>
+</html>
+
+

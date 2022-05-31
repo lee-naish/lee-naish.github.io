@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.2beta8 (1.42)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Synopsis for programmers</TITLE>
+<META NAME="description" CONTENT="Synopsis for programmers">
+<META NAME="keywords" CONTENT="naishsem3">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.2beta8">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="naishsem3.css">
+
+<LINK REL="next" HREF="node3.html">
+<LINK REL="previous" HREF="node1.html">
+<LINK REL="up" HREF="naishsem3.html">
+<LINK REL="next" HREF="node3.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html53"
+  HREF="node3.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/lib/latex2html/icons/next.png"></A> 
+<A NAME="tex2html51"
+  HREF="naishsem3.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/lib/latex2html/icons/up.png"></A> 
+<A NAME="tex2html45"
+  HREF="node1.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/lib/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html54"
+  HREF="node3.html">Motivation and background</A>
+<B> Up:</B> <A NAME="tex2html52"
+  HREF="naishsem3.html">A three-valued semantics for</A>
+<B> Previous:</B> <A NAME="tex2html46"
+  HREF="node1.html">Introduction</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00020000000000000000">
+Synopsis for programmers</A>
+</H1>
+
+<P>
+The theoretical results in this paper show you can establish that a program
+
+<OL>
+<LI>returns no wrong answers, and
+</LI>
+<LI>misses no answers in all solutions computations which terminate
+normally,
+</LI>
+</OL>
+using the following verification method:
+
+<OL>
+<LI>You must decide whether each ground atomic goal is <I>true</I> (should
+succeed), <I>false</I> (should fail) or <I>inadmissible</I> (should not
+occur; any behaviour is acceptable).
+</LI>
+<LI>For each true atom there must be a ground matching clause instance
+with a true body (all conjuncts are true).
+</LI>
+<LI>For each false atom, all ground matching clause instances
+must have false bodies (at least one conjunct is false).
+</LI>
+</OL>
+
+<P>
+Note that separate reasoning must be used to show the program terminates
+normally (answers may be missed due to non-termination or runtime errors).
+Also, there are several assumptions about the program/system:
+
+<OL>
+<LI>Only ``pure'' Prolog is used -- there are no uses of <I>cut</I>,
+<TT>var/1</TT>, <I>et cetera</I>.
+</LI>
+<LI>Negated calls are ground when they are selected (this is checked at
+runtime or compile time in some logic programming systems; others provide
+no support for checking).
+</LI>
+<LI>The execution doesn't violate the ``occurs check'' (again, some
+systems provide support for this but most do not -- occurs check
+violations are very rare).
+</LI>
+</OL>
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html53"
+  HREF="node3.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/lib/latex2html/icons/next.png"></A> 
+<A NAME="tex2html51"
+  HREF="naishsem3.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/lib/latex2html/icons/up.png"></A> 
+<A NAME="tex2html45"
+  HREF="node1.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/lib/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html54"
+  HREF="node3.html">Motivation and background</A>
+<B> Up:</B> <A NAME="tex2html52"
+  HREF="naishsem3.html">A three-valued semantics for</A>
+<B> Previous:</B> <A NAME="tex2html46"
+  HREF="node1.html">Introduction</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+
+2005-08-02
+</ADDRESS>
+</BODY>
+</HTML>

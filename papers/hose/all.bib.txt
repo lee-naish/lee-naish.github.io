@@ -1,0 +1,156 @@
+@inproceedings{hose,
+        Author = { Naish, Lee and Sterling, Leon },
+        Title = { A higher order reconstruction of stepwise
+enhancement},
+        booktitle =     {Logic Programming Synthesis and Transformation:
+                       7th International Workshop, LOPSTR'97},
+        address =       {Leuven, Belgium},
+        publisher =     {Springer-Verlag},
+        series =        {Lecture notes in computer science},
+        number =        {1463},
+        year   =        {1998},
+        pages  =        {245--262},
+        abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/hose/",
+%?      subcat =  {F1},
+        authorcode = {433,13,00,FS,MD,M},
+        authorcode = {433,13,00,FS,MD,M},
+        comment   =     {Technical Report 97/8, Department of Computer
+                        Science, University of Melbourne}
+}
+
+
+
+\bibitem[1997]{Belleannie}
+Belleannie, C., Brisset, P., Ridoux O.,
+A Pragmatic Reconstruction of Lambda-Prolog,
+Publication Interne IRISA no. 877,
+October 1994 (revised 1997)
+
+\bibitem[1996]{Belle}
+Bell\'e, G., Jay, C. B. and Moggi, E., Functorial ML, \emph{Proc. PLILP '96},
+Springer LNCS 1140, pp. 32-46, 1996
+
+\bibitem[1981]{Clocksin}
+Clocksin, W. and Mellish, C.  \emph{Programming in Prolog}, Springer-Verlag, 1981
+
+% \bibitem[1982]{Coelho}
+% Coelho, H., Cotta, J. and Pereira, L.M.  \emph{How to Solve it with Prolog},
+% Laboratorio Nacional de Engenharia Civil, Portugal, 1982
+
+\bibitem[1988]{Coelho}
+Coelho, H., Cotta, J. and Pereira, L.M.  \emph{Prolog by Example},
+Springer-Verlag, New York, 1988
+
+\bibitem[1990]{Deville}
+Deville, Y. Logic Programming: \emph{Systematic Program Development}, Addison
+Wesley, 1990
+
+\bibitem[1991]{Fuchs}
+Fuchs, N. and Fromherz, M. Schema-based Transformations of Logic Programs,
+\emph{Proc. 5th
+International Workshop on Logic Program Synthesis and Transformation},
+Proietti, M. (ed.), pp. 111-125, Springer-Verlag, 1991.
+
+\bibitem[1991]{Gegg-Harrison}
+Gegg-Harrison, T. Learning Prolog in a Schema-Based Environment,
+\emph{Instructional Science},
+20:173-192, 1991.
+
+\bibitem[1995]{Gegg-Harrison95}
+Gegg-Harrison, T. Representing Logic Program Schemata in Lambda-Prolog,
+\emph{Proc.  12th International
+Logic Programming Conference} (ed. L. Sterling), pp. 467-481, MIT
+Press, 1995
+
+\bibitem[1997]{Jansson}
+Jansson, P. and Jeuring, J. PolyP --- a polytypic programming language
+extension.  \emph{In
+Conference Record of POPL '97: The 24th ACM SIGPLAN-SIGACT Symposium on
+Principles
+of Programming Languages}, pp. 470--482, 1997
+
+\bibitem[1995]{Jay}
+Jay, C.B., A semantics for shape,
+\emph{Science of Computer Programming},
+25,
+pp. 251-283,
+1995
+
+\bibitem[1994]{Jay94}
+Jay, C.B. and Cockett, J.R.B. Shapely Types and Shape Polymorphism,
+\emph{Proc. Programming Languages and Systems --- ESOP '94:  5th European
+Symposium on Programming}, (ed. D. Sannella), Springer LNCS, pp.
+302-316,         Edinburgh, U.K., April 1994
+
+\bibitem[1996]{Jeuring}
+Jeuring, J. and Jansson, P. Polytypic programming.
+In J. Launchbury, E. Meijer
+and T. Sheard \emph{Advanced Functional Programming}, LNCS 1129, pp. 68--114,
+Springer-Verlag,
+1996. 
+
+\bibitem[1996]{Kirschenbaum}
+Kirschenbaum, M., Michaylov, S. and Sterling, L.S. Skeletons and Techniques
+as a Normative
+Approach to Program Development  in Logic-Based Languages, \emph{Proc.
+ACSC'96,
+Australian Computer Science Communications}, 18(1), pp. 516-524, 1996
+
+\bibitem[1989]{Lakhotia}
+Lakhotia, A. A Workbench for Developing Logic Programs by Stepwise
+Enhancement,
+Ph.D. Thesis, Case Western Reserve University, 1989.
+
+\bibitem[1988]{Nadathur}
+Nadathur, G., Miller D., An Overview of Lambda-Prolog, \emph{Proceedings of
+JICSLP} (eds. Bowen, K. and Kowlaski, R.), pp. 810-827, MIT Press, 1988
+
+\bibitem[1996]{Naish}
+Naish, L. Higher Order Logic Programming in Prolog, Proc. Workshop on
+Multi-Paradigm
+Logic Programming, JICSLP'96, Bonn, 1996
+(Also available as Tech. Report 96/2, Dept. Computer Science,  University
+of Melbourne, 1996.)
+
+\bibitem[1990]{O'Keefe}
+O'Keefe, R. \emph{The Craft of Prolog}, MIT Press, 1990
+
+\bibitem[1990]{Power}
+Power, A.J. and Sterling, L.S. A Notion of Map between Logic Programs.
+\emph{Proceedings of 7th ICLP} (eds. Warren and Szeredi),
+pp. 390-404, MIT Press, 1990
+
+\bibitem[1993]{Sahlin}
+Sahlin, D. Mixtus: An Automatic Partial Evaluator for Full Prolog,
+\emph{New Generation Computing}, 12(1), pp. 7-51, 1993
+
+\bibitem[1993]{Sterling}
+Sterling, L.S. and Kirschenbaum, M. Applying Techniques to Skeletons, in
+\emph{Constructing Logic Programs}, (ed. J.M. Jacquet), pp. 127-140,
+Wiley, 1993.
+
+\bibitem[1994]{Sterling94}
+Sterling, L.S. and Shapiro, E.Y.  \emph{The Art of Prolog, 2nd edition}, MIT
+Press, 1994.
+
+\bibitem[1996]{Sterling96}
+Sterling, L.S. and Yal\c{c}inalp, U.  Logic Programming and Software
+Engineering --- Implications
+for Software Design, \emph{Knowledge Engineering Review}, 11(4), pp.
+333-345, 1996
+
+\bibitem[1995]{Vasconcelos}
+Vasconcelos, W. and Fuchs, N.E.  An Opportunistic Approach for Logic
+Program Analysis
+and Optimisation using Enhanced Schema-based Transformations, \emph{Proc.
+LOPSTR'95},
+(ed. M. Proietti), Springer LNCS, pp. 174-188, 1995
+
+\bibitem[1990]{Yardeni}
+Yardeni, E. and Shapiro E.Y.,
+A Type System for Logic Programs,
+\emph{Journal of Logic Programming},
+10(2),
+pp. 125-154,
+1990
+

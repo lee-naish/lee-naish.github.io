@@ -1,0 +1,76 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>How to think about functional programs</title>
+<link rev=made href="mailto:lee@unimelb.edu.au">
+</head>
+<body>
+<h1>How to think about functional programs</h1>
+<h1>(aka Equational reasoning and intended semantics in functional
+programming)</h1>
+
+<h3>
+			Lee Naish, Bernard Pope and Harald Sondergaard
+</h3>
+<br>
+<p>
+A major advantage of functional programming languages is that they
+allow for analysis and transformation based on "equational reasoning".
+This type of reasoning underlies, for example, the beautiful calculus 
+for the construction of functional programs developed by the school of 
+"squiggolers". The use of simple equational laws is very attractive,
+even if the presence of "undefined" values sometimes violate such laws:
+Danielsson et al. have shown that, in a precise sense, equational
+reasoning is still justified.  In their words, "fast and loose reasoning
+is morally correct".
+
+<p>
+There are, however, circumstances where programmer intent needs to
+be taken into account. Programmers routinely make tacit assumptions
+about what may or may not happen when a program runs, making liberal
+use of deliberate under-specification.  For example, when coding a
+merge function we typically assume the arguments are sorted lists. The
+under-specification or "don't care" status of a value is best seen as
+a dual to undefinedness. It can manifest itself during the use of a
+declarative debugging tool, for example, when a programmer is confronted
+with an unexpected expression such as merge called with unsorted lists,
+whose value is contentious.
+
+<p>
+We argue that in the context of a "programmer-intended semantics"
+which is usually partial, certain kinds of reasoning with equality is
+inappropriate and that equality should instead be replaced by a partial
+ordering of values taking "don't care" into account.
+
+<p>
+In our presentation we aim to explain what goes wrong with naive
+equational reasoning in the presence of under-specification, how it can
+be adapted to avoid these pitfalls, and the influence on how we think
+about our code and design programming environments, including tools for
+testing, debugging and verification.
+
+<p>
+This was presented at
+<a href="http://www.composeconference.org/2016-melbourne/">
+Compose::Melbourne</a>, August 2016.
+<p>
+
+<ul>
+
+<li>
+Slides:
+<a href="./talk.pdf">
+PDF version</a>
+
+<li>
+<a
+href="https://www.youtube.com/watch?v=9wod5vSanrA&list=PLNoHgLVTxtaqo1c_V2I-8wkDrCGImb9v5&index=6">
+Video of talk</a>
+
+</ul>
+
+<br>
+<a href="http://people.eng.unimelb.edu.au/lee"> Lee </a>
+
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.2beta8 (1.42)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Fixpoint semantics</TITLE>
+<META NAME="description" CONTENT="Fixpoint semantics">
+<META NAME="keywords" CONTENT="naishsem3">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.2beta8">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="naishsem3.css">
+
+<LINK REL="next" HREF="node19.html">
+<LINK REL="previous" HREF="node17.html">
+<LINK REL="up" HREF="node15.html">
+<LINK REL="next" HREF="node19.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html223"
+  HREF="node19.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/lib/latex2html/icons/next.png"></A> 
+<A NAME="tex2html221"
+  HREF="node15.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/lib/latex2html/icons/up.png"></A> 
+<A NAME="tex2html215"
+  HREF="node17.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/lib/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html224"
+  HREF="node19.html">Relationships between semantics</A>
+<B> Up:</B> <A NAME="tex2html222"
+  HREF="node15.html">A semantics for normal</A>
+<B> Previous:</B> <A NAME="tex2html216"
+  HREF="node17.html">Model-theoretic semantics</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00053000000000000000">
+Fixpoint semantics</A>
+</H2>
+
+<P>
+The <IMG
+ WIDTH="36" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img63.png"
+ ALT="$T3_P$"> definition given earlier can be applied when negative
+literals are present.  It is equivalent to defining <IMG
+ WIDTH="66" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img64.png"
+ ALT="$T3_P(M)$"> to be the
+interpretation such that the truth value for each atom <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img14.png"
+ ALT="$A$"> is the truth
+value of <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img66.png"
+ ALT="$B$"> in <IMG
+ WIDTH="21" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$M$">, where <!-- MATH
+ $A \leftarrow B$
+ -->
+<IMG
+ WIDTH="53" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img65.png"
+ ALT="$A \leftarrow B$"> is a head clause instance in
+<IMG
+ WIDTH="66" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img79.png"
+ ALT="$comp(P)$">.  In the presence of negation <IMG
+ WIDTH="36" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img63.png"
+ ALT="$T3_P$"> is generally not monotonic
+with respect to <IMG
+ WIDTH="18" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img32.png"
+ ALT="$T$"> but is monotonic with respect to the information
+measure and, unlike <IMG
+ WIDTH="26" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$T_P$">, at least one fixpoint exists and the
+<IMG
+ WIDTH="22" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img53.png"
+ ALT="$\subseteq_i$">-least fixpoint can be built using <IMG
+ WIDTH="36" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img63.png"
+ ALT="$T3_P$"> [<A
+ HREF="node22.html#Fitting85">FittingFitting1985</A>].
+
+<P>
+For definite programs we introduced <IMG
+ WIDTH="36" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img67.png"
+ ALT="$T3^{+}_P$">, which essentially
+overestimates the set of successful atoms.  This is so even when negation
+is present -- a negated inadmissible atom is inadmissible and hence
+assumed to succeed (the negation makes no difference).  When negation
+is present it is helpful to also have an operator which underestimates
+this set, by assuming inadmissible clause body instances fail:
+
+<P>
+<P>
+<DIV><B>Definition  14</B> &nbsp; 
+<IMG
+ WIDTH="66" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img110.png"
+ ALT="$T3^{-}_P(M)$"> is the interpretation such that an atom <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img14.png"
+ ALT="$A$"> is
+
+<OL>
+<LI>inadmissible, if <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img14.png"
+ ALT="$A$"> is inadmissible in <IMG
+ WIDTH="21" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$M$">,
+</LI>
+<LI>true, if there is a clause instance <!-- MATH
+ $A \leftarrow B$
+ -->
+<IMG
+ WIDTH="53" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img65.png"
+ ALT="$A \leftarrow B$"> where <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img66.png"
+ ALT="$B$"> is
+true in <IMG
+ WIDTH="21" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$M$">,
+</LI>
+<LI>false, otherwise.
+</LI>
+</OL></DIV><P></P>
+
+<P>
+As with <IMG
+ WIDTH="36" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img67.png"
+ ALT="$T3^{+}_P$">, <IMG
+ WIDTH="36" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img111.png"
+ ALT="$T3^{-}_P$"> generalises <IMG
+ WIDTH="26" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$T_P$"> and its fixpoints
+include all those of <IMG
+ WIDTH="26" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$T_P$"> and <IMG
+ WIDTH="36" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img63.png"
+ ALT="$T3_P$">.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html223"
+  HREF="node19.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/lib/latex2html/icons/next.png"></A> 
+<A NAME="tex2html221"
+  HREF="node15.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/lib/latex2html/icons/up.png"></A> 
+<A NAME="tex2html215"
+  HREF="node17.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/lib/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html224"
+  HREF="node19.html">Relationships between semantics</A>
+<B> Up:</B> <A NAME="tex2html222"
+  HREF="node15.html">A semantics for normal</A>
+<B> Previous:</B> <A NAME="tex2html216"
+  HREF="node17.html">Model-theoretic semantics</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+
+2005-08-02
+</ADDRESS>
+</BODY>
+</HTML>

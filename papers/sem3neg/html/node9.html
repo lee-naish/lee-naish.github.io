@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.2beta8 (1.42)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Programs naturally have more than one meaning</TITLE>
+<META NAME="description" CONTENT="Programs naturally have more than one meaning">
+<META NAME="keywords" CONTENT="naishsem3">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.2beta8">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="naishsem3.css">
+
+<LINK REL="previous" HREF="node8.html">
+<LINK REL="up" HREF="node3.html">
+<LINK REL="next" HREF="node10.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html127"
+  HREF="node10.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/lib/latex2html/icons/next.png"></A> 
+<A NAME="tex2html125"
+  HREF="node3.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/lib/latex2html/icons/up.png"></A> 
+<A NAME="tex2html121"
+  HREF="node8.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/lib/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html128"
+  HREF="node10.html">A semantics for definite</A>
+<B> Up:</B> <A NAME="tex2html126"
+  HREF="node3.html">Motivation and background</A>
+<B> Previous:</B> <A NAME="tex2html122"
+  HREF="node8.html">Missing answers and negation</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00036000000000000000">
+Programs naturally have more than one meaning</A>
+</H2>
+
+<P>
+Much of the work on semantics of logic programs, particularly with
+negation, attempts to define <I>the</I> (unique) meaning of a logic
+program.  Authors argue that the meaning they define is more natural than
+any other.  For definite programs, the consensus amongst these authors
+is that the minimum model is <I>the</I> meaning (the set of true atoms).
+We have argued that this is typically not the case.  Furthermore, there is
+no unique meaning, even for definite programs.  Here we consider possible
+meanings of the <TT>merge/3</TT> program (Figure <A HREF="node5.html#fig_merge">1</A>) again
+(in Section <A HREF="node20.html#sec_verif">6</A> we give further examples).  An alternative
+description is as follows (a ``run'' being a maximal sorted sublist):
+<PRE>
+merge(As, Bs, Cs): Cs is an interleaving of the lists
+of integers As and Bs and the number of runs in Cs is
+the maximum number of runs in As and Bs
+</PRE>
+
+<P>
+This could be refined to define the interleaving more precisely.
+Implementing this second specification (or verifying an implementation)
+requires different reasoning from the first and the implementation is
+likely to be used in different ways (a different version of merge sort,
+for example).  The two specifications correspond to distinct three-valued
+models of <TT>merge/3</TT> which are natural and useful.  In the first
+an atom is inadmissible if <TT>As</TT> or <TT>Bs</TT> are not sorted
+lists of numbers.  In the second an atom is inadmissible if <TT>As</TT>
+or <TT>Bs</TT> are not lists of integers (for example, with heterogeneous
+lists of integers and floats an implementation which uses the standard
+ordering over terms may produce wrong answers).  Thus the different
+interpretations are incomparable.  Each interpretation is a model of
+many reasonable <TT>merge/3</TT> programs and some <TT>merge/3</TT>
+programs have both these interpretations (and others) as models.
+
+<P>
+Ignoring the type of the list elements and comparison operator, our second
+intended interpretation has more information about how the predicate
+should behave.  Implementers of Prolog built-in and library predicates
+surely know and care about how their predicates behave at least as much
+as typical Prolog programmers, but documentation for the various versions
+of <TT>merge/3</TT> almost always restrict attention to sorted lists
+and I have never seen a more informative high level description used.
+The description of <TT>merge/3</TT> (and many other predicates) can also
+be made more precise by considering other possible modes.  If we say
+that <TT>merge/3</TT> atoms in which the third argument is a sorted
+list are also admissible we have another model, capturing the fact
+that <TT>merge/3</TT> can work ``backwards'' to nondeterministically
+split a sorted list into two, assuming a suitable computation rule,
+or to check if a sorted list can be split into two given terms.
+We often restrict our attention to certain modes and this leads to
+less precise understanding of program behaviour from a declarative as
+well as procedural view.  Similarly, most people are taught how to use
+accumulators in Prolog without gaining a precise high level understanding
+of the code.  Many programmers intend their <TT>rev_acc(As, [],
+Bs)</TT> call to succeed if and only if <TT>Bs</TT> is the reverse of list
+<TT>As</TT> but only later, if ever, develop a more informed view of
+the behaviour when the second argument is a non-empty list (this can
+certainly be useful) or perhaps even an arbitrary term.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html127"
+  HREF="node10.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/lib/latex2html/icons/next.png"></A> 
+<A NAME="tex2html125"
+  HREF="node3.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/lib/latex2html/icons/up.png"></A> 
+<A NAME="tex2html121"
+  HREF="node8.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/lib/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html128"
+  HREF="node10.html">A semantics for definite</A>
+<B> Up:</B> <A NAME="tex2html126"
+  HREF="node3.html">Motivation and background</A>
+<B> Previous:</B> <A NAME="tex2html122"
+  HREF="node8.html">Missing answers and negation</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+
+2005-08-02
+</ADDRESS>
+</BODY>
+</HTML>

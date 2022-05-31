@@ -1,0 +1,238 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.2beta8 (1.42)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Relationships between semantics</TITLE>
+<META NAME="description" CONTENT="Relationships between semantics">
+<META NAME="keywords" CONTENT="naishsem3">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.2beta8">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="naishsem3.css">
+
+<LINK REL="previous" HREF="node13.html">
+<LINK REL="up" HREF="node10.html">
+<LINK REL="next" HREF="node15.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html179"
+  HREF="node15.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/lib/latex2html/icons/next.png"></A> 
+<A NAME="tex2html177"
+  HREF="node10.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/lib/latex2html/icons/up.png"></A> 
+<A NAME="tex2html173"
+  HREF="node13.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/lib/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html180"
+  HREF="node15.html">A semantics for normal</A>
+<B> Up:</B> <A NAME="tex2html178"
+  HREF="node10.html">A semantics for definite</A>
+<B> Previous:</B> <A NAME="tex2html174"
+  HREF="node13.html">Fixpoint semantics</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00044000000000000000"></A>
+<A NAME="sec_def_rel"></A>
+<BR>
+Relationships between semantics
+</H2>
+
+<P>
+The relationship between three-valued models and <IMG
+ WIDTH="36" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img63.png"
+ ALT="$T3_P$">/<IMG
+ WIDTH="36" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img67.png"
+ ALT="$T3^{+}_P$">
+is similar to the relationship between two-valued models and <IMG
+ WIDTH="26" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$T_P$">:
+<BR>
+<IMG
+ WIDTH="555" HEIGHT="57" ALIGN="BOTTOM" BORDER="0"
+ SRC="img70.png"
+ ALT="\begin{proposition}
+$M$\ is a model iff the true atoms in $T3^{+}_P(M)$\ are a s...
+...re $T3^{+}_P(\langle I, T\rangle) = \langle I, T^{+}\rangle$).
+\end{proposition}">
+<BR>
+<BR>
+<IMG
+ WIDTH="556" HEIGHT="79" ALIGN="BOTTOM" BORDER="0"
+ SRC="img71.png"
+ ALT="\begin{proof}
+\par Let $T/T^{+}$\ ($F/F^{+}$) be the true (false) atoms in $M/T3...
+...supseteq F$iff
+$T^{+} \subseteq T$(since $T3^{+}_P$\ preserves $I$).
+\end{proof}">
+<BR>
+
+<P>
+<BR>
+<IMG
+ WIDTH="555" HEIGHT="57" ALIGN="BOTTOM" BORDER="0"
+ SRC="img72.png"
+ ALT="\begin{proposition}
+$M$\ is a model iff the false atoms in $T3_P(M)$\ are a supe...
+... I$where $T3_P(\langle I, T\rangle) = \langle I', T'\rangle$).
+\end{proposition}">
+<BR>
+<BR>
+<IMG
+ WIDTH="415" HEIGHT="38" ALIGN="BOTTOM" BORDER="0"
+ SRC="img73.png"
+ ALT="\begin{proof}
+As above (change $T3^{+}_P$\ to $T3_P$\ and skip the last step).
+\end{proof}">
+<BR>
+
+<P>
+The relationship between least fixpoints, minimal models and success
+set is more complex than the two-valued case since there are multiple
+partial orders of interest and multiple minimal models by some measures.
+However, nearly all minimal models we have considered bear strong
+relationships with the success set <IMG
+ WIDTH="24" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img12.png"
+ ALT="$SS$"> (the least fixpoint of <IMG
+ WIDTH="26" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$T_P$">
+and least two-valued model).  The union of true and inadmissible atoms in
+models which minimise <IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img31.png"
+ ALT="$I$"> or <IMG
+ WIDTH="18" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img32.png"
+ ALT="$T$"> (or <IMG
+ WIDTH="44" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img74.png"
+ ALT="$I \cup T$">) is <IMG
+ WIDTH="24" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img12.png"
+ ALT="$SS$">.  These models
+are least fixpoints of <IMG
+ WIDTH="36" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img67.png"
+ ALT="$T3^{+}_P$"> where <IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img31.png"
+ ALT="$I$"> is fixed to a suitable value
+(such as <IMG
+ WIDTH="14" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img45.png"
+ ALT="$\phi$"> or <IMG
+ WIDTH="24" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img12.png"
+ ALT="$SS$">).  For <IMG
+ WIDTH="22" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img53.png"
+ ALT="$\subseteq_i$"> the minimum strong model
+has <IMG
+ WIDTH="24" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img12.png"
+ ALT="$SS$"> as the true atoms and this is the least fixpoint of <IMG
+ WIDTH="36" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img63.png"
+ ALT="$T3_P$">.
+
+<P>
+The main theorem we have concerns soundness for admissible atoms.
+A successful atom may not be true, since inadmissible atoms can succeed.
+However, an <I>admissible</I> atom which succeeds must be true if the
+intended interpretation is a model.
+
+<P>
+<BR>
+<IMG
+ WIDTH="426" HEIGHT="37" ALIGN="BOTTOM" BORDER="0"
+ SRC="img75.png"
+ ALT="\begin{theorem}[Soundness for admissible atoms]
+If $\langle I,T\rangle $\ is a model, $A$\ is admissible and
+$A \in SS$\ then $A \in T$.
+\end{theorem}">
+<BR>
+<BR>
+<IMG
+ WIDTH="436" HEIGHT="37" ALIGN="BOTTOM" BORDER="0"
+ SRC="img76.png"
+ ALT="\begin{proof}
+$I \cup T \supseteq SS$\ by the propositions above. The result follows.
+\end{proof}">
+<BR>
+
+<P>
+A form of completeness is inherited from the two-valued case:
+<BR>
+<A NAME="thm_SLDD_comp"></A><IMG
+ WIDTH="391" HEIGHT="37" ALIGN="BOTTOM" BORDER="0"
+ SRC="img77.png"
+ ALT="\begin{theorem}
+If $A$\ is true or inadmissible in every model then $A \in SS$.
+\end{theorem}">
+<BR>
+<BR>
+<IMG
+ WIDTH="555" HEIGHT="75" ALIGN="BOTTOM" BORDER="0"
+ SRC="img78.png"
+ ALT="\begin{proof}
+If $A$\ is not false in any three-valued model it is not false in ...
+... models),
+so it is true in every two-valued model and hence in $SS$.
+\end{proof}">
+<BR>
+
+<P>
+This result is not really useful in practice for several reasons, which
+we discuss in Section <A HREF="node19.html#sec_norm_rel">5.4</A>.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html179"
+  HREF="node15.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/lib/latex2html/icons/next.png"></A> 
+<A NAME="tex2html177"
+  HREF="node10.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/lib/latex2html/icons/up.png"></A> 
+<A NAME="tex2html173"
+  HREF="node13.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/lib/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html180"
+  HREF="node15.html">A semantics for normal</A>
+<B> Up:</B> <A NAME="tex2html178"
+  HREF="node10.html">A semantics for definite</A>
+<B> Previous:</B> <A NAME="tex2html174"
+  HREF="node13.html">Fixpoint semantics</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+
+2005-08-02
+</ADDRESS>
+</BODY>
+</HTML>

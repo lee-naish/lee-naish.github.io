@@ -1,0 +1,836 @@
+@inproceedings{modes,
+        author =        {Naish, Lee},
+        Title = { A declarative view of modes },
+        booktitle =     {Proceedings of the 1996 Joint International
+                Conference and Symposium on Logic Programming},
+        address =       {Bonn, Germany},
+        year   =        {September, 1996},
+        pages  =        {185--199},
+        comment   =     {Also Technical Report 96/7, Department of
+                Computer Science, University of Melbourne, 13 pages}
+}
+
+@Comment{This file is a bit of a mess!}
+@Comment{Should add Codish/Lagoon ref}
+
+@article{naish:auto:85,
+	author =	{Lee Naish},
+	title  =	{Automating control of logic programs},
+	journal =	{Journal of Logic Programming},
+	volume =	{2},
+	number =	{3},
+	year   =	{October 1985},
+	pages  =	{167-183}
+}
+
+@techreport{naish:85,
+	author =	{Lee Naish},
+	title  =	{The {MU-Prolog} 3.2 reference manual},
+	number =	{ 85/11},
+	institution =	{Department of Computer Science, University of Melbourne},
+	address =	{Melbourne, Australia},
+	year   =	{October 1985},
+	pages  =	{17}
+}
+
+@book{naish:thesis:86,
+	author =	{Lee Naish},
+	title  =	{Negation and control in {Prolog}},
+	series =	{Lecture Notes in Computer Science},
+	publisher =	{Springer-Verlag},
+	address =	{New York},
+	number =	{238},
+	year   =	{1986},
+	pages  =	{119}
+}
+
+@techreport{thom:zobel:86,
+	author =	{James Thom and Justin Zobel},
+	title  =	{{NU-Prolog} reference manual, version 1.0},
+	number =	{ 86/10},
+	institution =	{Department of Computer Science, University of Melbourne},
+	address =	{Melbourne, Australia},
+	year   =	{1986}
+}
+
+@incollection{naish:verif:90,
+        author =        {Naish, Lee},
+        title  =        {Verification of logic programs and
+				imperative programs},
+        booktitle =     {Constructing logic programs},
+        editor =        {Jean-Marie Jacquet},
+        publisher =     {Wiley},
+        address =       {Chichester, England},
+        year   =        {1993},
+        pages  =        {143-164},
+        documentURL = "http://people.eng.unimelb.edu.au/lee/papers/verify/tr.ps",
+       comment   =     {Technical Report 90/6, Department of Computer
+                        Science, University of Melbourne}
+}
+
+@incollection{naish:90,
+        author =        {Naish, Lee},
+        title  =        {Types and the intended meaning of logic programs},
+        pages  =        {189-216},
+        booktitle =     {Types in logic programming},
+        editor =        {Frank Pfenning},
+        publisher =     {MIT Press},
+        address =       {Cambridge, Massachusetts},
+        year =          {1992},
+        comment   =     {Technical Report 90/4, Department of Computer
+                        Science, University of Melbourne}
+}
+
+@article{naish:ctl:92,
+        author =        {Naish, Lee},
+        title  =        {Coroutining and the construction of terminating
+                      logic programs},
+        journal =       {Australian Computer Science Communications},
+        volume =        {15},
+        number =        {1},
+        year    =       {1993},
+        pages   =       {181--190},
+        documentURL =
+"http://people.eng.unimelb.edu.au/lee/papers/term/tr.dvi.Z",
+        comment   =        {Also Technical report 92/5,
+                        Department of Computer
+                        Science, University of Melbourne}
+}
+
+
+@article{naish:PNU:88,
+	author =	{Lee Naish},
+	title  =	{Parallelizing {NU-Prolog}},
+	journal =	{Proceedings of the Fifth International Conference/Symposium on Logic Programming},
+	address =	{Seattle, Washington},
+	year   =	{August 1988},
+	editor =	{Kenneth A. Bowen and Robert A. Kowalski},
+	pages  =	{1546-1564}
+}
+
+
+@Book{	Gre87,
+	Author = { Steven Gregory },
+	Title = { Design, application and implementation of a parallel
+		logic programming language },
+	Publisher = { Addison-Weseley },
+	Year = 1987,
+	Keywords = { PARLOG, AND-parallelism, book }	}
+
+@TechReport{	Sha83,
+	Author = { Ehud Y. Shapiro },
+	Type = { Research Report },
+	Title = { A subset of {C}oncurrent {P}rolog and its interpreter },
+	Number = {  CS83-06 },
+	Institution = { Department of Applied Mathematics, Weizmann
+		Institute of Science },
+	Address = { Rehovot, Israel },
+	Year = 1983,
+	Annote = { This is a revised version of technical report TR-003,
+		{ICOT}-Institute for New Generation Computing
+		Technology. }	}
+
+@PhDThesis{	Ued86,
+	Author = { Kazunori Ueda },
+	Type = { D.Eng. Thesis },
+	Title = { Guarded Horn clauses },
+	School = { University of Tokyo },
+	Address = { Tokyo, Japan },
+	Month = mar,
+	Year = 1986,
+	Keywords = { ghc, AND-parallelism }	}
+
+@inproceedings{boye95,
+	author = "J. Boye and J. Maluszynski",
+	title = "Two aspects of directional types",
+	booktitle = "Proceedings of the Twelfth International Conference on Logic Programming",
+	year = 1995,
+	month = "June",
+	address = "Kanagawa, Japan",
+	editor = "Leon Sterling",
+	pages = "747--761"
+}
+
+@inproceedings{verschaetse:1991,
+	author = "Kristof Verschaetse and Danny De Schreye",
+	title = "Deriving termination proofs for logic programs, using
+		abstract procedures",
+	booktitle = "Proceedings of the Eighth International Conference on Logic Programming",
+	year = 1991,
+	month = "June",
+	address = "Paris",
+	editor = "Koichi Furukawa",
+	pages = "301--315"
+}
+
+@techreport{reddy92,
+	author =	{Uday Reddy},
+	title  =	{A typed foundation for directional logic
+			programs},
+	institution =	{Department of Computer Science, University 
+			of Illinous at Urbana-Champaign},
+	address =	{Urbana, Illinous},
+	year   =	{1992}
+}
+
+@TechReport{	somogyi91,
+	Author = { Z. Somogyi },
+	Title = { A parallel logic programming system based on strong
+		and precise modes },
+	Number = 3,
+	Note = { Ph.D. thesis },
+	Institution = { Key Centre for Knowledge Based Systems,
+		Departments of Computer Science, University of Melbourne
+		and {RMIT}, },
+	Address = { Melbourne, Australia },
+	Year = 1990,
+	Keywords = { kckbs }	}
+
+@TechReport{	clark83,
+	Author = { Keith Clark and
+		Steve Gregory },
+	Type = { Research Report },
+	Title = { Parlog: a parallel logic programming language },
+	Number = {  DOC 83/5 },
+	Pages = 35,
+	Institution = { Department of Computing, Imperial College of
+		Science and Technology, University of London },
+	Address = { England },
+	Month = may,
+	Year = 1983,
+	Keywords = { impcoll }	}
+
+@InCollection{	clark79,
+	Author = { K.L. Clark and
+		F.G. McCabe },
+	Title = { The control facilities of {IC}-Prolog },
+	Booktitle = { Expert systems in the microelectronic age },
+	Editor = { Donald Michie },
+	Pages = { 122-149 },
+	Publisher = { Edinburgh University Press },
+	Year = 1979,
+	Keywords = { esmea }	}
+
+@PhDThesis{	bol91,
+	Author = { Roland Bol },
+	Title = { Loop checking in logic programming},
+	Pages = { 200 },
+	School = { Centre for mathematics and computer science,
+		University of Amsterdam },
+	Address = { Amsterdam },
+	Year = 1991,
+}
+
+@InProceedings{	ueda90,
+	Author = { Kazunori Ueda and
+		Masao Morita },
+	Title = { A new implementation technique for flat {GHC} },
+	Booktitle = { Proceedings of the Seventh International
+		Conference on Logic Programming },
+	Address = { Jerusalem, Israel },
+	Month = jun,
+	Year = 1990,
+	Keywords = { ilpc iclp ilpc90 iclp90 islp90 ilpc7 iclp7 }	}
+
+@InProceedings{	somogyi87,
+	Author = { Zoltan Somogyi },
+	Title = { A system of precise modes for logic programs },
+	Editor = { Jean-Louis Lassez },
+	Booktitle = { Proceedings of the Fourth International Conference
+		on Logic Programming },
+	Pages = { 769-787 },
+	Address = { Melbourne, Australia },
+	Month = may,
+	Year = 1987,
+	Keywords = { stream AND-parallel, software engineering }	}
+
+@InProceedings{	bol90,
+	Author = { Roland N. Bol },
+	Title = { Towards more efficient loop checks },
+	Booktitle = { Proceedings of the Second North American
+		Conference on Logic Programming },
+	Address = { Austin, Texas },
+	Month = oct,
+	Year = 1990,
+	Keywords = { naclp naclp2 naclp90 }	}
+
+@InProceedings{debray91,
+author={Debray, Saumya K. and Lin, Nai-Wei},
+title={Automatic Complexity Analysis of Logic Programs},
+pages={599--613},
+  booktitle =   {Proceedings of the Eighth International Conference on Logic
+                 Programming},
+  year =        {1991},
+  editor =      {Furukawa, Koichi},
+  publisher =   {The MIT Press},
+  address =     {Paris, France},
+}
+
+@InProceedings{plumer90,
+author={Pl{\"u}mer, Lutz},
+title={Termination Proofs for Logic Programs Based on Predicate
+Inequalities},
+pages={634--648},
+  booktitle =   {Proceedings of the Seventh International Conference on Logic
+                 Programming},
+  year =        1990,
+  editor =      "David H. D. Warren and Peter Szeredi",
+  publisher =   {The MIT Press},
+  address =     {Jerusalem}
+}
+
+@InProceedings{ross91,
+author={Ross, Brian J. and Smaill, Alan},
+title={An Algebraic Semantics of {P}rolog Program Termination},
+pages={316--330},
+  booktitle =   {Proceedings of the Eighth International Conference on Logic
+                 Programming},
+  year =        {1991},
+  editor =      {Furukawa, Koichi},
+  publisher =   {The MIT Press},
+  address =     {Paris, France},
+}
+
+@Proceedings{ICLP90,
+  title =       {Proceedings of the Seventh International Conference on Logic
+                 Programming},
+  booktitle =   {Proceedings of the Seventh International Conference on Logic
+                 Programming},
+  year =        1990,
+  editor =      "David H. D. Warren and Peter Szeredi",
+  publisher =   {The MIT Press},
+  address =     {Jerusalem},
+}
+
+
+@Proceedings{ICLP91,
+  title =       {Proceedings of the Eighth International Conference on Logic
+                 Programming},
+  booktitle =   {Proceedings of the Eighth International Conference on Logic
+                 Programming},
+  year =        {1991},
+  editor =      {Furukawa, Koichi},
+  publisher =   {The MIT Press},
+  address =     {Paris, France},
+}
+
+@InProceedings{bronsard92,
+author={Bronsard, Francois and Lakshman, T.K. and Reddy, Uday S.},
+title={A framework of directionality for proving
+		termination of logic programs},
+pages={321--335},
+  booktitle =   {Proceedings of the Joint International Conference 
+		and Symposium on Logic Programming},
+  year =        {1992},
+  editor =      {Apt, Krzysztof},
+  publisher =   {The MIT Press},
+  address =     {Washington D.C.}
+}
+
+@Comment{ Database converted by ref2bib
+	Tue Feb 6 12:41:51 EDT 1996 on munta.cs.mu.OZ.AU}
+
+@TechReport{	BowByrPer82,
+	Author = { D.L. Bowen and
+		Lawrence Byrd and
+		Fernando C.N. Pereira and
+		Luis M. Pereira and
+		David H.D. Warren },
+	Type = { Occasional Paper },
+	Title = { {DEC}system-10 Prolog user's manual },
+	Number =  27,
+	Institution = { Department of Artificial Intelligence,
+		University of Edinburgh },
+	Address = { Scotland },
+	Month = nov,
+	Year = 1982,
+	Keywords = { manual, compiler, interpreter, DEC-10/20 }	}
+
+@InProceedings{	RoyDes90,
+	Author = { P. van Roy and
+		A.M. Despain },
+	Title = { The benefits of global flow analysis for an optimizing
+		Prolog compiler },
+	Booktitle = { Proceedings of the Second North American
+		Conference on Logic Programming },
+	Address = { Austin, Texas },
+	Month = oct,
+	Year = 1990,
+	Keywords = { naclp naclp2 naclp90 }	}
+
+@InProceedings{	MutHer89,
+	Author = { K. Muthukumar and
+		M. Hermenegildo },
+	Title = { Determination of variable dependence through abstract
+		interpretation },
+	Editor = { Ewing L. Lusk and
+		Ross A. Overbeek },
+	Booktitle = { Proceedings of the First North American Conference
+		on Logic Programming },
+	Pages = { 166-185 },
+	Address = { Cleveland, Ohio },
+	Month = oct,
+	Year = 1989,
+	Keywords = { flow analysis for independent AND-parallelism }	}
+
+@InProceedings{	MutHer91,
+	Author = { K. Muthukumar and
+		M. Hermenegildo },
+	Title = { Combined determination of sharing and freeness of
+		program variables through abstract interpretation },
+	Editor = { Koichi Furukawa },
+	Booktitle = { Proceedings of the Eighth International Conference
+		on Logic Programming },
+	Pages = { 49-63 },
+	Address = { Paris, France },
+	Month = jun,
+	Year = 1991,
+	Keywords = { iclp iclp91 iclp8 }	}
+
+@InProceedings{	WarHerDeb88,
+	Author = { Richard Warren and
+		Manuel Hermenegildo and
+		Saumya K. Debray },
+	Title = { On the practicality of global flow analysis of logic
+		programs },
+	Editor = { Kenneth A. Bowen and
+		Robert A. Kowalski },
+	Booktitle = { Proceedings of the Fifth International
+		Conference/Symposium on Logic Programming },
+	Pages = { 684-699 },
+	Address = { Seattle, Washington },
+	Month = aug,
+	Year = 1988,
+	Keywords = { abstract compilation, extension tables, aliasing, cleanness, CGEs }	}
+
+@InProceedings{	Deb93,
+	Author = { Saumya Debray },
+	Title = { On copy avoidance in single assignment languages },
+	Booktitle = { Proceedings of the Tenth International Conference
+		on Logic Programming },
+	Address = { Budapest, Hungary },
+	Month = jun,
+	Year = 1993,
+	Keywords = { iclp iclp93 iclp10 }	}
+
+@InProceedings{	DebWar86,
+	Author = { Saumya K. Debray and
+		David S. Warren },
+	Title = { Automatic mode inference for Prolog programs },
+	Booktitle = { Proceedings of the Third IEEE Symposium on Logic
+		Programming },
+	Pages = { 78-88 },
+	Address = { Salt Lake City, Utah },
+	Month = sep,
+	Year = 1986,
+	Keywords = { abstract interpretation }	}
+
+@InCollection{	ClaMcC79,
+	Author = { K.L. Clark and
+		F.G. McCabe },
+	Title = { The control facilities of {IC}-Prolog },
+	Booktitle = { Expert systems in the microelectronic age },
+	Editor = { Donald Michie },
+	Pages = { 122-149 },
+	Publisher = { Edinburgh University Press },
+	Year = 1979,
+	Keywords = { esmea }	}
+
+@InCollection{	ueda95,
+	Author = { K. Ueda },
+	Title = { {I/O} mode analysis in concurrent logic programming },
+	Booktitle = { Theory and practice of parallel programming },
+	Series = {Lecture Notes in Computer Science},
+	number = {907},
+	Editor = { T. Ito and Yonezawa },
+	Publisher = { Springer-Verlag },
+	Year = 1995,
+	Keywords = { }	}
+
+@Article{	ClaGre86,
+	Author = { Keith L. Clark and
+		Steve Gregory },
+	Title = { {PARLOG}: parallel programming in logic },
+	Journal = toplas,
+	Volume = 8,
+	Number = 1,
+	Pages = { 1-49 },
+	Month = jan,
+	Year = 1986,
+	Keywords = { toplas }	}
+
+@Misc{	SomHenCon95,
+	Author = { Zoltan Somogyi and
+		Fergus Henderson and
+		Thomas Conway },
+	Title = { {TREP} 95/14 },
+	Pages = 25,
+	Month = mar,
+	Year = 1995	}
+
+@TechReport{	SomHen94,
+	Author = { Zoltan Somogyi and
+		Fergus J. Henderson },
+	Title = { Fast implementation of strongly moded logic programs },
+	Number = { 94/5 },
+	Pages = { ? },
+	Institution = { Department of Computer Science, University of
+		Melbourne },
+	Address = { Melbourne, Australia },
+	Month = jun,
+	Year = 1994,
+	Keywords = { melb{\_}dcs{\_}tr },
+	Annote = { We present a new execution model that takes advantage
+		of the information provided by strong type and mode
+		systems to generate specialized {C} code for every
+		predicate. The model has an especially streamlined
+		algorithm for the execution of deterministic predicates.
+		Together with a new optimization, this algorithm lets us
+		implement the naive reverse benchmark at a speed of
+		almost 4 Megalips on a {SPARC}station 2, faster than
+		even a handwritten {C} program. For nondeterministic
+		predicates, our model has fewer overheads than the {WAM}
+		yet allows the introduction of intelligent backtracking
+		on a clause-by-clause basis. }	}
+
+@InProceedings{	mercury,
+	Author = { Zoltan Somogyi and Fergus J. Henderson and
+		Thomas Conway },
+	Title = { Mercury: an efficient purely declarative logic
+		programming language },
+	Booktitle = { Proceedings of the Australian Computer Science
+		Conference },
+	Pages = { 499--512 },
+	Address = { Glenelg, Australia },
+	Month = feb,
+	Year = 1995
+}
+
+@InProceedings{	DieHag88,
+	Author = { Roland Dietrich and
+		Frank Hagl },
+	Title = { A polymorphic type system with subtypes for Prolog },
+	Editor = { H. Ganzinger },
+	Booktitle = { Proceedings of the Second European Symposium on
+		Programming },
+	Pages = { 79-93 },
+	Note = { published as Lecture Notes in Computer Science 300 by
+		Springer-Verlag },
+	Address = { Nancy, France },
+	Month = mar,
+	Year = 1988,
+	Keywords = { extension of Mycroft-O'Keefe, relies on mode system for dataflow information }	}
+
+@InProceedings{	UedMor90,
+	Author = { Kazunori Ueda and
+		Masao Morita },
+	Title = { A new implementation technique for flat {GHC} },
+	Booktitle = { Proceedings of the Seventh International
+		Conference on Logic Programming },
+	Address = { Jerusalem, Israel },
+	Month = jun,
+	Year = 1990,
+	Keywords = { ilpc iclp ilpc90 iclp90 ilpc7 iclp7 }	}
+
+@inproceedings{WadlerPhil89a,
+ author      ="Wadler, Philip",
+ title       ="Theorems for free!",
+ booktitle   ="Functional Programming and Computer Architecture",
+ month       ="Sept",
+ year        ="89",
+ documentURL
+="ftp://ftp.dcs.gla.ac.uk/pub/glasgow-fp/authors/Philip_Wadler/theorems-for-free.dvi",
+ documentSize="90.3 kbytes"
+}
+
+@inproceedings{PeytonJone93b,
+ author      ="Peyton Jones, Simon L. and Wadler, Philip",
+ title       ="Imperative Functional Programming",
+ booktitle   ="Principles of Programming Languages",
+ month       ="Jan",
+ year        ="93",
+ scope       ="monads",
+ documentURL
+="ftp://ftp.dcs.gla.ac.uk/pub/glasgow-fp/papers/imperative.ps.Z",
+ documentSize="75.5 kbytes"
+}
+
+@inproceedings{TurnerDavi1995a,
+ author      ="Turner, David N and Wadler, Philip and Mossin,
+Christian",
+ title       ="Once upon a type",
+ address     ="San Diego, California",
+ booktitle   ="Functional Programming and Computer Architecture",
+ year        ="1995",
+ scope       ="imptype",
+ documentURL
+="ftp://ftp.dcs.gla.ac.uk/pub/glasgow-fp/authors/Philip_Wadler/once.dvi",
+keywords    ="extended Hindley-Milner for linear types"
+}
+
+
+
+%%% Publishers %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+@string{sv="Springer-Verlag"}
+@string{cup="Cambridge University Press"}
+@string{oup="Oxford University Press"}
+@string{mit="The {MIT} Press"}
+@string{jws="John Wiley and Sons"}
+@string{aw="Addison-Wesley"}
+@string{esp="Elsevier Science Publishers"}
+@string{aca="Academic Press"}
+@string{mcgraw="McGraw--Hill"}
+@string{kaufmann="M. Kaufnann Publishers"}
+@string{vnr="Van Nostrand Reinhold"}
+@string{vnny="Van Nostrand, New York"}
+@string{bib="Bibliopolis"}
+@string{nh="North Holland"}
+@string{phi="Prentice Hall International"}
+@string{plenum="Plenum"}
+@string{osp="Oxford Science Publishers"}
+@string{hup="Harvard University Press"}
+@string{aws="Almquist and Wiksell, Stockholm"}
+@string{perg="Pergamon, Oxford"}
+
+%%% Journals %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+@string{scp="Science of Computer Programming"}
+@string{cs="Computing Surveys"}
+@string{tcs="Journal of Theoretical Computer Science"}
+@string{entcs="Electronic Notes in Theoretical Computer Science"}
+@string{bcj="The Computer Journal"}
+@string{jlp="Journal of Logic Programming"}
+@string{ac="Acta Cybernetica"}
+@string{mscs="Mathematical Structures in Computer Science"}
+@string{tpls="Transactions on Programming Languages and Systems"}
+@string{jasis="Journal of the American Society for Information Sciences"}
+@string{alp="Newsletter of the Association for Logic Programming"}
+@string{mi="Machine Intelligence"}
+@string{sigact="{ACM} {SIGACT} Notices"}
+@string{sigplan="{ACM} {SIGPLAN} Notices"}
+@string{toplas="{ACM} Transactions on Programming Languages and Systems"}
+@string{nac="Proceedings of the National Academy of Science {USA}"}
+@string{com="{IEEE} Transactions on Communications"}
+@string{tams="Transactions American Mathematical Society"}
+@string{it="{IEEE} Transactions on Information Theory"}
+@string{lsc="{Lisp} and Symbolic Computation: An International Journal"}
+@string{cacm="Communications of the {ACM}"}
+@string{ic="Information and Computation"}
+@string{jsl="Journal of Symbolic Logic"}
+@string{jcss="Journal of Computer and System Sciences"}
+@string{jlc="Journal of Logic and Computation"}
+@string{apal="Annals of Pure and Applied Logic"}
+@string{siam="{SIAM} Journal of Computing"}
+@string{ai="Artificial Intelligence"}
+@string{eatcs="Bulletin of the European Association for Theoretical Computer Science"}
+@string{jfp="Journal of Functional Programming"}
+@string{lms="London Mathematical Society Lecture Notes Series"}
+@string{jp="Journal of Philosophy"}
+@string{jpaa="Journal of Pure and Applied Algebra"}
+@string{ifip="IFIP"}
+@string{acsc="Australian Computer Science Communications"}
+@string{uc="University Computing"}
+
+%%% Conferences %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+@string{mfcs94="Proceedings of the Eighteenth International Symposium on Mathematical Foundations of Computer Science"}
+@string{fpdc94="Proceedings of the New Zealand Formal Program Development Colloquium Seminar"}
+@string{snowbird95="Proceedings of the 1995 {IEEE} Data Compression Conference"}
+@string{ad68="Proceedings of the 1968 Symposium on Automatic Demonstration"}
+@string{adc95="Proceedings of the 1995 Workshop on Algorithms and Data Structures"}
+@string{aadebug95="Proceedings of Automated and Algorithmic Debugging"}
+@string{rclp91="Proceedings of the First and Second Russian Conferences on Logic Programming"}
+@string{spl95="Proceedings of the {ACM} {SIGPLAN} Workshop on State in Programming Languages"}
+@string{pcp74="Proceedings of the Paris Colloquium on Programming"}
+@string{sls71="Proceedings of the Scandinavian Logic Symposium"}
+@string{sls71="Proceedings of the Second Scandinavian Logic Symposium"}
+@string{ld78="Proceedings of the 1978 Conference on Logic and Databases"}
+@string{llc94="Proceedings: Logic, Languages and Computation"}
+@string{tpp93="Informal Proceedings of the Workshop on Typed for Proofs and Programs"}
+@string{sdcg80="Proceedings of the Aarhus Workshop on Semantics-Directed Compiler Generation"}
+@string{hicss92="Proceddings of the Twenty-Fifth Hawaii International Conference on System Sciences"}
+@string{mi82="Proceedings of the Tenth Machine Intelligence Conference"}
+@string{lpw92="Proceedings of the 1992 {$\lambda$-Prolog} Workshop"}
+@string{types93="Types for Proofs and Programs, Proceedings of TYPES93"}
+@string{acsc95="Proceedings of the Eighteenth Australasian Computer Science Conference"}
+@string{acsc96="Proceedings of the Nineteenth Australasian Computer Science Conference"}
+@string{icad88="Proceedings of the Sixth International Conference on Automated Deduction"}
+@string{icad94="Proceedings of the Twelfth International Conference on Automated Deduction"}
+@string{ip74="Proceedings Information Processing 74"}
+@string{ip83="Proceedings Information Processing 83"}
+@string{ifip90="Proceedings of the IFIP TC2 Conference on Programming Concepts and Methods"}
+@string{esop88="Proceedings of the Second European Symposium on Programming"}
+@string{esop94="Proceedings of the Eigth European Symposium on Programming"}
+@string{esop95="Proceedings of the Ninth European Symposium on Programming"}
+@string{lfp82="Proceedings of the {ACM} Conference on {Lisp} and Functional Programming"}
+@string{tc90="Proceedings of the 22nd Annual {ACM} Symposium on Theory of Computing"}
+@string{rclp91="Proceedings of the Second Russian Conference on Logic Programming"}
+@string{plilp94="Proceedings of the Sixth International Symposium on Programming Language Implementation and Logic Programming"}
+@string{plilp95="Proceedings of the Seventh International Symposium on Programming Language Implementation and Logic Programming"}
+@string{ptml94="Proceedings of the 1994 Conference on Proof Theory of Modal Logic"}
+@string{tpa95="Proceedings of the 1995 Types for Program Analysis Workshop"}
+@string{lp85="Proceedings of the 1985 Conference on Logics of Programs"}
+@string{ctcs87="Proceedings of the 1987 Conference on Category Theory and Computer Science"}
+@string{ctcs89="Proceedings of the 1989 Conference on Category Theory and Computer Science"}
+@string{how90="Proceedings of the IVth Higher Order Workshop"} 
+@string{ccl94="Proceedings of the First International Conference on Constraints in Computational Logics"}
+@string{ccs91="Proceedings of the 1991 Conference on Constructivity in Computer Science"}
+@string{fpg92="Functional Programming, Glasgow 1992"}
+@string{pldi90="{ACM} {SIGPLAN}-90 Conference on Programming Language Design and Implementation"}
+@string{tap94="Proceedings o the Nineteenth International Colloquium on Trees in Algebra and Programming"}
+@string{ctcs89="Proceedings of the 1989 Conference on Catregory Theory and Computer Science"}
+@string{fpcl89="Proceedings of the Summer School on Functional Programming and Constructive Logic"}
+@string{cats94="Proceedings of Computing, The 1994 Australian Theory Seminar"}
+@string{cats96="Proceedings of Computing, The 1996 Australian Theory Seminar"}
+@string{mss92="Proceedings of the 1992 Marktoberdorf Summer School on Program Design Calculi"}
+@string{mss93="Proceedings of the 1993 Marktoberdorf Summer School on Proof and Computation"}
+@string{mss94="Proceedings of the 1994 Marktoberdorf Summer School on Deductive Program Design"}
+@string{csl93="Proceedings of the Seventh Workshop on Computer Science Logic"}
+@string{fpca85="Proceedings of the Conference on Functional Programming Languages and Computer Architecture"}
+@string{fpca89="Proceedings of the Fourth International Symposium on Functional Programming Languages and Computer Architecture"}
+@string{fpca91="Proceedings of the Third International Conference on Functional Programming and Computer Architecture"}
+@string{fpca93="Proceedings of the Fifth International Conference on Functional Programming and Computer Architecture"}
+@string{fpca95="Proceedings of the Seventh International Conference on Functional Programming and Computer Architecture"}
+@string{ilps95="Proceedings of the 1995 International Logic Programming Symposium"}
+@string{gc93="Proceedings of the 1993 ILPS Workshop on Global Compilation"} 
+@string{itlpl94="Proceedings of the 1994 ILPS Postconference Workshop on Implementation Techniques for Logic Programming Languages"}
+@string{tlca93="Proceedings of the 1993 International Conference on Typed Lambda Calculi and Applications"}
+@string{tlca95="Proceedings of the 1995 International Conference on Typed Lambda Calculi and Applications"}
+@string{sas94="Proceedings of the First International Static Analysis Symposium"}
+@string{pap94="Proceedings of the Second International Conference of Practical Applications of {Prolog}"}
+@string{iclp86="Proceedings of the Third International Conference on Logic Programming"}
+@string{iclp87="Proceedings of the Fourth International Conference on Logic Programming"}
+@string{iclp88="Proceedings of the Fifth International Conference on Logic Programming"}
+@string{iclp89="Proceedings of the Sixth International Conference on Logic Programming"}
+@string{iclp91="Proceedings of the Eighth International Conference on Logic Programming"}
+@string{iclp94="Proceedings of the Eleventh International Conference on Logic Programming"}
+@string{iclp95="Proceedings of the Twelfth International Conference on Logic Programming"}
+@string{lics88="Proceedings of the Third Annual {IEEE} Symposium on Logic in Computer Science"}
+@string{lics90="Proceedings of the Fifth Annual {IEEE} Symposium on Logic in Computer Science"}
+@string{lics91="Proceedings of the Sixth Annual {IEEE} Symposium on Logic in Computer Science"}
+@string{lics92="Proceedings of the Seventh Annual {IEEE} Symposium on Logic in Computer Science"}
+@string{lics93="Proceedings of the Eighth Annual {IEEE} Symposium on Logic in Computer Science"}
+@string{lics95="Proceedings of the Tenth Annual {IEEE} Symposium on Logic in Computer Science"}
+@string{ilpc82="Proceedings of the First International Logic Programming Conference"}
+@string{elp92="Proceedings of the 3rd International Workshop on Extensions of Logic Programming"}
+@string{islp84="Proceedings of the First {IEEE} Symposium on Logic Programming"}
+@string{islp91="Proceedings of the 1991 International Symposium on Logic Programming"}
+@string{islp93="Proceedings of the 1993 International Symposium on Logic Programming"}
+@string{islp94="Proceedings of the 1994 International Symposium on Logic Programming"}
+@string{jicslp88="Proceedings of the Fifth Joint International Conference and Symposium on Logic Programming"}
+@string{jicslp92="Proceedings of the Ninth Joint International Conference and Symposium on Logic Programming"}
+@string{ppcp94="Proceedings of the 1994 Conference on Principles and Practice of Constraint Programming"}
+@string{popl84="Proceedings of the Eleventh Annual {ACM} Symposium on Principles of Programming Languages"}
+@string{popl85="Proceedings of the Twelfth Annual {ACM} Symposium on Principles of Programming Languages"}
+@string{popl89="Proceedings of the Sixteenth Annual {ACM} Symposium on Principles of Programming Languages"}
+@string{popl90="Proceedings of the Seventeenth Annual {ACM} Symposium on Principles of Programming Languages"}
+@string{popl93="Proceedings of the Twentieth Annual {ACM} Symposium on Principles of Programming Languages"}
+@string{popl94="Proceedings of the Twenty-First Annual {ACM} Symposium on Principles of Programming Languages"}
+@string{popl95="Proceedings of the Twenty-Second Annual {ACM} Symposium on Principles of Programming Languages"}
+@string{naclp89="Proceedings of the 1989 North American Conference on Logic Programming"}
+@string{naclp90="Proceedings of the 1990 North American Conference on Logic Programming"}
+
+@inproceedings{Bronsard/ilps/95
+,author="Francois Bronsard and T. K. Lakshman and Uday S. Reddy"
+,booktitle=ilps95
+,title="Type Based Reasoning of Incomplete Data Structures"
+,year="1995"
+,note="(to appear)"
+,keywords="logic programming, types, directional types, modes, termination"
+,url="file://cs.uiuc.edu/pub/reddy/tkl/ids.ps.Z"
+}
+
+@inproceedings{Bronsard/jicslp/92
+,author="F. Bronsard and T. K. Lakshman and U. S. Reddy"
+,title="A Framework of Directionality for Proving Termination of
+        Logic Programs"
+,booktitle=jicslp92
+,pages="321--335"
+,year="1992"
+,keywords="logic programming, types, modes, directional typing,
+           prescriptive typing, regular trees, termination, well-ordering"
+,url="file://cs.uiuc.edu/pub/reddy/papers/termination.ps.Z"
+}
+
+@inproceedings{Codish/sas/94
+,author="Michael Codish and Bart Demoen"
+,booktitle=sas94
+,pages="281--296"
+,title="Deriving Polymorphic Type Dependencies for Logic Programs using
+        Multiple Incarnations of {Prop}"
+,year="1994"
+,publisher=sv
+,series="LNCS 864"
+,keywords="logic programming, types, abstract interpretation,
+           abstract compilation, directional types, modes"
+}
+
+@unpublished{Codish/unpub/95
+,author="Michael Codish and Vitaly Lagoon"
+,title="Analysing Logic Programs for Real: A Persistent Type Analysis"
+,year="1995"
+,note="(unpublished)"
+,keywords="logic programming, type systems, polymorphism, type analysis,
+           descriptive types"
+,url="ftp://ftp.cs.bgu.ac.il/pub/people/codish/persist.dvi"
+}
+
+@unpublished{Naish/unpub/95
+,author="Lee Naish"
+,title="Modes in Logic Programming"
+,year="1995"
+,note="(presentation in Modes in Logic Programming Workshop,
+       University of Melbourne, 26th June, 1995)"
+,keywords="logic programming, types, modes, model theory"
+}
+% :-)
+
+@inproceedings{Rouzaud/jicslp/92
+,author="Yann Rouzaud and Lan Nguyen-Phuong"
+,title="Integrating Modes and Subtypes into a {Prolog} Type-checker"
+,booktitle=jicslp92
+,pages="85--97"
+,year="1992"
+,keywords="logic programming, types, modes, prescriptive typing, 
+           regular trees, implicational typing"
+}
+
+@inproceedings{Dietrich/esop/88
+,author="R. Dietrich and F. Hagl"
+,booktitle=esop88
+,pages="79--93"
+,title="A Polymorphic Type System with Subtypes for {Prolog}"
+,year="1988"
+,publisher=sv
+,series="LNCS 300"
+,keywords="logic programming, types, subtypes"
+}
+
+@inproceedings{Jacobs/pldi/90
+,author="D. Jacobs"
+,booktitle=pldi90
+,pages="165--173"
+,title="Type Declarations as Subtype Constraints in Logic Programming"
+,year="1990"
+,keywords="logic programming, types, subtypes"
+,status="NOT HELD"
+}
+
+@inproceedings{Aiken/ppcp/94
+,author="Alexander Aiken"
+,booktitle=ppcp94
+,title="Set Constraints: Results, Applications and Future Directions"
+,year="1994"
+,pages="171--179"
+,keywords="set constraints"
+}
+
+@inproceedings{Aiken/sas/94
+,author="Alexander Aiken and T. K. Lakshman"
+,booktitle=sas94
+,series="LNCS 864"
+,pages="43--60"
+,title="Directional Type Checking of Logic Programs"
+,year="1994"
+,publisher=sv
+,keywords="logic programming, modes, types, set constraints"
+}
+

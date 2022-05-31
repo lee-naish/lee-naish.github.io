@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>You'll Take the High Road and I'll Take the Low Road</TITLE>
+<META NAME="description" CONTENT="You'll Take the High Road and I'll Take the Low Road">
+<META NAME="keywords" CONTENT="naish">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="naish.css">
+<LINK REL="next" HREF="node6.html">
+<LINK REL="previous" HREF="node4.html">
+<LINK REL="up" HREF="naish.html">
+<LINK REL="next" HREF="node6.html">
+</HEAD>
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html75"
+ HREF="node6.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/next_motif.gif"></A> 
+<A NAME="tex2html73"
+ HREF="naish.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/up_motif.gif"></A> 
+<A NAME="tex2html67"
+ HREF="node4.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html76"
+ HREF="node6.html">Generalising Both Approaches</A>
+<B> Up:</B> <A NAME="tex2html74"
+ HREF="naish.html">Stepwise Enhancement and Higher</A>
+<B> Previous:</B> <A NAME="tex2html68"
+ HREF="node4.html">Incorporating Shape</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00050000000000000000">
+You'll Take the High Road and I'll Take the Low Road</A>
+</H1>
+
+<P>
+The previous work of the authors sketched above can be seen as taking two
+different roads for program development starting from the same place (a
+type definition) and arriving at the same destination (the enhanced
+program), as shown in Figure 1.
+
+<P>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="94">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure:</STRONG>
+Two roads to enhancement</CAPTION>
+<TR><TD><IMG
+ WIDTH="475" HEIGHT="169"
+ SRC="img3.gif"
+ ALT="\begin{figure}\hspace*{2.5cm}
+\epsfbox{naish1.eps}
+%
+\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+<P>
+Sterling suggested the low road in Figure 1, going from the type to the
+enhancement via the skeleton. To explain how to travel the low road is
+simple and does not require very abstract thinking or complex software
+tools. Such an approach to systematic program construction may be favoured
+by many programmers.
+
+<P>
+Naish suggested the high road in Figure 1, writing a version of
+<code>foldr</code> for
+the given type, using an instance of this <code>foldr</code>
+(a particular call to it)
+and then optimising, for example using
+a partial evaluator. The additional abstraction and concentration on
+semantics rather than syntax may be favoured by more experienced
+programmers using more advanced programming environments.
+The work on shape allows us to automatically obtain the <code>foldr</code>
+definition from the definition of the type.
+
+<P>
+There is a very simple mapping between algebraic types and a class of logic
+programs called RUL programs (Yardeni and Shapiro, [<A
+ HREF="node20.html#Yardeni">YS90</A>]).
+RUL programs only
+have unary predicates.  The argument of each clause head has the top level
+functor instantiated but all sub-terms are unique variables.  Clause heads
+are mutually non-unifiable (thus predicates are deterministic when their
+arguments are instantiated). The arguments of all calls are variables which
+occur in the head and nowhere else in the body. Examples of RUL programs
+are <code>is_list/1</code> (Program 1) and <code>is_tree/1</code> (Program 2a).
+
+<P>
+The high road taken by functional programmers
+is equivalent to starting with a skeleton which
+is a RUL program and enhancing it with predicates which behave as
+functions, that is, they are deterministic and always succeed. The theory
+of functional programming can be used to prove results concerning
+composition of enhancements, for example, and generally give a theoretical
+justification for the idea of enhancement.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html75"
+ HREF="node6.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/next_motif.gif"></A> 
+<A NAME="tex2html73"
+ HREF="naish.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/up_motif.gif"></A> 
+<A NAME="tex2html67"
+ HREF="node4.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html76"
+ HREF="node6.html">Generalising Both Approaches</A>
+<B> Up:</B> <A NAME="tex2html74"
+ HREF="naish.html">Stepwise Enhancement and Higher</A>
+<B> Previous:</B> <A NAME="tex2html68"
+ HREF="node4.html">Incorporating Shape</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>Lee Naish</I>
+<BR><I>2000-07-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

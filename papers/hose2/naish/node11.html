@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Flexible Modes</TITLE>
+<META NAME="description" CONTENT="Flexible Modes">
+<META NAME="keywords" CONTENT="naish">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="naish.css">
+<LINK REL="next" HREF="node12.html">
+<LINK REL="previous" HREF="node10.html">
+<LINK REL="up" HREF="node6.html">
+<LINK REL="next" HREF="node12.html">
+</HEAD>
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html141"
+ HREF="node12.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/next_motif.gif"></A> 
+<A NAME="tex2html139"
+ HREF="node6.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/up_motif.gif"></A> 
+<A NAME="tex2html133"
+ HREF="node10.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html142"
+ HREF="node12.html">Foldl</A>
+<B> Up:</B> <A NAME="tex2html140"
+ HREF="node6.html">Generalising Both Approaches</A>
+<B> Previous:</B> <A NAME="tex2html134"
+ HREF="node10.html">Polymorphic Types and Higher</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00065000000000000000">
+Flexible Modes</A>
+</H2>
+
+<P>
+As well as allowing flexibility with types and nondeterminism, logic
+programs allow flexibility with modes.  Rather than having fixed inputs
+and one output, as in functional programs, logic programs can potentially be
+run backwards -- computing what would normally be considered the input
+from a given output.  This flexibility can extend to higher order
+predicates, including those generated automatically from skeletons.
+
+<P>
+As an example, we will construct a meta interpreter for Prolog by using
+<code>foldrrt/4</code> backwards.  A Prolog proof tree can be represented by
+an rtree, where each node contains (the representation of) a
+Prolog atom which succeeded.  The <code>foldrrt/4</code> procedure can be used
+to check that an rtree of atoms is a valid proof tree for a particular
+program and goal.  A proof tree is valid if the atom in the root is the
+goal and for each node in the tree containing atom <EM>A</EM> and
+children <EM>B1,B2,...</EM>, there is a program clause instance
+<EM>A:-B1,B2,...</EM>.  The <code>proof_of/2</code> procedure in Program
+13 represents
+clauses as a head plus a list of body atoms (procedure <code>lclause/2</code>)
+and can check that an rtree is a valid proof tree and return the atom
+which has been proved.
+
+<P>
+<PRE>
+% Checks Proof is a valid proof tree and returns proved Atom;
+% run backwards its a meta interpreter returning a proof tree
+proof_of(Proof, Atom) :-
+    foldrrt(lclause2, cons, [], Proof, Atom).
+
+% checks H :- B is a clause instance; returns H
+lclause2(H, B, H) :- lclause(H, B).
+</PRE>
+<PRE>
+% clause/2 where clause bodies are lists
+lclause(append([],A,A), []).
+lclause(append([A|B],C,[A|D]), [append(B,C,D)]).
+lclause(append3(A,B,C,D), [append(A,B,E),append(E,C,D)]).
+...
+
+cons(H, T, [H|T]).
+</PRE><B>Program 13</B>:  Interpreter constructed using rtree
+<BR>
+<BR>
+
+<P>
+With a suitable evaluation order, the code can also be run backwards.
+Given an atom, <code>foldrrt/4</code> acts as a meta interpreter,
+(nondeterministically) returning a proof tree for (a computed instance of)
+the atom.  This is an example of constructing a program based on the type of
+its output, as discussed earlier.  By utilising the natural association
+between a type and <code>foldr</code> and the flexible modes of logic
+programming, much of the process can be automated.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html141"
+ HREF="node12.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/next_motif.gif"></A> 
+<A NAME="tex2html139"
+ HREF="node6.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/up_motif.gif"></A> 
+<A NAME="tex2html133"
+ HREF="node10.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html142"
+ HREF="node12.html">Foldl</A>
+<B> Up:</B> <A NAME="tex2html140"
+ HREF="node6.html">Generalising Both Approaches</A>
+<B> Previous:</B> <A NAME="tex2html134"
+ HREF="node10.html">Polymorphic Types and Higher</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>Lee Naish</I>
+<BR><I>2000-07-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

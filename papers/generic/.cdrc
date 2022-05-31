@@ -1,0 +1,6 @@
+set base=lpt.html
+set base=index.html
+
+alias	vv	vi $base
+alias	nets	'netscape $base &'
+alias	xmo	'xmosaic $base &'

@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>A Higher Order Approach to Programming </TITLE>
+<META NAME="description" CONTENT="A Higher Order Approach to Programming ">
+<META NAME="keywords" CONTENT="naish">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="naish.css">
+<LINK REL="next" HREF="node4.html">
+<LINK REL="previous" HREF="node2.html">
+<LINK REL="up" HREF="naish.html">
+<LINK REL="next" HREF="node4.html">
+</HEAD>
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html55"
+ HREF="node4.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/next_motif.gif"></A> 
+<A NAME="tex2html53"
+ HREF="naish.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/up_motif.gif"></A> 
+<A NAME="tex2html47"
+ HREF="node2.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html56"
+ HREF="node4.html">Incorporating Shape</A>
+<B> Up:</B> <A NAME="tex2html54"
+ HREF="naish.html">Stepwise Enhancement and Higher</A>
+<B> Previous:</B> <A NAME="tex2html48"
+ HREF="node2.html">Stepwise Enhancement for Program</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00030000000000000000">
+A Higher Order Approach to Programming </A>
+</H1>
+
+<P>
+Naish ([<A
+ HREF="node20.html#Naish">Nai96</A>]), and various references included therein,
+argued for a higher order approach to programming in Prolog,
+based on similar techniques which are widely used in functional
+programming.  One of the key steps in this approach is to develop suitable
+higher order predicates which can be used for a whole class of computations
+over a particular data structure.  Modern functional
+languages have certain data types and higher order functions built in. For
+example, the polymorphic type <TT>list(T)</TT> and higher order function
+<code>foldr</code>
+which generalises the common simple recursion used to compute a value from
+a list.  Program 7 demonstrates the use of <code>foldr</code>
+using Prolog syntax in the style of (Naish, [<A
+ HREF="node20.html#Naish">Nai96</A>]).
+
+<P>
+<PRE>
+:- type list(T) ---&gt; [] ; [T|list(T)].
+
+foldr(F, B, [], B).
+foldr(F, B, [A|As], R) :-
+    foldr(F, B, As, R1),
+    call(F, A, R1, R).
+
+sum(As, S) :- foldr(plus, 0, As, S).
+product(As, P) :- foldr(times, 1, As, P).
+length(As, L) :- foldr(add1, 0, As, L).
+add1(_, TailLen, Len) :- Len is TailLen + 1.
+</PRE><B>Program 7</B>:  Using foldr <BR>
+<BR>
+
+<P>
+In addition to the input list and result, <code>foldr</code>
+has two other arguments.
+One is the base case: what to return when the end of the list is reached.
+The other is a function -- a predicate in the Prolog context. The predicate
+takes the head of a list and the result of folding the tail of a list to
+give the result of folding the whole list.
+The <code>call/N</code> predicates are available as builtins or library
+predicates in
+several Prolog systems.  The first argument (a predicate) is called with the
+additional arguments added. For example, <code>call(plus(A),R1,R)</code> is
+equivalent to <code>plus(A,R1,R)</code>, which is true if <code>A+R1=R</code>.
+In (Naish, [<A
+ HREF="node20.html#Naish">Nai96</A>]) an alternative higher order primitive, <code>apply/3,</code>
+is recommended due to its greater flexibility.  In this
+paper we simply use <code>call/N</code> as it is more widely known.
+
+<P>
+Examples in (Naish, [<A
+ HREF="node20.html#Naish">Nai96</A>])
+show how <code>foldr</code> can be used to compute both the sum
+and product in a single pass by using a pair of numbers for the base case,
+intermediate results and final answer. These higher order definitions can
+be optimised very
+effectively, see (Sagonas and Warren [<A
+ HREF="node20.html#Sagonas">SW95</A>]), for example.
+Further examples are given to show how predicates which are analogous to
+<code>foldr</code> can be constructed.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html55"
+ HREF="node4.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/next_motif.gif"></A> 
+<A NAME="tex2html53"
+ HREF="naish.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/up_motif.gif"></A> 
+<A NAME="tex2html47"
+ HREF="node2.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html56"
+ HREF="node4.html">Incorporating Shape</A>
+<B> Up:</B> <A NAME="tex2html54"
+ HREF="naish.html">Stepwise Enhancement and Higher</A>
+<B> Previous:</B> <A NAME="tex2html48"
+ HREF="node2.html">Stepwise Enhancement for Program</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>Lee Naish</I>
+<BR><I>2000-07-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

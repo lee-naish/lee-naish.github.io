@@ -1,0 +1,83 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Spectral Debugging with Weights and Incremental Ranking</title>
+<link rev=made href="mailto:lee@unimelb.edu.au">
+</head>
+<body>
+
+<h1>
+Spectral Debugging with Weights and Incremental Ranking
+</h1>
+<h3>
+Lee Naish<br>
+Hua Jie Lee<br>
+Kotagiri Ramamohanarao
+</h3>
+<br>
+
+Software faults can be diagnosed using program spectra.  The program
+spectra considered here provide information about which statements are
+executed in each one of a set of test cases.  This information is used
+to compute a value for each statement which indicates how likely it is
+to be buggy, and the statements are ranked according to these values.
+We present two improvements to this method.  First, we associate varying
+<em>weights</em> with failed test cases --- test cases which execute fewer
+statements are given more weight and have more influence on the ranking.
+This generally improves diagnosis accuracy, with little additional cost.
+Second, the ranking is computed incrementally.  After the top-ranked
+statement is identified, the weights are adjusted in order to compute
+the rest of the ranking.  This further improves accuracy.  The cost
+is more significant, but not prohibitive.
+<p>
+
+Note: the version here is an updated version of what appeared in the
+conference proceedings.  The results in the conference version are
+incorrect.  This was primarily caused by incorrect intrumentation in
+the benchmarks (in some Unix programs the wrong line was listed as being
+buggy).  Second, there was some rounding in calculating rank percentages
+when there were ties (some other researchers perform this rounding also;
+in this version no additional rounding was done other than that always
+done in IEEE double precision floating point calculations).  Finally,
+a smaller <em>epsilon</em> value was used compared with what is stated
+in the paper.
+<p>
+
+Keywords:
+software fault diagnosis; spectral debugging; weights; incremental
+ranking
+
+<p>
+
+<ul>
+
+<li>
+The (updated) paper:
+<a href="./paper.pdf">
+PDF version</a>
+
+<li>
+Related pages:
+<a href="../model/">
+A model for spectra-based software diagnosis
+</a>,
+<a href="../predp/">
+Statements versus predicates in spectral bug localization
+</a>,
+<a href="./relscr/">
+Spectral debugging: How much better can we do?
+</a>,
+<a href="../dual/">
+Duals in Spectral Fault Localization
+</a>,
+<a href="http://repository.unimelb.edu.au/10187/10678">
+Jason's Thesis</a>
+
+
+</ul>
+
+<br>
+<a href="http://people.eng.unimelb.edu.au/lee"> Lee </a>
+
+</body>
+</html>

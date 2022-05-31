@@ -1,0 +1,414 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.2beta8 (1.42)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Relationships between semantics</TITLE>
+<META NAME="description" CONTENT="Relationships between semantics">
+<META NAME="keywords" CONTENT="naishsem3">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.2beta8">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="naishsem3.css">
+
+<LINK REL="previous" HREF="node18.html">
+<LINK REL="up" HREF="node15.html">
+<LINK REL="next" HREF="node20.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html231"
+  HREF="node20.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/lib/latex2html/icons/next.png"></A> 
+<A NAME="tex2html229"
+  HREF="node15.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/lib/latex2html/icons/up.png"></A> 
+<A NAME="tex2html225"
+  HREF="node18.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/lib/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html232"
+  HREF="node20.html">Program verification</A>
+<B> Up:</B> <A NAME="tex2html230"
+  HREF="node15.html">A semantics for normal</A>
+<B> Previous:</B> <A NAME="tex2html226"
+  HREF="node18.html">Fixpoint semantics</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00054000000000000000"></A>
+<A NAME="sec_norm_rel"></A>
+<BR>
+Relationships between semantics
+</H2>
+
+<P>
+For normal programs, fixpoints of <IMG
+ WIDTH="26" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$T_P$"> correspond to (two-valued)
+Herbrand models of <IMG
+ WIDTH="66" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img79.png"
+ ALT="$comp(P)$">.  For each such fixpoint there are
+corresponding fixpoints of <IMG
+ WIDTH="36" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img112.png"
+ ALT="$T3_{P}$">, <IMG
+ WIDTH="36" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img113.png"
+ ALT="$T3^{-}_{P}$"> and <IMG
+ WIDTH="36" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img114.png"
+ ALT="$T3^{+}_{P}$">
+where <IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img31.png"
+ ALT="$I$"> is empty, and a corresponding three-valued model of <IMG
+ WIDTH="66" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img79.png"
+ ALT="$comp(P)$">.
+The following propositions generalise this result to the case where <IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img31.png"
+ ALT="$I$">
+may be non-empty.
+
+<P>
+<BR>
+<IMG
+ WIDTH="441" HEIGHT="37" ALIGN="BOTTOM" BORDER="0"
+ SRC="img115.png"
+ ALT="\begin{proposition}
+$M$\ is a model of $comp(P)$\ iff $T3^{+}_P(M) = M$\ and $T3^{-}_P(M) = M$.
+\end{proposition}">
+<BR>
+<BR>
+<IMG
+ WIDTH="555" HEIGHT="140" ALIGN="BOTTOM" BORDER="0"
+ SRC="img116.png"
+ ALT="\begin{proof}
+Let $T/T^{+}/T^{-}$\ ($F/F^{+}/F^{-}$) be the true (false) atoms i...
+...t of $T3^{+}_P$\ and $T3^{-}_P$(since these operators preserve $I$).
+\end{proof}">
+<BR>
+
+<P>
+<BR>
+<IMG
+ WIDTH="311" HEIGHT="36" ALIGN="BOTTOM" BORDER="0"
+ SRC="img117.png"
+ ALT="\begin{proposition}
+$M$\ is a model of $comp(P)$\ iff
+$ M \subseteq_i T3_P(M)$.
+\end{proposition}">
+<BR>
+<BR>
+<IMG
+ WIDTH="555" HEIGHT="120" ALIGN="BOTTOM" BORDER="0"
+ SRC="img118.png"
+ ALT="\begin{proof}
+Let $T$\ ($F$) and $T'$\ ($F'$) be the true (false) atoms in $M$\ ...
+...f{T} in $M$\ implies $B$\ is \textbf{T} in $M$\ iff
+$M$\ is a model.
+\end{proof}">
+<BR>
+
+<P>
+[<A
+ HREF="node22.html#apt94logic">Apt and BolApt and Bol1994</A>] gives a detailed account of the relationships between
+strong models, <IMG
+ WIDTH="36" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img112.png"
+ ALT="$T3_{P}$"> and the operational semantics.  Strong models
+coincide with fixpoints of <IMG
+ WIDTH="36" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img112.png"
+ ALT="$T3_{P}$"> and the <IMG
+ WIDTH="22" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img53.png"
+ ALT="$\subseteq_i$">-least strong
+model and fixpoint captures the operational semantics [<A
+ HREF="node22.html#Fitting85">FittingFitting1985</A>].
+The true atoms in this model are those in <IMG
+ WIDTH="24" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img12.png"
+ ALT="$SS$"> and the false atoms
+are those in <IMG
+ WIDTH="27" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img119.png"
+ ALT="$FF$">, the atoms with finitely failed SLDNF trees.
+[<A
+ HREF="node22.html#Kun87">KunenKunen1987</A>] established conditions under which these sets of atoms are
+also the two-valued logical consequences of the program.  This fixpoint
+characterisation of the operational semantics is potentially very useful
+for program analysis and alternative operational semantics (bottom-up
+execution).  However, the model theory is not particularly helpful for
+programmers to reason about correctness or debug their programs.
+
+<P>
+In all strong models, successful atoms are true, finitely failing atoms
+are false and thus only looping atoms can be inadmissible.  It is not
+possible to under-specify the behaviour of predicates as we can using
+our definition of a model.  Fifteen of our versions of even and odd
+terminate for all ground queries so the intended interpretation is not a
+strong model.  However, over-specification is possible in the sense that
+looping atoms can be true or false in strong models.  For the version of
+even and odd where everything loops the intended interpretation <I>is</I>
+a strong model.
+
+<P>
+The following lemma relates our model theoretic semantics and the
+operational semantics, essentially establishing soundness and an important
+form of completeness.  With our definition of models of clauses, truth
+and falsity of clause heads is propagated to clause bodies.  The lemma
+shows they propagate from the root to positive leaves of SLDDNF trees
+(in the other direction, inadmissibility can be introduced).  This is
+the contrapositive of the normal statement of results such as soundness.
+
+<P>
+<BR>
+<A NAME="lem_SLDDNF"></A><IMG
+ WIDTH="555" HEIGHT="119" ALIGN="BOTTOM" BORDER="0"
+ SRC="img120.png"
+ ALT="\begin{lemma}
+% latex2html id marker 550\par Suppose $M$\ is a model of $comp(...
+...\ has a positive leaf $L$\ then
+$\exists (L \theta)$\ is \textbf{F}.
+\end{lemma}">
+<BR>
+<BR>
+<IMG
+ WIDTH="556" HEIGHT="720" ALIGN="BOTTOM" BORDER="0"
+ SRC="img121.png"
+ ALT="\begin{proof}
+% latex2html id marker 557\par We use induction on the height of...
+...
+so by the induction hypothesis has no instance which is \textbf{T}.
+\end{proof}">
+<BR>
+
+<P>
+<BR>
+<IMG
+ WIDTH="555" HEIGHT="78" ALIGN="BOTTOM" BORDER="0"
+ SRC="img122.png"
+ ALT="\begin{theorem}
+% latex2html id marker 595
+[soundness modulo inadmissibility]
+If...
+...$\exists (L \theta)$is \textbf{T}) is true or inadmissible in $M$.
+\end{theorem}">
+<BR>
+<BR>
+<IMG
+ WIDTH="555" HEIGHT="96" ALIGN="BOTTOM" BORDER="0"
+ SRC="img123.png"
+ ALT="\begin{proof}
+% latex2html id marker 598The constraints in all ancestors of $L...
+...s, by Lemma \ref{lem_SLDDNF}, $G \theta$\ is not false in any model.
+\end{proof}">
+<BR>
+
+<P>
+If we consider computed answers being returned rather than equality
+constraints, this theorem tells us that any instance of a computed answer
+is true or inadmissible in every model.
+
+<P>
+<BR>
+<IMG
+ WIDTH="555" HEIGHT="58" ALIGN="BOTTOM" BORDER="0"
+ SRC="img124.png"
+ ALT="\begin{theorem}
+% latex2html id marker 601
+[soundness of finite failure]
+If $M$\...
+...d $P$\ is finitely failed then no instance of $G$\ is true
+in $M$.
+\end{theorem}">
+<BR>
+<BR>
+<IMG
+ WIDTH="555" HEIGHT="58" ALIGN="BOTTOM" BORDER="0"
+ SRC="img125.png"
+ ALT="\begin{proof}
+% latex2html id marker 603If $G \theta$\ is \textbf{T} in $M$\ t...
+...xtbf{T}, but the tree is
+finitely failed so this cannot be the case.
+\end{proof}">
+<BR>
+
+<P>
+The following completeness result is of significant practical use to
+programmers (as are similar results for the two-valued case we have
+stated in the past).  By completeness we mean lack of missing answers
+in an ``all solutions'' computation which terminates normally (like
+[<A
+ HREF="node22.html#drabentTPLP">Drabent and Mi<IMG
+ WIDTH="5" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img130.png"
+ ALT="\l">kowskaDrabent and
+  Mi<IMG
+ WIDTH="5" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img130.png"
+ ALT="\l">kowskapear</A>]) rather than the existence of a tree (which may
+or may not be found in practice).  It could also be seen as a form of
+``all solutions'' soundness.
+
+<P>
+<BR>
+<IMG
+ WIDTH="555" HEIGHT="78" ALIGN="BOTTOM" BORDER="0"
+ SRC="img126.png"
+ ALT="\begin{theorem}
+% latex2html id marker 609
+[strong completeness for all-observat...
+...with some $L_i$\ (that is, $\exists (L_i \theta)$\ is \textbf{T}).
+\end{theorem}">
+<BR>
+<BR>
+<IMG
+ WIDTH="195" HEIGHT="34" ALIGN="BOTTOM" BORDER="0"
+ SRC="img127.png"
+ ALT="\begin{proof}
+% latex2html id marker 612Follows from Lemma \ref{lem_SLDDNF}.
+\end{proof}">
+<BR>
+
+<P>
+Many other completeness results (for example, our Theorem
+<A HREF="node14.html#thm_SLDD_comp">2</A>) are far less useful for programmers for three
+reasons.  First, even if some proof strategy is complete in theory,
+generally the completeness is dependent on forms of fairness (both
+computation rule and search strategy) which are not adhered to in
+implementations.  Second, even with a fair implementation we cannot
+rely on a proof being found in practice due to resource limits and
+other runtime errors (fair search makes this problem worse because
+algorithms with acceptable complexity become extremely difficult
+to express).  Third, completeness results often concern atoms which
+are true in <I>all</I> models (with a suitable definition of a model).
+Though a programmer may know an atom is true in their <I>intended</I>
+interpretation (and be confident that the interpretation is a model),
+knowing it is true in all models is unlikely.  In fact, the simplest way
+for a programmer to be confident something is true in all models is by
+reasoning about termination of the operational semantics.  Similarly,
+we are not convinced that many programmers find it simple or natural
+to reason about the least model or all minimal models or well-founded
+models or perfect models or stable models.
+
+<P>
+In fifteen of the sixteen versions of <TT>even/1</TT> and <TT>odd/1</TT>
+it is very easy to reason that ground queries terminate.  It is also
+easy to show our intended interpretation is a model, by checking one
+clause at a time.  From our completeness result we can conclude that
+goals which are true in our intended interpretation will be successful,
+assuming there are enough resources at runtime.  No other completeness
+result gives us this information.  They rely on fairness and models
+which are not our intended interpretation.  Some results do not apply
+to all versions (for example, not all versions are stratified).
+
+<P>
+The relationship between the operational semantics and various forms of
+model-theoretic semantics can be summarised by the following table:
+
+<P>
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="LEFT">Operational semantics</TD>
+<TD ALIGN="CENTER">may succeed</TD>
+<TD ALIGN="CENTER">must loop</TD>
+<TD ALIGN="CENTER">may finitely fail</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><IMG
+ WIDTH="22" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img53.png"
+ ALT="$\subseteq_i$">-least strong model</TD>
+<TD ALIGN="CENTER"><B>T</B></TD>
+<TD ALIGN="CENTER"><B>I</B></TD>
+<TD ALIGN="CENTER"><B>F</B></TD>
+</TR>
+<TR><TD ALIGN="LEFT">any strong model</TD>
+<TD ALIGN="CENTER"><B>T</B></TD>
+<TD ALIGN="CENTER"><B>T</B>/<B>I</B>/<B>F</B></TD>
+<TD ALIGN="CENTER"><B>F</B></TD>
+</TR>
+<TR><TD ALIGN="LEFT">any model</TD>
+<TD ALIGN="CENTER"><B>T</B>/<B>I</B></TD>
+<TD ALIGN="CENTER"><B>T</B>/<B>I</B>/<B>F</B></TD>
+<TD ALIGN="CENTER"><B>I</B>/<B>F</B></TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+</TR>
+</TABLE>
+<BR>
+<P>
+We have a simplified view of the operational semantics for comparison
+purposes.  Success and finite failure are generally conditional on
+fairness; looping may occur with an unfair search or computation rule.
+Looping may also occur for successful queries if all solutions are sought.
+Some queries cannot succeed or finitely fail, even with fairness, and are
+classified as ``must loop''.  We have also ignored floundering, which
+can occur as well as or instead of the other behaviours.  For example,
+atoms which are <B>T</B> in the <IMG
+ WIDTH="22" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img53.png"
+ ALT="$\subseteq_i$">-least strong model may
+actually flounder instead of succeeding.
+
+<P>
+Compared to the first two semantics, the last two require much simpler
+reasoning for the programmer to establish correctness.  The last
+semantics (which is what we propose) is less precise than the strong model
+semantics.  However, the difference in precision is only for inadmissible
+atoms.  If we know an atom is <B>T</B> or <B>F</B> the strong model
+semantics gives us no additional information about how the atom behaves.
+Since we don't care about the behaviour of inadmissible atoms the lack
+of precision is of no concern, but the greater flexibility (existence
+of more models) is very useful for allowing more natural interpretations
+without restricting programming style.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html231"
+  HREF="node20.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/lib/latex2html/icons/next.png"></A> 
+<A NAME="tex2html229"
+  HREF="node15.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/lib/latex2html/icons/up.png"></A> 
+<A NAME="tex2html225"
+  HREF="node18.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/lib/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html232"
+  HREF="node20.html">Program verification</A>
+<B> Up:</B> <A NAME="tex2html230"
+  HREF="node15.html">A semantics for normal</A>
+<B> Previous:</B> <A NAME="tex2html226"
+  HREF="node18.html">Fixpoint semantics</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+
+2005-08-02
+</ADDRESS>
+</BODY>
+</HTML>

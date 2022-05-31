@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.2beta8 (1.42)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Three-valued declarative debugging</TITLE>
+<META NAME="description" CONTENT="Three-valued declarative debugging">
+<META NAME="keywords" CONTENT="naishsem3">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.2beta8">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="naishsem3.css">
+
+<LINK REL="next" HREF="node8.html">
+<LINK REL="previous" HREF="node6.html">
+<LINK REL="up" HREF="node3.html">
+<LINK REL="next" HREF="node8.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html109"
+  HREF="node8.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/lib/latex2html/icons/next.png"></A> 
+<A NAME="tex2html107"
+  HREF="node3.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/lib/latex2html/icons/up.png"></A> 
+<A NAME="tex2html101"
+  HREF="node6.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/lib/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html110"
+  HREF="node8.html">Missing answers and negation</A>
+<B> Up:</B> <A NAME="tex2html108"
+  HREF="node3.html">Motivation and background</A>
+<B> Previous:</B> <A NAME="tex2html102"
+  HREF="node6.html">Types, assertions and preconditions</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00034000000000000000">
+Three-valued declarative debugging</A>
+</H2>
+
+<P>
+A general scheme for declarative debugging using three truth values
+is described in [<A
+ HREF="node22.html#ddscheme3">NaishNaish2000a</A>]; it is based on a more traditional
+two-valued scheme [<A
+ HREF="node22.html#ddscheme">NaishNaish1997</A>].  Computations are represented as trees
+and debuggers search the tree for a <I>buggy</I> node.  For diagnosing
+wrong answers in definite clause programs, the tree is a proof tree
+(see [<A
+ HREF="node22.html#Llo84">LloydLloyd1984</A>]): each node contains an atom <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img14.png"
+ ALT="$A$"> which was proved
+in the computation and the children of the node contain the atoms in
+the body of the clause instance which was used at the top level of
+the proof of <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img14.png"
+ ALT="$A$">.  Each node has a truth value associated with it:
+<I>correct</I>, if the atom is true in the intended interpretation,
+<I>erroneous</I>, if the atom is false, or <I>inadmissible</I>, the
+third truth value<A NAME="tex2html3"
+  HREF="footnode.html#foot89"><SUP><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/lib/latex2html/icons/footnote.png"></SUP></A>.  The truth value is determined by an ``oracle''.  The user is
+asked questions and typically these are stored in a database to avoid
+repeated questions.  The user may also be able to supply more general
+assertions or even runnable specifications [<A
+ HREF="node22.html#Drabent-88">Drabent and MaluszynskiDrabent and
+  Maluszynski1988</A>].
+
+<P>
+If a node is erroneous but all its children are correct, it corresponds
+to an <I>incorrect clause instance</I>: the body is true but the head
+is false.  This class of bugs was identified in the first work on
+declarative debugging [<A
+ HREF="node22.html#Sha83">ShapiroShapiro1983</A>].  Another class of bugs, related to
+inadmissibility, was identified in [<A
+ HREF="node22.html#Per86">PereiraPereira1986</A>] and formalised more in
+[<A
+ HREF="node22.html#ddscheme3">NaishNaish2000a</A>]: nodes which are erroneous with no erroneous children but
+at least one inadmissible child.  In a top-down execution this corresponds
+to a clause instance which causes a transition from admissible atoms to
+inadmissible atoms.  It allows an inadmissible atom to be used in the
+(dubious) ``proof'' of a false atom.  For such a bug to be manifest,
+the inadmissible call must succeed (if the inadmissible call fails the
+top level false atom would also fail, so there would be no bug symptom
+to diagnose).  However, the diagnosis algorithm does not consider how
+or why the inadmissible call succeeds.  The fact it succeeds is not
+considered an error -- the error is that it is called at all.
+
+<P>
+Several different instances of the three-valued declarative debugging
+scheme were identified, using different definitions of inadmissibility.
+Although our previous work on types and debugging provides the
+intuition for this paper, we do not rely on any particular definition
+of inadmissibility here.  We simply assume that the programmer has
+some notion of (in)admissibility for ground atoms.  If inadmissibility
+is identified with ill-typedness (as suggested in [<A
+ HREF="node22.html#Per86">PereiraPereira1986</A>]) then
+the second class of bugs correspond to a form of type error discussed
+in [<A
+ HREF="node22.html#naish:90">NaishNaish1992b</A>].  However, this definition of inadmissibility does
+not lead to ideal behaviour of debuggers [<A
+ HREF="node22.html#ddscheme3">NaishNaish2000a</A>] and does not
+quite capture the intentions of programmers.
+
+<P>
+As well as considering types, programmers consider modes.  A successful
+call to <code>merge/3</code> in which just the last argument is not a sorted
+list is very different from a successful call where the second argument
+is not a sorted list.  For <TT>merge([2,3], [1,2], [2,1,2,3])</TT> we
+would consider that the output is wrong and there is a bug in <code>merge/3</code>
+whereas for <TT>merge([2,3], [2,1], [2,1,2,3])</TT> we would consider that
+the input is wrong and the bug is elsewhere.  A more natural definition
+of inadmissibility for ground atoms is that the ``input'' arguments of
+the atom are ill-typed (or violate some condition).  In [<A
+ HREF="node22.html#ddscheme3">NaishNaish2000a</A>]
+this definition of inadmissibility is related to a declarative view of
+modes [<A
+ HREF="node22.html#modes">NaishNaish1996</A>], which gives a more technical definition that captures
+the intuitive idea of input arguments being ill-typed.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html109"
+  HREF="node8.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/lib/latex2html/icons/next.png"></A> 
+<A NAME="tex2html107"
+  HREF="node3.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/lib/latex2html/icons/up.png"></A> 
+<A NAME="tex2html101"
+  HREF="node6.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/lib/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html110"
+  HREF="node8.html">Missing answers and negation</A>
+<B> Up:</B> <A NAME="tex2html108"
+  HREF="node3.html">Motivation and background</A>
+<B> Previous:</B> <A NAME="tex2html102"
+  HREF="node6.html">Types, assertions and preconditions</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+
+2005-08-02
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,359 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.2beta8 (1.42)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Program verification</TITLE>
+<META NAME="description" CONTENT="Program verification">
+<META NAME="keywords" CONTENT="naishsem3">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.2beta8">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="naishsem3.css">
+
+<LINK REL="next" HREF="node21.html">
+<LINK REL="previous" HREF="node15.html">
+<LINK REL="up" HREF="naishsem3.html">
+<LINK REL="next" HREF="node21.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html241"
+  HREF="node21.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/lib/latex2html/icons/next.png"></A> 
+<A NAME="tex2html239"
+  HREF="naishsem3.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/lib/latex2html/icons/up.png"></A> 
+<A NAME="tex2html233"
+  HREF="node19.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/lib/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html242"
+  HREF="node21.html">Conclusion</A>
+<B> Up:</B> <A NAME="tex2html240"
+  HREF="naishsem3.html">A three-valued semantics for</A>
+<B> Previous:</B> <A NAME="tex2html234"
+  HREF="node19.html">Relationships between semantics</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00060000000000000000"></A>
+<A NAME="sec_verif"></A>
+<BR>
+Program verification
+</H1>
+
+<P>
+
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="fig_subset"></A><A NAME="980"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 4:</STRONG>
+Definition of <TT>subset/2</TT></CAPTION>
+<TR><TD><IMG
+ WIDTH="557" HEIGHT="146" BORDER="0"
+ SRC="img128.png"
+ ALT="\begin{figure}\figrule
+\begin{verbatim}subset(L, M) :- not notsubset(L, M).n...
+...rt L]).
+member(X, [Y\vert L]) :- member(X, L).\end{verbatim}\figrule\end{figure}"></TD></TR>
+</TABLE>
+</DIV><P></P>
+
+<P>
+One of the main motivations for our work is program verification and from
+this viewpoint it is very similar to our earlier work [<A
+ HREF="node22.html#naish:90">NaishNaish1992b</A>]
+and [<A
+ HREF="node22.html#drabentTPLP">Drabent and Mi<IMG
+ WIDTH="5" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img130.png"
+ ALT="\l">kowskaDrabent and
+  Mi<IMG
+ WIDTH="5" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img130.png"
+ ALT="\l">kowskapear</A>] (which contain more references related to
+this area).  All assume that for correct programs, some atoms should
+succeed, some should fail and for some we don't care.  The soundness
+and completeness results of [<A
+ HREF="node22.html#drabentTPLP">Drabent and Mi<IMG
+ WIDTH="5" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img130.png"
+ ALT="\l">kowskaDrabent and
+  Mi<IMG
+ WIDTH="5" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img130.png"
+ ALT="\l">kowskapear</A>] are very similar
+to ours, including the treatment of non-termination; the verification
+methods establish the same program properties.  The main thing
+that distinguishes our current approach is the <I>explicit</I> use of
+three-valued logic.  We discuss the two examples of verifying definitions
+of the subset relationship, where sets are represented as lists, used in
+[<A
+ HREF="node22.html#drabentTPLP">Drabent and Mi<IMG
+ WIDTH="5" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img130.png"
+ ALT="\l">kowskaDrabent and
+  Mi<IMG
+ WIDTH="5" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img130.png"
+ ALT="\l">kowskapear</A>] (and elsewhere).  For the first example, given
+in Figure , we describe how our verification method could
+proceed and compare it with two other methods.  For the second example we
+just describe our method.  The intended interpretations we use for
+verification are chosen to be consistent with [<A
+ HREF="node22.html#drabentTPLP">Drabent and Mi<IMG
+ WIDTH="5" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img130.png"
+ ALT="\l">kowskaDrabent and
+  Mi<IMG
+ WIDTH="5" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img130.png"
+ ALT="\l">kowskapear</A>].
+We also discuss other possible intended interpretations later.  This gives
+some new insights into the relationship between the two examples and
+highlights the fact that programs can have more than one natural meaning.
+
+<P>
+With our approach to verification of Figure , we would use the
+following definition of admissibility: both arguments of <TT>subset/2</TT>
+and <TT>notsubset/2</TT> and the second argument of <TT>member/2</TT>
+are lists.  The true and false atoms should be clear from the predicate
+names and description above.  By showing this interpretation is a model
+of the program, our soundness and completeness results can be established
+for this program.
+
+<P>
+We can show our interpretation is a model of the definition of
+<TT>notsubset/2</TT>, for example, by the following reasoning.
+If <TT>notsubset(L,M)</TT> is <B>T</B>, <TT>L</TT> and <TT>M</TT>
+are lists and there is an element of <TT>L</TT> which is not an
+element of <TT>M</TT>, so the body of the clause is <B>T</B>.
+If <TT>notsubset(L,M)</TT> is <B>F</B>, <TT>L</TT> and <TT>M</TT>
+are lists and there is no element of <TT>L</TT> which is not an element
+of <TT>M</TT>, so the body of the clause is <B>F</B>.  The reasoning
+for the definition of <TT>subset/2</TT> is trivial since the <B>T</B>
+(<B>F</B>) atoms of <TT>subset/2</TT> are the <B>F</B> (<B>T</B>)
+atoms of <TT>notsubset/2</TT>.  As well as such direct proofs we could
+apply the immediate consequence operators and use the propositions
+relating them to models.
+
+<P>
+In [<A
+ HREF="node22.html#naish:90">NaishNaish1992b</A>] (our first approach to dealing with inadmissibility)
+there are two stages to verification.  The first is to show that
+well-typedness (admissibility) is propagated from clause heads to clause
+bodies.  It is similar to showing that if the clause head is <B>T</B>
+or <B>F</B> the body is <B>T</B> or <B>F</B> (the definition is
+rather more complex, restricting attention to instances of negated atoms
+and the clause body which are true in some model).  The second is to show
+the intended interpretation, where inadmissible atoms are considered
+<B>F</B>, is a (two-valued) model of a modified version of the
+program with ``type checks'' added to clause bodies (so that the body is
+<B>F</B> if the head is inadmissible).  To verify <TT>notsubset/2</TT>
+and <TT>subset/2</TT>, showing admissibility is propagated from heads to
+bodies is straightforward.  Checking the interpretation is a model of the
+modified program is similar to the three-valued approach (though there
+are two extra calls in the clause bodies and instances where <TT>L</TT>
+or <TT>M</TT> are non-lists must be considered as well).  Overall, the
+method is more complicated than what we now propose, and models other
+than the intended interpretation must be considered at one point.
+
+<P>
+In [<A
+ HREF="node22.html#drabentTPLP">Drabent and Mi<IMG
+ WIDTH="5" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img130.png"
+ ALT="\l">kowskaDrabent and
+  Mi<IMG
+ WIDTH="5" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img130.png"
+ ALT="\l">kowskapear</A>], two two-valued ``specifications'' are used, as
+discussed in Section <A HREF="node8.html#sec_bg_neg">3.5</A>.  The ``completeness
+specification'' contains what we refer to as true atoms and the
+``soundness specification'' contains the true and inadmissible atoms.
+A diagram clearly shows the three truth values we use in intended
+interpretations and an earlier version of the paper,
+[<A
+ HREF="node22.html#drabent01proving">Drabent and Mi<IMG
+ WIDTH="5" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img130.png"
+ ALT="\l">kowskaDrabent and
+  Mi<IMG
+ WIDTH="5" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img130.png"
+ ALT="\l">kowska2001</A>], stated the pair of specifications ``is a
+formalisation of such interpretations''.
+Each specification is simpler than our
+three-valued interpretations but because two specifications are always
+required it is more complicated overall.  There are four sets (two
+partitionings of the Herbrand base) instead of our three (a three-way
+partitioning).  To support negation using this encoding of three values
+there is a primed (as well as original) version of each predicate, also
+increasing complexity.  There is a priming operation on specifications
+and priming and double priming operations on (sets of) formulas which
+convert (some) atoms in the specifications/formulas into primed versions.
+
+<P>
+To verify the <TT>subset/2</TT> definition a mixture of unions of
+sometimes primed specifications and sometimes primed formulas is used
+[<A
+ HREF="node22.html#drabent01proving">Drabent and Mi<IMG
+ WIDTH="5" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img130.png"
+ ALT="\l">kowskaDrabent and
+  Mi<IMG
+ WIDTH="5" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img130.png"
+ ALT="\l">kowska2001</A>].
+This is a very contorted way of getting at the truth table for negation
+in the three-valued logic, which is what our verification method uses
+directly.  For <TT>notsubset/2</TT> there are similar contortions but at
+the core of the proof there is identical reasoning to the <B>T</B> case
+in our three-valued approach.  Our <B>F</B> case is done by showing
+that if the body is <B>T</B> or <B>I</B>, the head is <B>T</B>
+or <B>I</B>.  Though slightly more complex, this may be more natural
+for many programmers.  We feel that explicit three valued logic makes
+the equivalence of the two more obvious, making it easier to choose the
+method that seems most natural.
+
+<P>
+
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="fig_subs"></A><A NAME="981"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 5:</STRONG>
+Alternative definition of subset, <TT>subs/2</TT></CAPTION>
+<TR><TD><IMG
+ WIDTH="556" HEIGHT="129" BORDER="0"
+ SRC="img129.png"
+ ALT="\begin{figure}\figrule
+\begin{verbatim}subs([], L).
+subs([H\vert T], LH) :- se...
+... [X\vert L], [X\vert LH]) :- select(H, L, LH).\end{verbatim}\figrule\end{figure}"></TD></TR>
+</TABLE>
+</DIV><P></P>
+
+<P>
+Figure   gives an alternative definition of the subset
+relationship, which can be used to generate subsets rather than only
+test them, so it better illustrates completeness of (terminating)
+all-solutions computations.  Lists containing duplicates must be
+avoided in some places to make (finite) generation of subsets possible.
+Our intended interpretation is as follows (for <TT>member/2</TT> it is
+the same as earlier).
+
+<UL>
+<LI><TT>subs(L,M)</TT> is admissible if <TT>M</TT> is a list; it is true if
+<TT>L</TT> is a duplicate-free list whose elements are a subset of those 
+in <TT>M</TT>.
+</LI>
+<LI><TT>select(E,L,M)</TT> is admissible if <TT>L</TT> is a list; it is true if
+<TT>M</TT> is a list the same as <TT>L</TT> but with one extra element
+<TT>E</TT> at some point.    
+</LI>
+</UL>
+
+<P>
+For completeness we must show every true atom matches with a ground
+clause instance with a true body.  If <code>subs(L,LH)</code> is <B>T</B>,
+then either <TT>L</TT> is <code>[]</code> (and the first clause matches) or is
+of the form <code>[H|T]</code>.  If <code>subs([H|T],LH)</code> is <B>T</B>, then
+<TT>H</TT> is not a member of <TT>T</TT> (since it is duplicate-free),
+but is a member of <TT>LH</TT>, which is a list, so there exist <TT>L</TT>
+such that <TT>select(H,LH,L)</TT> and <TT>subs(T,L)</TT> are <B>T</B>.
+That is, there is a matching instance of the second clause with a
+<B>T</B> body.
+
+<P>
+For soundness we must show every false atom matches only with
+ground clause instances with false bodies.  <code>Subs([],L)</code> cannot
+be <B>F</B>.  If <code>subs([H|T],LH)</code> is <B>F</B>, then either
+<code>[H|T]</code> is not a duplicate-free list or its elements are not a subset
+of those in <TT>LH</TT>.  That is, <TT>H</TT> is a member of <TT>T</TT>
+or <TT>T</TT> is not a duplicate-free list or <TT>H</TT> is not a member
+of <TT>LH</TT> or a member of <TT>T</TT> (other than <TT>H</TT>) is not
+a member of <TT>LH</TT>.  That is, <TT>not member(H,T)</TT> is <B>F</B>
+or for all <TT>L</TT>, the conjunction <TT>select(H,LH,L), subs(T,L)</TT>
+is <B>F</B>.
+
+<P>
+The interesting relationship between the two subset programs can be
+clarified by examining other (three-valued) models of the programs.
+Although the success sets and the intended models we have described
+above are incomparable, we know both programs would be acceptable for
+many applications and the second program is more flexible in terms of
+modes (the first argument is not required to be input).  One important
+difference between the programs is the restriction on duplicates in
+lists introduced.  We can have a different intended interpretation of the
+first program where <TT>subset/2</TT> atoms containing duplicates in the
+first argument are <B>I</B>.  This interpretation is a model and the
+<B>T</B> atoms are the same as those in our intended interpretation of
+<TT>subs/2</TT>.  The key difference between these two interpretations
+is that some atoms are <B>I</B> for <TT>subset/2</TT> but <B>F</B>
+for <TT>subs/2</TT>.
+
+<P>
+The interpretation for <TT>subset/2</TT> has <I>less information</I>
+(<IMG
+ WIDTH="22" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img53.png"
+ ALT="$\subseteq_i$">) than that for <TT>subs/2</TT>.  The interpretation with less
+information is a model of both programs but the interpretation with more
+information is only a model of the program with more flexible modes.
+Programs which use a subset predicate only as a test can be verified
+using either interpretation, whereas programs which require generation
+of subsets need the more precise interpretation and the <TT>subset/2</TT>
+definition would not be acceptable.  Similarly, some programs use a subset
+predicate with only duplicate-free lists in the <I>second</I> argument.
+This leads to two more interpretations which are less precise but
+arguably more intuitive and have the same properties as the previous two.
+Relationships between modes and two-valued models of definite programs,
+and how they can be used to verify certain properties of programs,
+are discussed in [<A
+ HREF="node22.html#modes">NaishNaish1996</A>].  We believe three-valued models may be
+useful for extending this work.  For example, increasing flexibility
+due to the existence of more models, and supporting negation.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html241"
+  HREF="node21.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/lib/latex2html/icons/next.png"></A> 
+<A NAME="tex2html239"
+  HREF="naishsem3.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/lib/latex2html/icons/up.png"></A> 
+<A NAME="tex2html233"
+  HREF="node19.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/lib/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html242"
+  HREF="node21.html">Conclusion</A>
+<B> Up:</B> <A NAME="tex2html240"
+  HREF="naishsem3.html">A three-valued semantics for</A>
+<B> Previous:</B> <A NAME="tex2html234"
+  HREF="node19.html">Relationships between semantics</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+
+2005-08-02
+</ADDRESS>
+</BODY>
+</HTML>

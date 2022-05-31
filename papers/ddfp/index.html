@@ -1,0 +1,84 @@
+<html>
+<TITLE>
+Declarative debugging of lazy FP
+</TITLE>
+<H1>
+Declarative debugging of lazy FP
+</H1>
+<hr>
+
+<H3>
+        Declarative debugging of lazy functional programs
+</H3>
+<H3>
+			Lee Naish
+</H3>
+<br>
+We show how declarative (or algorithmic) debugging can be applied
+to   lazy   functional   programming  and  describe  a  prototype
+implementation.  We first  present  a  declarative  debugger  for
+logic programs which relies on three primitives that determine if
+an atom is valid  in  the  intended  interpretation,  return  the
+successful clause instance used by a call and return single atoms
+from  a  conjunction  of  atoms.   By  simply   using   different
+interpretations  and  versions  of  these  three  primitives  the
+debugger can be used to locate errors in  strict  and  non-strict
+functional  programs.   Debugging  strict code is essentially the
+same as debugging Horn  clause  programs.   Debugging  non-strict
+code  can result in questions containing unevaluated expressions.
+These questions can be simplified by using quantified variables.
+<P>
+
+The prototype system is based on
+<A HREF="../eq/">
+NUE-Prolog
+</A>,
+which  supports  a
+functional  language on top of NU-Prolog and is implemented using
+the  flattening  transformation.   The  implementation  has  been
+modified  so  functional  code  returns  a  representation of the
+computation which is then passed  to  the  debugger.   The  basic
+algorithm is applicable to other functional programming languages
+also.
+<P>
+
+Keywords: functional programming,  lazy  evaluation,  declarative
+debugging, logic programming.
+<P>
+
+<UL>
+
+<LI>
+<A HREF="../../src/ddfp/">
+implementation/examples
+</A>
+
+<!-- <LI> -->
+<!-- <A HREF="./ddfp.dvi.Z"> -->
+<!-- Tech report version: -->
+<!-- </A> -->
+<!-- compressed dvi file (22k) -->
+
+<LI>
+Tech report version:
+<A HREF="./tr.ps.gz">
+gzipped postscript
+</A>
+(34k)
+
+<LI>
+<A HREF="all.bib.txt">
+references
+</A>
+
+<LI>
+<A HREF="../dds/">
+A declarative debugging scheme
+</A>
+
+</UL>
+
+<br>
+<A HREF="http://people.eng.unimelb.edu.au/lee"> Lee </A>
+
+</HTML>

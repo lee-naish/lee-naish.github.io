@@ -1,0 +1,78 @@
+<html>
+<head>
+<TITLE>The NU-Prolog debugging environment</TITLE>
+</head>
+<body>
+<H1>The NU-Prolog debugging environment</H1>
+<hr>
+This is a reasonably old paper, written before I started using Latex and
+associated tools.
+<A HREF="http://www.cs.mu.oz.au/~aet">Bert Thompson</A>
+was able to reconstruct a Postscript
+version which bears reasonable resemblance to the original paper or
+technical report.  He also worked on producing a release of the
+implementation of the system and wrote the manual.
+<hr>
+
+<H3>
+		The NU-Prolog debugging environment
+</H3>
+<H3>
+			Lee Naish <br>
+			Philip W. Dart <br>
+			Justin Zobel
+</H3>
+<br>
+
+One of the advantages of logic programming is that it is easy to
+reason about what is computed by a program (the declarative semantics)
+independently of how it is computed (the procedural semantics).
+As well as being useful for writing, transforming and understanding
+programs, these two alternative viewpoints are useful for testing
+and debugging programs.  By taking full advantage of declarative and
+procedural semantics, we anticipate that very powerful programming
+environments can be constructed.
+<P>
+In this paper we describe the NU-Prolog Debugging Environment (NUDE)
+which is currently under development.  NUDE has three main components.
+First, several static program analysis tools are used for detecting
+program errors such as simple typing mistakes, `type' errors, infinite
+loops and floundering.  Second, dynamic tools are provided for
+diagnosing incorrect behaviour of a query at run time.  There are tools
+for diagnosing wrong answers, missing answers, infinite loops and
+floundering.  Third, there is a mechanism for automatically testing
+programs to detect queries with wrong or missing answers.
+The three components are integrated into the NU-Prolog system,
+supporting a rapid test-debug-recompile cycle.
+<P>
+
+<UL>
+
+<LI>
+<A HREF="tr.ps.gz">
+Gzipped Postscript version of the paper</A>
+(39k)
+
+<LI>
+<A HREF="all.bib.txt">
+References</A>
+
+<LI>
+<A HREF="../../src/nude/">
+Implementation</A>
+
+<LI>
+<A HREF="http://www.cs.mu.oz.au/publications/tr_db/mu_96_38.ps.gz">
+Reference Manual</A> (gzipped Postscript, 41K)
+
+<LI>
+<A HREF="../dd.html">
+Related things</A>
+
+</UL>
+
+<br>
+<A HREF="http://people.eng.unimelb.edu.au/lee"> Lee </A>
+
+</body>
+</HTML>

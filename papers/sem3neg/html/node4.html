@@ -1,0 +1,220 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.2beta8 (1.42)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Conventional definite clause semantics</TITLE>
+<META NAME="description" CONTENT="Conventional definite clause semantics">
+<META NAME="keywords" CONTENT="naishsem3">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.2beta8">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="naishsem3.css">
+
+<LINK REL="next" HREF="node5.html">
+<LINK REL="previous" HREF="node3.html">
+<LINK REL="up" HREF="node3.html">
+<LINK REL="next" HREF="node5.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html79"
+  HREF="node5.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/lib/latex2html/icons/next.png"></A> 
+<A NAME="tex2html77"
+  HREF="node3.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/lib/latex2html/icons/up.png"></A> 
+<A NAME="tex2html71"
+  HREF="node3.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/lib/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html80"
+  HREF="node5.html">Intended interpretations are not</A>
+<B> Up:</B> <A NAME="tex2html78"
+  HREF="node3.html">Motivation and background</A>
+<B> Previous:</B> <A NAME="tex2html72"
+  HREF="node3.html">Motivation and background</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00031000000000000000">
+Conventional definite clause semantics</A>
+</H2>
+
+<P>
+The conventional approach to the semantics of logic programs, described in
+[<A
+ HREF="node22.html#Llo84">LloydLloyd1984</A>], includes model theory, fixpoint theory and an operational
+semantics.  Here we just discuss the theory as it applies to successful
+computations using definite clauses.  That is, we do not (yet) deal with
+failure or negation, which lead to significant additional complication
+and various conflicting proposed semantics.
+
+<P>
+The model theory is two-valued -- each (ground) atom in the Herbrand
+base is associated with the truth value <I>true</I> or <I>false</I>.
+Typically the theory represents an interpretation as a single set of
+atoms -- the atoms which are true.  The classical truth tables for
+conjunction and implication are used.  The intended interpretation of
+a (correct) program is assumed to be a model (every clause instance
+is true according to the interpretation and truth tables) and this
+implies soundness of computations (see below).  This is the great
+advantage of the model-theoretic semantics: a program can be viewed
+completely declaratively and the correctness of each clause can be
+verified statically and in isolation.  It can also be used as the basis
+for declarative debugging.  The intersection of two models is a model,
+hence a least model exists which is the intersection of all models and
+is the least Herbrand model.  This is the set of logical consequences
+of the program.
+
+<P>
+The fixpoint semantics of a program <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$P$"> are based on the
+immediate consequence
+operator <IMG
+ WIDTH="26" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$T_P$">, which maps a set of ground atoms <IMG
+ WIDTH="21" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$M$"> to the set of ground
+atoms which can be proven from <IMG
+ WIDTH="21" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$M$"> by applying a single program clause:
+
+<P>
+<BR>
+
+<BR><!-- MATH
+ $T_P(M) = \{H | H \leftarrow B_1, B_2, \ldots B_N$
+ -->
+<IMG
+ WIDTH="238" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$T_P(M) = \{H \vert H \leftarrow B_1, B_2, \ldots B_N$"> is a
+ground clause instance 
+<BR>
+and <!-- MATH
+ $\{B_1, B_2, \ldots B_N\} \subseteq M\}$
+ -->
+<IMG
+ WIDTH="161" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$\{B_1, B_2, \ldots B_N\} \subseteq M\}$">
+
+<P>
+<BR>
+
+<BR><IMG
+ WIDTH="26" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$T_P$"> is monotonic, and applying <IMG
+ WIDTH="26" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$T_P$"> <IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$n$"> times starting with the
+empty set (<!-- MATH
+ $T_P \uparrow n$
+ -->
+<IMG
+ WIDTH="53" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$T_P \uparrow n$">) is of interest.  It gives a ``bottom up''
+semantics where initially we assume nothing and iteratively prove that a
+growing set of atoms are true.  The least fixpoint of
+<IMG
+ WIDTH="26" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$T_P$"> is <!-- MATH
+ $T_P \uparrow \omega$
+ -->
+<IMG
+ WIDTH="53" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$T_P \uparrow \omega$">
+(= <!-- MATH
+ $\textrm{lub}(T_P \uparrow n), n = 1,2, \ldots$
+ -->
+<IMG
+ WIDTH="175" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$\textrm{lub}(T_P \uparrow n), n = 1,2, \ldots$">).
+A set of atoms <IMG
+ WIDTH="21" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$M$"> is a model of <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$P$"> if and only if <!-- MATH
+ $T_P(M) \subseteq M$
+ -->
+<IMG
+ WIDTH="94" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$T_P(M) \subseteq M$">
+and the least fixpoint is the
+least model.  The fixpoint semantics are particularly useful for
+program analysis and have also been used as the basis for bottom up
+operational semantics, especially for logic databases.
+
+<P>
+The operational model is SLD resolution.  This gives a top down semantics
+where atoms are proved by recursively proving the bodies of matching
+clauses.  The set of ground atoms which have successful SLD derivations
+(which is the set of ground instances of computed answers) is called
+the success set, <IMG
+ WIDTH="24" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img12.png"
+ ALT="$SS$">, and is independent of the computation rule (the
+order in which atoms are selected).  The success set is the same as the
+least model and the least fixpoint.  Thus (assuming that the intended
+interpretation is a model) the computed answers of a program are true
+in the intended interpretation.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html79"
+  HREF="node5.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/lib/latex2html/icons/next.png"></A> 
+<A NAME="tex2html77"
+  HREF="node3.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/lib/latex2html/icons/up.png"></A> 
+<A NAME="tex2html71"
+  HREF="node3.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/lib/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html80"
+  HREF="node5.html">Intended interpretations are not</A>
+<B> Up:</B> <A NAME="tex2html78"
+  HREF="node3.html">Motivation and background</A>
+<B> Previous:</B> <A NAME="tex2html72"
+  HREF="node3.html">Motivation and background</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+
+2005-08-02
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,396 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Prolog as an instance of graph searching</TITLE>
+<META NAME="description" CONTENT="Prolog as an instance of graph searching">
+<META NAME="keywords" CONTENT="tplp">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="tplp.css">
+</HEAD>
+<BODY >
+<!--Navigation Panel-->
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/next_motif_gr.gif"> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/up_motif_gr.gif"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/previous_motif_gr.gif">   
+<BR>
+<BR><BR>
+<!--End of Navigation Panel-->
+
+<P>
+
+<P>
+<H1 ALIGN="CENTER">Prolog as an instance of graph searching</H1>
+<P ALIGN="CENTER"><STRONG>LEE NAISH<BR>
+Department of Computer Science and Software Engineering <BR>
+University of Melbourne <BR>
+Melbourne 3010 <BR>
+Australia</STRONG></P>
+<P ALIGN="LEFT"></P>
+
+<P>
+
+<H3>Abstract:</H3>
+<DIV>This paper presents the development of a Prolog program which
+illustrates many of the nice features of the language.  The application
+is a <EM>meta-interpreter</EM> for Horn clauses, the basis of Prolog.  The
+interpreter inherits <EM>nondeterminism</EM> and support for
+<EM>logic variables</EM>
+from the object program it is interpreting.  Logic variables are also
+used in ``difference lists'' and the representation of the object
+program.  The interpreter also uses <EM>definite clause grammar</EM>
+notation and <EM>higher order</EM> programming.
+
+<P>
+</DIV>
+<P>
+<P>
+
+<H1><A NAME="SECTION00010000000000000000">
+Introduction</A>
+</H1>
+
+<P>
+One aim of this paper is to showcase some of the programming techniques
+available in pure Prolog.  Although the program presented consists of
+only four clauses plus additional facts which represent the data the
+program operates on, it illustrates a remarkably rich set of techniques.
+An equally important aim is to show how Prolog can very elegantly
+support abstraction in the program development process.  The ability to
+support abstraction is a vital attribute of programming languages and
+although Prolog has some weaknesses with abstract data types, in other
+areas it can surpass other languages.
+
+<P>
+
+<H1><A NAME="SECTION00020000000000000000">
+Prolog as graph searching</A>
+</H1>
+
+<P>
+Prolog is based in the idea of resolution theorem proving.  A program
+consists of Horn clauses and the execution uses resolution with these
+clauses and a top-level goal.  The resolution strategy used (called
+linear resolution) resolves the current goal with a program clause at
+each step.  The process of solving the top-level goal (finding a
+refutation) is an instance of graph searching, a familiar
+abstraction used in artificial intelligence.
+The search space can be seen as a graph, with nodes corresponding to
+goals and edges corresponding to single resolution steps.  A refutation
+corresponds to a path from the top-level goal to the empty goal.
+Using another abstraction, the transitive closure operation on graphs,
+we arrive at a concise specification of the solvability relation in
+Prolog: a goal is solvable if and only if there is an edge from
+(the node corresponding to)
+that goal to the empty goal in the transitive closure of resolution step
+relation.  This view of Prolog is the basis for our meta interpreter.
+
+<P>
+
+<H1><A NAME="SECTION00030000000000000000">
+The code</A>
+</H1>
+
+<P>
+Some decisions about representation need to be made before any code is
+written.  We use lists to represent (conjunctive) goals, <code>[]</code>
+representing the empty goal.  Our meta interpreter will include a
+representation of the program to be interpreted rather than having the
+program as an argument.  We will use <code>resolvant/2</code> for the
+single resolution step relation: <code>resolvant(G0,G)</code> is true if goal
+<code>G</code> can be obtained by resolving goal <code>G0</code> with a single
+program clause.  We defer discussion on our coding of transitive closure
+until the end.  For now we just mention we will use a higher order style
+of code and that <code>tc(resolvant,G0,G)</code> holds if there is an edge from
+<code>G0</code> to <code>G</code> in the transitive closure of <TT>resolvant</TT>.
+
+<P>
+We can now code the top level of our interpreter.
+Note that at this point the only commitment is that linear resolution
+is used.  The resolution steps could use any computation (atom
+selection) rule and the transitive closure algorithm could use any
+clause selection rule and any combination of top-down, bottom-up and
+memoing execution.
+
+<P>
+<PRE>
+% meta interpreter for goal (=list)
+solvable(G) :-
+        tc(resolvant, G, []).
+</PRE>
+<P>
+Standard Prolog uses a left to right computation rule so <TT>resolvant/2</TT>
+resolves the <EM>first</EM> of a list of subgoals with a program clause.  The
+result is the body of the (renamed) matching clause appended with the rest
+of the subgoals, with a unifying substitution applied.  Potentially costly
+renaming, unification, substitution and append operations can be done
+very efficiently by the procedure which represents the object program,
+so our coding of <TT>resolvant/2</TT> simply separates the first subgoal
+and calls our version of <TT>clause</TT>.
+
+<P>
+<PRE>
+% resolves first (Prolog choice) atom in goal with a clause
+resolvant([G0|Gs0], Gs) :-
+        dlclause(G0, Gs0, Gs).
+</PRE>
+<P>
+Our clause representation is a familiar one, see [<A
+ HREF="tplp.html#rok">O'Keefe, 1990</A>] for
+example.  By using a non-ground clause representation
+we take advantage of Prolog's built-in renaming, unification
+and substitution of logic variables which are implemented very
+efficiently at the core of most Prolog systems.
+Appending is avoided by using ``difference lists'',
+another use of logic variables.  Declaratively,
+<TT>dlclause(Head, Cont, BodyCont)</TT> is true if there is a program
+clause instance <TT>Head:-Body</TT> such that
+<TT>append(Body, Cont, BodyCont)</TT>.  Note that in a logical sense we
+don't distinguish between clauses and their instances.  The
+representation is therefore rather limited (for example, we can't code
+<TT>var/1</TT> in a logical way), but is sufficient for a pure
+meta-interpreter with a simple computation rule.  We give the
+representation of the naive reverse program as an example.
+
+<P>
+<PRE>
+% dlclause uses difference lists for clause bodies
+dlclause(app([], As, As), Cont, Cont).
+dlclause(app([A|As], Bs, [A|Cs]), Cont, [app(As, Bs, Cs) | Cont]).
+%
+dlclause(rev([], []), Cont, Cont).
+dlclause(rev([A|As], Bs), Cont,
+        [rev(As, Cs), app(Cs, [A], Bs) | Cont]).
+</PRE>
+<P>
+All that is needed now is our transitive closure implementation but we
+first briefly discuss the higher order coding style we use.
+The interpreter first appeared
+(with minor differences) in [<A
+ HREF="tplp.html#naish:ho">Naish, 1996</A>], which discussed higher
+order programming more extensively.
+A graph can be represented by its edge relation/predicate. In a true
+higher order logic language this would be a first class object and
+could be passed as an argument et cetera.  In our code we represent
+the graph by the <EM>name</EM> of the predicate, the Prolog constant
+<code>resolvant/0</code> (we just drop the two arguments which are vertices).
+Similarly, the transitive closure is another graph and can be represented as
+the term <TT>tc(resolvant)</TT>.
+
+<P>
+Our transitive closure predicate, <code>tc/3</code>, can be thought of as a
+higher order predicate but can be given first order semantics since its
+first argument is the symbolic name of a predicate, not an actual
+predicate.  This style gives all the power of higher order programming
+(it actually gives slightly too much power since comparing predicate
+names is possible but dubious: <TT>tc(resolvant)</TT> and
+<TT>tc(tc(resolvant))</TT> represent
+the same predicate but the names are different).
+The typical way such names are mapped to predicates in this style of
+programming is via <TT>call/3</TT> (or <TT>call/N</TT> in general),
+a built-in or library predicate in many Prolog systems.  It calls its first
+argument (the name of a predicate) with the two additional arguments.
+For example, <TT>call(resolvant,G0,G)</TT> calls <TT>resolvant(G0,G)</TT>.
+The Definite Clause Grammar support predicate <TT>phrase/3</TT> is
+equivalent in such cases.
+
+<P>
+Given a graph represented by edge predicate <I>E</I> the transitive closure
+<I>tc</I>(<I>E</I>) is the <EM>path</EM> (a sequence of edges) predicate for <I>E</I>.
+Prolog's support for Definite Clause Grammars is often very
+convenient for programming with sequences and defining a path as being
+empty or an edge followed by a path leads directly to the
+following code:
+
+<P>
+<PRE>
+% transitive closure of edge relation E (sequence of edges)
+tc(E) --&gt; [].
+tc(E) --&gt; E, tc(E).
+</PRE>
+<P>
+For some DCG preprocessors the non-terminal <TT>E</TT>
+must be replaced by <TT>phrase(E)</TT> or <TT>call(E)</TT>; in others
+this is done automatically as part of the DCG expansion, which produces
+the following Horn clauses:
+
+<P>
+<PRE>
+tc(E, A, A).
+tc(E, A, C) :- phrase(E, A, B), tc(E, B, C).
+</PRE>
+<P>
+This is the most naive transitive closure algorithm and is very
+inefficient in general.  However, combined with the code above it
+corresponds to the standard Prolog execution strategy: naive
+backtracking search.  The nondeterministic selection of an edge in the
+graph is done by calling <TT>resolvant/2</TT> (via <TT>phrase/3</TT>)
+which calls <TT>dlclause/3</TT> to select a clause matching the first
+subgoal of the current goal.
+
+<P>
+
+<H1><A NAME="SECTION00040000000000000000">
+Discussion</A>
+</H1>
+
+<P>
+The high level abstract ideas behind this view of Prolog translate to
+code very directly and concisely.  The structure of the code clearly
+separates the computation rule (encapsulated by <TT>resolvant/2</TT>)
+and search strategy (encapsulated by <TT>tc/3</TT>).  This is made
+possible by the use of higher order programming.  The coding emphasises
+the simplicity of the Prolog search strategy by exposing the naive
+transitive closure algorithm.
+
+<P>
+The transitive closure definition is a particularly nice example of
+using abstractions.  The abstraction of definite clause grammar notation
+is used to define a sequence.  The elements of the sequence are also
+abstract entities: edges in a graph which have no explicit
+representation in the program.  Furthermore, edges are defined by a
+predicate but this predicate is a parameter rather than being specified
+concretely.
+
+<P>
+By substituting different transitive
+closure algorithms it is possible to simulate other
+search strategies such as use of memoing (saving lemmas) and bottom-up
+(forward chaining).  For example, simply swapping the two calls in the
+<TT>tc/3</TT> definition (equivalent to changing the computation rule)
+results in quite different behaviour.  The interpreter then uses a naive
+bottom-up evaluation which generates provable goals in order of the
+length of the proof, until the top level goal is matched.  That is,
+instead of a top-down depth first search it uses a bottom-up iterative
+deepening search.  Although very inefficient and never finitely failing,
+this interpreter has the advantage of being complete, always finding a
+proof if one exists.
+
+<P>
+The symmetric top-down iterative deepening (complete and reasonably
+efficient) and bottom-up depth first (very inefficient and incomplete)
+strategies can be obtained in two ways.  The more subtle way is by
+replacing the recursive rule for <TT>tc</TT> by <TT>tc(E)-&gt;tc(E),E</TT>
+(using the left-recursive simple definition of a sequence of edges).
+A more obvious alternative is to keep the same transitive closure
+algorithm but use it to search for a path from the empty goal to the top
+level goal in a version of the graph with all edges reversed.  This can
+be done by replacing the top level call to <TT>tc/3</TT> by
+<TT>tc(converse(resolvant),[],G)</TT>, where <TT>converse</TT> can be
+defined as follows (preferably in some standard library):
+
+<P>
+<PRE>
+converse(Pred, X, Y) :- call(Pred, Y, X).
+</PRE>
+<P>
+The code structure does impose some runtime overheads compared to some
+other codings.  Specifically, the constants <TT>resolvant</TT> and
+<code>[]</code> are passed around and <TT>phrase/3</TT> is used rather than
+calling <TT>resolvant/2</TT> directly.  Using partial evaluation
+techniques such as ``constant folding'' such overheads can be eliminated
+(some Prolog compilers, for example XSB-Prolog, implement constant
+folding specifically for higher order code).  For example, the Mixtus
+partial evaluator [<A
+ HREF="tplp.html#sahlin">Sahlin, 1993</A>] (with some minor tweaking of our code)
+produces the following program.
+
+<P>
+<PRE>
+solvable(A) :-
+        solvable1(A).
+
+solvable1(A) :-
+        tcresolvant1(A).
+
+% tcresolvant1(A):-tc(resolvant,A,[])
+tcresolvant1([]).
+tcresolvant1([A|B]) :-
+        dlclause(A, B, C),
+        tcresolvant1(C).
+</PRE>
+<P>
+The structured way we developed the program is no longer reflected in
+the code.  There is no longer a clear separation of the search strategy
+from the computation rule, for example.  However, the code is
+essentially equivalent to the most efficient meta interpreter in [<A
+ HREF="tplp.html#rok">O'Keefe, 1990</A>].
+We conclude with a top-down iterative deepening meta
+interpreter developed with the help of Mixtus applied to the code we
+have described above (<TT>tc1/3</TT> is the same as <TT>tc/3</TT> except
+the two calls are swapped).  This is both significantly simpler and more
+efficient than other such interpreters the author is aware of.
+
+<P>
+<PRE>
+solvable_tdid(G) :-
+        tc1converseresolvant1(G, []).
+
+% tc1converseresolvant1(A,B):-tc1(converse(resolvant),B,A)
+tc1converseresolvant1(A, A).
+tc1converseresolvant1(A, B) :-
+        tc1converseresolvant1(A, C),
+        C=[D|E],
+        dlclause(D, E, B).
+</PRE><H2><A NAME="SECTIONREF">Bibliography</A>
+</H2>
+<DL COMPACT><DD><P></P><DT><A NAME="naish:ho"><STRONG>Naish, 1996</STRONG></A>
+<DD>
+Naish, Lee. 1996 (Feb.).
+<BR><EM>Higher-order logic programming in Prolog</EM>.
+<BR>Tech. rept. 96/2. Department of Computer Science, University of
+  Melbourne, Melbourne, Australia.
+
+<P></P><DT><A NAME="rok"><STRONG>O'Keefe, 1990</STRONG></A>
+<DD>
+O'Keefe, Richard A. (1990).
+<BR><EM>The craft of Prolog</EM>.
+<BR>Logic Programming.
+<BR>Cambridge, Massachusetts: MIT Press.
+
+<P></P><DT><A NAME="sahlin"><STRONG>Sahlin, 1993</STRONG></A>
+<DD>
+Sahlin, Dan. (1993).
+<BR>Mixtus: An automatic partial avaluator for full Prolog.
+<BR><EM>New generation computing</EM>, <B>12</B>(1), 7-51.
+</DL>
+
+<H1><A NAME="SECTION00060000000000000000">
+  About this document ... </A>
+</H1> 
+ <STRONG>Prolog as an instance of graph searching</STRONG><P>
+This document was generated using the
+<A HREF="http://www-dsed.llnl.gov/files/programs/unix/latex2html/manual/"><STRONG>LaTeX</STRONG>2<tt>HTML</tt></A> translator Version 98.1p1 release (March 2nd, 1998)
+<P>
+Copyright &#169; 1993, 1994, 1995, 1996, 1997,
+<A HREF="http://cbl.leeds.ac.uk/nikos/personal.html">Nikos Drakos</A>, 
+Computer Based Learning Unit, University of Leeds.
+<P>
+The command line arguments were: <BR>
+ <STRONG>latex2html</STRONG> <tt>-split 0 -no_images tplp.tex</tt>.
+<P>
+The translation was initiated by Lee Naish on 2000-09-15<HR>
+<!--Navigation Panel-->
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/next_motif_gr.gif"> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/up_motif_gr.gif"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/previous_motif_gr.gif">   
+<BR>
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>Lee Naish</I>
+<BR><I>2000-09-15</I>
+</ADDRESS>
+</BODY>
+</HTML>

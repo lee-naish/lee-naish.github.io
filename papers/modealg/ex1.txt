@@ -1,0 +1,389 @@
+        % ---> not yet predefined in nc
+:- op(1179, xfy, (--->)).
+:- op(920, xfy, (==>)).
+:- op(920, xfy, (<==>)).
+:- op(920, xfy, (<->)).
+:- op(1180, fx, (mode)).
+
+:- mode app(list(T1), list(T2), list(T3)): T1 + T2 <==> T3.
+app([], As, As).
+app(A.As, Bs, A.Cs) :- app(As, Bs, Cs).
+
+:- mode app20(list(T1), list(T2), list(T3)): T1 + T2 <==> T3.
+app20([], As, As).
+app20(A.As, Bs, A.A.Cs) :- app20(As, Bs, Cs).	% BUG <=> not <==>
+
+:- mode app21(list(T1), list(T2), list(T3)): T1 + T2 <=> T3.
+app21([], As, As).
+app21(A.As, Bs, A.A.Cs) :- app21(As, Bs, Cs).
+
+% most precise mode
+:- mode app22(list(T1), list(T2), list(T3)): T1 + T1 + T2 <==> T3.
+app22([], As, As).
+app22(A.As, Bs, A.A.Cs) :- app22(As, Bs, Cs).
+
+% example which exhibits exponential behaviour using ACI unification
+% but is polynomial (should be almost linear) with CRT domain
+:- mode app_n(list(T1), list(T2), list(T3)): T1 + T2 <=> T3.
+app_n(A, B, [C1,C2,C3 /* ,C4,C5,C6,C7,C8,C9 */ ]) :-
+	app21(A, B, [C1,C2,C3 /* ,C4,C5,C6,C7,C8,C9 */ ]). % A+B<=>C
+
+% non-parametric modes:
+% constraints on (labelled) internal nodes of type tree
+:- mode app_a(X=list(T1), Y=list(T2), Z=list(T3)):
+	T1 + T2 <==> T3, X + Y <-> Z.
+app_a([], As, As).
+app_a(A.As, Bs, A.Cs) :- app_a(As, Bs, Cs).
+
+:- mode app_b(X=list(T1), Y=list(T2), Z=list(T3)):
+	T1 + T2 <==> T3,
+	(X -> Z).  % BUG
+app_b([], As, As).
+app_b(A.As, Bs, A.Cs) :- app_b(As, Bs, Cs).
+
+% most precise mode
+:- mode app_c(X=list(T1), Y=list(T2), Z=list(T3)):
+	T1 + T2 <==> T3, Y <-> Z, X.
+app_c([], As, As).
+app_c(A.As, Bs, A.Cs) :- app_c(As, Bs, Cs).
+
+	% Inputs list of list of things.
+	% Outputs list of things.
+	% Modes of two lots of things are complementary.
+:- mode flatten(list(list(EM1)), list(EM2)) : EM1 <==> EM2.
+flatten([], []).
+flatten(L0.Ls, L) :-
+	app(L0, Tail, L),    % app var onto list
+	flatten(Ls, Tail).      % fills in var
+
+% 3 lists are equal (two versions)
+:- mode eq_lists(list(EM1), list(EM2), list(EM3)) : EM1 <==> EM2, EM2 <==> EM3.
+eq_lists([], [], []).
+eq_lists(E.As, E.Bs, E.Cs) :-
+	eq_lists(As, Bs, Cs).
+eq_lists(As, Bs, Cs) :- % alternative defn
+	eq_list(As, Bs),
+	eq_list(Bs, Cs). % or As, Cs - this is more like type
+
+% 2 list version
+:- mode eq_list(list(EM1), list(EM2)) : EM1 <==> EM2.
+eq_list([], []).
+eq_list(E.As, E.Bs) :-
+	eq_list(As, Bs).
+
+:- mode aa(X=list(T1), Y=list(T2)): T1 <==> T2, X <-> Y.
+aa(As, As).
+aa(A.As, A.Cs) :- aa(As, Cs).
+
+:- mode swap_val(K, V0, V, tree(pair(Ks1, Vs1)), tree(pair(Ks2, Vs2))) :
+         Ks1 ==> K, Ks1 <==> Ks2, Vs1 + V <==> Vs2 + V0.
+swap_val(K, V0, V, t(L, K-V0, R), t(L, K-V, R)).
+swap_val(K, V0, V, t(L, KN-VN, R), t(L1, KN-VN, R)) :-
+	K @< KN,
+	swap_val(K, V0, V, L, L1).
+swap_val(K, V0, V, t(L, KN-VN, R), t(L, KN-VN, R1)) :-
+	K @> KN,
+	swap_val(K, V0, V, R, R1).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	% types for stack object
+	% (stream of push/1, pop/1 and is_empty/1 messages)
+	% pushed and popped elements separated
+:- type stk_op(PU, PO) --->
+              push(PU) ;
+              pop(PO) ;
+              is_empty(boolean).
+:- type boolean --->
+              true ;
+              false.
+
+:- type stk_ops(PU, PO) = list(stk_op(PU, PO)).       % should imp
+
+
+	% need the two params to capture equality
+	% With only one it would not even be possible
+	% to have a  useful =< constraint
+:- mode stack_op(stk_op(PU, PO), list(E1), list(E2)) : E1 + PU <==> E2 + PO.
+stack_op(is_empty(true), [], []).
+stack_op(is_empty(false), E.Es, E.Es).
+stack_op(push(E), Es, E.Es).
+stack_op(pop(E), E.Es, Es).
+
+	% * things in ops + list are not generally the same
+	% (look at success set)
+	% Need two params again to cature relationship.
+	% If we could only succeed with empty list, ie base case was
+	% stack1([], []) then constraint could be <==> instead of ==>
+:- mode stack1(list(stk_op(PU, PO)), list(E)) : PU + E ==> PO.
+stack1([], _).
+stack1(O.Os, Es) :-
+	stack_op(O, Es, Es1),
+	stack1(Os, Es1).
+
+% <==> version
+:- mode stack2(list(stk_op(PU, PO)), list(E)) : PU + E <==> PO.
+stack2([], []).
+stack2([], _). % BUG - mode checking should fail
+stack2(O.Os, Es) :-
+	stack_op(O, Es, Es1),
+	stack2(Os, Es1).
+
+	% constraint could be <==> or ==> as above
+% :- mode stack(stk_ops(PU, PO)) : PU ==> PO.  % stk_ops NYI
+:- mode stack(list(stk_op(PU, PO))) : PU <==> PO.
+stack(Os) :-
+	stack2(Os, []).		% stack initially empty
+
+% reverse list by pushing all elements then popping them all
+:- mode srev(list(T1), list(T2)): T1 <==> T2.
+srev(As, Bs) :-
+	map_wrap_push(As, PAs),
+	map_wrap_pop(Bs, PBs),
+	app_stk(PAs, PBs, Ps),
+	stack(Ps).
+
+:- mode map_wrap_push(list(T), list(stk_op(PU, PO))):
+		T <==> PU, [] ==> PO.
+map_wrap_push([], []).
+map_wrap_push(A.As, push(A).PAs) :-
+	map_wrap_push(As, PAs).
+
+:- mode map_wrap_pop(list(T), list(stk_op(PU, PO))):
+		T <==> PO, [] ==> PU.
+map_wrap_pop([], []).
+map_wrap_pop(A.As, pop(A).PAs) :-
+	map_wrap_pop(As, PAs).
+
+% need more specifically typed app because we don't currently
+% figure out type instances for calls
+:- mode app_stk(list(stk_op(T1,U1)), list(stk_op(T2,U2)), list(stk_op(T3,U3))):
+	T1 + T2 <==> T3,
+	U1 + U2 <==> U3.
+app_stk([], As, As).
+app_stk(A.As, Bs, A.Cs) :- app_stk(As, Bs, Cs).
+
+
+% naive reverse (need to keep track of relationships between A and lists)
+:- mode rev(list(T1), list(T2)): T1 <==> T2.
+rev([], []).
+rev(A.As, Bs) :- rev(As, Cs), app(Cs, [A], Bs).
+
+% shows that qsort preserves multiset of elements
+% (things are linear overall despite A occurring three times)
+:- mode qsort(list(T1), list(T2)): T1 <==> T2.
+qsort([], []).
+qsort(A.B, C.D) :-
+	part(A, B, L1, L2),
+	qsort(L1, S1),
+	qsort(L2, S2),
+	app(S1, A.S2, C.D).
+
+:- mode part(T0, list(T1), list(T2), list(T3)): T1 <==> T2 + T3.
+part(A, [], [], []).
+part(A, B.C, B.D, E) :-
+	A @>= B,
+	part(A, C, D, E).
+part(A, B.C, D, B.E) :-
+	A @< B,
+	part(A, C, D, E).
+
+% accumulator version of quicksort
+% shows that qsort preserves multiset of elements
+:- mode qsort2(list(T1), list(T2)): T1 <==> T2.
+qsort2(Us, Ss) :-
+	qsort1(Us, [], Ss).
+
+:- mode qsort1(list(T1), list(T2), list(T3)): T1 + T2 <==> T3.
+qsort1([], As, As).
+qsort1([A|B], As, C) :-
+	part(A, B, L1, L2),
+	qsort1(L1, [A|A2s], C),
+	qsort1(L2, As, A2s).
+
+
+	% in order tree traversal with append ("naive")
+:- mode ninorder(tree(T1), list(T2)): T1 <==> T2.
+ninorder(nil, []).
+ninorder(t(TL, N, TR), L) :-
+	ninorder(TL, LL),
+	ninorder(TR, LR),
+	app(LL, N.LR, L).
+
+	% in order tree traversal
+:- mode inorder(tree(T1), list(T2)): T1 <==> T2.
+inorder(T, L) :-
+	inorder1(T, [], L).
+
+	% L = [...inorder(left)..N..inorder(right)...L0]
+	% L1 =			 [..inorder(right)...L0]
+:- mode inorder1(tree(T1), list(T2), list(T3)): T1 + T2 <==> T3.
+inorder1(nil, L, L).
+inorder1(t(TL, N, TR), L0, L) :-
+	inorder1(TR, L0, L1),
+	inorder1(TL, N.L1, L).	% could call first
+
+
+	% in order tree traversal with difference lists
+:- mode dinorder(tree(T1), list(T2)): T1 <==> T2.
+dinorder(T, L) :-
+	dinorder1(T, L - []).
+
+:- mode dinorder1(tree(T1), pair(list(S2), list(T2))):
+		% T1 <==> S2-T2.
+		T1 + T2 <==> S2.
+dinorder1(nil, DL - DL).
+dinorder1(t(TL, N, TR), DS - DT) :-
+	dinorder1(TL, DSL - DTL),
+	dinorder1(TR, DSR - DTR),
+	dapp(DSL - DTL, (N.DSR) - DTR, DS - DT).
+
+% difference list append
+:- mode dapp(	pair(list(S1),list(T1)),
+		pair(list(S2),list(T2)),
+		pair(list(S3),list(T3))):
+	% S1-T1 + S2-T2 <==> S3-T3.
+	% S1 + S2 + T3 <==> S3 + T1 + T2. % less precise
+	T1 <==> S2, S3 <==> S1, T3 <==> T2. % most precise mode!
+dapp(S1 - S2, S2 - T2, S1 - T2).
+
+
+% Note: multiset constraint entailment is tricky here
+% due to less precision in dapp2 mode
+:- mode dinorder2(tree(T1), pair(list(S2), list(T2))):
+		% T1 <==> S2-T2.
+		T1 + T2 <==> S2.
+dinorder2(nil, DL - DL).
+dinorder2(t(TL, N, TR), DS - DT) :-
+	dinorder2(TL, DSL - DTL),
+	dinorder2(TR, DSR - DTR),
+	dapp2(DSL - DTL, (N.DSR) - DTR, DS - DT).
+
+% difference list append
+:- mode dapp2(	pair(list(S1),list(T1)),
+		pair(list(S2),list(T2)),
+		pair(list(S3),list(T3))):
+	% S1-T1 + S2-T2 <==> S3-T3.
+	S1 + S2 + T3 <==> S3 + T1 + T2. % less precise
+dapp2(S1 - S2, S2 - T2, S1 - T2).
+
+% breadth first traversal of tree (uses a queue)
+% Runs forward or backwards.
+% The queue is represented as three terms:
+%	length (using successor notation) - current #elements in queue
+%	front - list of all elements which will ever be put on the queue
+%	tail - tail of list above; the list of elments not yet put on
+%		the queue (ie, front-tail is the difference list of
+%		elements of the queue)
+% The separate length term is needed to check for an empty queue
+% (otherwise we would need an O(N) check + the occurs check)
+%
+% Note: multiset constraint entailment is tricky here
+:- mode bf(tree(T1), list(T2)): T1 <==> T2.
+bf(At, As) :-
+	bfq(s(zero), At.QT, QT, As).
+
+% as above using a queue of trees
+:- mode bfq(nat, list(tree(QH)), list(tree(QT)), list(L)):
+	% L <==> QH - QT.
+	L + QT <==> QH.
+bfq(zero, Q, Q, []).
+bfq(s(N), nil.QH, QT, As) :-
+	bfq(N, QH, QT, As).
+bfq(s(N), t(L,A,R).QH, L.R.QT, A.As) :-
+	bfq(s(s(N)), QH, QT, As).
+
+% As above but using set constraints instead of multisets
+% BUG: We get a mode error here because the set constraint for
+% sbfq is not strong enough.  Basically we get At+QT <=> As+QT
+% which does not imply At <=> As (with multisets it does).
+:- mode sbf(tree(T1), list(T2)): T1 <=> T2.
+sbf(At, As) :-
+	sbfq(s(zero), At.QT, QT, As).
+
+% as above using a queue of trees
+:- mode sbfq(nat, list(tree(QH)), list(tree(QT)), list(L)):
+	% L <=> QH - QT.
+	L + QT <=> QH.
+sbfq(zero, Q, Q, []).
+sbfq(s(N), nil.QH, QT, As) :-
+	sbfq(N, QH, QT, As).
+sbfq(s(N), t(L,A,R).QH, L.R.QT, A.As) :-
+	sbfq(s(s(N)), QH, QT, As).
+% following fact is consistent with set constraint but not multiset
+% constraint .  The call sbfq(s(zero), At.QT, QT, As) will not
+% result in At <=> As (the mode set with set constraints is not a model)
+% sbfq(s(zero), [nil,t(nil,a,nil)], [t(nil,a,nil)], [a])
+
+        % from D&H
+% :- mode p(T, ~list(T)).       % -> error
+:- mode p(X=nat, list(Z=nat)): X->Z.
+p(X, Y) :- q(X, Z), r(Z, Y).
+
+:- mode q(X=nat, Y=nat): X -> Y.
+
+% :- mode r(T1, Y=list(T2)): Y, T1=>T2.	% need instance
+% :- mode r(X=nat, Y=list(Z=nat)): Y, (X->Z).
+:- mode r(X=nat, list(Z=nat)): X->Z.
+
+
+% from Boye Directional types, also used by Codish,...
+% originally monomorphic - challenge was to show that
+% NewTree was list(num)
+
+% Polymorphic version: tree nodes can be anything.  Still builds tree
+% with maximum element (or Min, if all element are @< Min)
+
+:- mode pmaxtree(tree(T0), Min, tree(T)) : T0+Min => T.
+pmaxtree(Tree, Min, NewTree) :-
+	pmaxtree1(Tree, Min, Max, Max, NewTree).
+
+:- mode pmaxtree1(tree(T0), Min, GM, M, tree(T)) : T0+Min => M, GM => T.
+pmaxtree1(nil, Min, _, Min, nil).
+pmaxtree1(t(L, X, R), Min, Max, MaxSoFar, t(NewL, Max, NewR)) :-
+	pmaxtree1(L, Min, Max, MaxL, NewL),
+	pmaxtree1(R, Min, Max, MaxR, NewR),
+	pmax3(X, MaxL, MaxR, MaxSoFar).
+
+:- mode pmax3(A, B, C, Max) : A+B+C => Max.
+pmax3(A, B, C, Max) :-
+	pmax2(A, B, MaxAB),
+	pmax2(MaxAB, C, Max).
+
+:- mode pmax2(A, B, Max) : A+B => Max.
+pmax2(A, B, A) :- A @>= B.
+pmax2(A, B, B) :- A @< B.
+
+
+% Polymorphic version: tree nodes can be anything.  Still builds tree
+% with maximum element; not as deterministic as before but the handling
+% of the minimum element of the ordering is cleaner. Code would be less
+% mess for lists (like foldr1, version above would be like foldr).
+
+:- mode ppmaxtree(tree(T0), tree(T)) : T0 => T.
+ppmaxtree(nil, nil).
+ppmaxtree(Tree, NewTree) :-
+	ppmaxtree1(Tree, Max, Max, NewTree).
+
+:- mode ppmaxtree1(tree(T0), GM, M, tree(T)) : T0 => M, GM => T.
+ppmaxtree1(t(nil, X, nil), Max, X, t(nil, Max, nil)).
+ppmaxtree1(t(nil, X, R), Max, MaxSoFar, t(nil, Max, NewR)) :-
+	ppmaxtree1(R, Max, MaxR, NewR),
+	ppmax2(X, MaxR, MaxSoFar).
+ppmaxtree1(t(L, X, nil), Max, MaxSoFar, t(NewL, Max, nil)) :-
+	ppmaxtree1(L, Max, MaxL, NewL),
+	ppmax2(X, MaxL, MaxSoFar).
+ppmaxtree1(t(L, X, R), Max, MaxSoFar, t(NewL, Max, NewR)) :-
+	ppmaxtree1(L, Max, MaxL, NewL),
+	ppmaxtree1(R, Max, MaxR, NewR),
+	ppmax3(X, MaxL, MaxR, MaxSoFar).
+
+:- mode ppmax3(A, B, C, Max) : A+B+C => Max.
+ppmax3(A, B, C, Max) :-
+	ppmax2(A, B, MaxAB),
+	ppmax2(MaxAB, C, Max).
+
+:- mode ppmax2(A, B, Max) : A+B => Max.
+ppmax2(A, B, A) :- A @>= B.
+ppmax2(A, B, B) :- A @< B.
+

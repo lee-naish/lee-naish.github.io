@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Motivation</TITLE>
+<META NAME="description" CONTENT="Motivation">
+<META NAME="keywords" CONTENT="naish">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="naish.css">
+<LINK REL="next" HREF="node2.html">
+<LINK REL="previous" HREF="naish.html">
+<LINK REL="up" HREF="naish.html">
+<LINK REL="next" HREF="node2.html">
+</HEAD>
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html35"
+ HREF="node2.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/next_motif.gif"></A> 
+<A NAME="tex2html33"
+ HREF="naish.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/up_motif.gif"></A> 
+<A NAME="tex2html27"
+ HREF="naish.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html36"
+ HREF="node2.html">Stepwise Enhancement for Program</A>
+<B> Up:</B> <A NAME="tex2html34"
+ HREF="naish.html">Stepwise Enhancement and Higher</A>
+<B> Previous:</B> <A NAME="tex2html28"
+ HREF="naish.html">Stepwise Enhancement and Higher</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00010000000000000000">
+Motivation</A>
+</H1>
+
+<P>
+In the last few years, interest in systematic
+methods for the construction of Prolog programs has significantly
+increased, for example
+(Gegg-Harrison, [<A
+ HREF="node20.html#Gegg-Harrison95">GH95</A>]),
+(Power and Sterling, [<A
+ HREF="node20.html#Power">PS90</A>]),
+(Kirschenbaum et al., [<A
+ HREF="node20.html#Kirschenbaum">KMS96</A>]),
+(Sterling and Yal&#231;inalp, [<A
+ HREF="node20.html#Sterling96">SY96</A>]), and
+(Vasconcelos and Fuchs, [<A
+ HREF="node20.html#Vasconcelos">VF95</A>]).  These papers have built on
+previous less systematic approaches to Prolog programming, implicit in
+text books and shared code.
+The progression of approaches has been discussed in
+(Naish and Sterling [<A
+ HREF="node20.html#hose1">NS98</A>]).
+
+<P>
+Two audiences can benefit from systematic approaches.  First, novice
+programmers who need guidance to create code of reasonable quality.
+Second, experienced programmers who want to increase their productivity.
+The needs of these two groups are quite different.  Novices can learn
+more easily from concrete examples and don't have the experience to
+recognise  patterns and abstractions.  Experienced programmers can
+benefit from using higher levels of abstraction in powerful tools.
+
+<P>
+We claim that both audiences can be addressed through the method
+of stepwise enhancement.
+It can be explained directly in term of programming techniques
+applied to simple programs, and also given a more theoretical basis in
+terms of higher order functions. In this paper we review stepwise
+enhancement, sketch how
+to capture an enhancement as a higher order function adapted from
+<code>foldr</code>,
+and then sketch how individual enhancements are specialisations of the
+particular foldr predicate. We show how this is closely related to the new
+ideas on shape and polytypism being discussed in the functional programming
+community (Jay and Cockett, [<A
+ HREF="node20.html#Jay94">JC94</A>]), (Jay, [<A
+ HREF="node20.html#Jay">Jay95</A>]),
+(Bell&#233; et al., [<A
+ HREF="node20.html#Belle">BJM96</A>])
+(Jeuring and Jansson, [<A
+ HREF="node20.html#Jeuring">JJ96</A>]), (Jansson and Jeuring, [<A
+ HREF="node20.html#Jansson">JJ97</A>]).
+We go on to generalise this work in several ways, utilising key
+features of logic programming such as nondeterminism and flexible modes,
+and show how <code>foldl</code> can also be adapted.
+This leads to a proposal for a set of software tools to automatically
+produce Prolog procedures from type definitions.
+We describe a prototype implementation and
+relate our initial experiences using these tools and using the higher order
+programming style with Prolog.
+
+<P>
+The current work was sparked by the
+challenge to use the higher order approach to explain a ``complicated''
+program, the rule interpreter described in Section 17.4 of the second
+edition of <EM>The Art of Prolog</EM> (Sterling and Shapiro, [<A
+ HREF="node20.html#Sterling94">SS94</A>]).
+In explaining
+the program, a new method was formulated: the final program is built around
+an output type rather than an input type.  In this paper we give another
+example of this technique, using a different interpreter.
+
+<P>
+What has emerged is a better understanding of how types can
+drive program development, and how Naish and Sterling's views of systematic
+program construction via stepwise enhancement are complementary. The work
+relates to recent, exciting work in the functional programming community
+concerning shape, which sets our views on program development in a broader
+context.
+These insights have prompted the development of prototype software tools
+for partially automating coding based on types and skeletons.  This
+paper describes our experiences with higher order programming
+in Prolog and the use of these tools.  The initial results show that a
+significant increase in programming productivity is possible.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html35"
+ HREF="node2.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/next_motif.gif"></A> 
+<A NAME="tex2html33"
+ HREF="naish.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/up_motif.gif"></A> 
+<A NAME="tex2html27"
+ HREF="naish.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html36"
+ HREF="node2.html">Stepwise Enhancement for Program</A>
+<B> Up:</B> <A NAME="tex2html34"
+ HREF="naish.html">Stepwise Enhancement and Higher</A>
+<B> Previous:</B> <A NAME="tex2html28"
+ HREF="naish.html">Stepwise Enhancement and Higher</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>Lee Naish</I>
+<BR><I>2000-07-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

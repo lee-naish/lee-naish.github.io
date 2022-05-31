@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.2beta8 (1.42)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Types, assertions and preconditions</TITLE>
+<META NAME="description" CONTENT="Types, assertions and preconditions">
+<META NAME="keywords" CONTENT="naishsem3">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.2beta8">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="naishsem3.css">
+
+<LINK REL="next" HREF="node7.html">
+<LINK REL="previous" HREF="node5.html">
+<LINK REL="up" HREF="node3.html">
+<LINK REL="next" HREF="node7.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html99"
+  HREF="node7.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/lib/latex2html/icons/next.png"></A> 
+<A NAME="tex2html97"
+  HREF="node3.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/lib/latex2html/icons/up.png"></A> 
+<A NAME="tex2html91"
+  HREF="node5.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/lib/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html100"
+  HREF="node7.html">Three-valued declarative debugging</A>
+<B> Up:</B> <A NAME="tex2html98"
+  HREF="node3.html">Motivation and background</A>
+<B> Previous:</B> <A NAME="tex2html92"
+  HREF="node5.html">Intended interpretations are not</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00033000000000000000">
+Types, assertions and preconditions</A>
+</H2>
+
+<P>
+Strong static typing such as that used in G&#246;del [<A
+ HREF="node22.html#goedel">Hill and LloydHill and Lloyd1994</A>] and
+Mercury [<A
+ HREF="node22.html#mercury">Somogyi, Henderson, and ConwaySomogyi
+  et&nbsp;al.1995</A>] overcome problems with non-lists -- we don't
+have to consider if <TT>merge/3</TT> behaves correctly with non-lists
+because it can't be called with or return non-lists.  However, there
+are similar problems with unsorted lists:  <TT>merge/3</TT> can succeed
+with unsorted lists, it is asymmetric and there are many different
+definitions with different behaviours for unsorted lists.  When code is
+written there are nearly always implicit assumptions about the context
+in which it is called.  Often the assumptions about the calling context
+concern what are normally called types (for example, lists), though
+they can also be more complex and impossible to check statically.
+There is certainly some merit in having such assumptions documented by
+programmers declaring (possibly more complex) ``types'', ``assertions''
+or ``preconditions''; this was our approach in [<A
+ HREF="node22.html#naish:90">NaishNaish1992b</A>].  As
+well as improving code readability, it can help with finding bugs
+because the extra information, which is redundant in correct programs,
+may be inconsistent with the executable part of the program.  The
+Mercury compiler requires declarations concerning types, modes and
+determinism, and uses this information to produce more efficient code.
+Optional declarations are also used to increase efficiency in systems
+such as Ciao [<A
+ HREF="node22.html#DBLP:conf_discipl_PueblaBH00">Puebla, Bueno, and HermenegildoPuebla
+  et&nbsp;al.2000</A>].  A more expressive
+language for defining preconditions could help the Mercury compiler
+recognise determinism in more cases, for example, or allow certain
+transformations which would not be correct in general but are correct
+if the precondition holds.
+
+<P>
+However, there are several disadvantages and limitations of a semantics
+which relies on declared preconditions.  First, as well as the language
+used to define <TT>merge/3</TT>, we have a language (with possibly a
+different syntax and its own semantics) for defining sorted lists and
+(typically) a declaration language relating the two.  The semantics, and
+preferably debugging environments, are more complex and must deal with
+unintended cases such as preconditions which are always false.  Second,
+it is hard to convince programmers to add extra declarations to their
+programs when they are unnecessary for the procedural semantics.  Third,
+even willing programmers are unable to document all their assumptions
+using formal languages.  For example, code for many declarative debuggers
+(discussed in the next section) assume that certain predicates are
+called with (representations of) atoms which have <I>finite</I> SLD
+trees or refutations and even assume the atoms have particular truth
+values in the intended interpretation [<A
+ HREF="node22.html#naish-92">NaishNaish1992a</A>].  Understanding the
+preconditions allows us to reason about the soundness and completeness
+of the debuggers.  However, defining them formally would need us to
+circumvent the undecidability of the halting problem and formalise the
+intentions of certain programmers in the future!
+
+<P>
+Our approach to the semantics of a program is based on the view that
+the behaviours we care about are a subset of its possible behaviours.
+The subset may be described in some way but is not necessarily codified
+precisely (and it may not even be possible to do so).  For example, we
+could use type and mode declarations to document the fact we care only
+about the behaviour of <TT>merge/3</TT> when the first two arguments are
+instantiated to lists of numbers (and this information could be used for
+program analysis and optimisation).  The semantics we propose is thus
+compatible with various forms of preconditions.  However, it also leaves
+open the possibility that there are further undocumented restrictions
+on what we care about, such as the sortedness of the lists.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html99"
+  HREF="node7.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/lib/latex2html/icons/next.png"></A> 
+<A NAME="tex2html97"
+  HREF="node3.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/lib/latex2html/icons/up.png"></A> 
+<A NAME="tex2html91"
+  HREF="node5.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/lib/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html100"
+  HREF="node7.html">Three-valued declarative debugging</A>
+<B> Up:</B> <A NAME="tex2html98"
+  HREF="node3.html">Motivation and background</A>
+<B> Previous:</B> <A NAME="tex2html92"
+  HREF="node5.html">Intended interpretations are not</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+
+2005-08-02
+</ADDRESS>
+</BODY>
+</HTML>

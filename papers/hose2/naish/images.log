@@ -1,0 +1,158 @@
+This is TeX, Version 3.14159 (Web2C 7.3.1) (format=latex 1999.8.27)  26 JUL 2000 17:40
+**./images.tex
+(./images.tex
+LaTeX2e <1998/12/01> patch level 1
+Babel <v3.6x> and hyphenation patterns for american, french, german, ngerman, n
+ohyphenation, loaded.
+
+(/local/alpha/apps/tetex-1.0/share/texmf/tex/latex/base/article.cls
+Document Class: article 1999/01/07 v1.4a Standard LaTeX document class
+(/local/alpha/apps/tetex-1.0/share/texmf/tex/latex/base/size12.clo
+File: size12.clo 1999/01/07 v1.4a Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+) (/local/alpha/apps/tetex-1.0/share/texmf/tex/plain/dvips/epsf.tex
+This is `epsf.tex' v2.7k <10 July 1997>
+\epsffilein=\read1
+\epsfframemargin=\dimen103
+\epsfframethickness=\dimen104
+\epsfrsize=\dimen105
+\epsftmp=\dimen106
+\epsftsize=\dimen107
+\epsfxsize=\dimen108
+\epsfysize=\dimen109
+\pspoints=\dimen110
+\epsfnoopenhelp=\toks14
+) (/local/alpha/apps/tetex-1.0/share/texmf/tex/latex/graphics/color.sty
+Package: color 1999/02/16 v1.0i Standard LaTeX Color (DPC)
+(/local/alpha/apps/tetex-1.0/share/texmf/tex/latex/config/color.cfg)
+Package color Info: Driver file: dvips.def on input line 125.
+(/local/alpha/apps/tetex-1.0/share/texmf/tex/latex/graphics/dvips.def
+File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+) (/local/alpha/apps/tetex-1.0/share/texmf/tex/latex/graphics/dvipsnam.def
+File: dvipsnam.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+))
+\sizebox=\box26
+\lthtmlwrite=\write3
+No file images.aux.
+\openout1 = `images.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+latex2htmlLength hsize=349.0pt
+latex2htmlLength vsize=632.5pt
+latex2htmlLength hoffset=0.0pt
+latex2htmlLength voffset=0.0pt
+latex2htmlLength topmargin=0.0pt
+latex2htmlLength topskip=0.00003pt
+latex2htmlLength headheight=0.0pt
+latex2htmlLength headsep=0.0pt
+latex2htmlLength parskip=0.0pt plus 1.0pt
+latex2htmlLength oddsidemargin=39.0pt
+latex2htmlLength evensidemargin=39.0pt
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 99.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 99.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 99.
+l2hSize :tex2html_wrap_inline315:8.19998pt::0.0pt::10.17004pt.
+[1
+
+
+]
+l2hSize :tex2html_wrap_inline317:8.33331pt::0.0pt::6.8541pt.
+[2
+
+
+]
+Overfull \hbox (29.87944pt too wide) in paragraph at lines 114--117
+[]|  [] 
+ []
+
+l2hSize :figure91:109.40749pt::0.0pt::349.0pt.
+[3
+
+
+]
+
+! LaTeX Error: No counter 'definition' defined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.128 \refstepcounter{definition}
+                                 
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: No counter 'definition' defined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.138 \refstepcounter{definition}
+                                 
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (3.78224pt too wide) in paragraph at lines 145--148
+[]|  [] 
+ []
+
+l2hSize :figure189:81.30281pt::0.0pt::349.0pt.
+[4
+
+
+]
+l2hSize :tex2html_wrap_inline331:8.25pt::8.25pt::47.17334pt.
+[5
+
+
+]
+l2hSize :tex2html_wrap_inline333:8.25pt::8.25pt::45.27747pt.
+[6
+
+
+]
+l2hSize :tex2html_wrap_inline335:8.83331pt::8.83331pt::97.94388pt.
+[7
+
+
+] (images.aux) ) 
+Here is how much of TeX's memory you used:
+ 601 strings out of 10901
+ 7637 string characters out of 71833
+ 48947 words of memory out of 263001
+ 3582 multiletter control sequences out of 10000+0
+ 6376 words of font info for 23 fonts, out of 400000 for 1000
+ 14 hyphenation exceptions out of 1000
+ 22i,6n,19p,183b,237s stack positions out of 300i,100n,500p,50000b,4000s
+
+Output written on images.dvi (7 pages, 1920 bytes).

@@ -1,0 +1,226 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.2beta8 (1.42)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>A semantics for normal programs</TITLE>
+<META NAME="description" CONTENT="A semantics for normal programs">
+<META NAME="keywords" CONTENT="naishsem3">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.2beta8">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="naishsem3.css">
+
+<LINK REL="next" HREF="node20.html">
+<LINK REL="previous" HREF="node10.html">
+<LINK REL="up" HREF="naishsem3.html">
+<LINK REL="next" HREF="node16.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html189"
+  HREF="node16.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/lib/latex2html/icons/next.png"></A> 
+<A NAME="tex2html187"
+  HREF="naishsem3.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/lib/latex2html/icons/up.png"></A> 
+<A NAME="tex2html181"
+  HREF="node14.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/lib/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html190"
+  HREF="node16.html">Operational semantics</A>
+<B> Up:</B> <A NAME="tex2html188"
+  HREF="naishsem3.html">A three-valued semantics for</A>
+<B> Previous:</B> <A NAME="tex2html182"
+  HREF="node14.html">Relationships between semantics</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00050000000000000000">
+A semantics for normal programs</A>
+</H1>
+
+<P>
+When negation is introduced, many of the convenient properties of the
+semantics of logic programs break down.  Typically model intersection
+properties no longer hold, the immediate consequence operator is no
+longer monotonic and in the procedural semantics negation is associated
+with <I>finite</I> failure which is dependent on the computation rule.
+
+<P>
+The first and simplest approach to negation was to use the negation as
+failure rule for the operational semantics and Clark's completion for
+the declarative semantics [<A
+ HREF="node22.html#Cla78">ClarkClark1978</A>].  Here we adapt this approach to
+our three-valued scheme.
+
+<P>
+<P>
+<DIV><B>Definition  8</B> &nbsp; 
+<I>Disjunctive normal programs</I> are the same as disjunctive definite
+programs but they may have negated user-defined literals in the disjuncts.
+
+<P>
+The <I>completion</I> <IMG
+ WIDTH="66" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img79.png"
+ ALT="$comp(P)$"> of a disjunctive normal program <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$P$">
+is the set of completions of clauses in <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$P$">.
+
+<P>
+The completion of a clause <!-- MATH
+ $H \leftarrow B$
+ -->
+<IMG
+ WIDTH="56" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img80.png"
+ ALT="$H \leftarrow B$"> is <!-- MATH
+ $H \leftarrow \exists V_1
+\exists V_2 \ldots B$
+ -->
+<IMG
+ WIDTH="136" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img81.png"
+ ALT="$H \leftarrow \exists V_1
+\exists V_2 \ldots B$">, where the <IMG
+ WIDTH="22" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img20.png"
+ ALT="$V_i$"> are the local variables.</DIV><P></P>
+
+<P>
+The ``<IMG
+ WIDTH="20" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img82.png"
+ ALT="$\leftarrow$">'' in completions is interpreted as ``if and only
+if'', modulo inadmissible atoms, in the model theory (see below).
+Clause instances of the form <!-- MATH
+ $\textbf{T} \leftarrow \textbf{F}$
+ -->
+<IMG
+ WIDTH="53" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img83.png"
+ ALT="$\textbf{T} \leftarrow \textbf{F}$"> are
+a source of incompleteness (a class of bugs called uncovered atoms
+[<A
+ HREF="node22.html#Sha83">ShapiroShapiro1983</A>]) which can translate to unsoundness when negation as failure
+is used.  Clause instances of the form <!-- MATH
+ $\textbf{T} \leftarrow \textbf{I}$
+ -->
+<IMG
+ WIDTH="49" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img84.png"
+ ALT="$\textbf{T} \leftarrow \textbf{I}$">
+can cause similar problems.  Models of the completion therefore do
+not include such clauses.  Clause instances of the form <!-- MATH
+ $\textbf{I}
+\leftarrow \textbf{F}$
+ -->
+<IMG
+ WIDTH="47" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img85.png"
+ ALT="$\textbf{I}
+\leftarrow \textbf{F}$"> and <!-- MATH
+ $\textbf{I} \leftarrow \textbf{T}$
+ -->
+<IMG
+ WIDTH="49" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img39.png"
+ ALT="$\textbf{I} \leftarrow \textbf{T}$"> do not
+to cause problems for Prolog.  Even alternative execution mechanisms
+would not cause problems as long as the top level of the computation is
+assumed to be admissible or any inadmissible instances can be ignored.
+Due to the asymmetry with <B>I</B> we retain <IMG
+ WIDTH="20" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img82.png"
+ ALT="$\leftarrow$"> instead of
+using <!-- MATH
+ $\leftrightarrow$
+ -->
+<IMG
+ WIDTH="20" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img86.png"
+ ALT="$\leftrightarrow$">.
+
+<P>
+One criticism of Clark's approach is that the completion may have no
+(two-valued) models. Adding a definition such as <!-- MATH
+ $p \leftarrow \neg p$
+ -->
+<IMG
+ WIDTH="58" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$p \leftarrow \neg p$">
+to a program results in everything being a logical consequence of the
+program but does not change the success set.  Though we believe this
+criticism has been over-stated, it does not apply in the three-valued
+case.  A three-valued model (and even strong model) always exists and an
+atom such as <IMG
+ WIDTH="13" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img88.png"
+ ALT="$p$"> can be inadmissible, independent of the interpretation
+of the rest of the program.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html191"
+  HREF="node16.html">Operational semantics</A>
+<LI><A NAME="tex2html192"
+  HREF="node17.html">Model-theoretic semantics</A>
+<LI><A NAME="tex2html193"
+  HREF="node18.html">Fixpoint semantics</A>
+<LI><A NAME="tex2html194"
+  HREF="node19.html">Relationships between semantics</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html189"
+  HREF="node16.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/lib/latex2html/icons/next.png"></A> 
+<A NAME="tex2html187"
+  HREF="naishsem3.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/lib/latex2html/icons/up.png"></A> 
+<A NAME="tex2html181"
+  HREF="node14.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/lib/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html190"
+  HREF="node16.html">Operational semantics</A>
+<B> Up:</B> <A NAME="tex2html188"
+  HREF="naishsem3.html">A three-valued semantics for</A>
+<B> Previous:</B> <A NAME="tex2html182"
+  HREF="node14.html">Relationships between semantics</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+
+2005-08-02
+</ADDRESS>
+</BODY>
+</HTML>

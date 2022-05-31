@@ -1,0 +1,280 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Stepwise Enhancement for Program Construction</TITLE>
+<META NAME="description" CONTENT="Stepwise Enhancement for Program Construction">
+<META NAME="keywords" CONTENT="naish">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="naish.css">
+<LINK REL="next" HREF="node3.html">
+<LINK REL="previous" HREF="node1.html">
+<LINK REL="up" HREF="naish.html">
+<LINK REL="next" HREF="node3.html">
+</HEAD>
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html45"
+ HREF="node3.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/next_motif.gif"></A> 
+<A NAME="tex2html43"
+ HREF="naish.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/up_motif.gif"></A> 
+<A NAME="tex2html37"
+ HREF="node1.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html46"
+ HREF="node3.html">A Higher Order Approach</A>
+<B> Up:</B> <A NAME="tex2html44"
+ HREF="naish.html">Stepwise Enhancement and Higher</A>
+<B> Previous:</B> <A NAME="tex2html38"
+ HREF="node1.html">Motivation</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00020000000000000000">
+Stepwise Enhancement for Program Construction</A>
+</H1>
+
+<P>
+The method of stepwise enhancement  (Lakhotia, [<A
+ HREF="node20.html#Lakhotia">Lak89</A>]) was originally
+conceived as an adaptation of stepwise refinement to Prolog. It was
+advocated as a way to systematically construct Prolog programs, which
+exploits Prolog's high-level features. The key idea underlying stepwise
+enhancement is to visualise a program or solution in terms of its central
+control flow, or skeleton, and techniques  which perform computations while
+the control flow of the skeleton is followed. Techniques can be developed
+independently and combined automatically using the method of composition.
+
+<P>
+The most common data structure for logic programs is the list, and many
+programs are based on skeletons for traversing lists. A tutorial example of
+using stepwise enhancement to develop a simple program is given in Chapter
+13 of (Sterling and Shapiro, [<A
+ HREF="node20.html#Sterling94">SS94</A>]). In this section we give the basic list
+processing program as Program 1 for reference, and a (slightly) more
+elaborate example with binary trees.
+
+<P>
+<PRE>
+is_list([]).
+is_list([X|Xs]) :- is_list(Xs).
+</PRE><B>Program 1</B>:  A skeleton for list traversal (or definition of lists)
+<BR>
+<BR>
+
+<P>
+Programs 2a and 2b are skeleton programs for traversing binary trees with
+values only at leaf nodes (later we also use M-way trees with data
+in internal nodes). Program 2a, the left-hand program, does a
+complete traversal of the tree, while Program 2b, the right-hand program,
+traverses a single branch of the tree. Note that Program 2a can be viewed
+as a type definition of trees.
+
+<P>
+<PRE>
+is_tree(leaf(X)).               branch(leaf(X)).
+is_tree(tree(L,R)) :-           branch(tree(L,R)) :- branch(L).
+    is_tree(L),                 branch(tree(L,R)) :- branch(R).
+    is_tree(R).
+</PRE><B>Programs 2a, 2b</B>: Skeletons for traversing a tree
+<BR>
+<BR>
+
+<P>
+Techniques capture basic Prolog programming practices, such as building a
+data structure or performing calculations in recursive code. Informally, a
+programming technique interleaves some additional computation around the
+control flow of a skeleton program. The additional computation might
+calculate a value or produce a side effect such as screen output.
+Syntactically, techniques may rename predicates, add arguments to
+predicates, add goals to clauses, and/or add clauses to programs. Unlike
+skeletons, techniques are not programs but can be conceived as a family of
+operations that can be applied to a program to produce a program.
+
+<P>
+A technique applied to a skeleton yields an <EM>enhancement</EM>. An
+enhancement which preserves the computational behaviour of the skeleton
+is called an <EM>extension</EM>.
+
+<P>
+We give examples of techniques. The two most commonly used techniques are
+the calculate and build techniques. They both compute something, a value or
+a data structure, while following the control flow of the skeleton. An
+extra argument is added to the defining predicate in the skeleton, and an
+extra goal is added to the body of each recursive clause. In the case of
+the calculate technique, the added goal is an arithmetic calculation; in
+the case of the build technique, the goal builds a data structure. In both
+cases, the added goal relates the extra argument in the head of the clause
+to the extra argument(s) in the body of the clause.  Note that the
+terminology used in the stepwise enhancement literature tends to be
+procedural.  Despite this, the resulting programs can be viewed in a
+declarative way and (in some cases) are reversible.
+
+<P>
+Two typical examples of the application of the calculate technique
+are given as Programs 3a and 3b. Both are extensions of Program 2a which
+traverses a binary tree with values at its leaves. The left-hand program
+(3a) computes the product of the values of the leaves of the trees. The
+extra argument in the base case is the value of the leaf node. In the
+recursive case, the extra goal says that the product of a tree is the
+product of its left subtree and its right subtree. The predicate
+<code>is_tree/1</code>
+has been renamed to <code>prod_leaves/2</code>. The right-hand program (3b), which
+computes the sum of the leaves, is very similar, the only difference being
+choice of names and the extra goal.
+
+<P>
+
+<PRE>
+prod_leaves(leaf(X),X).            sum_leaves(leaf(X),X).
+prod_leaves(tree(L,R),Prod) :-     sum_leaves(tree(L,R),Sum) :-
+     prod_leaves(L,LProd),             sum_leaves(L,LSum),
+     prod_leaves(R,RProd),             sum_leaves(R,RSum),
+     Prod is LProd*RProd.              Sum is LSum+RSum.
+</PRE><B>Programs 3a, 3b</B>:  Extensions of Program 2a using the calculate
+technique
+<BR>
+<BR>
+
+<P>
+Two enhancements of the same skeleton share computational behaviour. They
+can be combined into a single program which combines the functionality of
+each separate enhancement. Techniques can be developed independently and
+subsequently combined automatically. The (syntactic) operation for
+combining enhancements is called <EM>composition</EM>.
+This is similar in intent to
+function composition where the functionality of separate functions are
+combined into a single function. Program 4 is the result of the composition
+of Programs 3a and 3b.
+
+<P>
+<PRE>
+prod_sum_leaves(leaf(X),X,X).
+prod_sum_leaves(tree(L,R),Prod,Sum) :-
+     prod_sum_leaves(L,LProd,LSum),
+     prod_sum_leaves(R,RProd,RSum),
+     Prod is LProd*RProd,
+     Sum is LSum+RSum.
+</PRE><B>Program 4</B>:  The composition of two extensions
+<BR>
+<BR>
+
+<P>
+A different programming technique uses accumulators. The
+accumulator-calculate technique adds two arguments to the defining
+predicate in the skeleton. The
+first argument is used to record the current value of the variable in
+question and the second contains the final result of the computation. The
+base case relates the input and output arguments, usually via unification.
+One difference between calculate and accumulate-calculate is in the need to
+add an auxiliary predicate. Another is that goals and initial values need
+to be placed differently.
+
+<P>
+Program 5 shows the result of applying the accumulate-calculate technique
+to the tree traversal program, Program 2a. It computes the sum of the
+leaves of a binary tree and is comparable to Program 3b. In general,
+programs written with accumulator techniques will run more efficiently than
+the equivalent program written with calculate and build techniques, due to
+the way tail recursion is implemented in Prolog.
+
+<P>
+<PRE>
+sum_leaves(Tree,Sum) :- accum_sum_leaves(Tree,0,Sum).
+
+accum_sum_leaves(leaf(X),Accum,Sum) :-
+    Sum is Accum + X.
+accum_sum_leaves(tree(L,R),Accum,Sum) :-
+    accum_sum_leaves(L,Accum,Accum1),
+    accum_sum_leaves(R,Accum1,Sum).
+</PRE><B>Program 5</B>:  Extension of Program 2a using the accumulate-calculate
+technique
+<BR>
+<BR>
+
+<P>
+Program 6 is an example of the application of the accumulate-build
+technique, also applied to Program 2a. It builds an inorder traversal of
+the leaves of the tree. There is no explicit arithmetic calculation, rather
+lists built by unification in the base clause. There is one subtlety here.
+Accumulators build structures in reverse order and hence the right subtree
+is traversed before the left subtree in order to have the final list in the
+correct order.  With commutative operations such as addition for
+integers the order is immaterial.
+
+<P>
+<PRE>
+traversal(Tree,Xs) :- accum_leaves(Tree,[],Sum).
+
+accum_leaves(leaf(X),Accum,[X|Accum]).
+accum_leaves(tree(L,R),Accum,Sum) :-
+    accum_leaves(R,Accum,Accum1),
+    accum_leaves(L,Accum1,Sum),
+</PRE><B>Program 6</B>:  Extension of Program 2a using accumulate-build
+<BR>
+<BR>
+
+<P>
+The skeletons and techniques presented in this paper are all taken from
+Prolog, but stepwise enhancement is equally applicable to other logic
+programming languages, as discussed in Kirschenbaum, Michaylov and Sterling
+([<A
+ HREF="node20.html#Kirschenbaum">KMS96</A>]).
+They claim that skeletons and techniques should be identified when
+a language is first used, in order to encourage systematic, effective
+program development. This learning approach should be stressed during
+teaching. They show that the skeletons and techniques for Prolog can be
+extended to constraint logic programming languages, notably CLP(<IMG
+ WIDTH="21" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.gif"
+ ALT="${\cal R}$">),
+concurrent logic programming languages such as Flat Concurrent Prolog and
+Strand, and higher order logic program languages, in particular <IMG
+ WIDTH="16" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.gif"
+ ALT="$\lambda$">-Prolog
+(Nadathur and Miller, [<A
+ HREF="node20.html#Nadathur">NM88</A>]).
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html45"
+ HREF="node3.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/next_motif.gif"></A> 
+<A NAME="tex2html43"
+ HREF="naish.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/up_motif.gif"></A> 
+<A NAME="tex2html37"
+ HREF="node1.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html46"
+ HREF="node3.html">A Higher Order Approach</A>
+<B> Up:</B> <A NAME="tex2html44"
+ HREF="naish.html">Stepwise Enhancement and Higher</A>
+<B> Previous:</B> <A NAME="tex2html38"
+ HREF="node1.html">Motivation</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>Lee Naish</I>
+<BR><I>2000-07-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

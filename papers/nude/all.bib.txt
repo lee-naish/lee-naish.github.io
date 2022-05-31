@@ -1,0 +1,361 @@
+@inproceedings{naish:89,
+        author =        {Naish, Lee and P. W. Dart and J. Zobel},
+        title  =        {The {NU-Prolog} debugging environment},
+        booktitle =     {Proceedings of the Sixth International Conference
+                                on Logic Programming},
+        pages  =        {521--536},
+        address =       {Lisboa, Portugal},
+        year   =        {June 1989},
+        editor =        {Antonio Porto},
+        abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/nude/",
+        comment = {Technical report 88/31, Department of Computer Science,
+                University of Melbourne}
+}
+
+
+%A Lee Naish
+%T Negation and quantifiers in NU-Prolog
+%J Proceedings of the Third International Conference on Logic Programming
+%C Imperial College of Science and Technology, London, England
+%D July 1986
+%E Ehud Shapiro
+%O published as Lecture Notes in Computer Science 225
+by Springer-Verlag
+%K ilpc iclp ilpc86 iclp86 iclp3 london
+%P 624-634
+
+%A John W. Lloyd
+%T Foundations of logic programming
+%S Springer series in symbolic computation
+%I Springer-Verlag
+%C New York
+%K book
+%D 1984
+%P 124
+
+%A Matthew M. Huntbach
+%T Algorithmic Parlog debugging
+%J Proceedings of the Fourth IEEE Symposium on Logic Programming
+%C San Francisco, California
+%D August 1987
+%K islp islp4 islp87
+%P 288-297
+
+%A Ehud Y. Shapiro
+%T Algorithmic program debugging
+%I MIT Press
+%C Cambridge, Massachusetts
+%K book
+%D 1983
+%P 232
+
+%A Luis Moniz Pereira
+%T Rational debugging in logic programming
+%J Proceedings of the Third International Conference on Logic Programming
+%C London, England
+%D July 1986
+%E Ehud Shapiro
+%O published as Lecture Notes in Computer Science 225
+by Springer-Verlag
+%K ilpc iclp ilpc86 iclp86 ilpc3 iclp3
+%P 203-210
+
+%A Gerard Ferrand
+%T Error diagnosis in logic programming,
+an adaptation of E.Y. Shapiro's method
+%J Journal of Logic Programming
+%K jlp
+%V 4
+%N 3
+%D September 1987
+%P 177-198
+
+%A J.W. Lloyd
+%T Declarative error diagnosis
+%J New Generation Computing
+%K ngc
+%V 5
+%N 2
+%D 1987
+%P 133-154
+
+%A Keith L. Clark
+%T Negation as failure
+%B Logic and data bases
+%E Herve Gallaire
+%E Jack Minker
+%I Plenum Press
+%D 1978
+%P 293-322
+
+%A David A. Plaisted
+%T An efficient bug location algorithm
+%J Proceedings of the Second International Logic Programming Conference
+%C Uppsala, Sweden
+%D July 1984
+%E Sten-Ake Tarnlund
+%K ilpc iclp ilpc84 iclp84 ilpc2 iclp2
+%P 151-157
+%K Prolog, debugging, performance
+
+%A Nachum Dershowitz
+%A Yuh-Jeng Lee
+%T Deductive debugging
+%J Proceedings of the Fourth IEEE Symposium on Logic Programming
+%C San Francisco, California
+%D August 1987
+%K islp islp4 islp87
+%P 298-306
+
+%A Lee Naish
+%T Automating control of logic programs
+%J Journal of Logic Programming
+%K jlp
+%V 2
+%N 3
+%D October 1985
+%P 167-183
+
+%A Lee Naish
+%T Specification = program + types
+%J Proceedings of 7th Conference on Foundations of Software Technology
+and Theoretical Computer Science
+%C Pune, India
+%D December, 1987
+
+%A David H.D. Warren
+%T An abstract Prolog instruction set
+%R Technical Note 309
+%I SRI International
+%C Menlo Park, California
+%D October 1983
+
+%A Saumya K. Debray
+%T Static inference of modes and data dependencies in logic programs
+%R TR 87-24
+%I Department of Computer Science, University of Arizona
+%C Tuscon
+%D 1987
+
+%A Lawrence Byrd
+%T Understanding the control flow of Prolog programs
+%J Proceedings of the 1980 Logic Programming Workshop
+%C Debrecen, Hungary
+%D July 1980
+%K lpw lpw80
+%P 127-138
+%K debugging, box model
+
+%A Lee Naish
+%T Parallelizing NU-Prolog
+%J Proceedings of the Fifth International Conference/Symposium on Logic Programming
+%C Seattle, Washington
+%D August 1988
+%E Kenneth A. Bowen
+%E Robert A. Kowalski
+%K ilpc iclp islp ilpc88 iclp88 islp88 ilpc5 iclp5 islp5
+%P 1546-1564
+%K stream AND-parallelism, PNU-Prolog, lazyDet, eagerDet, when declarations
+
+%A J. Zobel
+%T Derivation of polymorphic types for Prolog programs
+%J Proceedings of the Fourth International Conference on Logic Programming
+%C Melbourne, Australia
+%D May 1987
+%E Jean-Louis Lassez
+%K ilpc iclp ilpc87 iclp87 ilpc4 iclp4
+%P 816-838
+
+%A Philip W. Dart
+%A Justin Zobel
+%T Transforming typed logic programs into well-typed logic programs
+%R Technical Report 88/11
+%I Department of Computer Science, University of Melbourne
+%C Melbourne, Australia
+%D May 1988
+
+%A Philip W. Dart
+%T Using propositional formulae to derive deductive database dependencies
+%R Technical Report 87/13
+%I Department of Computer Science, University of Melbourne
+%C Melbourne, Australia
+%D September 1987
+%P 24
+%K groundness formulae, connected databases, modes, allowed formulae
+
+%A Luis Moniz Pereira
+%A Miguel Calejo
+%T A framework for Prolog debugging
+%J Proceedings of the Fifth International Conference/Symposium on Logic Programming
+%C Seattle, Washington
+%D August 1988
+%E Kenneth A. Bowen
+%E Robert A. Kowalski
+%K ilpc iclp islp ilpc88 iclp88 islp88 ilpc5 iclp5 islp5
+%P 481-495
+%K programming environments
+%K declarative debugging, select & query, suspects
+
+%A Marc Eisenstadt
+%A Mike Brayshaw
+%T Graphical debugging with the Transparent Prolog Machine (TPM)
+%J Proceedings of the Tenth International Joint Conference
+on Artificial Intelligence
+%C Milan, Italy
+%D August 1987
+%K ijcai ijcai10 ijcai87
+%P 83-86
+
+%A Hidehisa Takahashi
+%A Etsuya Shibayama
+%T PRESET - a debugging environment for Prolog
+%J Proceedings of the Fourth Logic Programming Conference
+%C Tokyo, Japan
+%D July 1985
+%E Eiiti Wada
+%O published as Lecture Notes in Computer Science 221
+by Springer-Verlag
+%K lpc lpc4
+%P 90-99
+
+%A Marc Eisenstadt
+%T Retrospective zooming: a knowledge based
+tracking and debugging methodology for logic programming
+%J Proceedings of the Ninth International Joint Conference
+on Artificial Intelligence
+%C Los Angeles, California
+%D September 1985
+%K ijcai ijcai9 ijcai85
+%P 717-719
+%K logic programming
+
+%A Lee Naish
+%T Declarative diagnosis of missing answers
+%R Technical Report 88/9
+%I Department of Computer Science, University of Melbourne
+%C Melbourne, Australia
+%D May 1988
+%P 18
+%K debugging of logic programs
+
+%A Maurice Bruynooghe
+%T Adding redundancy to obtain
+more reliable and more readable Prolog programs
+%J Proceedings of the First International Logic Programming Conference
+%C Marseille, France
+%D September 1982
+%E Michel Van\ Caneghem
+%K ilpc iclp ilpc82 iclp82 ilpc1 iclp1
+%P 129-133
+%K annotations, types
+
+%A Alan Mycroft
+%A Richard A. O'Keefe
+%T A polymorphic type system for Prolog
+%J Artificial Intelligence
+%K aij
+%V 23
+%D 1984
+%P 295-307
+
+%A J.W. Lloyd
+%A R.W. Topor
+%T Making Prolog more expressive
+%J Journal of Logic Programming
+%K jlp
+%V 1
+%N 3
+%D October 1984
+%P 225-240
+%K extended programs, extended goals, first-order logic
+
+%A L. Cavedon
+%A J.W. Lloyd
+%T A completeness theorem for SLDNF-resolution
+%R Technical Report 87/9
+%I Department of Computer Science, University of Melbourne
+%C Melbourne, Australia
+%D September 1987
+%P 18
+%X We prove the completeness of SLDNF-resolution and negation as failure
+for strict, allowed, stratified, normal programs and goals. In particular,
+this result settles positively a conjecture of Apt, Blair and Walker.
+
+%A Lee Naish
+%T The MU-Prolog 3.2 reference manual
+%R Technical Report 85/11
+%I Department of Computer Science, University of Melbourne
+%C Melbourne, Australia
+%D October 1985
+%P 17
+%K logic programming, Prolog
+
+
+%A Kotagiri Ramamohanarao
+%A John Shepherd
+%A Isaac Balbin
+%A Graeme Port
+%A Lee Naish
+%A James Thom
+%A Justin Zobel
+%A Philip Dart
+%T The NU-Prolog deductive database system
+%J IEEE Data Engineering
+%K ieee_de tcde
+%V 10
+%N 4
+%D December 1987
+%P 10-19
+
+%A James Thom
+%A Justin Zobel
+%T NU-Prolog reference manual, version 1.3
+%R Technical Report 86/10
+%I Department of Computer Science, University of Melbourne
+%C Melbourne, Australia
+%K numan
+%D 1988
+
+%A Mike Brayshaw
+%A Marc Eisenstadt
+%T Adding data and procedure abstraction to the transparent Prolog machine (TPM)
+%J Proceedings of the Fifth International Conference/Symposium on Logic Programming
+%C Seattle, Washington
+%D August 1988
+%E Kenneth A. Bowen
+%E Robert A. Kowalski
+%K ilpc iclp islp ilpc88 iclp88 islp88 ilpc5 iclp5 islp5
+%P 532-547
+%K programming environments, AORTA
+
+%A Marc Eisenstadt
+%A Mike Brayshaw
+%T The Transparent Prolog Machine (TPM):
+an execution model and graphical debugger for logic programming
+%R Technical Report No. 21a
+%I The Open University, Human Cognition Research Laboratory
+%C Milton Keynes, United Kingdom
+%D October 1987
+%O To appear, Journal of Logic Programming
+
+%A Paul Brna
+%A Alan Bundy
+%A Helen Pain
+%A Liam Lynch
+%T Programming tools for Prolog environments
+%R Research Report
+%I Department of Artificial Intelligence, University of Ediburgh
+%D 1987
+
+%A K. Marriott
+%A L. Naish
+%A J.L. Lassez
+%T Most specific logic programs
+%J Proceedings of the Fifth International Conference/Symposium on Logic Programming
+%C Seattle, Washington
+%D August 1988
+%E Kenneth A. Bowen
+%E Robert A. Kowalski
+%K ilpc iclp islp ilpc88 iclp88 islp88 ilpc5 iclp5 islp5
+%P 909-923
+%K reasoning about programs, program specialization

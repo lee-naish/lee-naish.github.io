@@ -1,0 +1,64 @@
+<html>
+<TITLE>Pruning in logic programming</TITLE>
+<H1>Pruning in logic programming</H1>
+<hr>
+This material was originally produced for an advanced tutorial
+at the International Conference on Logic Programming
+in Japan, 13-16 June, 1995.
+
+<H3>
+		Pruning in logic programming
+</H3>
+<H3>
+			Lee Naish
+</H3>
+<br>
+
+The logic programming community has a love-hate relationship with
+operators for pruning the search space of logic programs such as cut,
+commit, once, conditionals and variations on these.  Pruning operators
+typically are not declarative, result in incompleteness and/or
+unsoundness, decrease readability and flexibility of code and make
+program analysis and transformation more difficult.  Despite this,
+nearly all non-trivial Prolog programs contain cuts, nearly all more
+recent logic programming languages have similar pruning operators and
+many languages insist on pruning operators in every clause.  In
+practice, logic programming is less logical than functional
+programming.
+<P>
+
+Why it this so?  Do we really need pruning operators?  Can we have
+sufficiently powerful pruning operators which do not destroy the
+declarative semantics of programs?  How are pruning operators related to
+logic, modes, functions and lazy evaluation?
+This tutorial attempts to answer some of these questions.
+<P>
+
+<UL>
+
+<LI>
+<A HREF="./tr.dvi.gz">
+Technical report</A>:
+gzipped dvi file (27k)
+
+<LI>
+<A HREF="./talk.dvi.gz">
+Slides (1 per page)</A> for ICLP advanced tutorial:
+gzipped dvi file (6k)
+
+<!-- <LI> -->
+<!-- <A HREF="talk6.ps">Slides (6 per page)</A>: -->
+<!-- postscript -->
+<!-- (131k) -->
+
+<LI>
+<A HREF="all.bib.txt">
+references</A>
+
+
+</UL>
+
+<br>
+<A HREF="http://people.eng.unimelb.edu.au/lee/"> Lee </A>
+
+</HTML>

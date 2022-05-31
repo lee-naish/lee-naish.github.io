@@ -1,0 +1,274 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.2beta8 (1.42)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>A semantics for definite programs</TITLE>
+<META NAME="description" CONTENT="A semantics for definite programs">
+<META NAME="keywords" CONTENT="naishsem3">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.2beta8">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="naishsem3.css">
+
+<LINK REL="next" HREF="node15.html">
+<LINK REL="previous" HREF="node3.html">
+<LINK REL="up" HREF="naishsem3.html">
+<LINK REL="next" HREF="node11.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html137"
+  HREF="node11.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/lib/latex2html/icons/next.png"></A> 
+<A NAME="tex2html135"
+  HREF="naishsem3.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/lib/latex2html/icons/up.png"></A> 
+<A NAME="tex2html129"
+  HREF="node9.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/lib/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html138"
+  HREF="node11.html">Operational semantics</A>
+<B> Up:</B> <A NAME="tex2html136"
+  HREF="naishsem3.html">A three-valued semantics for</A>
+<B> Previous:</B> <A NAME="tex2html130"
+  HREF="node9.html">Programs naturally have more</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00040000000000000000">
+A semantics for definite programs</A>
+</H1>
+
+<P>
+The results in this section are based on [<A
+ HREF="node22.html#naish:sem3">NaishNaish2000b</A>].  However,
+some definitions are changed slightly to make the subsequent treatment
+of negation simpler.  We don't consider our semantics for definite
+programs particularly useful for programmers in its own right.  However,
+this section introduces several things used in our semantics for normal
+programs and is useful for comparison purposes and any work on analysis
+of definite programs.  We use a variant of definite clauses which we call
+<I>disjunctive definite clauses</I> (disjunctions only appear in the body,
+not the head), primarily so conjunction and disjunction can be treated
+more uniformly in the logic, though it also eases the transition to
+semantics for normal programs, as does our use of an equality predicate
+rather than head unification.  We also use the constraint view of
+equality at some points, rather than substitutions.  This avoids some
+technicalities and would make adding a ``not equals'' primitive simpler
+(something definitely worth doing if negation is supported).
+
+<P>
+<P>
+<DIV><B>Definition  1</B> &nbsp; 
+A <I>disjunctive definite program</I> is a collection of predicate
+definitions, each a single clause <!-- MATH
+ $H \leftarrow (B_1 \vee B_2 \vee
+\ldots \vee B_n)$
+ -->
+<IMG
+ WIDTH="184" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.png"
+ ALT="$H \leftarrow (B_1 \vee B_2 \vee
+\ldots \vee B_n)$">, where each <IMG
+ WIDTH="21" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img17.png"
+ ALT="$B_i$"> is a conjunction of atoms.  <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img18.png"
+ ALT="$H$">
+is an atom <!-- MATH
+ $p(V_1 , V_2 , \ldots V_n )$
+ -->
+<IMG
+ WIDTH="120" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img19.png"
+ ALT="$p(V_1 , V_2 , \ldots V_n )$"> where the <IMG
+ WIDTH="22" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img20.png"
+ ALT="$V_i$"> are distinct
+variables and each <IMG
+ WIDTH="22" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img21.png"
+ ALT="$B_j$"> is prefixed by a sequence of calls to a built-in
+equality predicate/constraint <IMG
+ WIDTH="60" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img22.png"
+ ALT="$V_i = T_i$">, where <IMG
+ WIDTH="21" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img23.png"
+ ALT="$T_i$"> is a term, for each
+variable <IMG
+ WIDTH="22" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img20.png"
+ ALT="$V_i$">.  Other atoms in the <IMG
+ WIDTH="22" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img21.png"
+ ALT="$B_j$"> are user-defined.  The <IMG
+ WIDTH="22" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img20.png"
+ ALT="$V_i$"> are
+called <I>head variables</I>; others are called <I>local variables</I>.
+A <I>head instance</I> of a clause is an instance where head variables
+are replaced by terms and body variables are replaced by (new) distinct
+variables.</DIV><P></P>
+
+<P>
+Disjunctive definite programs can be mapped to definite clause programs
+trivially: each disjunct leads to a clause <!-- MATH
+ $p(T_1 , T_2 , \ldots T_n )
+\leftarrow B_j'$
+ -->
+<IMG
+ WIDTH="161" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img24.png"
+ ALT="$p(T_1 , T_2 , \ldots T_n )
+\leftarrow B_j'$">, where <IMG
+ WIDTH="22" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img25.png"
+ ALT="$B_j'$"> is <IMG
+ WIDTH="22" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img21.png"
+ ALT="$B_j$"> without the initial calls to <IMG
+ WIDTH="37" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img26.png"
+ ALT="$=
+/ 2$">.  Definite clause programs can easily be mapped to disjunctive
+definite programs by renaming variables, converting head unification
+into calls to the equality predicate and combining all clauses for a
+predicate into a single disjunctive clause.  This is similar to the
+<I>completion</I> of a program [<A
+ HREF="node22.html#Cla78">ClarkClark1978</A>].  We use these equivalences
+implicitly when relating properties of disjunctive programs and their
+Horn clause counterparts.
+
+<P>
+An intended interpretation associates each ground atom with one of three
+truth values: <I>true</I>, <I>false</I> or <I>inadmissible</I><A NAME="tex2html5"
+  HREF="footnode.html#foot978"><SUP><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/lib/latex2html/icons/footnote.png"></SUP></A>.  We sometimes abbreviate these to <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img27.png"
+ ALT="$\textbf{T}$">,
+<IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img28.png"
+ ALT="$\textbf{F}$"> and <IMG
+ WIDTH="11" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img29.png"
+ ALT="$\textbf{I}$"> (bold font).  We also use these letters
+in italics to refer to sets of user-defined atoms assigned that truth
+value.  When describing interpretations we use the notation <!-- MATH
+ $\langle
+I,T\rangle$
+ -->
+<IMG
+ WIDTH="46" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img30.png"
+ ALT="$\langle
+I,T\rangle $"> for the interpretation which maps the (ground) atoms in
+<IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img31.png"
+ ALT="$I$"> to inadmissible, those in <IMG
+ WIDTH="18" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img32.png"
+ ALT="$T$"> to true and other user-defined atoms
+to false<A NAME="tex2html6"
+  HREF="footnode.html#foot979"><SUP><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/lib/latex2html/icons/footnote.png"></SUP></A>.  Equality has
+a fixed interpretation.  <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img33.png"
+ ALT="$E$"> is the set of all ground equality atoms
+of the form <IMG
+ WIDTH="54" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img34.png"
+ ALT="$X = X$">.  These equality atoms are considered true; others
+are considered false.  This essentially restricts interpretations to be
+Herbrand interpretations.
+
+<P>
+Programmers do need to consider the fact that their programs manipulate
+Herbrand terms.  It can also be useful to think at a higher level,
+where terms may represent values in some other domain and two terms
+may represent the same value.  However, Prolog does not respect this
+form of equality.  Only syntactic equality is supported and programmers
+must write explicit equality predicates or convert terms into canonical
+form and be very careful with input-output modes.  Although results for
+arbitrary models hold for definite programs, they typically do not hold
+when negation is introduced and arbitrary models are not very useful
+for programmers.
+
+<P>
+Inadmissible atoms may succeed or fail according to the procedural
+semantics but this distinction is not made in the declarative semantics.
+Our semantics is thus less precise than the traditional semantics,
+to reflect the lack of precision of programmers.  If we consider
+calls to <code>merge/3</code> where the first two arguments are sorted lists
+then programmers typically know which ones should succeed.  For other
+(inadmissible) calls to <code>merge/3</code>, programmers typically don't
+know and don't care precisely which calls succeed.  Our semantics aims
+at providing tools to reason about program correctness without the
+need for additional precision and without unnecessary restrictions on
+programming style.  We define operational, model theoretic and fixpoint
+semantics then discuss the relationships between them.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html139"
+  HREF="node11.html">Operational semantics</A>
+<LI><A NAME="tex2html140"
+  HREF="node12.html">Model-theoretic semantics</A>
+<LI><A NAME="tex2html141"
+  HREF="node13.html">Fixpoint semantics</A>
+<LI><A NAME="tex2html142"
+  HREF="node14.html">Relationships between semantics</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html137"
+  HREF="node11.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/lib/latex2html/icons/next.png"></A> 
+<A NAME="tex2html135"
+  HREF="naishsem3.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/lib/latex2html/icons/up.png"></A> 
+<A NAME="tex2html129"
+  HREF="node9.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/lib/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html138"
+  HREF="node11.html">Operational semantics</A>
+<B> Up:</B> <A NAME="tex2html136"
+  HREF="naishsem3.html">A three-valued semantics for</A>
+<B> Previous:</B> <A NAME="tex2html130"
+  HREF="node9.html">Programs naturally have more</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+
+2005-08-02
+</ADDRESS>
+</BODY>
+</HTML>

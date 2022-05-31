@@ -1,0 +1,4 @@
+alias sy2wb='rsync -vauC ./ /home/leen/mount/engwebpages/pc'
+alias vv='vim latest.html '
+alias isp='ispell latest.html '
+alias psa='cat first.html second.html third.html fourth.html latest.html | grep PSA | grep name'

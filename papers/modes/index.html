@@ -1,0 +1,77 @@
+<html>
+<TITLE>A declarative view of modes</TITLE>
+<H1>A declarative view of modes</H1>
+<hr>
+This tech report was done in a bit of a hurry because I was
+going on leave.  The ICLP'96 version is better.
+<hr>
+
+<H3>
+		A declarative view of modes
+</H3>
+<H3>
+			Lee Naish
+</H3>
+<br>
+
+Mode information in logic programming is concerned with such things as
+inputs and outputs of procedures, producers and consumers of variable
+bindings, instantiation states of calls during execution and the order
+of execution.  Modes seem inextricably tied to the procedural rather than
+the declarative view of logic programs.  Despite this, we argue that
+purely declarative information can actually express the essence of modes
+remarkable well.  The declarative view allows a high level notion of
+correctness which is independent of how the information is used.
+<P>
+We start from a framework which includes types and
+show how a set of ground atoms related to the success set can be used to
+express mode information.  We introduce constrained regular trees to
+define such sets and show how they can be used as the basis for a
+polymorphic mode system.  The mode system can express directional types,
+back communication and linearity and can be used to infer lower level mode
+information for languages such as Mercury.
+<P>
+
+Keywords:
+logic programming, modes, types,
+constrained regular trees, linearity, set constraints, multisets.
+
+<P>
+
+<UL>
+
+<!-- <LI> -->
+<!-- <A HREF="file://turiel.cs.mu.oz.au/pub/modes.dvi.gz"> -->
+<!-- Tech report version:</A> -->
+<!-- gzipped dvi file (24k) -->
+<!-- <PRE> -->
+<!-- ftp turiel.cs.mu.oz.au    (128.250.1.10) -->
+<!-- cd pub -->
+<!-- get modes.dvi.gz -->
+<!-- </PRE> -->
+
+<LI>
+Tech report version:
+<A HREF="./tr.ps.gz">
+gzipped postscript</A>
+(71k)
+
+<LI>
+<A HREF="all.bib.txt">
+references</A>
+
+<LI>
+<A HREF="../modealg/">
+Mode checking using constrained regular trees
+</A>
+
+<LI>
+<A HREF="../lpt.html">
+Other related papers </A> (and some not so related ones)
+
+</UL>
+
+<br>
+<A HREF="http://people.eng.unimelb.edu.au/lee"> Lee </A>
+
+</HTML>

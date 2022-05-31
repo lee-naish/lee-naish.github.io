@@ -1,0 +1,883 @@
+@inproceedings{naish:NUE:91,
+        author =        {Lee Naish},
+        title  =        {Adding equations to {NU-Prolog}},
+        journal =       {Proceedings of The Third International
+			Symposium on
+                        Programming Language Implementation and Logic
+                        Programming},
+        address =       {Passau, Germany},
+        publisher =     {Springer-Verlag},
+        series =        {Lecture notes in computer science},
+        number =        {528},
+        year   =        {August, 1991},
+        pages  =        {15--26},
+        comment   =     {Technical Report 91/2, Department of Computer
+                        Science, University of Melbourne}
+}
+
+@ARTICLE{Hanus94JLP,
+author = "Hanus, M.",
+title = "The Integration of Functions into Logic Programming: From
+Theory to Practice",
+year = "1994",
+pages = "583-628",
+volume = "19\&20",
+journal = "Journal of Logic Programming" }
+
+
+@Article{	Nai85a,
+	Author = { Lee Naish },
+	Title = { Automating control of logic programs },
+	Journal = { Journal of Logic Programming },
+	Volume = 2,
+	Number = 3,
+	Pages = { 167-183 },
+	Month = oct,
+	Year = 1985,
+	Keywords = { jlp }	}
+
+@Book{	Nai86,
+	Author = { Lee Naish },
+	Title = { Negation and control in {P}rolog },
+	Series = { Lecture Notes in Computer Science },
+	Number = 238,
+	Pages = 119,
+	Publisher = { Springer-Verlag },
+	Address = { New York },
+	Year = 1986,
+	Keywords = { lncs }	}
+
+@InProceedings{	Nai86a,
+	Author = { Lee Naish },
+	Title = { Negation and quantifiers in {NU}-{P}rolog },
+	Editor = { Ehud Shapiro },
+	Booktitle = { Proceedings of the Third International Conference
+		on Logic Programming },
+	Pages = { 624-634 },
+	Note = { published as Lecture Notes in Computer Science 225 by
+		Springer-Verlag },
+	Address = { London, England },
+	Month = jul,
+	Year = 1986,
+	Keywords = { ilpc iclp ilpc86 iclp86 ilpc3 iclp3 }	}
+
+@InProceedings{	Nai88,
+	Author = { Lee Naish },
+	Title = { Parallelizing {NU}-{P}rolog },
+	Editor = { Kenneth A. Bowen and
+		Robert A. Kowalski },
+	Booktitle = { Proceedings of the Fifth International
+		Conference/Symposium on Logic Programming },
+	Pages = { 1546-1564 },
+	Address = { Seattle, Washington },
+	Month = aug,
+	Year = 1988	}
+
+@Book{	Gre87,
+	Author = { Steven Gregory },
+	Title = { Design, application and implementation of a parallel
+		logic programming language },
+	Publisher = { Addison-Weseley },
+	Year = 1987,
+	Keywords = { PARLOG, AND-parallelism, book }	}
+
+@TechReport{	Sha83,
+	Author = { Ehud Y. Shapiro },
+	Type = { Research Report },
+	Title = { A subset of {C}oncurrent {P}rolog and its interpreter },
+	Number = {  CS83-06 },
+	Institution = { Department of Applied Mathematics, Weizmann
+		Institute of Science },
+	Address = { Rehovot, Israel },
+	Year = 1983,
+	Annote = { This is a revised version of technical report TR-003,
+		{ICOT}-Institute for New Generation Computing
+		Technology. }	}
+
+@PhDThesis{	Ued86,
+	Author = { Kazunori Ueda },
+	Type = { D.Eng. Thesis },
+	Title = { Guarded Horn clauses },
+	School = { University of Tokyo },
+	Address = { Tokyo, Japan },
+	Month = mar,
+	Year = 1986,
+	Keywords = { ghc, AND-parallelism }	}
+
+@Book{	Llo84,
+	Author = { John W. Lloyd },
+	Title = { Foundations of logic programming },
+	Series = { Springer series in symbolic computation },
+	Pages = 124,
+	Publisher = { Springer-Verlag },
+	Address = { New York },
+	Year = 1984,
+	Keywords = { book }	}
+
+@inproceedings{naish:pnu:1988,
+	author = "Lee Naish",
+	title = "Parallelizing {NU}-{P}rolog",
+	booktitle = "Proceedings of the Fifth International Conference/Symposium on Logic Programming",
+	year = 1988,
+	month = "August",
+	address = "Seattle, Washington",
+	editor = "Kenneth A. Bowen and Robert A. Kowalski",
+	pages = "1546--1564"
+}
+
+@techreport{thom:zobel:nu:1986,
+	title = "{NU}-{P}rolog reference manual, version 1.0",
+	author = "Justin Zobel and James Thom",
+	type = "Technical Report",
+	number = "86/10",
+	institution = "Department of Computer Science, University of Melbourne",
+	address = "Melbourne, Australia",
+	year = 1986
+}
+
+@techreport{warren:wam:1983,
+	author = "David H.D. Warren",
+	title = "An abstract {P}rolog instruction set",
+	type = "Tecnical Note",
+	number = "309",
+	institution = "SRI International",
+	address = "Menlo Park, California",
+	year = 1983,
+	month = "October"
+}
+
+
+@inproceedings{vanroy:demcen:wilems:1987,
+	author = "Peter {Van Roy} and Bart Demcen and Yves D. Wilems",
+	title = "Improving the execution speed of compiled {P}rolog with modes, clause selection, and determinism",
+	booktitle = "Proceedings of the International Joint Conference on the Theory and Practice of Software Development, volume 2",
+	address = "Pisa, Italy",
+	year = 1987,
+	month = "March",
+	editor = "Hartmut Ehrig and Robert Kowalski and Giorgio Levi and Ugo Montanari",
+	note = "published as Lecture Notes in Computer Science 250 by Springer-Verlag",
+	pages = "111--125"
+}
+
+@book{gregory:parlog:1987,
+	author = "Steve Gregory",
+	title = "Parallel logic programming in parlog",
+	publisher = "Addison-Wesley",
+	year = 1987,
+	address = "Wokingham, England"
+}
+
+@techreport{bowen:dec10:1982,
+	author = "D.L. Bowen and Lawrence Byrd and Fernando C.N. Pereira and Luis M. Pereira and David H.D. Warren",
+	title = "DECsystem-10 {P}rolog user's manual",
+	type = "Occasional Paper",
+	number = 27,
+	institution = "Department of Artificial Intelligence, University of Edinburgh",
+	address = "Scotland",
+	year = 1982,
+	month = "November"
+}
+
+@techreport{shapiro:cp:1983,
+	author = "Ehud Y. Shapiro",
+	title = "A subset of {C}oncurrent {P}rolog and its interpreter",
+	type = "Technical Report",
+	number = "ICOT TR-003",
+	institution = "Institute for New Generation Computer Technology",
+	address = "Tokyo, Japan",
+	year = 1983
+}
+
+@phdthesis{ueda:ghc:1986,
+	author = "Kazunori Ueda",
+	title = "Guarded horn clauses",
+	school = "University of Tokyo",
+	address = "Tokyo, Japan",
+	month = "March",
+	year = 1986
+}
+
+@book{naish:control:1986,
+	author = "Lee Naish",
+	title = "Negation and control in {P}rolog",
+	series = "Lecture Notes in Computer Science",
+	publisher = "Springer-Verlag",
+	address = "New York",
+	number = "238",
+	year = 1986
+}
+
+@inproceedings{naish:control:1985,
+	author = "Lee Naish",
+	title = "{P}rolog control rules",
+	booktitle = "Proceedings of the Ninth International Joint Conference on Artificial Intelligence",
+	address = "Los Angeles, California",
+	month = sep,
+	year = 1985,
+	pages = "720--722"
+}
+
+@inproceedings{somogyi:modes:1987,
+	author = "Zoltan Somogyi",
+	title = "A system of precise modes for logic programs",
+	booktitle = "Proceedings of the Fourth International Conference on Logic Programming",
+	address = "Melbourne, Australia",
+	month = may,
+	year = 1987,
+	editor = "Jean-Louis Lassez",
+	pages = "769--787"
+}
+
+@book{lloyd:foundations:1984,
+	author = "John W. Lloyd",
+	title = "Foundations of logic programming",
+	series = "Springer series in symbolic computation",
+	publisher = "Springer-Verlag",
+	address = "New York",
+	year = 1984
+}
+
+@inproceedings{debray:dataflow:1988,
+	author = "Saumya K. Debray",
+	title = "Efficient dataflow analysis of logic programs",
+	booktitle = "Conference Record of the Fifteenth ACM Symposium on Principles of Programming Languages",
+	address = "San Diego, California",
+	month = jan,
+	year = 1988,
+	pages = "260--273"
+}
+
+@techreport{palmer:abstract:1990,
+	author = "Doug Palmer",
+	title = "An abstract interpretation to detect determinism in {P}rolog programs",
+	type = "Technical Report",
+	number = "90/11",
+	institution = "Department of Computer Science, University of Melbourne",
+	address = "Melbourne, Australia",
+	month = jul,
+	year = 1990
+}
+
+@techreport{zobel:dart:types:1990,
+	author = "Justin Zobel and Philip W. Dart",
+	title = "On logic programs, functional dependencies, and types",
+	type = "Technical Report",
+	number = "90/7",
+	institution = "Department of Computer Science, University of Melbourne",
+	address = "Melbourne, Australia",
+	month = mar,
+	year = 1990
+}
+
+@article{debray:modes:1989,
+	author = "S. K. Debray",
+	title = "Static inference of modes and data dependencies in logic programs",
+	journal = "ACM Transactions on Programming Languages and Systems",
+	volume = 11,
+	number = 3,
+	month = jul,
+	year = 1989,
+	pages = "418--450"
+}
+
+@article{debray:warren:functionality:1989,
+	author = "S. K. Debray and D. S. Warren",
+	title = "Functional Computations in Logic Programs",
+	journal = "ACM Transactions on Programming Languages and Systems",
+	volume = 11,
+	number = 3,
+	month = jul,
+	year = 1989,
+	pages = "451--481"
+}
+
+@techreport{gabriel:wam:1984,
+	author = "John R. Gabriel and T.G. Lindholm and E.L. Lusk and R.A. Overbeek",
+	title = "A Tutorial on the Warren Abstract  Machine for Computational Logic",
+	type = "Technical Report",
+	number = "ANL-84-84",
+	institution = "Mathematics and Computer Science Division, Argonne National Laboratory",
+	address = "Argonne, Illinois",
+	year = 1984
+}
+
+@phdthesis{somogyi:ptah:1989,
+	author = "Zoltan Somogyi",
+	title = "A parallel logic programming system based on strong and precise modes",
+	note = "Technical Report 89/4",
+	institution = "Department of Computer Science, University of Melbourne",
+	address = "Melbourne, Australia",
+	month = jan,
+	year = 1989
+}
+
+@inproceedings{kliger:shapiro:decision:1988,
+	author = "Shmuel Kliger and Ehud Shapiro",
+	title = "A decision tree compilation algorithm for FCP(!,:,?)",
+	booktitle = "Proceedings of the Fifth International Conference/Symposium on Logic Programming",
+	address = "Seattle, Washington",
+	month = "August",
+	year = 1988,
+	editor = "Kenneth A. Bowen and Robert A. Kowalski",
+	pages = "1315--1336"
+}
+
+@Comment{ Database converted by ref2bib
+	Mon Feb 25 11:11:15 EST 1991 on beijing}
+
+@Article{	PinArv85,
+	Author = { Keshav Pingali and
+		Arvind },
+	Title = { Efficient demand driven evaluation, part 1 },
+	Journal = toplas,
+	Volume = 7,
+	Number = 2,
+	Pages = { 311-333 },
+	Month = apr,
+	Year = 1985,
+	Keywords = { toplas }	}
+
+@Article{	PinArv86,
+	Author = { Keshav Pingali and
+		Arvind },
+	Title = { Efficient demand driven evaluation, part 2 },
+	Journal = toplas,
+	Volume = 8,
+	Number = 1,
+	Pages = { 109-139 },
+	Month = jan,
+	Year = 1986,
+	Keywords = { toplas }	}
+
+@Article{	PinArv86a,
+	Author = { Keshav Pingali and
+		Arvind },
+	Title = { Clarification of "Feeding inputs on demand" in
+		"Efficient demand driven evaluation, part 1" },
+	Journal = toplas,
+	Volume = 8,
+	Number = 1,
+	Pages = { 140-141 },
+	Month = jan,
+	Year = 1986,
+	Keywords = { toplas }	}
+
+@InProceedings{	Yam87,
+	Author = { Akihiro Yamamoto },
+	Title = { A theoretical combination of {SLD}-resolution and
+		narrowing },
+	Editor = { Jean-Louis Lassez },
+	Booktitle = { Proceedings of the Fourth International Conference
+		on Logic Programming },
+	Pages = { 470-487 },
+	Address = { Melbourne, Australia },
+	Month = may,
+	Year = 1987,
+	Keywords = { ilpc iclp ilpc87 iclp87 ilpc4 iclp4 }	}
+
+@InProceedings{	BosCecMoi89,
+	Author = { P. G. Bosco and
+		C. Cecchi and
+		C. Moiso },
+	Title = { An extension of {WAM} for K-{LEAF}: a {WAM}-based
+		compilation of conditional narrowing },
+	Editor = { Giorgio Levi and
+		Maurizio Martelli },
+	Booktitle = { Proceedings of the Sixth International Conference
+		on Logic Programming },
+	Address = { Lisboa, Portugal },
+	Month = jun,
+	Year = 1989,
+	Keywords = { ilpc iclp ilpc89 iclp89 islp89 ilpc6 iclp6 }	}
+
+@InProceedings{	DerPla85,
+	Author = { Nachum Dershowitz and
+		David A. Plaisted },
+	Title = { Logic programming cum applicative programming },
+	Booktitle = { Proceedings of the Second IEEE Symposium on Logic
+		Programming },
+	Pages = { 54-66 },
+	Address = { Boston, Massachusetts },
+	Month = jul,
+	Year = 1985,
+	Keywords = { functional programming, conditional rewrite rules, narrowing }	}
+
+@InProceedings{	Red85,
+	Author = { Uday S. Reddy },
+	Title = { Narrowing as the operational semantics of functional
+		languages },
+	Booktitle = { Proceedings of the Second IEEE Symposium on Logic
+		Programming },
+	Pages = { 138-151 },
+	Address = { Boston, Massachusetts },
+	Month = jul,
+	Year = 1985,
+	Keywords = { islp islp2 islp85 }	}
+
+@InProceedings{	YouSub86,
+	Author = { Jia-Huai You and
+		P.A. Subrahmanyan },
+	Title = { Equational logic programming: an extension to
+		equational programming },
+	Booktitle = { Conference Record of the Thirteenth ACM Symposium
+		on Principles of Programming Languages },
+	Pages = { 209-218 },
+	Address = { St. Petersburg Beach, Florida },
+	Month = jan,
+	Year = 1986,
+	Keywords = { narrowing }	}
+
+@InCollection{	GogMes85,
+	Author = { Joseph A. Goguen and
+		Jose Meseguer },
+	Title = { {EQLOG}: equality, types, and generic modules for
+		logic programming },
+	Booktitle = { Logic programming: relations, functions, and
+		equations },
+	Editor = { Doug DeGroot and
+		Gary Lindstrom },
+	Pages = { 295-363 },
+	Publisher = { Prentice-Hall },
+	Year = 1985,
+	Keywords = { lpfre }	}
+
+@InCollection{	Abr85,
+	Author = { Harvey Abramson },
+	Title = { A Prological definition of {HASL}, a purely functional
+		language with unification based conditional binding
+		expressions },
+	Booktitle = { Logic programming: relations, functions, and
+		equations },
+	Editor = { Doug DeGroot and
+		Gary Lindstrom },
+	Pages = { 73-129 },
+	Publisher = { Prentice-Hall },
+	Year = 1985,
+	Keywords = { lpfre }	}
+
+@InCollection{	SatSak85,
+	Author = { Masahiko Sato and
+		Tatakfumi Sakurai },
+	Title = { {QUTE}: a functional language based on unification },
+	Booktitle = { Logic programming: relations, functions, and
+		equations },
+	Editor = { Doug DeGroot and
+		Gary Lindstrom },
+	Pages = { 131-155 },
+	Publisher = { Prentice-Hall },
+	Year = 1985,
+	Keywords = { lpfre }	}
+
+@InCollection{	SubYou85,
+	Author = { P.A. Subrahmanyam and
+		Jia-Huai You },
+	Title = { {FUNLOG}: a computational model integrating logic
+		programming and functional programming },
+	Booktitle = { Logic programming: relations, functions, and
+		equations },
+	Editor = { Doug DeGroot and
+		Gary Lindstrom },
+	Pages = { 157-198 },
+	Publisher = { Prentice-Hall },
+	Year = 1985,
+	Keywords = { lpfre }	}
+
+@InCollection{	BarBelLev85,
+	Author = { R. Barbuti and
+		M. Bellia and
+		G. Levi and
+		M. Martelli },
+	Title = { {LEAF}: a language which integrates logic, equations
+		and functions },
+	Booktitle = { Logic programming: relations, functions, and
+		equations },
+	Editor = { Doug DeGroot and
+		Gary Lindstrom },
+	Pages = { 201-238 },
+	Publisher = { Prentice-Hall },
+	Year = 1985,
+	Keywords = { lpfre }	}
+
+@Article{	BelLev86,
+	Author = { Marco Bellia and
+		Giorgio Levi },
+	Title = { The relation between logic and functional languages: a
+		survey },
+	Journal = { Journal of Logic Programming },
+	Volume = 3,
+	Number = 3,
+	Pages = { 217-236 },
+	Month = oct,
+	Year = 1986,
+	Keywords = { jlp }	}
+
+@Article{	DinHen87,
+	Author = { Mehmet Dincbas and
+		Pascal van Hentenryck },
+	Title = { Extended unification algorithms for the integration of
+		functional programming into logic programming },
+	Journal = { Journal of Logic Programming },
+	Volume = 4,
+	Number = 3,
+	Pages = { 199-227 },
+	Month = sep,
+	Year = 1987,
+	Keywords = { jlp }	}
+
+@Article{	EmdYuk87,
+	Author = { Maarten H. van Emden and
+		Keitaro Yukawa },
+	Title = { Logic programming with equations },
+	Journal = { Journal of Logic Programming },
+	Volume = 4,
+	Number = 4,
+	Pages = { 265-288 },
+	Month = dec,
+	Year = 1987,
+	Keywords = { interpretation, compilation, amalgamation }	}
+
+@Article{	Car84,
+	Author = { Matts Carlsson },
+	Title = { On implementing Prolog in functional programming },
+	Journal = { New Generation Computing },
+	Volume = 2,
+	Number = 4,
+	Pages = { 347-359 },
+	Year = 1984,
+	Keywords = { continuations, interpreters, logic programming, Prolog }	}
+
+@InProceedings{	BerEch86,
+	Author = { Didier Bert and
+		Rachid Echahed },
+	Title = { Design and implementation of a generic, logic and
+		functional programming language },
+	Editor = { B. Robinet and
+		R. Wilhelm },
+	Booktitle = { Proceedings of the First European Symposium on
+		Programming },
+	Pages = { 119-132 },
+	Note = { published as Lecture Notes in Computer Science 213 by
+		Springer-Verlag },
+	Address = { Saarbrucken, Germany },
+	Month = mar,
+	Year = 1986,
+	Keywords = { esop esop1 esop86 }	}
+
+@InProceedings{	DebWar86,
+	Author = { Saumya K. Debray and
+		David S. Warren },
+	Title = { Detection and optimisation of functional computations
+		in Prolog },
+	Editor = { Ehud Shapiro },
+	Booktitle = { Proceedings of the Third International Conference
+		on Logic Programming },
+	Pages = { 490-504 },
+	Note = { published as Lecture Notes in Computer Science 225 by
+		Springer-Verlag },
+	Address = { London, England },
+	Month = jul,
+	Year = 1986,
+	Keywords = { ilpc iclp ilpc86 iclp86 ilpc3 iclp3 }	}
+
+@InProceedings{	BosCecMoi88,
+	Author = { P.G. Bosco and
+		C. Cecchi and
+		C. Moiso },
+	Title = { Exploiting the full power of logic plus functional
+		programming },
+	Editor = { Kenneth A. Bowen and
+		Robert A. Kowalski },
+	Booktitle = { Proceedings of the Fifth International
+		Conference/Symposium on Logic Programming },
+	Pages = { 3-17 },
+	Address = { Seattle, Washington },
+	Month = aug,
+	Year = 1988,
+	Keywords = { applications, IDEAL, K-LEAF }	}
+
+@InProceedings{	Zac88,
+	Author = { Joseph L. Zachary },
+	Title = { A pragmatic approach to equational logic programming },
+	Editor = { Kenneth A. Bowen and
+		Robert A. Kowalski },
+	Booktitle = { Proceedings of the Fifth International
+		Conference/Symposium on Logic Programming },
+	Pages = { 295-310 },
+	Address = { Seattle, Washington },
+	Month = aug,
+	Year = 1988,
+	Keywords = { Denali, moded base, equational moding }	}
+
+@InProceedings{	CheEmdRic90,
+	Author = { M.H.M. Cheng and
+		M.H. van Emden and
+		B.E. Richards },
+	Title = { On Warren's method for functional programming in logic },
+	Booktitle = { Proceedings of the Seventh International
+		Conference on Logic Programming },
+	Address = { Jerusalem, Israel },
+	Month = jun,
+	Year = 1990,
+	Keywords = { ilpc iclp ilpc90 iclp90 islp90 ilpc7 iclp7 }	}
+
+@InProceedings{	GlaJenMcC85,
+	Author = { J.I. Glasgow and
+		M.A. Jenkins and
+		C.D. McCrosky },
+	Title = { User defined parallel computation strategies in {NIAL} },
+	Booktitle = { Proceedings of the Second IEEE Symposium on Logic
+		Programming },
+	Pages = { 22-28 },
+	Address = { Boston, Massachusetts },
+	Month = jul,
+	Year = 1985,
+	Keywords = { functional programming, logic programming, transformers }	}
+
+@InProceedings{	DerPla85a,
+	Author = { Nachum Dershowitz and
+		David A. Plaisted },
+	Title = { Logic programming cum applicative programming },
+	Booktitle = { Proceedings of the Second IEEE Symposium on Logic
+		Programming },
+	Pages = { 54-66 },
+	Address = { Boston, Massachusetts },
+	Month = jul,
+	Year = 1985,
+	Keywords = { functional programming, conditional rewrite rules, narrowing }	}
+
+@InProceedings{	Red85a,
+	Author = { Uday S. Reddy },
+	Title = { Narrowing as the operational semantics of functional
+		languages },
+	Booktitle = { Proceedings of the Second IEEE Symposium on Logic
+		Programming },
+	Pages = { 138-151 },
+	Address = { Boston, Massachusetts },
+	Month = jul,
+	Year = 1985,
+	Keywords = { islp islp2 islp85 }	}
+
+@InProceedings{	SriOxlSri85,
+	Author = { Amitabh Srivastava and
+		Don Oxley and
+		Aditya Srivastava },
+	Title = { An(other) integration of logic and functional
+		programming },
+	Booktitle = { Proceedings of the Second IEEE Symposium on Logic
+		Programming },
+	Pages = { 254-260 },
+	Address = { Boston, Massachusetts },
+	Month = jul,
+	Year = 1985,
+	Keywords = { islp islp2 islp85 }	}
+
+@InProceedings{	JamGreChi89,
+	Author = { Damir Jamsek and
+		Kevin J. Greene and
+		Shiu-Kai Chin and
+		Paul R. Humenn },
+	Title = { {WINTER}: {WAM}s in {TIM} expression reduction },
+	Editor = { Ewing L. Lusk and
+		Ross A. Overbeek },
+	Booktitle = { Proceedings of the First North American Conference
+		on Logic Programming },
+	Pages = { 1013-1029 },
+	Address = { Cleveland, Ohio },
+	Month = oct,
+	Year = 1989,
+	Keywords = { continuation-based abstract machine, unifying logic and functional programming }	}
+
+@InProceedings{	Smo84,
+	Author = { Gert Smolka },
+	Title = { Making control and data flow in logic programs
+		explicit },
+	Booktitle = { Conference Record of the ACM Symposium on LISP and
+		Functional Programming },
+	Pages = { 311-322 },
+	Address = { Austin, Texas },
+	Month = jul,
+	Year = 1984,
+	Keywords = { Prolog extensions, totality assertions, functional notation, verification }	}
+
+@Article{	BelLev86a,
+	Author = { Marco Bellia and
+		Giorgia Levi },
+	Title = { The Relation Between Logic and Functional Languages: A
+		Survey },
+	Journal = { J. Logic Programming },
+	Volume = 3,
+	Number = 3,
+	Pages = { 217-236 },
+	Year = 1986,
+	Keywords = { AT08 }	}
+
+@InCollection{	RobSib82,
+	Author = { John A. Robinson and
+		E.E. Sibert },
+	Title = { {LOGLISP}: an alternative to Prolog },
+	Booktitle = { Machine Intelligence 10 },
+	Editor = { J.E. Hayes and
+		Donald Michie and
+		Y-H. Pao },
+	Pages = { 399-419 },
+	Publisher = { Ellis Horwood Ltd. },
+	Address = { Chicester, England },
+	Year = 1982,
+	Keywords = { logic programming }	}
+
+@InCollection{	War82,
+	Author = { David H.D. Warren },
+	Title = { Higher-order extensions to Prolog: are they needed? },
+	Booktitle = { Machine Intelligence 10 },
+	Editor = { J.E. Hayes and
+		Donald Michie and
+		Y-H. Pao },
+	Pages = { 441-454 },
+	Publisher = { Ellis Horwood Ltd. },
+	Address = { Chicester, England },
+	Year = 1982,
+	Keywords = { logic programming }	}
+
+@InProceedings{	BosCecMoi90,
+	Author = { P.G. Bosco and
+		C. Cecchi and
+		C. Moiso and
+		M. Porta and
+		G. Sofi },
+	Title = { Logic and functional programming on distributed memory
+		architectures },
+	Booktitle = { Proceedings of the Seventh International
+		Conference on Logic Programming },
+	Address = { Jerusalem, Israel },
+	Month = jun,
+	Year = 1990,
+	Keywords = { ilpc iclp ilpc90 iclp90 islp90 ilpc7 iclp7 }	}
+
+@InProceedings{	She90,
+	Author = { Yeh-Heng Sheng },
+	Title = { {HIFUNLOG}: logic programming with higher-order
+		relational functions },
+	Booktitle = { Proceedings of the Seventh International
+		Conference on Logic Programming },
+	Address = { Jerusalem, Israel },
+	Month = jun,
+	Year = 1990,
+	Keywords = { ilpc iclp ilpc90 iclp90 islp90 ilpc7 iclp7 }	}
+
+@InProceedings{	Tay90,
+	Author = { Andrew Taylor },
+	Title = { {LIPS} on a {MIPS}: results from a Prolog compiler for
+		a {RISC} },
+	Booktitle = { Proceedings of the Seventh International
+		Conference on Logic Programming },
+	Address = { Jerusalem, Israel },
+	Month = jun,
+	Year = 1990,
+	Keywords = { ilpc iclp ilpc90 iclp90 islp90 ilpc7 iclp7 }	}
+
+
+@PhDThesis{	Narain88,
+	Author = { Sanjai Narain },
+	Type = { Ph.D. Thesis },
+	Title = { LOG(F): An optimal combination of logic programming,
+		rewriting and lazy evaluation },
+	School = { Dept. of computer science, UCLA },
+	Address = { Los Angeles, CA },
+	Year = 1988,
+	Keywords = { reduction }	}
+
+@Book{	PJones87,
+	Author = { S. Peyton Jones },
+	Title = { The implementation of functional programming languages },
+	Pages = 495,
+	Series = { Prentice Hall International series in computer science},
+	Publisher = { Prentice Hall },
+	Address = { London },
+	Year = 1987,
+	Keywords = { book }	}
+
+@Comment{ Database converted by ref2bib
+	Mon Feb 25 12:52:14 EST 1991 on beijing}
+
+@InProceedings{	War87,
+	Author = { D.H.D. Warren },
+	Title = { The {SRI} model for {OR}-parallel execution of Prolog
+		- abstract design and implementation issues },
+	Booktitle = { Proceedings of the Fourth IEEE Symposium on Logic
+		Programming },
+	Pages = { 92-102 },
+	Address = { San Francisco, California },
+	Month = aug,
+	Year = 1987,
+	Keywords = { islp islp4 islp87 }	}
+
+@InProceedings{	DeG84,
+	Author = { Doug DeGroot },
+	Title = { Restricted {AND}-parallelism },
+	Booktitle = { Proceedings of the 1984 International Conference
+		on Fifth Generation Computer Systems },
+	Pages = { 471-478 },
+	Address = { Tokyo, Japan },
+	Month = nov,
+	Year = 1984,
+	Keywords = { fgcs fgcs84 logic }	}
+
+@InCollection{	DarFiePul85,
+	Author = { J. Darlington and
+		A.J. Field and
+		H. Pull },
+	Title = { The unification of functional and logic languages },
+	Booktitle = { Logic programming: relations, functions, and
+		equations },
+	Editor = { Doug DeGroot and
+		Gary Lindstrom },
+	Pages = { 37-70 },
+	Publisher = { Prentice-Hall },
+	Year = 1985,
+	Keywords = { lpfre } }
+
+@InProceedings{	Fri85,
+	Author = { Laurent Fribourg },
+	Title = { {SLOG}: a logic programming language interpreter based
+		on clausal superposition and rewriting },
+	Booktitle = { Proceedings of the Second IEEE Symposium on Logic
+		Programming },
+	Pages = { 172-184 },
+	Address = { Boston, Massachusetts },
+	Month = jul,
+	Year = 1985,
+	Keywords = { islp islp2 islp85 }	}
+
+@InProceedings{	JosDer86,
+	Author = { Alan Josephson and
+		Nachum Dershowitz },
+	Title = { An implementation of narrowing the {RITE} way },
+	Booktitle = { Proceedings of the Third IEEE Symposium on Logic
+		Programming },
+	Pages = { 187-197 },
+	Address = { Salt Lake City, Utah },
+	Month = sep,
+	Year = 1986,
+	Keywords = { islp islp3 islp86 }	}
+
+@Article{	Nar86,
+	Author = { Sanjai Narain },
+	Title = { A technique for doing lazy evaluation in logic },
+	Journal = { Journal of Logic Programming },
+	Volume = 3,
+	Number = 3,
+	Pages = { 259-276 },
+	Month = oct,
+	Year = 1986,
+	Keywords = { jlp }	}
+
+@TechReport{	AbrLud86,
+	Author = { Harvey Abramson and Peter Ludemann },
+	Type = { Research Report },
+	Title = { Compiling functional programming constructs to a
+		logic engine },
+	Institution = { Department of computer science,
+		University of British Columbia },
+	Address = { Vancouver, Canada },
+	Year = 1986 }
+

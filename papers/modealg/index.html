@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<TITLE>Mode checking using constrained regular trees</TITLE>
+<LINK REV=MADE HREF="mailto:lee@unimelb.edu.au">
+</head>
+<body>
+<H1>Mode checking using constrained regular trees</H1>
+<H3>
+			Lee Naish
+</H3>
+<br>
+
+In a previous paper we presented a high level polymorphic mode system
+for logic programs.  In this paper we present an algorithm which checks
+if a program is well moded, given that is it well-typed in the sense of
+Mycroft and O'Keefe.  A program is well-moded if the set
+of ground atoms defined by mode declarations is a superset of the
+success set.  The novelty of
+the algorithm is the expressiveness of the mode declarations.
+<em>Constrained regular trees</em> are used to define sets of terms and
+atoms.
+These are based on polymorphic types but allow set and multiset
+constraints over type variables.
+The expressiveness of this domain makes it very promising for many
+program analysis applications.
+Complexity is also (exponentially) better than other proposed domains
+for certain analysis tasks.
+<P>
+
+Keywords:
+logic programming, modes, types,
+constrained regular trees, aliasing, linearity, set constraints,
+multisets
+<P>
+
+<UL>
+
+<LI>
+Tech report version:
+<A HREF="./tr.dvi.gz">
+compressed dvi file</A> (29k);
+<A HREF="http://www.cs.mu.oz.au/publications/tr_db/mu_98_03.ps.gz">
+compressed Postscript file</A> (82k)
+
+<LI>
+<A HREF="all.bib.txt">
+references</A>
+
+<LI>
+Examples (from prototype implementation):
+<PRE>
+mc &lt <A HREF="ex1.txt">ex1</A> &gt <A HREF="out1.txt">out1</A>
+</PRE>
+
+<LI>
+<A HREF="../modes/">A declarative view of modes</A>
+
+</UL>
+
+<br>
+<A HREF="http://people.eng.unimelb.edu.au/lee"> Lee </A>
+
+</body>
+</HTML>

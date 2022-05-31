@@ -1,0 +1,197 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.2beta8 (1.42)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Introduction</TITLE>
+<META NAME="description" CONTENT="Introduction">
+<META NAME="keywords" CONTENT="naishsem3">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.2beta8">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="naishsem3.css">
+
+<LINK REL="next" HREF="node2.html">
+<LINK REL="previous" HREF="naishsem3.html">
+<LINK REL="up" HREF="naishsem3.html">
+<LINK REL="next" HREF="node2.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html43"
+  HREF="node2.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/lib/latex2html/icons/next.png"></A> 
+<A NAME="tex2html41"
+  HREF="naishsem3.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/lib/latex2html/icons/up.png"></A> 
+<A NAME="tex2html35"
+  HREF="naishsem3.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/lib/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html44"
+  HREF="node2.html">Synopsis for programmers</A>
+<B> Up:</B> <A NAME="tex2html42"
+  HREF="naishsem3.html">A three-valued semantics for</A>
+<B> Previous:</B> <A NAME="tex2html36"
+  HREF="naishsem3.html">A three-valued semantics for</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00010000000000000000">
+Introduction</A>
+</H1>
+
+<P>
+When programming, we often give too little attention to the meaning
+of our code.  For these sins of sloth and pride (``I can't be bothered
+re-checking everything -- I'm sure I got it right'') we are forced to
+do penance, in the form of debugging.  During the repetitive tedium
+we contemplate the relationships between our code, its behaviour and
+our desires: the domain of programming language semantics.  Thus (in
+retrospect) it is natural for work on debugging to lead to work
+on semantics.  All too often, work on semantics seems to bear little
+relation to any stage of the software life cycle.  Here our aim is to
+provide theoretical support which can allow programmers to reason about
+the correctness of their code more easily.
+
+<P>
+The starting point for our three-valued approach to semantics was
+declarative debugging of logic programs.  The conventional view of
+the semantics of logic programs [<A
+ HREF="node22.html#Llo84">LloydLloyd1984</A>] and declarative debugging
+[<A
+ HREF="node22.html#Sha83">ShapiroShapiro1983</A>] [<A
+ HREF="node22.html#Llo87">LloydLloyd1987</A>] is as follows.  Every ground atom is either true
+or false in the intended interpretation of the program.  True atoms should
+succeed and false atoms should fail.  To isolate a bug a declarative
+debugger compares the intended interpretation with the behaviour of a
+program in a particular instance which terminates and which produces
+unexpected results.  It has been noted by various researchers that
+this strict division into true and false does not correspond to the
+intentions of typical programmers.  There are some atoms encountered
+during debugging which simply should not occur in correct programs (for
+example, ``ill-typed'' atoms).  Whether they succeed or fail is not the
+issue.  A third truth value, <I>inadmissible</I>, has been introduced
+into declarative debugging for such atoms [<A
+ HREF="node22.html#Per86">PereiraPereira1986</A>] [<A
+ HREF="node22.html#PerCal88">Pereira and CalejoPereira and
+  Calejo1988</A>]
+[<A
+ HREF="node22.html#ddscheme3">NaishNaish2000a</A>].  This is a recognition that, in practice, <I>intended
+interpretations are three-valued</I> rather than two-valued.  Similarly,
+most work on formal specifications allows for the behaviour of a module
+to be unspecified if <I>preconditions</I> are violated.  The aim of this
+paper is to reconstruct the semantics of logic programs with this in mind.
+
+<P>
+There are many reasons for studying programming language semantics.
+One is pure philosophy -- knowing more about a language for the
+sake of knowing.  A formal semantics is also a useful guide for an
+implementer and allows programmers to write portable code which has
+predictable behaviour.  It can also be used for optimisation and
+analysis of programs, to help make implementations more efficient as
+well as correct.  Semantics can also provide useful ways for programmers
+to think about their code, and can be the basis for program development
+environments including debuggers.  This is the main focus for our work --
+we provide a semantics for <I>logic programmers</I> (though implementers
+and philosophers may also be interested).  We aim to allow programmers to
+reason about the partial correctness of programs as easily as possible.
+Model theory is particularly attractive due to its simplicity -- partial
+correctness can be ensured if the intended interpretation is a model
+of each clause in the program.  It is a useful guide for constructing
+programs, an excellent tool for verification of programs and enables
+declarative debugging.  Finally, all the considerations above can be
+used in the design of programming languages.
+
+<P>
+There is (very) extensive work on negation in logic programming
+(see [<A
+ HREF="node22.html#apt94logic">Apt and BolApt and Bol1994</A>]) including some three-valued approaches
+[<A
+ HREF="node22.html#Fitting85">FittingFitting1985</A>][<A
+ HREF="node22.html#Kun87">KunenKunen1987</A>].  The work tends to be directed at
+solving mathematical and computational problems in order to make the
+declarative and procedural semantics as close as possible, and there is
+a general desire to be able to assign a meaning to all possible programs.
+In our view, both these goals have questionable benefit for programmers.
+The declarative semantics should support a notion of inadmissibility which
+is not tied down to any particular program behaviour, thus leading to
+an inevitable gap between declarative and procedural readings.  A key
+question for programmers is whether a program is correct according
+to their intended interpretation.  If the answer is no, one possible
+solution is to change the intended interpretation -- ``its not a bug,
+its a feature'' (having a semantics for every program is useful here).
+However, the more common solution is to change the program!
+
+<P>
+Because this paper is partly concerned with how programmers think,
+some qualification is in order.  I am not a psychologist and the ideas
+here were not the result of a proper study of programmers.  In fact, I
+believe most Prolog programmers think little or nothing of declarative
+semantics (though perhaps with a better semantics this will change).
+The ideas came mostly from introspection and are a refinement of the
+work I have done over many years on reasoning about logic programs.
+The intended meanings of programs in this paper are discussed and I
+know the intended meanings because I wrote the programs.  I hope to
+convince the reader that other programmers think in a similar way, or at
+least this is a useful way to think about programs.  I believe my use
+of declarative semantics has contributed to my logic
+programming abilities.
+
+<P>
+The rest of the paper is structured as follows.  We first give a synopsis
+for programmers: a concise non-technical description of a verification
+method which arises out of our technical results.  The next section gives
+more detailed motivation for our work, discussing how programmers intend
+code to behave, how it actually behaves, reasoning about (in)correctness
+and formal semantics.  It briefly reviews previous work on the semantics
+of logic programs and declarative debugging (some knowledge of these areas
+would help the reader).  We then present our three-valued semantics,
+first for definite clause programs, then for programs with negation.
+We define operational, model theoretic and fixpoint semantics and
+establish various relationships between them.  Related work on semantics
+is discussed in these sections.  Finally, we present examples of our
+program verification method, comparing it with other work, then conclude.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html43"
+  HREF="node2.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/lib/latex2html/icons/next.png"></A> 
+<A NAME="tex2html41"
+  HREF="naishsem3.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/lib/latex2html/icons/up.png"></A> 
+<A NAME="tex2html35"
+  HREF="naishsem3.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/lib/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html44"
+  HREF="node2.html">Synopsis for programmers</A>
+<B> Up:</B> <A NAME="tex2html42"
+  HREF="naishsem3.html">A three-valued semantics for</A>
+<B> Previous:</B> <A NAME="tex2html36"
+  HREF="naishsem3.html">A three-valued semantics for</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+
+2005-08-02
+</ADDRESS>
+</BODY>
+</HTML>

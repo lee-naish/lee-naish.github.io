@@ -1,0 +1,10 @@
+#!/bin/sh
+#set USER lee
+/usr/bin/Mail -s "ICLP submission" $1 << END
+
+Thanks for registering your ICLP'97 submission electronically.
+We look forward to receiving it.
+
+	Lee Naish,
+	ICLP'97 Programme chair
+END

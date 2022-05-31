@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<TITLE>A three-valued semantics for Horn clause programs</TITLE>
+<LINK REV=MADE HREF="mailto:lee@unimelb.edu.au">
+</head>
+<body>
+<H1>A three-valued semantics for Horn clause programs</H1>
+<H3>
+			Lee Naish
+</H3>
+<br>
+
+The study of semantics of logic programs has shown strong links between
+the model theoretic semantics (truth and falsity of atoms in the
+programmer's interpretation of a program), procedural semantics (for
+example, SLD resolution) and fixpoint semantics (which is
+useful for program analysis and alternative execution mechanisms).
+Nearly all of this work assumes that intended interpretations are
+two-valued:
+a ground atom is true (and should succeed according to the procedural
+semantics) or false (and should not succeed).  In reality, intended
+interpretations are less precise.
+Programmers consider that some atoms "should not occur"
+or are "ill-typed" or "inadmissible".  Programmers don't know and
+don't
+care whether such atoms succeed.  In this paper we propose a
+three-valued semantics for (essentially) Horn clause programs which
+reflects this.  It is simpler and more flexible than previously proposed
+type schemes which implicitly recognise this third truth value.
+It provides tools to reason about correctness of programs without the
+need for unnatural precision or undue restrictions on programming style.
+This work has been motivated by work on declarative debugging, where it
+has been recognised that inadmissible calls are important.
+<P>
+
+<UL>
+
+<LI>
+<A HREF="../sem3neg/">
+A three-valued semantics for logic programmers
+</A> (a more recent paper which subsumes this one)
+
+<LI>
+Tech report version:
+<A HREF="./tr.dvi.gz">
+compressed dvi file</A> (21k);
+<A HREF="http://www.cs.mu.oz.au/publications/tr_db/mu_98_04.ps.gz">
+compressed Postscript file</A> (61k)
+
+<LI>
+<A HREF="./all.bib.txt">
+references</A>
+
+<LI>
+<A HREF="http://www-staff.socs.uts.edu.au/~jenny/acsc2000/">
+ACSC</A>
+conference version:
+<A HREF="./acsc.dvi.gz">
+gzipped DVI file</A> (21k)
+
+<LI>
+<A HREF="http://www-staff.socs.uts.edu.au/~jenny/acsc2000/">
+ACSC</A>
+conference slides:
+<A HREF="./talk.dvi.gz">
+gzipped DVI file</A> (5k)
+
+
+<LI>
+<A HREF="../dds3/">A three-valued declarative debugging scheme</A>
+
+</UL>
+
+<br>
+<A HREF="http://people.eng.unimelb.edu.au/lee"> Lee </A>
+
+</body>
+</HTML>

@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Polymorphic Types and Higher Order Skeletons</TITLE>
+<META NAME="description" CONTENT="Polymorphic Types and Higher Order Skeletons">
+<META NAME="keywords" CONTENT="naish">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="naish.css">
+<LINK REL="next" HREF="node11.html">
+<LINK REL="previous" HREF="node9.html">
+<LINK REL="up" HREF="node6.html">
+<LINK REL="next" HREF="node11.html">
+</HEAD>
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html131"
+ HREF="node11.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/next_motif.gif"></A> 
+<A NAME="tex2html129"
+ HREF="node6.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/up_motif.gif"></A> 
+<A NAME="tex2html123"
+ HREF="node9.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html132"
+ HREF="node11.html">Flexible Modes</A>
+<B> Up:</B> <A NAME="tex2html130"
+ HREF="node6.html">Generalising Both Approaches</A>
+<B> Previous:</B> <A NAME="tex2html124"
+ HREF="node9.html">Non-deterministic Skeletons</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00064000000000000000">
+Polymorphic Types and Higher Order Skeletons</A>
+</H2>
+
+<P>
+Monomorphic types such as <EM>list</EM> correspond to first order skeletons
+(RUL programs, as we have seen).
+The work on shape and polytypism uses polymorphic types such as
+<EM>list(T)</EM>, where <EM>T</EM> is a type parameter.
+Polymorphic types correspond to higher order skeletons
+with additional arguments.  A type <EM>t(T1,T2)</EM>
+can be mapped to a predicate <code>t(T1,T2,X)</code> which succeeds if
+<EM>X</EM> is of type <EM>t(T1,T2)</EM>.  If the definition of type
+<EM>t</EM> contains the constructor <EM>c(E1,E2)</EM>
+(where <EM>E1</EM> and <EM>E2</EM> are type expressions) then
+<code>t/3</code> will have the clause
+<BR>
+<code>t(T1, T2, c(X, Y)) :- call(</code><EM>E1</EM><code>, X), call(</code><EM>E2</EM><code>, Y).</code>
+
+<P>
+Instances of <code>call/N</code> can be specialised if their first argument
+is a nonvariable.
+For example, the type <EM>list(T)</EM> leads to the predicate
+<code>list/2</code> in Program 11.  The type <EM>rtree(T)</EM>, an M-way tree
+consisting of a term <EM>rt(X,Y)</EM> where <EM>X</EM> is of type <EM>T</EM>
+and <EM>Y</EM> is of type <EM>list(rtree(T))</EM> can be defined using
+the predicate <code>rtree/2</code>.
+
+<P>
+<PRE>
+list(T, []).                            
+list(T, [X|Xs]) :-                     
+    call(T, X), list(T, Xs).          
+
+rtree(T, rt(X, RTs)) :-
+    call(T, X), list(rtree(T), RTs).
+</PRE><B>Program 11</B>:  Higher order skeletons for list(T) and rtree(T)
+<BR>
+<BR>
+
+<P>
+Higher order skeletons go against the spirit of simplicity embodied in
+stepwise enhancement and the control flow of the program above (mutual
+recursion through <code>call/N</code>) would certainly be confusing for a
+novice programmer.  The advantage is that it saves having multiple
+copies of similar code.  Rather than have separate skeletons for
+simple lists, lists of lists, lists of rtrees et cetera, a single higher
+order definition can be given.  A specialised definition of a type such
+as <EM>rtree(any)</EM> can be obtained by partial evaluation
+(eliminating all instances of <code>call/N</code>) and a version of
+<code>foldr</code> can be derived as described above.  For <code>rtree/1</code>,
+the result is Program 12.
+
+<P>
+<PRE>
+rtree_any(rt(X, RTs)) :-                
+    list_rtree_any(RTs).               
+                                      
+list_rtree_any([]).                  
+list_rtree_any([RT|RTs]) :-           
+    rtree_any(RT),                 
+    list_rtree_any(RTs).          
+                                 
+foldrrt(FR, FC, B, rt(X, RTs), V) :-
+    foldrlrt(FR, FC, B, RTs, V1),
+    call(FR, X, V1, V).
+</PRE>
+<PRE>
+foldrlrt(FR, FC, B, [], V) :-
+    B = V.
+foldrlrt(FR, FC, B, [RT|RTs], V) :-
+    foldrrt(FR, FC, B, RT, V1),
+    foldrlrt(FR, FC, B, RTs, V2),
+    call(FC, V1, V2, V).
+</PRE><B>Program 12</B>:  Specialised skeleton and version of foldr for rtree
+<BR>
+<BR>
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html131"
+ HREF="node11.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/next_motif.gif"></A> 
+<A NAME="tex2html129"
+ HREF="node6.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/up_motif.gif"></A> 
+<A NAME="tex2html123"
+ HREF="node9.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html132"
+ HREF="node11.html">Flexible Modes</A>
+<B> Up:</B> <A NAME="tex2html130"
+ HREF="node6.html">Generalising Both Approaches</A>
+<B> Previous:</B> <A NAME="tex2html124"
+ HREF="node9.html">Non-deterministic Skeletons</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>Lee Naish</I>
+<BR><I>2000-07-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

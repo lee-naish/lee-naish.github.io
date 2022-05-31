@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Other predicates</TITLE>
+<META NAME="description" CONTENT="Other predicates">
+<META NAME="keywords" CONTENT="naish">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="naish.css">
+<LINK REL="previous" HREF="node16.html">
+<LINK REL="up" HREF="node14.html">
+<LINK REL="next" HREF="node18.html">
+</HEAD>
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html200"
+ HREF="node18.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/next_motif.gif"></A> 
+<A NAME="tex2html198"
+ HREF="node14.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/up_motif.gif"></A> 
+<A NAME="tex2html194"
+ HREF="node16.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html201"
+ HREF="node18.html">Further Work</A>
+<B> Up:</B> <A NAME="tex2html199"
+ HREF="node14.html">Experiences with higher order</A>
+<B> Previous:</B> <A NAME="tex2html195"
+ HREF="node16.html">Member</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00083000000000000000">
+Other predicates</A>
+</H2>
+
+<P>
+Before implementing our transformation tools we recognised several
+programming patterns and implemented the corresponding higher order
+predicates.  A version of <TT>map</TT> which also has an accumulator pair
+of arguments, <TT>map_acc</TT>, has been of use and could be implemented
+in functional languages as well.  A variation of <TT>map0</TT> which calls
+a predicate for each consecutive pair of elements in a list,
+<TT>map0_consec</TT>, can be used to check sortedness, for example.  This
+could be adapted to functional programming by applying functions which
+return booleans.  We have also used a combination of <TT>map</TT> and
+<TT>filter</TT> which relies on the ability of a predicate to either return
+a result or fail: <TT>split(P,Xs,Ys,Zs)</TT> applies <TT>P/2</TT> to each
+member of <TT>Xs</TT> and returns the list of results of successful calls
+to <TT>P</TT> and the list of elements for which <TT>P</TT> failed.
+
+<P>
+We have also found it useful to extend our tools to implement
+transformations which are special cases of other higher order predicates.
+Instead of using a complicated instance of a very general higher order
+predicate, we can use a relatively simple predicate. This is appropriate if
+the instance of the higher order predicate is common.  We have already seen
+an example of this: <EM>map</EM> is an instance of <EM>foldr</EM>, at least in
+the case of algebraic types.  It is somewhat special instance since it is
+particularly useful and can be coded in a tail-recursive way due to the
+nature of unification.  We have implemented another instance of
+<EM>map</EM>/<EM>foldr</EM> which preserves the shape of the data structure
+without relating the elements: <EM>same_shape</EM>.  It is a generalisation
+of <TT>same_length</TT> for lists.  We have also implemented an instance
+of <EM>foldl</EM> which converts any data structure into a list using an
+accumulator, <EM>list_from</EM>, which generalises a reverse post-order
+traversal.  The transformed code contains calls to <TT>append</TT> where
+the first argument is the list of variables which don't occur in recursive
+calls.  The <TT>append</TT> calls are optimised away by the DCG expansion
+in NU-Prolog.
+Program 20 shows the result of transforming <code>rtree_any/1</code>.
+
+<P>
+<PRE>
+list_from_rtree_any(rt(A, B)) --&gt;
+    append([A]),
+    list_from_list_rtree_any(B).
+
+list_from_list_rtree_any([]) --&gt;
+    append([]).
+list_from_list_rtree_any([A|B]) --&gt;
+    append([]),
+    list_from_rtree_any(A),
+    list_from_list_rtree_any(B).
+</PRE><B>Program 20</B>:  List-from transformation for <code>rtree_any/1</code>
+<BR> 
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html200"
+ HREF="node18.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/next_motif.gif"></A> 
+<A NAME="tex2html198"
+ HREF="node14.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/up_motif.gif"></A> 
+<A NAME="tex2html194"
+ HREF="node16.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html201"
+ HREF="node18.html">Further Work</A>
+<B> Up:</B> <A NAME="tex2html199"
+ HREF="node14.html">Experiences with higher order</A>
+<B> Previous:</B> <A NAME="tex2html195"
+ HREF="node16.html">Member</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>Lee Naish</I>
+<BR><I>2000-07-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

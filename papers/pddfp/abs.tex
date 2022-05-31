@@ -1,0 +1,21 @@
+\begin{abstract}
+% \begin{center}
+% \textbf{Abstract}
+% \end{center}
+Declarative (or algorithmic) debugging is a promising technique for
+debugging lazy functional programs.  This paper addresses two important
+reasons why it is not more widespread: the difficulty of
+writing a declarative debugger for a lazy functional language in the
+language itself and the efficiency of the debugger.   Using the source
+language to implement the debugger is desirable for portability and we
+discuss the reasons why this is very difficult to do.
+We propose a system in which nearly all
+the code is in the source language but there is one function which must
+be written at lower level.  We also show how this function can be the
+key to significantly improving the efficiency of declarative debuggers for
+such languages.
+
+\noindent
+\textbf{Keywords}: algorithmic debugging, referential transparency,
+i/o, monads, types, trace, transformation
+\end{abstract}

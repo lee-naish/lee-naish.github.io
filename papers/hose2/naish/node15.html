@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Map</TITLE>
+<META NAME="description" CONTENT="Map">
+<META NAME="keywords" CONTENT="naish">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="naish.css">
+<LINK REL="next" HREF="node16.html">
+<LINK REL="previous" HREF="node14.html">
+<LINK REL="up" HREF="node14.html">
+<LINK REL="next" HREF="node16.html">
+</HEAD>
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html182"
+ HREF="node16.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/next_motif.gif"></A> 
+<A NAME="tex2html180"
+ HREF="node14.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/up_motif.gif"></A> 
+<A NAME="tex2html174"
+ HREF="node14.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html183"
+ HREF="node16.html">Member</A>
+<B> Up:</B> <A NAME="tex2html181"
+ HREF="node14.html">Experiences with higher order</A>
+<B> Previous:</B> <A NAME="tex2html175"
+ HREF="node14.html">Experiences with higher order</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00081000000000000000">
+Map</A>
+</H2>
+
+<P>
+Prior to the development of our transformation tools we noted that the most
+commonly used higher order predicates used were those in the <EM>map</EM>
+family (over 75 percent of higher order calls).  However, we had adapted
+these predicates to suit the logic programming style.  The function
+<TT>map2</TT> takes a function <I>f</I> and two lists <TT>[</TT>
+<!-- MATH: $x_1,x_2, \ldots$ -->
+<IMG
+ WIDTH="80" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.gif"
+ ALT="$x_1,x_2, \ldots
+$"><TT>]</TT> and <TT>[</TT>
+<!-- MATH: $y_1,y_2, \ldots$ -->
+<IMG
+ WIDTH="77" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.gif"
+ ALT="$y_1,y_2, \ldots $"><TT>]</TT> and returns the list
+<TT>[</TT>
+<!-- MATH: $f~ x_1~ y_1, f~ x_2~ y_2, \ldots$ -->
+<IMG
+ WIDTH="161" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.gif"
+ ALT="$f~ x_1~ y_1, f~ x_2~ y_2, \ldots $"><TT>]</TT>.  If the two input
+lists differ in length the additional elements in the longer list are
+ignored, increasing flexibility.  The analogous Prolog predicate,
+<TT>map2(F,As,Bs,Cs)</TT>, is (ironically) less flexible if we allow this
+freedom.  A version which only succeeds for lists of the same length can be
+used in more modes, for example producing <TT>As</TT> and <TT>Bs</TT> from
+<TT>Cs</TT>.  Only a minority of our uses of <TT>map2</TT> were in the mode
+corresponding to the functional program.
+
+<P>
+The second most commonly used predicate in the <EM>map</EM> family (almost as
+common as <TT>map/3</TT>) was a predicate we named <TT>map0/2</TT>.  It
+takes a predicate and applies it to each member of a list, naturally
+fitting into the <EM>map</EM> family but without a functional programming
+counterpart (though it is similar to <TT>all</TT> which takes a boolean
+function and a list and returns a boolean).  Its uses in Prolog are for
+several programming techniques which are not available in languages such as
+Miranda.  First, predicates can be used as tests, implicitly succeeding or
+failing rather than explicitly returning a boolean.  Second, because list
+elements can contain logic variables, calling a predicate for each list
+element may further instantiate the list.  Third, Prolog procedures can
+have side effects.
+
+<P>
+Our tool supports transformation of a skeleton into a version of <I>mapN</I> for
+all natural numbers <I>N</I>.  As well as higher order arguments, the
+transformed code has <I>N</I> additional copies of the original set of arguments
+and corresponding copies of all non-recursive calls.  The principle is that
+<I>mapN</I> should succeed only if the original skeleton succeeds for each of
+the sets of arguments.  Higher order arguments are added to relate
+variables which do not occur in any recursive calls.  Program 18 shows the
+result of transforming <code>tree_any/1</code> with <TT>map(2)</TT> and
+<TT>connected</TT> with <TT>map(1)</TT>. <code>Map2_tree_any(P,T1,T2,T3)</code>
+is true if the last tree arguments are trees of the same shape with their
+elements related by predicate <TT>P</TT>.
+<code>Map_connected(P1,P2,X0,X,Y0,Y)</code> is true if there are two paths of the
+same length, from <TT>X0</TT> to <TT>X</TT> and from <TT>Y0</TT> to
+<TT>Y</TT>, where the end nodes are related by <TT>P2</TT> and the other
+nodes are related by <TT>P1</TT>.
+
+<P>
+<PRE>
+map2_tree_any(A, leaf(B), leaf(C), leaf(D)) :-
+    call(A, B, C, D).
+map2_tree_any(A, tree(B, C), tree(D, E), tree(F, G)) :-
+    map2_tree_any(A, B, D, F),
+    map2_tree_any(A, C, E, G).
+
+map_connected(A, B, C, C, D, D) :-
+    call(A, C, D).
+map_connected(A, B, C, D, E, F) :-
+    call(B, C, E),
+    edge(C, G),
+    edge(E, H),
+    map_connected(A, B, G, D, H, F).
+</PRE><B>Program 18</B>:  Map transformations for <code>tree_any/1</code> and
+<TT>connected/2</TT>
+<BR> 
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html182"
+ HREF="node16.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/next_motif.gif"></A> 
+<A NAME="tex2html180"
+ HREF="node14.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/up_motif.gif"></A> 
+<A NAME="tex2html174"
+ HREF="node14.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html183"
+ HREF="node16.html">Member</A>
+<B> Up:</B> <A NAME="tex2html181"
+ HREF="node14.html">Experiences with higher order</A>
+<B> Previous:</B> <A NAME="tex2html175"
+ HREF="node14.html">Experiences with higher order</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>Lee Naish</I>
+<BR><I>2000-07-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

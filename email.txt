@@ -1,0 +1,15 @@
+Return-Path: <kre>
+Received: (from kre@localhost) by mulga.cs.mu.OZ.AU
+	id QAA24292 for lee; Tue, 19 Dec 2000 16:32:58 +1100 (EST)
+Date: Tue, 19 Dec 2000 16:32:58 +1100 (EST)
+From: Robert Elz <kre@cs.mu.OZ.AU>
+Message-Id: <200012190532.QAA24292@mulga.cs.mu.OZ.AU>
+To: lee@cs.mu.OZ.AU
+Subject: please truncate your mailbox
+
+Your mailbox on mulga is 12MB big - we don't have space for that.
+Please do whatever you like with the mail, then make the mailbox
+much smaller...  if you don't, I will not hesitate to trash all of it.
+
+kre
+

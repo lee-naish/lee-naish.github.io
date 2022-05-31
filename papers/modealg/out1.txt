@@ -1,0 +1,18 @@
+ERROR: MODE CHECKING FAILED:
+:- mode app20(list(T1), list(T2), list(T3)) : T1 + T2 <==> T3.
+app20([A|As], Bs, [A, A|Cs]) :-
+	app20(As, Bs, Cs).
+
+ERROR: MODE CHECKING FAILED:
+:- mode app_b(X = list(T1), Y = list(T2), Z = list(T3)) : T1 + T2 <==> T3, (X -> Z).
+app_b([], As, As).
+
+ERROR: MODE CHECKING FAILED:
+:- mode stack2(list(stk_op(PU, PO)), list(E)) : PU + E <==> PO.
+stack2([], _).
+
+ERROR: MODE CHECKING FAILED:
+:- mode sbf(tree(T1), list(T2)) : T1 <=> T2.
+sbf(At, As) :-
+	sbfq(s(zero), [At|QT], QT, As).
+

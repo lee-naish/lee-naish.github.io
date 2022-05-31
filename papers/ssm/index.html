@@ -1,0 +1,87 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Similarity to a Single Set</title>
+<link rev=made href="mailto:lee@unimelb.edu.au">
+</head>
+<body>
+<h1>Similarity to a Single Set</h1>
+
+<h3>
+			Lee Naish
+</h3>
+
+<br>
+Identifying patterns and associations in data is fundamental to
+discovery in science.  This work investigates a very simple but
+fundamental instance
+of the problem, where each data point consists of a vector of binary
+attributes.
+For example,
+each data point may correspond to a person and the attributes
+may be their sex, whether they smoke cigarettes, whether they have been
+diagnosed with lung cancer, etc.
+Our primary application is spectral based fault localisation (SBFL), in
+which
+each point represents a test case for a computer program and the
+attributes are
+whether the program failed the test and whether certain parts of the
+program
+were used during the test.
+Measuring similarity
+of attributes in the data is equivalent to measuring similarity of
+sets.
+Furthermore, there is one identified "base" set
+and only similarity to that set is considered---the other
+sets are just ranked according to how similar they are to the base set.
+For example, if the base set represents lung cancer sufferers, the set
+of smokers may well be high in the ranking.  In SBFL the base set
+represents the
+failed tests and the ranking is used to help find bugs.
+Identifying set similarity or correlation has many uses and is often the
+first step in determining relationship or causality.
+Set similarity is also the basis for
+comparing binary classifiers such as diagnostic tests for any data set.
+More than a hundred set similarity measures have been proposed in the
+literature but there is very little understanding of how best
+to choose a similarity measure for a given domain.  This work discusses
+numerous properties that similarity measures can have and identifies
+important forms of symmetry which have not previously been
+considered.  It gives alternative versions of various previously defined
+properties so they are no longer incompatible,
+defines ordering relations over similarity measures
+and shows how some properties of a domain can be used to help choose
+a similarity measure which will perform well for that domain.
+
+
+<p>
+
+Keywords:
+binary similarity measure, set similarity, STASS, data mining,
+clustering, classification, diagnostic test
+<p>
+
+<ul>
+
+<li>
+The paper:
+<a href="./ssm2.pdf">
+latest PDF version</a>,
+<a href="https://peerj.com/preprints/1713/">
+PeerJ CS preprint (Feb 2016)</a>,
+<a href="./ssm.pdf">
+equivalent PDF version</a>
+
+<li>
+<a href="./talk.pdf">
+Slides for talk</a>
+at Melbourne University, December 2012
+
+
+</ul>
+
+<br>
+<a href="http://people.eng.unimelb.edu.au/lee"> Lee </a>
+
+</body>
+</html>

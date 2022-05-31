@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Incorporating Shape</TITLE>
+<META NAME="description" CONTENT="Incorporating Shape">
+<META NAME="keywords" CONTENT="naish">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="naish.css">
+<LINK REL="next" HREF="node5.html">
+<LINK REL="previous" HREF="node3.html">
+<LINK REL="up" HREF="naish.html">
+<LINK REL="next" HREF="node5.html">
+</HEAD>
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html65"
+ HREF="node5.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/next_motif.gif"></A> 
+<A NAME="tex2html63"
+ HREF="naish.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/up_motif.gif"></A> 
+<A NAME="tex2html57"
+ HREF="node3.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html66"
+ HREF="node5.html">You'll Take the High</A>
+<B> Up:</B> <A NAME="tex2html64"
+ HREF="naish.html">Stepwise Enhancement and Higher</A>
+<B> Previous:</B> <A NAME="tex2html58"
+ HREF="node3.html">A Higher Order Approach</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00040000000000000000">
+Incorporating Shape</A>
+</H1>
+
+<P>
+Recent work on shape  (Jay and Cockett, [<A
+ HREF="node20.html#Jay94">JC94</A>]), (Jay, [<A
+ HREF="node20.html#Jay">Jay95</A>]),
+(Bell&#233; et al., [<A
+ HREF="node20.html#Belle">BJM96</A>]) and
+polytypism (Jeuring and Jansson, [<A
+ HREF="node20.html#Jeuring">JJ96</A>]),
+(Jansson and Jeuring, [<A
+ HREF="node20.html#Jeuring">JJ96</A>])
+has formalised the notion that many data types
+have certain higher order functions naturally associated with them.  For
+example, <code>map/3</code> takes a list and produces another list of the same
+length.  The shape of the output, the list structure, is the same as the
+shape of the input and the elements of the lists are related by the function
+<code>map/3</code> applies.  The idea of <code>map/3</code> can be applied to
+any algebraic type such as lists and trees, and also arrays and matrices.
+A generic version of <code>map/3</code>
+applied to a binary tree will produce a binary tree of the same shape where
+the elements of the trees are related by the function <code>map/3</code> applies.
+
+<P>
+Similarly, <code>foldr</code> can be generalised to any algebraic type.
+For lists, a call to <code>foldr</code> specifies two things: what
+should be returned for the empty list, and what should be returned for
+a non-empty list, given the head and the result of folding the tail.
+For a general algebraic type we need to specify what should be returned
+for each constructor in the type, given the arguments of the
+constructor corresponding to type parameters and the result of folding
+the arguments which correspond to a concrete type (generally the type
+being defined recursively).
+
+<P>
+Consider the <code>prod_leaves/2</code> example given earlier as
+Program 3a.
+The overall operation is to fold a tree into a single number.  We
+need to define the results of folding terms of the form
+<code>leaf(X)</code> and <code>tree(L,R)</code>, given the folded
+versions of <code>L</code> and <code>R</code>.
+
+<P>
+Reconstructing the predicate <code>is_tree/1</code> as a definition of
+the type <code>bt(T)</code> and using the approach of (Naish, [<A
+ HREF="node20.html#Naish">Nai96</A>]) we
+arrive at Program 8: a version of <code>foldr</code> for this tree
+type and corresponding definitions of <code>prod_leaves/2</code> and
+<code>sum_leaves/2</code>. In (Naish, [<A
+ HREF="node20.html#Naish">Nai96</A>]) it was assumed that
+<code>foldrbt/4</code> would be written by a programmer who has the
+required degree of insight.  It is now clear that this predicate can be
+generated <EM>automatically</EM> from a definition of the type.
+This is discussed in Section <A HREF="node6.html#generalising">6</A>.
+
+<P>
+<PRE>
+:- type bt(T) ---&gt; leaf(T) ; tree(bt(T),bt(T)).
+
+foldrbt(TreeP, LeafP, leaf(X), Folded) :-
+    call(LeafP, X, Folded).
+foldrbt(TreeP, LeafP, tree(L, R), Folded) :-
+    foldrbt(TreeP, LeafP, L, FoldedL),
+    foldrbt(TreeP, LeafP, R, FoldedR),
+    call(TreeP, FoldedL, FoldedR, Folded).
+
+prod_leaves(T, P) :- foldrbt(times, =, T, P).
+sum_leaves(T, P) :- foldrbt(plus, =, T, P).
+</PRE><B>Program 8</B>:  Extensions of Program 2a using foldr
+<BR>
+<BR>
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html65"
+ HREF="node5.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/next_motif.gif"></A> 
+<A NAME="tex2html63"
+ HREF="naish.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/up_motif.gif"></A> 
+<A NAME="tex2html57"
+ HREF="node3.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html66"
+ HREF="node5.html">You'll Take the High</A>
+<B> Up:</B> <A NAME="tex2html64"
+ HREF="naish.html">Stepwise Enhancement and Higher</A>
+<B> Previous:</B> <A NAME="tex2html58"
+ HREF="node3.html">A Higher Order Approach</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>Lee Naish</I>
+<BR><I>2000-07-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,3 @@
+echo "Are you logged in to mundook?"
+echo "You are logged in to" `hostname`
+nc -o /local/dept/w3/unsupported/cgi-bin/nptest prform.nl

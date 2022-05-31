@@ -1,0 +1,257 @@
+@TechReport{ho,
+        Author = { Naish, Lee },
+        Title = { Higher-order logic programming },
+        Number = { 96/2 },
+        Institution = { Department of Computer Science, University of
+                Melbourne },
+        Address = { Melbourne, Australia },
+        pages = 15,
+        Month = feb,
+        Year = 1996,
+        abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/ho/",
+        comment   =     {In proceedings of workshop on multi-paradigm
+                        logic programming, JICSLP'96, also
+                         Research report #96-28,  Fachbereich
+                        Informatik, Technische Universitat Berlin}
+}
+
+# ignored...
+#        Institution = { Department of Computer Science, University of Melbourne },
+@phdthesis{traill,
+        Author = { T. Traill },
+        Title = { Transformation of logic programming },
+	type = {Honours Thesis},
+        Address = { Department of Computer Science, University of Melbourne, Australia },
+        pages = 28,
+        Month = nov,
+        Year = 1994
+}
+
+@inproceedings{nue,
+        author =        {Naish, Lee},
+        title  =        {Adding equations to {NU-Prolog}},
+        booktitle =     {Proceedings of The Third International Symposium on
+                        Programming Language Implementation and Logic
+                        Programming},
+        address =       {Passau, Germany},
+        publisher =     {Springer-Verlag},
+        series =        {Lecture notes in computer science},
+        number =        {528},
+        year   =        {August, 1991},
+        pages  =        {15--26},
+        abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/eq/",
+        comment   =     {Technical Report 91/2, Department of Computer
+                        Science, University of Melbourne}
+}
+
+# eds not authors but bibtex stuffs it
+@techreport{nup,
+        author =        {James Thom and Justin Zobel},
+        key =           {James Thom and Justin Zobel},
+        title  =        {{NU-Prolog} reference manual, version 1.0},
+        number =        { 86/10},
+        institution =   {Department of Computer Science, University of Melbourne
+},
+        address =       {Melbourne, Australia},
+        year   =        {1986}
+}
+
+@Article{hanus,
+author = "Hanus, M.",
+title = "The Integration of Functions into Logic Programming: From
+Theory to Practice",
+year = "1994",
+pages = "583-628",
+volume = "19\&20",
+journal = "Journal of Logic Programming" }
+
+@Article{chen,
+author = "W. Chen and M. Kifer and D.S. Warren",
+title = "{HiLog}: {A} foundation for higher order logic programming",
+year = "1993",
+pages = "187--230",
+volume = "15",
+number = "3",
+journal = "Journal of Logic Programming" }
+
+@Article{kirschenbaum,
+author = "M. Kirschenbaum and L. Sterling and A. Jain",
+title = "Relating logic programs via program maps",
+year = "1993",
+pages = "229-245",
+volume = "8",
+journal = "Annals of Mathematics and Artificial Intelligence" }
+
+@Book{  bird-wadler,
+        Author = { Richard Bird and Philip Wadler },
+        Title = { Introduction to Functional Programming },
+        Publisher = { Prentice Hall },
+        Address = { Hempel Hemsted, UK },
+        Year = 1988,
+}
+
+@InProceedings{ mercury,
+        Author = { Zoltan Somogyi and Fergus J. Henderson and
+                Thomas Conway },
+        Title = { Mercury: an efficient purely declarative logic
+                programming language },
+        Booktitle = { Proceedings of the Australian Computer Science
+                Conference },
+        Pages = { 499--512 },
+        Address = { Glenelg, Australia },
+        Month = feb,
+        Year = 1995
+}
+
+@inproceedings{gegg,
+        author = "T.S. Gegg-Harrison",
+        title = "Representing logic program schemata in {$\lambda$}{P}rolog",
+        booktitle = "Proceedings of the Twelfth International Conference
+	on Logic Programming",
+        year = 1995,
+        month = "June",
+        address = "Kanagawa, Japan",
+        editor = "Leon Sterling",
+        pages = "467--481"
+}
+
+@inproceedings{sagonas,
+        author = "K. Sagonas and D.S. Warren",
+        title = "Efficient execution of {HiLog} in {WAM}-based {P}rolog implementations",
+        booktitle = "Proceedings of the Twelfth International Conference
+	on Logic Programming",
+        year = 1995,
+        month = "June",
+        address = "Kanagawa, Japan",
+        editor = "Leon Sterling",
+        pages = "349--363"
+}
+
+@inproceedings{nadathur,
+        author =        {G. Nadathur and D. Miller},
+        title  =        {An overview of {$\lambda$}{Prolog}},
+        booktitle =     {Proceedings of the Fifth International
+	Conference/Symposium on Logic Programming},
+        address =       {Seattle, Washington},
+        year   =        {August 1988},
+        editor =        {Kenneth A. Bowen and Robert A. Kowalski},
+        pages  =        {810--827}
+}
+
+@InCollection{  War82,
+        Author = { David H.D. Warren },
+        Title = { Higher-order extensions to Prolog: are they needed? },
+       Booktitle = { Machine Intelligence 10 },
+        Editor = { J.E. Hayes and
+                Donald Michie and
+                Y-H. Pao },
+        Pages = { 441-454 },
+        Publisher = { Ellis Horwood Ltd. },
+        Address = { Chicester, England },
+        Year = 1982,
+        Keywords = { logic programming }        }
+
+@techreport{wam,
+        author = "David H.D. Warren",
+        title = "An abstract {P}rolog instruction set",
+        type = "Tecnical Note",
+        number = "309",
+        institution = "SRI International",
+        address = "Menlo Park, California",
+        year = 1983,
+        month = "October"
+}
+
+
+@incollection{sterling,
+        author =        {L. Sterling and M. Kirschenbaum},
+        title  =        {Applying techniques to skeletons}
+,
+        booktitle =     {Constructing logic programs},
+        editor =        {Jean-Marie Jacquet},
+        publisher =     {Wiley},
+        address =       {Chichester, England},
+        year   =        {1993},
+        pages  =        {127--140},
+}
+
+@InProceedings{ tamaki,
+        Author = { Hisao Tamaki and
+                Taisuke Sato },
+        Title = { Unfold/fold transformation of logic programs },
+        Editor = { Sten-{\AA}ke T{\"a}rnlund },
+        Booktitle = { Proceedings of the Second International Logic
+                Programming Conference },
+        Pages = { 127-138 },
+        Address = { Uppsala, Sweden },
+        Month = jul,
+        Year = 1984,
+        Keywords = { program transformation, equivalence, least model
+semantics }       }
+
+@book{rok,
+        author =        {Richard A. O'Keefe},
+        title  =        {The Craft of {Prolog}},
+        series =        {Logic Programming},
+        publisher =     {MIT Press},
+        address =       {Cambridge, Massachusetts},
+        year   =        {1990},
+        pages  =        {387}
+}
+
+@Book{  SteSha86,
+        Author = { Leon Sterling and
+                Ehud Shapiro },
+        Title = { The art of Prolog: advanced programming techniques },
+        Series = { Logic Programming series },
+        Pages = 427,
+        Publisher = { MIT Press },
+        Address = { Cambridge, Massachusetts },
+        Year = 1986,
+        Keywords = { book }     }
+
+@Book{  lloyd,
+        Author = { John W. Lloyd },
+        Title = { Foundations of logic programming (second, extended
+                edition) },
+        Series = { Springer series in symbolic computation },
+        Pages = 212,
+        Publisher = { Springer-Verlag },
+        Address = { New York },
+        Year = 1987,
+        Keywords = { book }     }
+
+@InProceedings{ sahlin_old,
+        Author = { Dan Sahlin },
+        Title = { The Mixtus approach to automatic partial evaluation of
+               full Prolog },
+        Booktitle = { Proceedings of the Second North American
+                Conference on Logic Programming },
+        Address = { Austin, Texas },
+        Month = oct,
+        Year = 1990,
+        Keywords = { naclp naclp2 naclp90 }     }
+
+@Article{sahlin,
+author = "Dan Sahlin",
+title = "Mixtus: An Automatic Partial Avaluator for Full {Prolog}",
+year = "1993",
+pages = "7--51",
+volume = "12",
+number = "1",
+journal = "New Generation Computing" }
+
+@InProceedings{	CheRobSta91,
+	Author = { Anthony S.K. Cheng and
+		Peter J. Robinson and
+		John Staples },
+	Title = { Higher level meta programming in {Qu-Prolog} 3.0 },
+	Editor = { Koichi Furukawa },
+	Booktitle = { Proceedings of the Eighth International Conference
+		on Logic Programming },
+	Pages = { 285-300 },
+	Address = { Paris, France },
+	Month = jun,
+	Year = 1991,
+	Keywords = { iclp iclp91 iclp8 }	}
+

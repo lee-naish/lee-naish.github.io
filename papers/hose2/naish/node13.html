@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Tools for program development</TITLE>
+<META NAME="description" CONTENT="Tools for program development">
+<META NAME="keywords" CONTENT="naish">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="naish.css">
+<LINK REL="next" HREF="node14.html">
+<LINK REL="previous" HREF="node6.html">
+<LINK REL="up" HREF="naish.html">
+<LINK REL="next" HREF="node14.html">
+</HEAD>
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html159"
+ HREF="node14.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/next_motif.gif"></A> 
+<A NAME="tex2html157"
+ HREF="naish.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/up_motif.gif"></A> 
+<A NAME="tex2html151"
+ HREF="node12.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html160"
+ HREF="node14.html">Experiences with higher order</A>
+<B> Up:</B> <A NAME="tex2html158"
+ HREF="naish.html">Stepwise Enhancement and Higher</A>
+<B> Previous:</B> <A NAME="tex2html152"
+ HREF="node12.html">Foldl</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00070000000000000000">&#160;</A>
+<A NAME="tools">&#160;</A>
+<BR>
+Tools for program development
+</H1>
+
+<P>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="192">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>Figure:</STRONG>
+Three software tools</CAPTION>
+<TR><TD><IMG
+ WIDTH="433" HEIGHT="126"
+ SRC="img4.gif"
+ ALT="\begin{figure}\hspace*{2.5cm}
+\epsfbox{naish2.eps}
+%
+\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+<P>
+A prototype tool to support the stepwise enhancement paradigm is
+discussed in (Sterling and Sitt Sen [<A
+ HREF="node20.html#Sterling93a">SS93</A>]).
+Users interact with the tool to
+construct an enhancement from one of several predefined skeletons.
+The discussion in this paper on higher order programming and shape suggests three tools
+to automate parts of the
+software development process. The first converts types (defined in some
+suitable syntax) into Horn clause definitions, the second converts Horn
+clause definitions into related higher order predicate definitions and the
+third optimises code to eliminate the overheads of higher order predicates
+(see Figure 0).
+
+<P>
+Considering only the work on shape and polytypism
+in functional languages it seems more natural go directly from types to
+higher order functions.  However, splitting this into two separate stages
+has significant advantages.  Having Horn clause definitions of types is
+useful in itself for runtime type checks, test data generation et cetera.
+These Horn clause definitions may also be refined by adding further
+constraints, for example, refining the definition of a binary tree to
+obtain the definition of a binary search tree.  Most importantly, it
+allows higher order definitions to be derived from arbitrary Horn clause
+programs, significantly increasing flexibility.
+
+<P>
+<PRE>
+:- type tree(T) ---&gt; leaf(T); t(tree(T),tree(T)).
+:- skeleton tree_any/1 generates foldl, foldr.
+
+sum_tree(T, N) :- foldl_tree_any(plus, =, T, 0, N).
+</PRE><B>Program 17</B>:  User input to tools
+<BR> 
+
+<P>
+We have implemented prototypes of the first two tools and experimented with
+a previously developed optimisation tool.  Program 17 gives a small example
+of the use of our tools.  It contains the definition of the polymorphic
+type <TT>tree</TT>, a directive which states that versions of <I>foldl</I> and
+<I>foldr</I> should be generated for this type, and a use of <I>foldl</I> for this
+type.  In a more tightly integrated system the need for explicit directives
+could be avoided by detecting such uses of higher order predicates and
+generating predicates based on usage.  The first tool takes the type
+definition and generates Horn clause definitions of <TT>tree/2</TT> (a
+higher order predicate corrresponding to the polymorphic type) and
+<TT>tree_any/1</TT>.  The second tool takes the definition of
+<TT>tree_any/1</TT> and produces Horn clause definitions of the higher
+order predicates <TT>foldl_tree_any/5</TT> and
+<TT>foldr_tree_any/4</TT>.  Existing tools/compilers can transform
+<TT>sum_tree</TT> so it is as efficient as hand-optimised code.
+We plan to implement a Web interface to the tools in the future.
+
+<P>
+Converting types into Horn clause definitions is conceptually
+straightforward.  However, our implementation was made more complex by
+allowing type synonyms and undescriminated unions in type definitions, and
+the desire for the Horn clause definitions to be as simple as possible.
+The simplicity of the output is important for the subsequent generation of
+higher order predicates.  Our prototype needs more work to ensure the
+simplest output is produced for all possible inputs.  Optimisation of
+higher order code is also reasonably straightforward and has been done in
+several logic programming systems, such as the compilers for XSB-Prolog
+(Sagonas and Warren
+[<A
+ HREF="node20.html#Sagonas">SW95</A>]) and Mercury (Somogyi et al. [<A
+ HREF="node20.html#Somogyi">SHC95</A>]).
+Unfortunately, most
+Prolog compilers do not perform such optimisations and there are no
+available source to source optimisation tools which are guaranteed to work
+correctly for standard Prolog.
+
+<P>
+Converting Horn clause definitions into higher order predicates requires
+more innovation.  One challenge is taking a known transformation from
+regular types to higher order functions and generalising it to Horn clause
+definitions which may not correspond to regular types.  We have shown one
+way to do this for <I>foldr</I> and developed a new generalisation of <I>foldl</I>,
+but each transformation requires careful thought and there is not
+necessarily a unique ``best'' solution.
+Another challenge is determining a
+<EM>useful</EM> set of transformations or abstractions.  An obvious starting
+point is the functions over lists which have been found useful in
+functional programming.  However, the optimal set depends on the
+programming style and what programming patterns occur frequently.  Although
+there are important programming patterns which lie in the intersection of
+what is coded in logic and functional languages, there are also patterns
+which are unique to each paradigm.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html159"
+ HREF="node14.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/next_motif.gif"></A> 
+<A NAME="tex2html157"
+ HREF="naish.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/up_motif.gif"></A> 
+<A NAME="tex2html151"
+ HREF="node12.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html160"
+ HREF="node14.html">Experiences with higher order</A>
+<B> Up:</B> <A NAME="tex2html158"
+ HREF="naish.html">Stepwise Enhancement and Higher</A>
+<B> Previous:</B> <A NAME="tex2html152"
+ HREF="node12.html">Foldl</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>Lee Naish</I>
+<BR><I>2000-07-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

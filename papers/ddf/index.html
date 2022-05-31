@@ -1,0 +1,84 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Declarative Diagnosis of Floundering in Prolog</title>
+<link rev=made href="mailto:lee@unimelb.edu.au">
+</head>
+<body>
+<h1>Declarative Diagnosis of Floundering in Prolog</h1>
+
+<h3>
+			Lee Naish
+</h3>
+
+<p>
+Many logic programming languages have delay primitives which allow
+coroutining. This introduces a class of bug symptoms - computations can
+<em>flounder</em> when they are intended to succeed or finitely fail.
+For concurrent logic programs this is normally called <em>deadlock</em>.
+Similarly, constraint logic programs can fail to invoke certain constraint
+solvers because variables are insufficiently instantiated or constrained.
+Diagnosing such faults as received little attention to date.  Since
+delay primitives affect the procedural but not the declarative view of
+programs, it may be expected that debugging would have to consider the
+often complex details of interleaved execution.  However, recent work on
+semantics has suggested an alternative approach.  In this paper we show
+how the declarative debugging paradigm can be used to diagnose unexpected
+floundering, insulating the user from the complexities of the execution.
+
+<p>
+Keywords: logic programming, coroutining, delay, debugging, floundering,
+deadlock, constraints
+
+<ul>
+
+<li>
+ACSC 2012 conference version of the paper (more or less):
+<a href="./acsc.pdf">
+PDF</a>
+<li>
+ACSC
+<a href="./acsctalk.pdf">
+slides for talk (PDF)</a>
+<li>
+The earlier workshop version of the paper:
+<a href="./paper.pdf">
+PDF</a>,
+<!-- <a href="./html/"> -->
+<!-- HTML version for browsing</a>, -->
+<!-- <a href="./paper.pdf"> -->
+<!-- Browsable HTML version</a>, -->
+<a href="http://www.arxiv.org/abs/0711.0048">
+CoRR/ArXiv version
+(Latex source/DVI/Postscript/PDF/...)</a>
+<a href="http://www.arxiv.org/abs/0712.3116">
+workshop proceedings </a>
+
+<li>
+<a href="./talk.pdf">
+Slides for workshop talk (PDF)</a>,
+
+<li>
+<a href="./all.pl.txt">
+source code</a>
+
+<li>
+<a href="all.bib.txt">
+references</a>
+
+<li>
+Related:
+<a href="../dds3/">
+A three-valued declarative debugging scheme</a>,
+<a href="../flounder/">
+Transforming floundering into success
+</a>
+
+
+</ul>
+
+<br>
+<a href="http://people.eng.unimelb.edu.au/lee"> Lee </a>
+
+</body>
+</html>

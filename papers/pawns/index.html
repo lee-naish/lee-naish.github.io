@@ -1,0 +1,67 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>An informal introduction to Pawns: a declarative/imperative
+language</title>
+<link rev=made href="mailto:lee@unimelb.edu.au">
+</head>
+<body>
+<h1>An informal introduction to Pawns: a declarative/imperative language</h1>
+
+<h3>
+			Lee Naish
+</h3>
+<br>
+Pawns is yet another programming language under development which attempts
+to combine the elegance of declarative programming with the algorithmic
+expressive power of imperative programming.  Algebraic data types can
+be defined and viewed as decriptions of high level values which can be
+manipulated in declarative ways.  The same type definitions can also
+be viewed at a much lower level, involving pointers to possibly shared
+data structures which can be destructively updated.  Pawns programs
+contain annotations and declarations which indicate whether the high
+or low level view should be used in different program components and
+what variables may be updated at each point.  This makes all effects
+obvious and allows efficient imperative code to be encapsulated within
+a declarative interface, with "purity" of functions and consistency of
+annotations and declarations being guaranteed by the compiler.
+<p>
+
+Keywords: functional programming language, destructive update,
+mutability, effects, algebraic data type, sharing analysis
+<p>
+
+<ul>
+
+<li>
+The paper (latest version):
+<a href="./pawns.pdf">
+PDF version</a>
+
+<li>
+<a href="./talkfpm.pdf">
+Slides for a talk about Pawns at the Melbourne Functional
+Programming Meetup group, April 2016 (PDF)</a>
+
+<li>
+<a href="./talk.pdf">
+Slides for talk about Pawns at Melbourne Programming Languages Workshop,
+December 2013 (PDF)</a>
+(the first public presentation of Pawns)
+
+<li>
+<a href="./talksv.pdf">
+Slides for talk about state variables at Melbourne Uni,
+December 2015 (PDF)</a>
+
+<li>
+<a href="../../src/pawns">
+Pawns home</a>
+
+</ul>
+
+<br>
+<a href="http://people.eng.unimelb.edu.au/lee"> Lee </a>
+
+</body>
+</html>

@@ -1,0 +1,110 @@
+<html>
+<title>Declarative debugging</title>
+<h1>Declarative debugging</h1>
+
+Locating bugs in software is an unavoidable part of software
+development.  Techniques are being developed which can dramatically
+reduce the time and effort spent on debugging.
+Traditional debugging techniques are based on the underlying
+steps in the execution of a program.  With high level languages such as
+logic programming languages the sequence of execution steps can be very
+complex.  However, logic programs not only specify what
+execution steps are performed; they also specify the logic behind the
+steps.  This logical description of what is to be computed (as opposed
+to how it is to be computed) is the basis of declarative debugging.
+<p>
+
+Declarative debugging systems compare the results of sub-computations
+with what the programmer intended.  By asking the programmer questions
+or using a formal specification the system can identify precisely where
+in a program a bug is located.  Our research into declarative debugging
+has made improvements over the original algorithms for debugging Prolog
+and extended the ideas to other language paradigms such as functional and
+object oriented languages.
+<p>
+
+<a href="http://people.eng.unimelb.edu.au/lee">Lee Naish</a>,
+<a href="http://www.cs.mu.oz.au/~zs">Zoltan Somogyi</a>,
+and
+<a href="http://www.cs.rmit.edu.au/~jah">James Harland</a>
+received a large ARC grant to continue this research until the end of 1998.
+Bert Thompson was employed
+under this grant.
+Zoltan and Lee received another large ARC grant to develop and
+apply the technology to
+<a href="http://www.cs.mu.oz.au/research/mercury/"> Mercury</a>.
+Mark Brown did
+related work on debugging Mercury
+and <a href="http://www.cs.mu.oz.au/~bjpop">Bernie Pope</a>
+has been working on debugging Haskell, with some help from summer
+students Weyn Ong,
+Toby Ord and Bryn Humberstone.
+<p>
+
+Some relevant papers:
+<ul>
+
+<li>
+<a href="nude/">
+The NU-Prolog debugging environment
+</a>
+
+<li>
+Declarative diagnosis of missing answers
+
+<li>
+<a href="ddfp/index.html">
+Declarative debugging of lazy functional programs
+</a>
+
+<li>
+<a href="nuedd/index.html">
+A declarative debugger for a logical-functional language
+</a>
+
+<li>
+<a href="dds/index.html">
+A declarative debugging scheme
+</a>
+(discusses debugging of relational, functional and object oriented
+languages)
+
+<li>
+<a href="dds3/">
+A three-valued declarative debugging scheme
+</a>
+
+
+<li>
+<a href="pddfp/index.html">
+Towards a portable lazy functional declarative debugger
+</a>
+
+<li>
+<a href="http://www.cs.mu.oz.au/publications/tr_db/mu_98_12_cover.ps.gz">
+Buddha: a declarative debugger for Haskell. 
+</a>
+
+<li>
+<a href="./ddf/">
+Declarative diagnosis of floundering
+</a>
+
+<li>
+<a href="./ddp/">
+Probabilistic declarative debugging
+</a>
+
+</ul>
+
+See also <a href="http://www.cs.nmsu.edu/~mikau/aadebug.html">
+Algorithmic and Automatic Debugging Home Page</a>,
+<a href="http://www.cse.ogi.edu/~andy/debugging/">
+Haskell Debugging Technologies</a>
+<p>
+
+<br>
+<br>
+<a href="http://people.eng.unimelb.edu.au/lee">Lee</a>
+
+</html>

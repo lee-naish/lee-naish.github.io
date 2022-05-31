@@ -1,0 +1,1036 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<TITLE>A Higher Order Reconstruction of Stepwise Enhancement</TITLE>
+<LINK REV=MADE HREF="mailto:lee@unimelb.edu.au">
+</head>
+<body>
+<H1>A Higher Order Reconstruction of Stepwise Enhancement</H1>
+
+Lee Naish and Leon Sterling<br>
+Department of Computer Science<br>
+University of Melbourne,<br>
+Parkville, Vic. 3052, Australia<br>
+{lee,leon}@cs.mu.oz.au<br>
+
+<H2>Motivation</H2>
+
+In the last couple of years, there has been renewed interest in systematic
+methods for the construction of Prolog programs, for example
+(Gegg-Harrison, 1995), (Kirschenbaum et al., 1996), (Sterling and
+Yalcinalp, 1996), and (Vasconcelos and Fuchs, 1995). This paper loosely
+characterises the progression of approaches that have been offered for
+systematic construction of logic (usually Prolog) programs. There is a
+trade-off between what is accessible for practical programmers and what is
+clearly explained in theory.
+<P>
+
+We claim that both audiences can be addressed through stepwise enhancement.
+The method can be explained directly in term of programming techniques
+applied to simple programs, and also given a more theoretical basis in
+terms of higher order functions. We review stepwise enhancement, sketch how
+to capture an enhancement as a higher order function adapted from
+<code>foldr</code>,
+and then sketch how individual enhancements are specialisations of the
+particular foldr predicate. We show how this is closely related to the new
+ideas on shape and polytypism being discussed in the functional programming
+community (Jay and Cockett, 1994), (Jay, 1995), (Belle et al., 1996)
+(Jeuring and Jansson, 1996), (Jansson and Jeuring, 1997).
+We go on to generalise this work in several ways, utilising key
+features of logic programming such as nondeterminism and flexible modes,
+and show how <code>foldl</code> can also be adapted.
+<P>
+
+<H2>What are the approaches to developing Prolog programs?</H2>
+
+
+<OL>
+<LI>  The early approach, characterised by 'Programming in Prolog' (Clocksin
+and Mellish, 1981) and  'How to Solve it in Prolog' (Coelho et al., 1982)
+was completely ad hoc. Prolog was a declarative language and it was
+easier/fun/exciting for many researchers to code in a declarative style.
+The approach did not lead to systematic Prolog training nor encourage high
+productivity.
+<P>
+
+<LI>  Another approach is based on structural induction. Anyone who programs
+in a logic language notices that code manipulating lists typically has a
+similar, recursive structure. It is well known that recursion in
+programming languages is related to proofs by induction in mathematics.
+This observation can lead to a systematic approach where logic programs are
+developed along with structural induction proofs of correctness. A coherent
+account of structural induction as the basis for systematic logic program
+construction is given in (Deville, 1990). It is not clear how well
+Deville's approach scales nor how easy it is for the non-mathematically
+inclined to master.
+<P>
+
+<LI>  An approach advocated for teaching Prolog has been to use templates or
+schemas. Students are invited to 'fill in the blanks'. The blanks can be
+thought of as parameters which are predicates. Advocates of schemas are O'Keefe
+(1990) and Gegg-Harrison (1991). Schemas have not been widely adapted, due
+partly to the fact that those who grasped Prolog programming didn't need
+them, and those that didn't  had an extra level of complexity to learn, the
+language that the schemas were expressed in.
+<P>
+
+<LI>  The recent work by Fuchs and colleagues (Fuchs and Fromherz, 1991),
+(Vasconcelos and Fuchs, 1995) attempts to combine the previous two
+approaches. A logical specification is (somehow) arrived at, and then
+schemas are used to guide the transformation of the specification to a
+program.
+<P>
+
+<LI>  Stepwise enhancement (Lakhotia, 1989), (Sterling and Kirschenbaum,
+1993), and (Sterling and Shapiro, 1994) was introduced by Sterling and
+colleagues in an attempt to simplify the teaching of complicated Prolog
+programs. Rather than have to explain higher order concepts, programmers
+and novices were taught programming techniques which at all times
+manipulated concrete Prolog programs.
+<P>
+
+<LI>  Naish (1996) advocated a higher order style of programming, very
+similar to that used in functional programming languages.
+It was shown how some operations of stepwise enhancement,
+such as applying a technique to a skeleton and composition,
+could be elegantly reproduced in a higher order framework.
+<P>
+</OL>
+
+This paper continues the discussion between the authors on how best to
+characterise stepwise enhancement. The current work was sparked by the
+challenge to use the higher order approach to explain a 'complicated'
+program, the rule interpreter described in Section 17.4 of the second
+edition of 'The Art of Prolog' (Sterling and Shapiro, 1994). In explaining
+the program, a new method was formulated: the final program is built around
+an output type rather than an input type.  In this paper we give another
+example of this technique, using a different interpreter.
+What has emerged is a better understanding of how types can
+drive program development, and how Naish and Sterling's views of systematic
+program construction via stepwise enhancement are complementary. The work
+relates to recent, exciting work in the functional programming community
+concerning shape, which sets our views on program development in a broader
+context and also suggests that logic program development is more general.
+This paper presents the dual view of stepwise enhancement.
+<P>
+
+<H2>Stepwise enhancement for Prolog program construction</H2>
+
+The method of stepwise enhancement  (Lakhotia, 1989) was originally
+conceived as an adaptation of stepwise refinement to Prolog. It was
+advocated as a way to systematically construct Prolog programs which
+exploits Prolog's high-level features. The key idea underlying stepwise
+enhancement is to visualise a program or solution in terms of its central
+control flow, or skeleton, and techniques  which perform computations while
+the control flow of the skeleton is followed. Techniques can be developed
+independently and combined automatically using the method of composition.
+<P>
+
+The most common data structure for logic programs is the list, and many
+programs are based on skeletons for traversing lists. A tutorial example of
+using stepwise enhancement to develop a simple program is given in Chapter
+13 of (Sterling and Shapiro, 1994). In this section we give the basic list
+processing program as Program 1 for reference, and a (slightly) more
+elaborate example with binary trees.
+<P>
+
+<PRE>
+is_list([]).
+is_list([X|Xs]) :- is_list(Xs).
+
+Program 1  A skeleton for traversing a list (or definition of type list)
+</PRE>
+
+Programs 2a and 2b are skeleton programs for traversing binary trees with
+values only at leaf nodes. Program 2a, the left-hand program, does a
+complete traversal of the tree, while Program 2b, the right-hand program,
+traverses a single branch of the tree. Note that Program 2a can be viewed
+as a type definition of trees.
+<P>
+
+<PRE>
+is_tree(leaf(X)).                       branch(leaf(X)).
+is_tree(tree(L,R)) :-                   branch(tree(L,R)) :- branch(L).
+    is_tree(L),                         branch(tree(L,R)) :- branch(R).
+    is_tree(R).
+
+Programs 2a and 2b  Skeletons for traversing a tree
+</PRE>
+
+Techniques capture basic Prolog programming practices, such as building a
+data structure or performing calculations in recursive code. Informally, a
+programming technique interleaves some additional computation around the
+control flow of a skeleton program. The additional computation might
+calculate a value or produce a side effect such as screen output.
+Syntactically, techniques may rename predicates, add arguments to
+predicates, add goals to clauses, and/or add clauses to programs. Unlike
+skeletons, techniques are not programs but can be conceived as a family of
+operations that can be applied to a program to produce a program.
+<P>
+
+A technique applied to a skeleton yields an <em>enhancement</em>. An
+enhancement which preserves the computational behaviour of the skeleton
+is called an <em>extension</em>.
+<P>
+
+We give examples of techniques. The two most commonly used techniques are
+the calculate and build techniques. They both compute something, a value or
+a data structure, while following the control flow of the skeleton. An
+extra argument is added to the defining predicate in the skeleton, and an
+extra goal is added to the body of each recursive clause. In the case of
+the calculate technique, the added goal is an arithmetic calculation; in
+the case of the build technique, the goal builds a data structure. In both
+cases, the added goal relates the extra argument in the head of the clause
+to the extra argument(s) in the body of the clause.
+<P>
+
+Two typical examples of the application of the calculate technique
+are given as Programs 3a and 3b. Both are extensions of Program 2a which
+traverses a binary tree with values at its leaves. The left-hand program
+(3a) computes the product of the value of the leaves of the trees. The
+extra argument in the base case is the value of the leaf node. In the
+recursive case, the extra goal says that the product of a tree is the
+product of its left subtree and its right subtree. The predicate
+<code>is_tree</code>
+has been renamed to <code>prod_leaves</code>. The right-hand program (3b), which
+computes the sum of the leaves, is very similar, the only difference being
+choice of names and the extra goal.
+<P>
+
+<PRE>
+prod_leaves(leaf(X),X).                 sum_leaves(leaf(X),X).
+prod_leaves(tree(L,R),Prod) :-          sum_leaves(tree(L,R),Sum) :-
+     prod_leaves(L,LProd),                  sum_leaves(L,LSum),
+     prod_leaves(R,RProd),                  sum_leaves(R,RSum),
+     Prod is LProd*RProd.                   Sum is LSum+RSum.
+
+Programs 3a and 3b  Extensions of Program 2a using calculate
+</PRE>
+
+Two enhancements of the same skeleton share computational behaviour. They
+can be combined into a single program which combines the functionality of
+each separate enhancement. Techniques can be developed independently and
+subsequently combined automatically. The (syntactic) operation for
+combining enhancements is called <em>composition</em>.
+This is similar in intent to
+function composition where the functionality of separate functions are
+combined into a single function. Program 4 is the result of the composition
+of Programs 3a and 3b.
+<P>
+
+<PRE>
+prod_sum_leaves(leaf(X),X,X).
+prod_sum_leaves(tree(L,R),Prod,Sum) :-
+     prod_sum_leaves(L,LProd,LSum),
+     prod_sum_leaves(R,RProd,RSum),
+     Prod is LProd*RProd,
+     Sum is LSum+RSum.
+
+Program 4  The composition of two extensions
+</PRE>
+
+A different programming technique uses accumulators. The
+accumulator-calculate technique adds two arguments to the defining
+predicate in the skeleton. The
+first argument is used to record the current value of the variable in
+question and the second contains the final result of the computation. The
+base case relates the input and output arguments, usually via unification.
+One difference between calculate and accumulate-calculate is in the need to
+add an auxiliary predicate. Another is that goals and initial values need
+to be placed differently.
+<P>
+
+Program 5 shows the result of applying the accumulate-calculate technique
+to the tree traversal program, Program 2a. It computes the sum of the
+leaves of a binary tree and is comparable to Program 3b. In general,
+programs written with accumulator techniques will run more efficiently than
+the equivalent program written with calculate and build techniques, due to
+the way tail recursion is implemented in Prolog.
+<P>
+
+<PRE>
+sum_leaves(Tree,Sum) :- accum_sum_leaves(Tree,0,Sum).
+
+accum_sum_leaves(leaf(X),Accum,Sum) :-
+    Sum is Accum + X.
+accum_sum_leaves(tree(L,R),Accum,Sum) :-
+    accum_sum_leaves(L,Accum,Accum1),
+    accum_sum_leaves(R,Accum1,Sum).
+
+Program 5  Extension of Program 2a using accumulate-calculate
+</PRE>
+
+Program 6 is an example of the application of the accumulate-build
+technique, also applied to Program 2a. It builds an inorder traversal of
+the leaves of the tree. There is no explicit arithmetic calculation, rather
+lists built by unification in the base clause. There is one trick here.
+Accumulators build structures in reverse order and hence the right subtree
+is traversed before the left subtree in order to have the final list in the
+correct order.
+<P>
+
+<PRE>
+traversal(Tree,Xs) :- accum_leaves(Tree,[],Sum).
+
+accum_leaves(leaf(X),Accum,[X|Accum]).
+accum_leaves(tree(L,R),Accum,Xs) :-
+    accum_leaves(R,Accum,Accum1),
+    accum_leaves(L,Accum1,Sum),
+
+Program 6  Extension of Program 2a using accumulate-build
+</PRE>
+
+The skeletons and techniques presented in this paper are all taken from
+Prolog, but stepwise enhancement is equally applicable to other logic
+programming languages, as discussed in Kirschenbaum, Michaylov and Sterling
+(1996). They claim that skeletons and techniques should be identified when
+a language is first used, in order to encourage systematic, effective
+program development. This learning approach should be stressed during
+teaching. They show that the skeletons and techniques for Prolog can be
+extended to constraint logic programming languages, notably CLP(R),
+concurrent logic programming languages such as Flat Concurrent Prolog and
+Strand, and higher order logic program languages, in particular Lambda-Prolog
+(Nadathur and Miller, 1988).
+<P>
+
+<H2>A higher order view of programming techniques</H2>
+
+Naish (1996) argued for a higher order approach to programming in Prolog,
+based on similar techniques which are widely used in functional
+programming.  One of the key steps in this approach is to develop suitable
+higher order predicates which can be used for a whole class of computations
+over a particular data structure.  Modern functional
+languages have certain data types and higher order functions built in. For
+example, the polymorphic type list(T) and higher order function
+<code>foldr</code>
+which generalises the common simple recursion used to compute a value from
+a list.  Program 7 demonstrates the use of <code>foldr</code>
+using Prolog syntax in the style of (Naish, 1996).
+<P>
+
+<PRE>
+:- type list(T) ---> [] ; [T|list(T)].
+
+foldr(F, B, [], B).
+foldr(F, B, [A|As], R) :-
+    foldr(F, B, As, R1),
+    call(F, A, R1, R).
+
+sum(As, S) :- foldr(plus, 0, As, S).
+product(As, P) :- foldr(times, 1, As, P).
+length(As, L) :- foldr(add1, 0, As, L).
+add1(_, TailLen, Len) :- Len is TailLen + 1.
+
+Program 7  Using foldr
+</PRE>
+
+In addition to the input list and result, <code>foldr</code>
+has two other arguments.
+One is the base case: what to return when the end of the list is reached.
+The other is a function - a predicate in the Prolog context. The predicate
+takes the head of a list and the result of folding the tail of a list to
+give the result of folding the whole list.
+<!-- Apply/3 and apply4/4 are similar -->
+The <code>call/N</code> predicates are available as builtins or library
+predicates in
+several Prolog systems.  The first argument (a predicate) is called with the
+additional arguments added. For example, <code>call(plus(A),R1,R)</code> is
+equivalent to <code>plus(A,R1,R)</code>, which is true if <code>A+R1=R</code>.
+In (Naish, 1996) an alternative higher order primitive, <code>apply/3,</code>
+is recommended due to its greater flexibility.  In this
+paper we simply use <code>call/N</code> as it is more widely known.
+<P>
+
+Examples in (Naish, 1996) show how <code>foldr</code>
+can be used to compute both the sum
+and product in a single pass by using a pair of numbers for the base case,
+intermediate results and final answer. These higher order definitions can
+be optimised very
+effectively using a partial evaluator such as Mixtus (Sahlin, 1993).
+Further examples are given to show how predicates which are analogous to
+<code>foldr</code> can be constructed.
+<P>
+
+<H2>Incorporating shape</H2>
+
+Recent work on shape  (Jay and Cockett, 1994), (Jay, 1995),
+(Belle et al., 1996) and
+polytypism (Jeuring and Jansson, 1996), (Jansson and Jeuring, 1997)
+has formalised how many data types
+have certain higher order functions naturally associated with them.  For
+example, <code>map</code> takes a list and produces another list of the same
+length.  The shape of the output, the list structure, is the same as the
+shape of the input and the elements of the lists are related by the function
+<code>map</code> applies.  The idea of <code>map</code> can be applied to
+any algebraic type such as lists and trees, and also arrays and matrices.
+A generic version of <code>map</code>
+applied to a binary tree will produce a binary tree of the same shape where
+the elements of the trees are related by the function <code>map</code> applies.
+<P>
+
+Similarly, <code>foldr</code> can be generalised to any algebraic type.
+For lists, a call to <code>foldr</code> specifies two things: what
+should be returned for the empty list, and what should be returned for
+a non-empty list, given the head and the result of folding the tail.
+For a general algebraic type we need to specify what should be returned
+for each constructor in the type, given the arguments of the
+constructor corresponding to type parameters and the result of folding
+the arguments which correspond to a concrete type (generally the type
+being defined recursively).
+<P>
+
+Consider the <code>prod_leaves</code> example given earlier as Program
+3a.  The overall operation is to fold a tree into a single number.  We
+need to define the results of folding terms of the form
+<code>leaf(X)</code> and <code>tree(L,R),</code> given the folded
+versions of <code>L</code> and <code>R</code>.
+<P>
+
+Reconstructing the predicate <code>is_tree</code> as a definition of
+the type <code>bt(T)</code> and using the approach of (Naish, 1996) we
+arrive at Program 8: the definition of <code>foldr</code> for this tree
+type, and corresponding definitions of <code>prod_leaves</code> and
+<code>sum_leaves</code>. In (Naish, 1996) it was assumed that
+<code>foldrbt</code> would be written by a programmer who has the
+required degree of insight.  It is now clear that this predicate can be
+generated <em>automatically</em> from a definition of the type.
+<P>
+
+<PRE>
+:- type bt(T) ---> leaf(T) ; tree(bt(T),bt(B)).
+
+foldrbt(TreeP, LeafP, leaf(X), Folded) :-
+    call(LeafP, X, Folded).
+foldrbt(TreeP, LeafP, tree(L, R), Folded) :-
+    foldrbt(TreeP, LeafP, L, FoldedL),
+    foldrbt(TreeP, LeafP, R, FoldedR),
+    call(TreeP, FoldedL, FoldedR, Folded).
+
+prod_leaves(T, P) :- foldrbt(times, =, T, P).
+sum_leaves(T, P) :- foldrbt(plus, =, T, P).
+
+Program 8  Extensions of Program 2a using foldr
+</PRE>
+
+<H2>'You'll take the high road and I'll take the low road'</H2>
+
+The previous work of the authors sketched above can be seen as taking two
+different roads for program development starting from the same place (a
+type definition) and arriving at the same destination (the enhanced
+program), as shown in Figure 1.
+<P>
+
+Sterling suggested the low road in Figure 1, going from the type to the
+enhancement via the skeleton. To explain how to travel the low road is
+simple and does not require very abstract thinking or complex software
+tools. Such an approach to systematic program construction may be favoured
+by many programmers.
+<P>
+
+Naish suggested the high road in Figure 1, writing a version of
+<code>foldr</code> for
+the given type, using an instance of this <code>foldr</code>
+(a particular call to it)
+and then optimising, for example using
+a partial evaluator. The additional abstraction and concentration on
+semantics rather than syntax may be favoured by more experienced
+programmers using more advanced programming environments.
+The work on shape allows us to automatically obtain the <code>foldr</code>
+definition from the definition of the type.
+<P>
+
+<PRE>
+                            high road
+    type ---------> foldr -------------> foldr instance
+      ^                                      |
+      |                                      |
+      |                                      | optimise
+      |                                      |
+      v                                      v
+    skeleton ---------------------------> enhancement
+             low road
+
+Figure 1: Two roads to enhancement
+</PRE>
+
+There is a very simple mapping between algebraic types and a class of logic
+programs called RUL programs (Yardeni and Shapiro, 1990). RUL programs only
+have unary predicates.  The argument of each clause head has the top level
+functor instantiated but all sub-terms are unique variables.  Clause heads
+are mutually non-unifiable (thus predicates are deterministic when their
+arguments are instantiated). The arguments of all calls are variables which
+occur in the head and nowhere else in the body. Examples of RUL programs
+are <code>is_list</code> (Program 1) and <code>is_tree</code> (Program 2a).
+<P>
+
+The high road taken by functional functional programmers
+is equivalent to starting with a skeleton which
+is a RUL program and enhancing it with predicates which behave as
+functions, that is, they are deterministic and always succeed. The theory
+of functional programming can be used to prove results concerning
+composition of enhancements, for example, and generally give a theoretical
+justification for the idea of enhancement.
+<P>
+
+<H2>Generalising both approaches</H2>
+
+Having found a class of programs for which the high and low roads are
+equivalent, we can see several ways to generalise both.  The low road can
+have improved handling of non-recursive clauses and more flexible
+skeletons.  The high road can be made more flexible by eliminating the
+type, mode and determinism restrictions inherited from functional
+programming.
+<P>
+
+
+<H3>Goals in base cases</H3>
+
+The first (very simple) observation is that enhancements should allow
+general goals to be added to the base cases of enhancements.  For
+pedagogical reasons, the original presentation classified enhancements
+into different categories according to the kind of goal added to
+recursive clauses and only allowed additional unifications to be added
+to facts.  The limited abstraction simplifies learning but also
+restricts the scope of enhancements.  For example, to find the sum of
+the squares of the leaves of a tree using
+<code>foldrbt</code>
+we could use
+<code>foldrbt(plus, square, Tree, SumXX)</code>,
+where
+<code>square</code>
+takes a number and returns its square.  The optimised program (or
+enhanced skeleton) would have a call to
+<code>square</code>
+in the base case.
+<P>
+
+<H3>Non-deterministic skeletons</H3>
+Algebraic types correspond to RUL programs, in which are predicates are
+deterministic and only have single arguments.  The stepwise enhancement
+paradigm has no such restriction: nondeterministic skeletons such as
+<code>branch</code> (Program 2b) and <code>connected</code> (Program 9)
+can be used.
+<P>
+
+<PRE>
+connected(A, A).
+connected(A0, A) :-
+    edge(A0, A1),
+    connected(A1, A).
+
+Program 9  Transitive closure of the edge/2 relation
+</PRE>
+
+As noted in (Naish, 1996), higher order logic programs can also be
+nondeterministic and nondeterministic analogues of <code>foldr</code> can be
+constructed.  A version of <code>foldr</code> for paths in a graph was
+written (using considerable intellectual effort) based on the simple
+transitive closure procedure <code>connected</code>, above.
+The close relationship between 'shape' and stepwise enhancement we have
+uncovered can be used to generalise the transformation from algebraic
+types (or RUL programs) to foldr functions.  From an arbitrary skeleton
+(not necessarily a RUL program), we can generate an appropriate version
+of <code>foldr</code> as follows.
+<P>
+
+A procedure with <em>A</em> arguments and <em>C</em> clauses leads to a
+higher order procedure with <em>C+A+1</em> arguments.  It has <em>C</em>
+'higher order' arguments and one additional 'result' argument.  The
+recursive calls in the clause bodies have the same higher order arguments
+as the head and new variables for their results.  Each clause also has an
+additional <code>call/N</code> with the higher order argument for that
+clause, the variables in the head which did not appear in any recursive body
+calls, result arguments of the body calls and the result argument of the
+head.  If this call has only two arguments then <code>call/2</code> is
+replaced by <code>=/2</code> (the 'higher order' argument is simply a term
+which is returned for the base case).  Mutual recursion can be
+treated in the same way (read recursive as mutually recursive), where
+<em>C</em> is the number of clauses in the set of mutually recursive
+procedures.
+<P>
+
+For <code>list/1</code> and <code>tree/1</code> the results are the
+<code>foldr/4</code> and <code>foldrbt/4</code> definitions given in
+programs 7 and 8.  For <code>branch</code> and <code>connected</code>
+the results are in Program 10.  The <code>foldrcon</code> procedure here is
+actually more general than the manually constructed version (which had
+a base case of <code>V=FB</code> instead of <code>call/3</code>) and
+can be used in the applications described in (Naish, 1996).
+<P>
+
+<PRE>
+foldrb(FL, FR, FB, leaf(X), V) :-       foldrcon(FE, FB, A, A, V) :-
+    call(FB, X, V).                         call(FB, A, V).
+foldrb(FL, FR, FB, t(L,R), V) :-        foldrcon(FE, FB, A0, A, V) :-
+    foldrb(FL, FR, FB, L, V1),              edge(A0, A1),
+    call(FL, R, V1, V).                     foldrcon(FE, FB, A1, A, V1),
+foldrb(FL, FR, FB, t(L,R), V) :-            call(FE, A0, V1, V).
+    foldrb(FL, FR, FB, R, V2),
+    call(FR, L, V2, V).
+
+Program 10  Nondeterministic versions of foldr for branch and connected
+</PRE>
+
+<H3>Polymorphic types and higher order skeletons</H3>
+
+Monomorphic types such as <em>list</em> correspond to first order skeletons
+(RUL programs, as we have seen).
+The work on shape and polytypism uses polymorphic types such as
+<em>list(T)</em>, where <em>T</em> is a type parameter.
+Polymorphic types correspond to higher order skeletons
+with additional arguments.  A type <em>t(T1,T2)</em>
+can be mapped to a predicate <code>t(T1,T2,X)</code> which succeeds if
+<em>X</em> is of type <em>t(T1,T2)</em>.  If the definition of type
+<em>t</em> contains the constructor <em>c(E1,E2)</em>
+(where <em>E1</em> and <em>E2</em> are type expressions) then
+<code>t/3</code> will have the clause
+<br><br>
+<code>t(T1, T2, c(X, Y)) :-
+    call(</code><em>E1</em><code>, X),
+    call(</code><em>E2</em><code>, Y).</code>
+<P>
+
+Instances of <code>call/N</code> can be specialised if their first argument
+is a nonvariable.
+For example, the type <em>list(T)</em> leads to the predicate
+<code>list/2</code> in Program 11.  The type <em>rtree(T)</em>, an M-way tree
+consisting of a term <em>rt(X,Y)</em> where <em>X</em> is of type <em>T</em>
+and <em>Y</em> is of type <em>list(rtree(T))</em> can be defined using
+the predicate <code>rtree/2</code>.
+
+<PRE>
+list(T, []).                            % type rtree(T)---> rt(T,list(rtree(T))).
+list(T, [X|Xs]) :-                      rtree(T, rt(X, RTs)) :-
+    call(T, X), list(T, Xs).                call(T, X), list(rtree(T), RTs).
+
+Program 11  Higher order skeletons for polymorphic types list(T) and rtree(T)
+</PRE>
+<P>
+Higher order skeletons go against the spirit of simplicity embodied in
+stepwise enhancement and the control flow of the program above (mutual
+recursion through <code>call/N</code>) would certainly be confusing for a
+novice programmer.  The advantage is that it saves having multiple
+copies of similar code.  Rather than have a separate skeletons for
+simple lists, lists of lists, lists of rtrees et cetera, a single higher
+order definition can be given.  A specialised definition of a type such
+as <em>rtree(any)</em> can be obtained by partial evaluation
+(eliminating all instances of <code>call/N</code>) and a version of
+<code>foldr</code> can be derived as described above.  For <code>rtree</code>,
+the result is Program 12.
+
+<PRE>
+rtree_any(rt(X, RTs)) :-                foldrrt(FR, FC, B, rt(X, RTs), V) :-
+    list_rtree_any(RTs).                    foldrlrt(FR, FC, B, RTs, V1),
+                                            call(FR, X, V1, V).
+
+list_rtree_any([]).                     foldrlrt(FR, FC, B, [], V) :-
+list_rtree_any(RT.RTs) :-                   B = V.
+    rtree_any(RT),                      foldrlrt(FR, FC, B, RT.RTs, V) :-
+    list_rtree_any(RTs).                    foldrrt(FR, FC, B, RT, V1),
+                                            foldrlrt(FR, FC, B, RTs, V2),
+                                            call(FC, V1, V2, V).
+
+Program 12  Specialised skeleton and version of foldr for rtree
+</PRE>
+
+<H3>Flexible modes</H3>
+
+As well as allowing flexibility with types and nondeterminism, logic
+programs allow flexibility with modes.  Rather than having fixed inputs
+and one output, as in functional programs, logic programs can potentially be
+run 'backwards' - computing what would normally be considered the input
+from a given 'output'.  This flexibility can extend to higher order
+predicates, including those generated automatically from skeletons.
+<P>
+
+As an example, we will construct a meta interpreter for Prolog by using
+<code>foldrrt</code> backwards.  A Prolog proof tree can be represented by
+an rtree, where each node contains (the representation of) a
+Prolog atom which succeeded.  The <code>foldrrt</code> procedure can be used
+to check that an rtree of atoms is a valid proof tree for a particular
+program and goal.  A proof tree is valid if the atom in the root is the
+goal and for each node in the tree containing atom <em>A</em> and
+children <em>B1,B2,...</em>, there is a program clause instance
+<em>A:-B1,B2,...</em>.  The <code>proof_of</code> procedure in Program
+13 represents
+clauses as a head plus a list of body atoms (procedure <code>lclause</code>)
+and can check that an rtree is a valid proof tree and return the atom
+which has been proved.
+
+<PRE>
+% Checks Proof is a valid proof tree and returns proved Atom;
+% run backwards its a meta interpreter returning a proof tree
+proof_of(Proof, Atom) :-
+    foldrrt(lclause2, cons, [], Proof, Atom).
+
+% checks H :- B is a clause instance; returns H
+lclause2(H, B, H) :- lclause(H, B).
+
+% clause/2 where clause bodies are lists
+lclause(append([],A,A), []).
+lclause(append(A.B,C,A.D), [append(B,C,D)]).
+lclause(append3(A,B,C,D), [append(A,B,E),append(E,C,D)]).
+...
+
+cons(H, T, H.T).
+
+Program 13  Interpreter constructed using rtree
+</PRE>
+<P>
+
+With a suitable evaluation order, the code can also be run backwards.
+Given an atom, <code>foldrrt</code> acts as a meta interpreter,
+(nondeterministically) returning a proof tree for (a computed instance of)
+the atom.  This is an example of constructing a program based on the type of
+its output, as discussed earlier.  By utilising the natural association
+between a type and <code>foldr</code> and the flexible modes of logic
+programming, much of the process can be automated.
+
+<!-- mention throwing away outputs?? -->
+<P>
+
+<H3>Foldl</H3>
+
+In many cases, the higher order function <code>foldl</code> is preferably to
+<code>foldr</code> since it is tail recursive rather than left recursive
+(thus more efficient, at least for strict evaluation).  It is not
+immediately obvious how to adapt <code>foldl</code> to general tree types
+rather than just lists.  One possibility, suggested by Barry Jay is to
+perform a breadth first traversal (<code>foldr</code> uses a depth first
+traversal).  This can be coded in a tail recursive fashion and is a
+familiar programming technique.
+<P>
+
+Another possibility, which we pursued initially and is used in
+(Belleannie et al 1994),
+is to use <code>foldr</code> with more complex data flow, using
+logic variables.  The 'result' argument of <code>foldr</code> can be a pair
+of terms, one of which can be used as an input, and the accumulator
+style of programming can be used.  If the accumulator is a list, we can
+think of <code>foldr</code> returning a 'difference list'
+(Sterling and Shapiro, 1994) instead of a list.
+With this style of programming, the data dependencies are such that
+the instances of <code>call/N</code> in the <code>foldr</code> definitions can
+be executed before the recursive call(s), allowing tail recursion.
+<P>
+
+However, we believe the most elegant and natural generalisation of
+<code>foldl</code> is evident in the stepwise enhancement paradigm.
+We adapted stepwise enhancement to produce higher order
+<code>foldr</code> procedures using a generalisation of the calculate and
+build techniques.  By using <em>accumulator techniques</em> we can produce
+a <code>foldl</code> procedure for any skeleton.  Accumulators are used much
+more widely than breadth first traversals and the code produced has
+simple data flow and can be translated into a functional language if the
+initial skeleton corresponds to an algebraic type.
+<P>
+
+The transformation is similar to the one described for <code>foldr</code>.
+The same number of higher order arguments are used and there is one
+'output' argument, as before, but there is also an extra 'accumulator'
+argument.  The <code>call/N</code> is the leftmost atom in the body and the
+accumulator and output arguments are 'threaded' through this and the
+recursive calls in the clause body in the familiar way
+(Sterling and Shapiro, 1994).
+The accumulator and output arguments can be made implicit by using the
+standard Definite Clause Grammar notation.  The resulting version of
+<code>foldl</code> for lists is as follows.
+<P>
+
+<PRE>
+% Explicit accumulator                  % DCG (implicit accumulator) version
+foldl(FC, FB, [], A0, A) :-             foldl(FC, FB, []) -->
+    call(FB, A0, A).                        call(FB).
+foldl(FC, FB, X.Xs, A0, A) :-           foldl(FC, FB, X.Xs) -->
+    call(FC, X, A0, A1),                    call(FC, X),
+    foldl(FC, FB, Xs, A1, A).               foldl(FC, FB, Xs).
+
+Program 14  Automatically derived foldl for lists
+</PRE>
+
+There are two differences between this version of <code>foldl</code> and the
+standard <code>foldl</code> for lists.  The first is the argument order for
+the call to the <code>FC</code> 'function' is swapped.  This is is not essential
+but allows the accumulator and output arguments to be implicit using the
+DCG notation.  It is also consistent with <code>foldr</code>.  The second
+difference is the use of a function called in the base case.  The
+standard version of <code>foldl</code> simply returns the accumulator when
+the end of the list is reached.  This is equivalent to our version of
+<code>foldl</code> with the identity function (<code>=/2</code> in Prolog) as
+the function for the base case.
+<P>
+
+For 'linear' data structure such as
+lists, calling a function when the base case is reached adds no real
+power.  The function can always be called at the top level after
+<code>foldl</code> has returned, with the same effect.  However, for tree
+structures, a function application at the base case is often essential.
+Below are the versions of <code>foldl</code> for the <code>bt</code> type and
+<code>connected</code> procedure.
+Note that for  <code>prod_leaves</code> (<code>sum_leaves</code>) the
+multiplication (addition) is done at the leaves, as in Program 5.
+<P>
+
+<!-- <PRE> -->
+<!-- % Explicit accumulator                  % DCG (implicit accumulator) version -->
+<!-- foldlbt(F, B, leaf(X), A0, A) :-        foldlbt(F, B, leaf(X)) @@> -->
+<!--     call(B, X, A0, A).                      call(B, X). -->
+<!-- foldlbt(F, B, t(L,R), A0, A) :-         foldlbt(F, B, t(L,R)) @@> -->
+<!--     call(F, A0, A1),                        call(F), -->
+<!--     foldlbt(F, B, L, A1, A2),               foldlbt(F, B, L), -->
+<!--     foldlbt(F, B, R, A2, A).                foldlbt(F, B, R). -->
+<!--  -->
+<!-- prod_leaves(T, P) :- foldlbt(=, times, T, 1, P). -->
+<!-- sum_leaves(T, P) :- foldlbt(=, plus, T, 0, P). -->
+<!-- </PRE> -->
+
+<PRE>
+foldlbt(F, B, leaf(X)) -->              foldlcon(F, B, A, A) -->
+    call(B, X).                             call(B, A).
+foldlbt(F, B, t(L,R)) -->               foldlcon(F, B, A0, A) -->
+    call(F),                                call(F, A0),
+    foldlbt(F, B, L),                       {edge(A0, A1)},
+    foldlbt(F, B, R).                       foldlcon(F, B, A1, A).
+
+prod_leaves(T, P) :-                    % non-looping connected; returns path
+    foldlbt(=, times, T, 1, P).         con_no_loop(A0, A, As) :-
+                                            foldlcon(cons_nm, cons, A0, A, [], As).
+sum_leaves(T, P) :-                     cons_nm(A0, As, A0.As) :-
+    foldlbt(=, plus, T, 0, P).              not member(A0, As).
+
+rev_traverse(Tree, Xs) :-
+    foldlbt(=, cons, Tree, [], Xs).
+
+Program 15  Versions of foldl for is_tree and connected and examples of use
+</PRE>
+<P>
+
+For <code>foldlcon</code>, the call to <code>edge</code> is not recursive, so
+accumulator arguments are not added (braces are used to indicate this in
+the DCG notation).
+From <code>foldlcon</code> it is simple to code <code>con_no_loop</code> which finds
+connected nodes but avoids cycles.  The accumulator is the list of nodes
+visited so far, in reverse order. The procedure which adds a new node
+to the accumulator, <code>cons_nm</code>, fails if the node is already on
+the path.  The path is also be returned at the top level.
+<P>
+
+Since the skeleton <code>is_tree</code> is a RUL program and
+hence equivalent to an algebraic type, <code>foldlbt</code> is
+deterministic and behaves as a higher order function over that type.
+The threading of the accumulator and result arguments in the body of a
+clause is equivalent to nesting of functional expressions.
+For completeness, we give the equivalent Haskell code in Program 16.
+
+<PRE>
+>data Bt a = Leaf a | Tree (Bt a) (Bt a)
+
+>foldlbt :: (a->a)->(b->a->a)->(Bt b)->a->a
+>foldlbt f b (Leaf x) a = b x a
+>foldlbt f b (Tree l r) a =
+>    foldlbt f b r (foldlbt f b l (f a))
+
+>sum_leaves t = foldlbt (id) (+) t 0
+
+Program 16  Haskell version of foldl for is_tree/type bt
+</PRE>
+<P>
+
+There are actually two possible versions of <code>foldlbt</code>, depending
+on the order in which the two subtrees are visited.  By swapping the
+two recursive calls in the DCG version, the argument threading is also
+changed, leading to a logically different procedure.  The procedure
+<code>rev_traverse</code> in Program 15 returns the reverse of the
+traversal returned by Program 6.  Using the other version of
+<code>foldlbt</code> would result in the same traversal order. The choice of
+traversal orders and additional argument in <code>foldl</code>
+are consistent with the intuition that programming with accumulators
+or <code>foldl</code> is more complicated than
+using simple recursion or <code>foldr</code>.
+<P>
+
+<H2>Further work</H2>
+A category theoretic reconstruction of our method for deriving versions
+of <code>foldl</code> (restricted to RUL programs) may produce some deeper
+insights and should extend the understanding of shape and polytypism for
+functional languages.  A more theoretical treatment of the higher order
+logic programs we derive may also be worthwhile.  For example,
+our approach can be adapted to logic programming languages such as
+Lambda-Prolog (Nadathur and Miller, 1988)
+which have higher order constructs with well defined semantics.
+<P>
+
+Further generalisations of <code>foldr</code> and <code>foldl</code> could also
+be devised (Belleannie et al 1994).  For example, we could add higher
+order calls to the start <em>and</em> end of each clause body,
+or even between each 
+call as well.  Other 'shapely' operations such as <code>zip2</code> (which
+takes two lists and returns a list of pairs) could also be generalised,
+as suggested by (Jay, 1995).
+<!-- can use hacker's approach rather than category theory etc; -->
+We note that more expressive higher order predicates are
+not necessarily better in practice.  There is no benefit in using a
+generalised <code>foldr</code> which is applicable in five percent
+more situations if each use is ten percent more complicated than
+<code>foldr</code>.  The ideal situation is to have a collection of higher
+order predicates or functions with a good tradeoff between applicability
+and complexity.  Such sets can be developed over time, based on coding
+patterns which occur in practice.
+<P>
+
+<H2>Conclusions</H2>
+
+Research into systematic program construction has the important aim of
+elevating coding from the realm of arts and entertainment to science
+and engineering.  In this paper we have built a bridge between the
+pragmatic syntax-based approach of stepwise enhancement and the very
+theoretical semantic approach of shape and polytypism.
+Despite the gulf between the research methodologies behind
+these two approaches, there is a very close relationship between them.
+This is pleasing in itself but also allows us to see ways in which both
+approaches can be generalised.
+<P>
+
+From the work on shape and polytypism in functional languages
+we have the generality of
+arbitrary functions as parameters, polymorphic types and the automatic
+synthesis of certain higher order functions from algebraic types.  From
+the work on stepwise enhancement in logic programming we have the
+generality of nondeterminism, additional arguments, flexible modes and
+use of accumulators.  By combining the advantages of both approaches,
+we have shown how
+more code in both functional and logic programming languages can be
+constructed in a systematic and partially automated way.
+
+<H2>References</H2>
+Belleannie, C., Brisset, P., Ridoux O.,
+A Pragmatic Reconstruction of Lambda-Prolog,
+Publication Interne IRISA no. 877,
+October 1994 (revised 1997)
+<P>
+
+Belle, G., Jay, C. B. and Moggi, E., Functorial ML, <em>Proc. PLILP '96</em>,
+Springer LNCS 1140, pp. 32-46, 1996
+<P>
+
+Clocksin, W. and Mellish, C.  <em>Programming in Prolog</em>, Springer-Verlag, 1981
+<P>
+
+Coelho, H., Cotta, J. and Pereira, L.M.  <em>How to Solve it with Prolog</em>,
+Laboratorio Nacional de Engenharia Civil, Portugal, 1982
+<P>
+
+Deville, Y. Logic Programming: <em>Systematic Program Development</em>, Addison
+Wesley, 1990
+<P>
+
+Fuchs, N. and Fromherz, M. Schema-based Transformations of Logic Programs,
+<em>Proc. 5th
+International Workshop on Logic Program Synthesis and Transformation</em>,
+Proietti, M. (ed.), pp. 111-125, Springer-Verlag, 1991.
+<P>
+
+Gegg-Harrison, T. Learning Prolog in a Schema-Based Environment,
+<em>Instructional Science</em>,
+20:173-192, 1991.
+<P>
+
+Gegg-Harrison, T. Representing Logic Program Schemata in Lambda-Prolog, <em>Proc.
+12th International
+Logic Programming Conference</em> (ed. L. Sterling), pp. 467-481, MIT
+Press, 1995
+<P>
+
+P. Jansson and J. Jeuring. PolyP - a polytypic programming language
+extension.  <em>In
+Conference Record of POPL '97: The 24th ACM SIGPLAN-SIGACT Symposium on
+Principles
+of Programming Languages</em>, pages 470--482, 1997
+<P>
+
+Jay, B., A semantics for shape,
+<em>Science of Computer Programming</em>,
+25,
+pages 251-283,
+1995
+<P>
+
+J. Jeuring and P. Jansson. Polytypic programming.
+In J. Launchbury, E. Meijer
+and T. Sheard <em>Advanced Functional Programming</em>, LNCS 1129, pages 68--114,
+Springer-Verlag,
+1996. 
+<P>
+
+Jay, C.B. and Cockett, J.R.B. Shapely Types and Shape Polymorphism,
+<em>Proc. Programming Languages and Systems - ESOP '94:  5th European
+Symposium on Programming</em>, (ed. D. Sannella), Springer LNCS, pp.
+302-316,         Edinburgh, U.K., April 1994
+<P>
+
+Jay, C.B., A semantics for shape, <em>Science of Computer Programming</em>, 25,
+1995
+<P>
+
+Kirschenbaum, M., Michaylov, S. and Sterling, L.S. Skeletons and Techniques
+as a Normative
+Approach to Program Development  in Logic-Based Languages, <em>Proc.
+ACSC'96,
+Australian Computer Science Communications</em>, 18(1), pp. 516-524, 1996
+<P>
+
+Lakhotia, A. A Workbench for Developing Logic Programs by Stepwise
+Enhancement,
+Ph.D. Thesis, Case Western Reserve University, 1989.
+<P>
+
+Nadathur, G., Miller D., An Overview of Lambda-Prolog, <em>Proceedings of
+ICLP/SLP</em>, pages 810-827, MIT Press, 1988
+<P>
+
+Naish, L. Higher Order Logic Programming in Prolog, Proc. Workshop on
+Multi-Paradigm
+Logic Programming, JICSLP'96, Bonn, 1996
+(Also available as Tech. Report 96/2, Dept. Computer Science,  University
+of Melbourne, 1996.)
+<P>
+
+O'Keefe, R. <em>The Craft of Prolog</em>, MIT Press, 1990
+<P>
+
+Sahlin, D. Mixtus: An Automatic Partial Evaluator for Full Prolog,
+<em>New Generation Computing</em>, 12(1), pp. 7-51, 1993
+<P>
+
+Sterling, L. and Kirschenbaum, M. Applying Techniques to Skeletons, in
+<em>Constructing Logic Programs</em>, (ed. J.M. Jacquet), pp. 127-140,
+Wiley, 1993.
+<P>
+
+Sterling, L.S. and Shapiro, E.Y.  <em>The Art of Prolog, 2nd edition</em>, MIT
+Press, 1994.
+<P>
+
+Sterling, L.S. and Yalcinalp, U.  Logic Programming and Software
+Engineering - Implications
+for Software Design, <em>Knowledge Engineering Review</em>, 11(4), pp.
+333-345, 1996
+<P>
+
+Vasconcelos, W. and Fuchs, N.E.  An Opportunistic Approach for Logic
+Program Analysis
+and Optimisation using Enhanced Schema-based Transformations, <em>Proc.
+LOPSTR'95</em>,
+(ed. M. Proietti), Springer LNCS, pp. 174-188, 1995
+<P>
+
+Yardeni, E. and Shapiro E.Y.,
+A Type System for Logic Programs,
+<em>Journal of Logic Programming</em>,
+10(2),
+pp125-154,
+1990
+<P>
+
+</body>
+</HTML>

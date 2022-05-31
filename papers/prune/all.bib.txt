@@ -1,0 +1,511 @@
+@TechReport{prune,
+        Author = { Lee Naish },
+        Title = { Pruning in logic programming },
+        Number = { 95/16 },
+        Institution = { Department of Computer Science, University of
+                Melbourne },
+        Address = { Melbourne, Australia },
+        Month = jun,
+        Year = 1995,
+        comment   =     {Based on an advanced tutorial presented at the
+                International Conference on Logic Programming, June
+                1995}
+}
+
+@techreport{  SomHenCon95,
+        Author = { Zoltan Somogyi and
+                Fergus Henderson and
+                Thomas Conway },
+        Title = { The execution algorithm of {M}ercury,
+		an efficient purely declarative logic programming
+		language },
+	number =	{95/14},
+	institution =	{Department of Computer Science,
+			University of Melbourne},
+	address =	{Melbourne, Australia},
+        Pages = 25,
+        Month = mar,
+        Year = 1995     }
+
+@techreport{naish:82,
+	author =	{Lee Naish},
+	title  =	{An introduction to {MU-Prolog}},
+	number =	{82/2},
+	institution =	{Department of Computer Science, University of Melbourne},
+	address =	{Melbourne, Australia},
+	year   =	{March 1982 (Revised July 1983)},
+	pages  =	{16}
+}
+
+@techreport{naish:85,
+	author =	{Lee Naish},
+	title  =	{The {MU-Prolog} 3.2 reference manual},
+	number =	{ 85/11},
+	institution =	{Department of Computer Science, University of Melbourne},
+	address =	{Melbourne, Australia},
+	year   =	{October 1985},
+	pages  =	{17}
+}
+
+@techreport{naish-dont-care,
+        author =        {Lee Naish},
+        title  =        {Don't care nondeterminism in logic
+			programming},
+        number =        { 86/4},
+        institution =   {Department of Computer Science, University of
+				Melbourne },
+        address =       {Melbourne, Australia},
+        year   =        {1986}
+}
+
+@article{naish:86,
+	author =	{Lee Naish},
+	title  =	{Negation and quantifiers in {NU-Prolog}},
+	journal =	{Proceedings of the Third International Conference on Logic Programming},
+	address =	{London, England},
+	year   =	{July 1986},
+	editor =	{Ehud Shapiro},
+	comment   =	{Published as Lecture Notes in Computer Science 225
+			by Springer-Verlag},
+	pages  =	{624--634},
+	comment = {Technical report 85/13, Department of Computer Science,
+		University of Melbourne}
+}
+
+@book{craft,
+	author =	{Richard A. O'Keefe},
+	title  =	{The Craft of {Prolog}},
+	series =	{Logic Programming},
+	publisher =	{MIT Press},
+	address =	{Cambridge, Massachusetts},
+	year   =	{1990},
+	pages  =	{387}
+}
+
+@book{naish:thesis:86,
+	author =	{Lee Naish},
+	title  =	{Negation and control in {Prolog}},
+	series =	{Lecture Notes in Computer Science},
+	publisher =	{Springer-Verlag},
+	address =	{New York},
+	number =	{238},
+	year   =	{1986},
+	pages  =	{119},
+	comment = {Technical report 85/12, Department of Computer Science,
+		University of Melbourne}
+}
+
+@techreport{thom:zobel:86,
+	editor =	{James Thom and Justin Zobel},
+	key =		{{TZ}},
+	title  =	{{NU-Prolog} reference manual, version 1.0},
+	number =	{ 86/10},
+	institution =	{Department of Computer Science, University of Melbourne},
+	address =	{Melbourne, Australia},
+	year   =	{1986}
+}
+
+@article{naish:PNU:88,
+	author =	{Lee Naish},
+	title  =	{Parallelizing {NU-Prolog}},
+	journal =	{Proceedings of the Fifth International Conference/Symposium on Logic Programming},
+	address =	{Seattle, Washington},
+	year   =	{August 1988},
+	editor =	{Kenneth A. Bowen and Robert A. Kowalski},
+	pages  =	{1546--1564},
+	comment = {Technical report 87/17, Department of Computer Science,
+		University of Melbourne}
+}
+
+@article{naish:89,
+	author =	{L. Naish and P. W. Dart and J. Zobel},
+	title  =	{The {NU-Prolog} debugging environment},
+	journal =	{Proceedings of the Sixth International Conference
+				on Logic Programming},
+	pages  =	{521--536},
+	address =	{Lisboa, Portugal},
+	year   =	{June 1989},
+	editor =	{Antonio Porto},
+	comment = {Technical report 88/31, Department of Computer Science,
+		University of Melbourne}
+}
+
+@article{naish:prove:89,
+	author =	{Lee Naish},
+	title  =	{Proving properties of committed choice logic programs},
+	journal =	{Journal of Logic Programming},
+	volume =	{7},
+	number =	{1},
+	pages  =	{63--84},
+	year   =	{July 1989},
+	comment = {Revised versions of technical report 86/4,
+		Department of Computer Science,
+		University of Melbourne}
+}
+
+@article{naish:prune:89,
+	author =	{Lee Naish},
+	title  =	{Pruning the search space of {Prolog}: cut and other primitives},
+	journal =	{Proceedings of Australian Joint Artificial Intelligence Conference},
+	pages  =	{238--253},
+	address =	{Melbourne, Australia},
+	year   =	{November 1989},
+	comment   =	{Technical Report 89/14, Department of Computer
+			Science, University of Melbourne}
+}
+
+@inproceedings{naish:NUE:91,
+	author =	{Lee Naish},
+	title  =	{Adding equations to {NU-Prolog}},
+	journal =	{Proceedings of The Third International Symposium on
+			Programming Language Implementation and Logic
+			Programming},
+	address =	{Passau, Germany},
+	publisher =	{Springer-Verlag},
+	series =	{Lecture notes in computer science},
+	number =	{528},
+	year   =	{August, 1991},
+	pages  =	{15--26},
+	comment   =	{Technical Report 91/2, Department of Computer
+			Science, University of Melbourne}
+}
+
+@article{naish:88,
+	author =	{Lee Naish},
+	title  =	{Declarative diagnosis of missing answers},
+	journal =	{New Generation Computing},
+	volume =	{10},
+	number =	{3},
+	year   =	{1992},
+	pages =		{255--285},
+	comment   =	{Technical Report 88/9 (revised),
+			Department of Computer
+			Science, University of Melbourne}
+}
+
+@article{naish:ctl:92,
+	author =	{Lee Naish},
+	title  =        {Coroutining and the construction of terminating
+                       logic programs},
+	journal =	{Australian Computer Science Communications},
+	volume =	{15},
+	number =	{1},
+	year	=	{1993},
+	pages	=	{181--190},
+	comment   =        {Also Technical report 92/5,
+			Department of Computer
+			Science, University of Melbourne}
+}
+
+@TechReport{ddscheme,
+        Author = { Lee Naish },
+        Title = { A declarative debugging scheme },
+        Number = { 95/1 },
+        Institution = { Department of Computer Science, University of
+                Melbourne },
+        Address = { Melbourne, Australia },
+        Month = feb,
+        Year = 1995
+}
+
+
+@Book{	Sha83,
+	Author = { Ehud Y. Shapiro },
+	Title = { Algorithmic program debugging },
+	Pages = 232,
+	Publisher = { MIT Press },
+	Address = { Cambridge, Massachusetts },
+	Year = 1983,
+	Keywords = { book }	}
+
+@InCollection{	Cla78,
+	Author = { Keith L. Clark },
+	Title = { Negation as failure },
+	Booktitle = { Logic and data bases },
+	Editor = { Herve Gallaire and
+		Jack Minker },
+	Pages = { 293-322 },
+	Publisher = { Plenum Press },
+	Year = 1978	}
+
+@InCollection{  clark79,
+        Author = { K.L. Clark and
+                F.G. McCabe },
+        Title = { The control facilities of {IC}-Prolog },
+        Booktitle = { Expert systems in the microelectronic age },
+        Editor = { Donald Michie },
+        Pages = { 122-149 },
+        Publisher = { Edinburgh University Press },
+        Year = 1979,
+        Keywords = { esmea }    }
+
+
+@TechReport{	WAM,
+	Author = { David H.D. Warren },
+	Type = { Technical Note },
+	Title = { An abstract Prolog instruction set },
+	Number =  309,
+	Institution = { SRI International },
+	Address = { Menlo Park, California },
+	Month = oct,
+	Year = 1983	}
+
+@TechReport{	Deb87,
+	Author = { Saumya K. Debray },
+	Type = { TR },
+	Title = { Static inference of modes and data dependencies in
+		logic programs },
+	Number = {  87-24 },
+	Institution = { Department of Computer Science, University of
+		Arizona },
+	Address = { Tuscon },
+	Year = 1987	}
+
+@InProceedings{	Bru82,
+	Author = { Maurice Bruynooghe },
+	Title = { Adding redundancy to obtain more reliable and more
+		readable Prolog programs },
+	Editor = { Michel Van~Caneghem },
+	Booktitle = { Proceedings of the First International Logic
+		Programming Conference },
+	Pages = { 129-133 },
+	Address = { Marseille, France },
+	Month = sep,
+	Year = 1982,
+	Keywords = { annotations, types }	}
+
+@Book{	Gre87,
+	Author = { Steve Gregory },
+	Title = { Design, application and implementation of a parallel
+		logic programming language },
+	Publisher = { Addison-Wesley Publishers },
+	Address = { Reading, Massachusetts },
+	Year = 1987,
+	Keywords = { (kernel-) Parlog, stream AND-parallelism, AND-OR tree, AND tree }	}
+
+@TechReport{	ChiYokHat83,
+	Author = { Takashi Chikayama and
+		M. Yokota and
+		T. Hattori },
+	Title = { Fifth generation kernel language version 0 },
+	Number = { Report },
+	Institution = { ICOT },
+	Month = { June, },
+	Year = 1983,
+	Keywords = { KL0 }	}
+
+@Article{	Chi83,
+	Author = { Takashi Chikayama },
+	Title = { {ESP} --- Extended Self-contained Prolog - as a
+		preliminary kernel language of fifth generation
+		computers },
+	Journal = { New Generation Computing },
+	Volume = 1,
+	Number = 1,
+	Pages = { 11-24 },
+	Year = 1983,
+	Keywords = { sequential inference machines }	}
+
+@InProceedings{	Mos86,
+	Author = { Chris Moss },
+	Title = { Cut and paste --- defining the impure primitives of
+		Prolog },
+	Editor = { Ehud Shapiro },
+	Booktitle = { Proceedings of the Third International Conference
+		on Logic Programming },
+	Pages = { 686-694 },
+	Note = { published as Lecture Notes in Computer Science 225 by
+		Springer-Verlag },
+	Address = { London, England },
+	Month = jul,
+	Year = 1986,
+	Keywords = { ilpc iclp ilpc86 iclp86 ilpc3 iclp3 }	}
+
+@InProceedings{	Ven84,
+	Author = { Raf Venken },
+	Title = { A Prolog meta-interpreter for partial evaluation and
+		its application to source to source transformation and
+		query optimisation },
+	Editor = { T. O'Shea },
+	Booktitle = { ECAI-84: Advanced in AI },
+	Pages = { 91-100 },
+	Address = { Pisa, Italy },
+	Year = 1984	}
+
+@InProceedings{	Smo84,
+	Author = { Gert Smolka },
+	Title = { Making control and data flow in logic programs
+		explicit },
+	Booktitle = { Conference Record of the ACM Symposium on LISP and
+		Functional Programming },
+	Pages = { 311-322 },
+	Address = { Austin, Texas },
+	Month = jul,
+	Year = 1984,
+	Keywords = { Prolog extensions, totality assertions, functional notation, verification }	}
+
+@InProceedings{	OKe85,
+	Author = { Richard O'Keefe },
+	Title = { On the treatment of cuts in Prolog source level tools },
+	Booktitle = { Proceedings of the Second IEEE Symposium on Logic
+		Programming },
+	Pages = { 68-72 },
+	Address = { Boston, Massachusetts },
+	Month = jul,
+	Year = 1985,
+	Keywords = { islp islp2 islp85 }	}
+
+@InProceedings{ Per86,
+        Author = { Luis Moniz Pereira },
+        Title = { Rational debugging in logic programming },
+        Editor = { Ehud Shapiro },
+        Booktitle = { Proceedings of the Third International Conference
+                on Logic Programming },
+        Pages = { 203-210 },
+        Note = { published as Lecture Notes in Computer Science 225 by
+                Springer-Verlag },
+        Address = { London, England },
+        Month = jul,
+        Year = 1986,
+        Keywords = { ilpc iclp ilpc86 iclp86 ilpc3 iclp3 }      }
+
+
+@Article{Hanus94JLP,
+author = "Hanus, M.",
+title = "The Integration of Functions into Logic Programming: From
+Theory to Practice",
+year = "1994",
+pages = "583-628",
+volume = "19\&20",
+journal = "Journal of Logic Programming" }
+
+@incollection{naish:90,
+        author =        {Lee Naish},
+        title  =        {Types and the intended meaning of logic programs},
+        pages  =        {189-216},
+        booktitle =     {Types in logic programming},
+        editor =        {Frank Pfenning},
+        publisher =     {MIT Press},
+        address =       {Cambridge, Massachusetts},
+        year =          {1992},
+        comment   =     {Technical Report 90/4, Department of Computer
+                        Science, University of Melbourne}
+}
+
+
+@InProceedings{ Vod88,
+        Author = { Paul J. Voda },
+        Title = { The logical reconstruction of cuts as one solution
+                operators },
+        Editor = { John W. Lloyd },
+        Booktitle = { Proceedings of the Workshop on Meta-programming in
+               Logic Programming },
+        Pages = { 379-384 },
+        Address = { Bristol, England },
+        Month = jun,
+        Year = 1988,
+        Keywords = { Trilogy, one formula }     }
+
+@PhDThesis{     Ued86,
+        Author = { Kazunori Ueda },
+        Type = { {D.Eng.} Thesis },
+        Title = { Guarded Horn clauses },
+        School = { University of Tokyo },
+        Address = { Tokyo, Japan },
+        Month = mar,
+        Year = 1986,
+        Keywords = { ghc, AND-parallelism }     }
+
+@inproceedings{haridi:janson:akl:1991,
+        author = "Sverker Janson and Seif Haridi",
+        title = "Programming paradigms of the {A}ndorra {K}ernel {L}anguage",
+        booktitle = "Proceedings of the 1991 International Symposium
+                on Logic Programming",
+        pages = "167--183",
+        year = 1991,
+        month = "June",
+        address = "San Diego"
+}
+
+
+@TechReport{	franzen,
+	Author = { Torkel {Franz\'{e}n} },
+	Type = { Research report },
+	Title = { Logical aspects of the {A}ndorra {K}ernel {L}anguage },
+	Number =  {R91:12},
+	Institution = { Swedish Institute of Computer Science },
+	Address = { Kista, Sweden },
+	Month = oct,
+	Year = 1991	}
+
+@InProceedings{ goedel-old,
+        Author = { J.W. Lloyd },
+        Title = { Goedel: a logic programming language },
+        Booktitle = { Proceedings of the Second Workshop on
+                Meta-programming in Logic Programming },
+        Address = { Leuven, Belgium },
+        Month = apr,
+        Year = 1990,
+        Keywords = { metaw metaw90 }    }
+
+@Book{	goedel,
+        Author = { P.M. Hill and J.W. Lloyd },
+        Title = { The {G\"{o}del} programming language },
+	Publisher = { MIT Press },
+	Address = { Cambridge, Massachusetts },
+	Year = 1994,
+	Keywords = { book }	}
+
+@Article{goedel:commit,
+	Author = { P.M. Hill and J.W. Lloyd and J.C. Sheperdson  },
+	Title = { Properties of a pruning operator},
+	Journal = { Journal of logic and computation},
+	Volume = 1,
+	Number = 1,
+	Pages = { 99--143 },
+	Year = 1990 }
+
+@Book{  Llo87,
+        Author = { John W. Lloyd },
+        Title = { Foundations of logic programming (second, extended
+                edition) },
+        Series = { Springer series in symbolic computation },
+        Pages = 212,
+        Publisher = { Springer-Verlag },
+        Address = { New York },
+        Year = 1987,
+        Keywords = { book }     }
+
+@Article{	EmdKow76,
+	Author = { M.H. van Emden and
+		R.A. Kowalski },
+	Title = { The semantics of predicate logic as a programming
+		language },
+	Journal = jacm,
+	Volume = 23,
+	Number = 4,
+	Pages = { 733-742 },
+	Month = oct,
+	Year = 1976,
+	Keywords = { theory of computation }	}
+
+@InProceedings{	Kow74,
+	Author = { R. Kowalski },
+	Title = { Predicate logic as programming language },
+	Editor = { Jack L. Rosenfeld },
+	Booktitle = { Proceedings of the Sixth IFIP Congress
+		(Information Processing 74) },
+	Pages = { 569-574 },
+	Address = { Stockholm, Sweden },
+	Month = aug,
+	Year = 1974,
+	Keywords = { ip74 ifip74 }	}
+
+@Book{	Kow80,
+	Author = { Robert A. Kowalski },
+	Title = { Logic for problem solving },
+	Publisher = { North Holland },
+	Address = { New York },
+	Year = 1980,
+	Keywords = { textbook, knowledge representation, deduction, problem solving planning, belief revision }	}
+

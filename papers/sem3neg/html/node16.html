@@ -1,0 +1,377 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.2beta8 (1.42)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Operational semantics</TITLE>
+<META NAME="description" CONTENT="Operational semantics">
+<META NAME="keywords" CONTENT="naishsem3">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.2beta8">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="naishsem3.css">
+
+<LINK REL="next" HREF="node17.html">
+<LINK REL="previous" HREF="node15.html">
+<LINK REL="up" HREF="node15.html">
+<LINK REL="next" HREF="node17.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html203"
+  HREF="node17.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/lib/latex2html/icons/next.png"></A> 
+<A NAME="tex2html201"
+  HREF="node15.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/lib/latex2html/icons/up.png"></A> 
+<A NAME="tex2html195"
+  HREF="node15.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/lib/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html204"
+  HREF="node17.html">Model-theoretic semantics</A>
+<B> Up:</B> <A NAME="tex2html202"
+  HREF="node15.html">A semantics for normal</A>
+<B> Previous:</B> <A NAME="tex2html196"
+  HREF="node15.html">A semantics for normal</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00051000000000000000">
+Operational semantics</A>
+</H2>
+
+<P>
+The operational semantics we use is essentially SLDNF resolution,
+where negative literals must be ground in order to be selected.
+We define trees to formalise the operational semantics.  There are a
+few differences between our definitions and the standard SLDNF tree
+definitions.  First, for technical convenience evaluation of negative
+literals is done within the same tree structure (like [<A
+ HREF="node22.html#martelli">Martelli and TricomiMartelli and
+  Tricomi1992</A>],
+rather than having separate trees of different ranks) and equality
+atoms/constraints are used rather than substitutions.  Second, treatment
+of floundering within negation is improved (it is often done poorly).
+Third, we distinguish between searching for all solutions and just some
+solution(s).  Our main aim is to establish results about observables from
+Prolog computations, namely, zero or more (possibly floundered) computed
+answers and possibly an indication there are no (more) answers (we ignore
+computations which are aborted -- we have no results for such cases).
+These are always the result of a finite search and we define finite
+trees which correspond to such computations.  Even if all SLDNF trees
+are infinite the search may be finite because only some solution(s)
+may be needed (at the top level or inside a negation).
+
+<P>
+<P>
+<DIV><B>Definition  9</B> (SLDDNF tree)  &nbsp; 
+An SLDDNF tree is a (possibly infinite) tree where nodes are connected
+by positive or negative edges.  The positive nodes of a (sub)tree are
+those connected to the root with a sequence of positive edges.
+
+<P>
+Each node contains a conjunction of literals including equality atoms.
+Nodes containing an unsatisfiable set of equality atoms are said to be
+<I>failed</I> and have no children.  Nodes containing a satisfiable set
+of equality atoms and no other literals are said to be <I>successful</I>
+and have no children.  A literal is said to be <I>grounded</I> if the
+substitution obtained by unifying the arguments of each equality atom
+would make the literal ground.  Nodes containing only a satisfiable
+set of equality atoms and non-grounded negative literals are said
+to be <I>floundered</I> and have no children.  Other nodes have a
+<I>selected literal</I>, which is not an equality atom and must be
+grounded if it is negative.
+
+<P>
+If the goal in node <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img89.png"
+ ALT="$N$"> is <!-- MATH
+ $L_1 \wedge \ldots L_n$
+ -->
+<IMG
+ WIDTH="79" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img90.png"
+ ALT="$L_1 \wedge \ldots L_n$"> and the selected
+literal is <IMG
+ WIDTH="26" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img91.png"
+ ALT="$L_m$">, then
+
+<UL>
+<LI>If <IMG
+ WIDTH="26" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img91.png"
+ ALT="$L_m$"> is an atom <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img14.png"
+ ALT="$A$"> and <!-- MATH
+ $A \leftarrow B_1 \vee B_2 \ldots
+B_k$
+ -->
+<IMG
+ WIDTH="138" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img92.png"
+ ALT="$A \leftarrow B_1 \vee B_2 \ldots
+B_k$"> is a head instance of its definition, then <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img89.png"
+ ALT="$N$"> has <IMG
+ WIDTH="13" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img93.png"
+ ALT="$k$"> children,
+connected with positive edges, with goals <!-- MATH
+ $L_1 \wedge \ldots L_{m-1}
+\wedge B_i \wedge L_{m+1} \ldots L_n$
+ -->
+<IMG
+ WIDTH="233" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img94.png"
+ ALT="$L_1 \wedge \ldots L_{m-1}
+\wedge B_i \wedge L_{m+1} \ldots L_n$">, for <!-- MATH
+ $1 \leq i \leq k$
+ -->
+<IMG
+ WIDTH="70" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img95.png"
+ ALT="$1 \leq i \leq k$">.
+
+<P>
+</LI>
+<LI>If <IMG
+ WIDTH="26" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img91.png"
+ ALT="$L_m$"> is a negative literal <IMG
+ WIDTH="31" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img96.png"
+ ALT="$\neg A'$">, there is one child
+connected with a negative edge, containing goal <IMG
+ WIDTH="20" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img97.png"
+ ALT="$A'$"> and the equality
+atoms from <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img89.png"
+ ALT="$N$">.  If the subtree for <IMG
+ WIDTH="20" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img97.png"
+ ALT="$A'$"> has a positive successful node
+then <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img89.png"
+ ALT="$N$"> has a child, connected with a positive edge, which is failed.
+If the subtree for <IMG
+ WIDTH="20" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img97.png"
+ ALT="$A'$"> is finite and all positive leaves are failed,
+then <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img89.png"
+ ALT="$N$"> has a child, connected with a positive edge, which contains <!-- MATH
+ $L_1
+\wedge \ldots L_{m-1} \wedge L_{m+1} \ldots L_n$
+ -->
+<IMG
+ WIDTH="198" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img98.png"
+ ALT="$L_1
+\wedge \ldots L_{m-1} \wedge L_{m+1} \ldots L_n$">.  If the subtree for <IMG
+ WIDTH="20" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img97.png"
+ ALT="$A'$">
+is finite, there are no positive successful nodes but there is a positive
+floundered node, then <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img89.png"
+ ALT="$N$"> has a child, connected with a positive edge,
+which is identical to <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img89.png"
+ ALT="$N$">.  Otherwise (the negative subtree is infinite
+with no successful nodes), <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img89.png"
+ ALT="$N$"> has no positive children and is considered
+a positive leaf.
+</LI>
+</UL></DIV><P></P>
+
+<P>
+<P>
+<DIV><B>Definition  10</B> (Observations tree)  &nbsp; 
+An (SLDDNF) observations (sub)tree <IMG
+ WIDTH="18" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img99.png"
+ ALT="$O$"> is a <I>finite</I> subset of the
+nodes/branches of an SLDDNF tree <IMG
+ WIDTH="15" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img100.png"
+ ALT="$S$"> such that
+
+<OL>
+<LI>the leaves of <IMG
+ WIDTH="18" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img99.png"
+ ALT="$O$"> are leaves of <IMG
+ WIDTH="15" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img100.png"
+ ALT="$S$">,
+</LI>
+<LI>if <IMG
+ WIDTH="18" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img99.png"
+ ALT="$O$"> has no positive successful leaves it has all positive
+nodes of <IMG
+ WIDTH="15" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img100.png"
+ ALT="$S$">, and
+</LI>
+<LI>for each selected negative literal in <IMG
+ WIDTH="18" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img99.png"
+ ALT="$O$"> there is an observations
+subtree of the corresponding subtree in <IMG
+ WIDTH="15" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img100.png"
+ ALT="$S$">.
+</LI>
+</OL></DIV><P></P>
+
+<P>
+<P>
+<DIV><B>Definition  11</B> (All-observations tree)  &nbsp; 
+An (SLDDNF) all-observations tree is an observations subtree of
+SLDDNF tree <IMG
+ WIDTH="15" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img100.png"
+ ALT="$S$"> which includes all positive nodes of <IMG
+ WIDTH="15" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img100.png"
+ ALT="$S$">.</DIV><P></P>
+
+<P>
+A Prolog implementation can be seen as searching an SLDDNF tree (typically
+depth-first and left to right) for one or more successful positive nodes.
+When such nodes are found at the top level the equations in the node
+(equivalent to variable bindings) may be displayed in a suitable
+fashion and the search may stop.  When such nodes are found within a
+negation the search typically stops and backtracking is initiated at
+the higher level (where the negation was called).  Observation trees
+can model such behaviour.   All-observations trees model computations
+which find all solutions and terminate.  Finitely failed observations
+trees are all-observations trees (note that corresponding SLDDNF trees
+may have infinite branches inside negations).  We do not explicitly
+model computations which flounder without succeeding or searching the
+entire tree.  They are of limited interest, especially inside negation,
+though it would be easy to modify our definitions to support them.
+Similarly, we do not model non-depth-first computations where some
+branches are only partially searched.
+
+<P>
+Many implementations neglect to check that negative literals are ground
+(leading to unsoundness), and even those which do typically have unsound
+treatment of floundering within negation (this is sometimes treated
+poorly in the theoretical literature also).  Our (novel) solution here
+is that selecting a negative literal which flounders does nothing to
+the current goal.  If a different literal is selected subsequently,
+which would occur with a fair computation rule, failure may result; if
+the same literal is always selected the tree will be infinite.  If <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img89.png"
+ ALT="$N$">
+was considered a positive leaf in this case instead, and an exception
+mechanism was invoked or some kind of abnormal termination was flagged
+it could be more practical, but harder to formalise.
+
+<P>
+
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="fig_litsel"></A><A NAME="424"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 3:</STRONG>
+Literal selection and floundering</CAPTION>
+<TR><TD><IMG
+ WIDTH="556" HEIGHT="109" BORDER="0"
+ SRC="img101.png"
+ ALT="\begin{figure}\figrule
+\begin{verbatim}p :- not q.
+q :- not r, not s.
+r :- not t(_).
+s.\end{verbatim}\figrule\end{figure}"></TD></TR>
+</TABLE>
+</DIV><P></P>
+
+<P>
+An advantage of our approach (at least in theory) is that it potentially
+avoids a source of incompleteness.  Suppose we have a goal with two ground
+negated atoms, one of which flounders and the other succeeds.  There is
+no <I>a priori</I> way of determining which literal should be selected.
+For example, in Figure , the goal <IMG
+ WIDTH="34" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img102.png"
+ ALT="$\leftarrow p$"> has a
+successful SLDNF derivation but when the resolvent <!-- MATH
+ $\leftarrow \neg
+r, \neg s$
+ -->
+<IMG
+ WIDTH="69" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img103.png"
+ ALT="$\leftarrow \neg
+r, \neg s$"> is encountered the right literal must be selected to avoid
+floundering using the normal semantics.  With our semantics we may first
+select <IMG
+ WIDTH="23" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img104.png"
+ ALT="$\neg r$"> but that just leaves the current goal unchanged, allowing
+us to then select <IMG
+ WIDTH="23" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img105.png"
+ ALT="$\neg s$"> (a fair computation rule would select <IMG
+ WIDTH="23" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img105.png"
+ ALT="$\neg s$"> eventually; an unfair rule may result in a loop).
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html203"
+  HREF="node17.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/lib/latex2html/icons/next.png"></A> 
+<A NAME="tex2html201"
+  HREF="node15.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/lib/latex2html/icons/up.png"></A> 
+<A NAME="tex2html195"
+  HREF="node15.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/lib/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html204"
+  HREF="node17.html">Model-theoretic semantics</A>
+<B> Up:</B> <A NAME="tex2html202"
+  HREF="node15.html">A semantics for normal</A>
+<B> Previous:</B> <A NAME="tex2html196"
+  HREF="node15.html">A semantics for normal</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+
+2005-08-02
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,25 @@
+@inproceedings{naish:NUE:91,
+        author =        {Lee Naish},
+        title  =        {Adding equations to {NU-Prolog}},
+        journal =       {Proceedings of The Third International
+			Symposium on
+                        Programming Language Implementation and Logic
+                        Programming},
+        address =       {Passau, Germany},
+        publisher =     {Springer-Verlag},
+        series =        {Lecture notes in computer science},
+        number =        {528},
+        year   =        {August, 1991},
+        pages  =        {15--26},
+        comment   =     {Technical Report 91/2, Department of Computer
+                        Science, University of Melbourne}
+}
+
+@ARTICLE{Hanus94JLP,
+author = "Hanus, M.",
+title = "The Integration of Functions into Logic Programming: From
+Theory to Practice",
+year = "1994",
+pages = "583-628",
+volume = "19\&20",
+journal = "Journal of Logic Programming" }

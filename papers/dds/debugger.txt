@@ -1,0 +1,26 @@
+% debug(Root, Bug)
+% Root is the root of a tree representing the buggy
+% computation.  Bug is a buggy node in the tree.
+%
+debug(Root, Bug) :-
+	erroneous(Root),
+	(if some [Child, Bug1] (	% (
+		child(Root, Child),	%	child(Root, Child),
+		debug(Child, Bug1))	%	debug(Child, Bug1)
+	then				% ->
+		Bug = Bug1		%	Bug = Bug1
+	else				% ;
+		Bug = Root		%	Bug = Root
+	).				% ).
+
+% erroneous(Node)
+% Node is a node in the tree (a sub-computation) which has
+% an incorrect result.
+% (definition depends on what we are debugging and how
+%  the computation is represented)
+
+% child(PNode, CNode)
+% CNode is a child (subcomputation) of node (computation) PNode
+% (definition depends on what we are debugging and how
+%  the computation is represented)
+

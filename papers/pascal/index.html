@@ -1,0 +1,304 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+            "http://www.w3.org/TR/REC-html40/loose.dtd">
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="description" content="Note">
+<meta name="maintained-by" content="Lee Naish lee@unimelb.edu.au">
+<meta name="expiry-date" content="9999-12-31">
+<TITLE>Pascal's Triangle</TITLE>
+<LINK REV=MADE HREF="mailto:lee@unimelb.edu.au">
+</head>
+<body>
+<H1>Pascal's Triangle and debugging software</H1>
+
+<h2>Background</h2>
+
+<p> I was attempting to evaluate different ranking methods for statistical
+approached to debugging software by randomly sampling the (potentially)
+very large search space.  The results were not quite what I expected and
+I realised the method of sampling I had been using didn't give a uniform
+distribution.  I wanted to consider the execution paths through a program
+when the program is run multiple times (each case in a test suite).
+
+<h2>Counting partitionings of sequences</h2>
+
+<p> To generate a uniform distribution I wanted to know how many ways
+a program with <em>p</em> distinct execution paths could behave over
+a set of <em>t</em> test executions.  The different test executions
+can be sorted/grouped according to what path was used, thus the number
+of possible behaviours is the number of ways a sequence of length
+<em>t</em> (&gt;=0) can be partitioned into <em>p</em> (&gt;=1) possibly
+empty sub-sequences.  The first partition can be of any length from 0
+to <em>t</em> with the remainder being partitioned into <em>p-1</em>
+subsequences, so we can use the recurrence:
+
+<p>
+<table width=80%>
+<tr>
+<td width=60%>
+<em>f(t,p)= sum for i=0 to t of f(i,p-1)
+</td>
+<td>
+(1)
+</td>
+</tr>
+<tr>
+<td>
+with
+<em>f(0,p)=1</em> and <em>f(t,1)=1</em>.
+</td>
+<td>
+</td>
+</tr>
+
+</table>
+
+<p>
+This can be used to construct the following table (the first row
+corresponding to <em>t=0, etc</em>):<br>
+<pre>
+1  1  1  1  1
+1  2  3  4  5
+1  3  6 10 15 . . .
+1  4 10 20 35
+1  5 15 35 70
+      .
+      .
+      .
+</pre>
+
+<p> Note it is symmetrical - <em>f(t,p) = f(p-1,t+1)</em> - so the
+following <a name="rec2"> recurrence</a> could also be used with the
+same base cases:
+
+<p>
+<table width=80%>
+<tr>
+<td width=60%>
+<em>f(t,p)= sum for i=1 to p of f(t-1,i)
+</td>
+<td>
+(2)
+</td>
+</tr>
+
+</table>
+
+<h2>Pascal's Triangle</h2>
+
+<p> It is also yet another way of characterising <a
+href="http://www.research.att.com/~njas/sequences/A007318"> Pascal's
+triangle</a> (the <em>binomial</em> numbers), normally written:<br>
+<pre>
+       1
+      1 1
+     1 2 1
+    1 3 3 1
+   1 4 6 4 1
+   ...
+</pre>
+and constructed using the recurrence:
+<p>
+<table width=80%>
+<tr>
+<td width=60%>
+<em>C(n,k)= C(n-1,k-1) + C(n-1,k), for n &gt; 1, 0 &lt;= k &lt;= n</em>
+</td>
+<td>
+(3)
+</td>
+</tr>
+<tr>
+<td>
+with
+<em>C(n,0)=1</em> and <em>C(n,n)=1</em>.
+</td>
+<td>
+</td>
+</tr>
+
+</table>
+
+<p>
+A closed form solution is <em>C(n,k)=n!/(k!*(n-k)!)</em>.
+
+<p>We have, <em>f(t,p) = f(p-1,t+1) = C(t+p-1,t) = C(t-1+p,p-1)</em>.
+For example, <em>f(3,3) = f(2,4) = C(5,3) = C(5,2) = 10</em>.
+
+<h2>Generating partitionings</h2>
+
+<p> A randomly generated number <em>n</em> in the range 1 to
+<em>f(t,p)</em> can be mapped to a multiset of execution paths using
+Pascal's triangle and different ranking methods can be evaluated.
+The mapping can also be of interest.
+
+<p> We can write the multiset as a (base <em>&gt;t</em>) number
+with <em>p</em> digits where the sum of the digits is <em>t</em>.
+The <em>k<sup>th</sup></em> digit gives the number of times the
+<em>k<sup>th</sup></em> execution path is used (or the length of the
+<em>k<sup>th</sup></em> subsequence).  There are <em>f(t,p)</em>
+such numbers.  We can have a mapping <em>g(t,n,p)</em> which enumerates
+these in increasing order.  For example:
+<table>
+<tr>
+<th>n&nbsp;&nbsp;&nbsp;</th>
+<th><em>g(2,n,4)&nbsp;&nbsp;</th>
+<th><em>g(3,n,3)&nbsp;&nbsp;</th>
+</tr>
+<tr>
+<td> 1 </td>
+<td> 0002 </td>
+<td> 003 </td>
+<tr>
+<td> 2 </td>
+<td> 0011 </td>
+<td> 012 </td>
+<tr>
+<td> 3 </td>
+<td> 0020 </td>
+<td> 021 </td>
+<tr>
+<td> 4 </td>
+<td> 0101 </td>
+<td> 030 </td>
+<tr>
+<td> 5 </td>
+<td> 0110 </td>
+<td> 102 </td>
+<tr>
+<td> 6 </td>
+<td> 0200 </td>
+<td> 111 </td>
+<tr>
+<td> 7 </td>
+<td> 1001 </td>
+<td> 120 </td>
+<tr>
+<td> 8 </td>
+<td> 1010 </td>
+<td> 201 </td>
+<tr>
+<td> 9 </td>
+<td> 1100 </td>
+<td> 210 </td>
+<tr>
+<td> 10 </td>
+<td> 2000 </td>
+<td> 300 </td>
+</tr>
+</table>
+
+Note the second and third columns gives the start of OEIS sequences <a
+href="http://www.research.att.com/~njas/sequences/A052216"> A052216</a>
+and <a href="http://www.research.att.com/~njas/sequences/A052217">
+A052217</a>, respectively.  In general, <em>g(2,n,p)</em> is the
+<em>n<sup>th</sup></em> element of A052216 assuming <em>p</em> is such
+that <em>n &lt;= f(2,p)</em>.  Similarly for <em>g(3,n,p)</em> and
+<a href="http://www.research.att.com/~njas/sequences/A052217">
+A052217</a>, <em>g(4,n,p)</em> and <a
+href="http://www.research.att.com/~njas/sequences/A052218">
+A052218</a>, etc.
+
+<p> Recurrence <a href="#rec2">(2)</a> is helpful in constructing this
+mapping.  Consider g(2,n,4).  This can be generated by the numbers in
+the table with smaller <em>t</em> values and smaller or equal <em>p</em>
+values (we can also ignore the row of ones):
+<pre>
+(1  1  1)
+ 1  2  3
+ 1  3  6
+</pre>
+
+The most significant digit is at least 1 if <em>n&gt;6</em> and is
+at least 2 if <em>n&gt;6+3</em>.  If <em>n&lt;=6</em> the previous
+column gives the next digit in the same way: 2 if <em>n&gt;3+2</em>,
+1 if <em>3+2&gt;=n&gt;3</em> and 0 if <em>3&lt;=n</em>.  Similarly, if
+<em>3&gt;=n&gt;1+1</em> the third digit is 2, if <em>1+1&gt;=n&gt;1</em>
+its 1 and if <em>1&gt;=n</em> its 0.  To summarise, the rightmost column
+allows us to compute the most significant digit; other digits can be
+computed with the previous columns.
+
+<p> If some digits get "used up" (are non-zero), we subtract the
+appropriate number from <em>n</em> and (recursively) compute the
+remaining number of digits with the smaller <em>n</em>.  For example, to
+compute <em>g(3,7,3)</em> we use the following part of the array:
+<pre>
+1  2
+1  3
+1  4
+</pre>
+
+The most significant digit is 1 since <em>4+3&gt;=n&gt;4</em>.  We then
+have to compute two more digits which sum to 2, with <em>n=7-4=3</em>
+(that is <em>g(2,3)</em>,2).  Since <em>n&gt;1+1</em> the next digit is
+2 and the last is zero.  The case where the leading digit is zero need
+not be a special case: <em>g(4,23,6) = 000000 + g(4,23-0,5) =  000000 +
+g(4,23-0,4) = 001000 + g(3,23-15,3) = 001200 + g(1,8-4-3,2) = 001200 +
+g(1,1,1) = </em>
+<a href="http://www.research.att.com/~njas/sequences/A052218">
+001201</a>.  To summarise, the first non-zero digit is computed using
+all the rows; whenever a digit <em>d</em> is generated, the last
+<em>d</em> rows can be eliminated and only the remaining rows used. 
+Here are two traces for the case above produced by implementations of
+the function.  The first is more imperative in style, the second is
+more declarative.
+<table>
+<tr>
+<th>Imperative</th>
+<th>Declarative</th>
+</tr>
+<tr>
+<td>
+<pre>
+Computing g(sum = 4, n = 23)
+15=f(4,3)&lt;n=23&lt;=f(4,4)=35
+Increment digit 3; remaining sum = 3; remaining n = 8
+4=f(3,2)&lt;n=8&lt;=f(3,3)=10
+Increment digit 2; remaining sum = 2; remaining n = 4
+3=f(2,2)&lt;n=4&lt;=f(2,3)=6
+Increment digit 2; remaining sum = 1; remaining n = 1
+n=1 so digit 0 = remaining sum = 1
+Result is 1201
+</pre>
+<td>
+<pre>
+Computing g(4, 23, 6);  g(4, 23, 6) =
+000000 + g(4, 23, 5);  g(4, 23, 5) =
+ 00000 + g(4, 23, 4);  g(4, 23, 4) =
+  1000 + g(3, 8, 4);  g(3, 8, 4) =
+  0000 + g(3, 8, 3);  g(3, 8, 3) =
+   100 + g(2, 4, 3);  g(2, 4, 3) =
+   100 + g(1, 1, 3);  g(1, 1, 3) =
+   001 so g(4, 23, 6) =
+  1201
+</pre>
+</td>
+</tr>
+
+</table>
+
+<p> The program can very quickly compute that the 4 billionth number whose
+decimal digits sum to 9 is 100010000000000012000001000001001000000000010,
+for example.  I will refrain from giving a more detailed
+description of the algorithm and posting the code until after a <a
+href="http://www.csse.unimelb.edu.au/253"> 433-253</a> programming
+project has been completed.
+
+<h2>Results</h2>
+
+The algorithm has been implemented in C and the effectiveness of
+various proposed ranking methods have been assessed.  The effectiveness
+correlates well with empirical results applying these methods to the
+Siemens test suite.  A new ranking method has also been developed - it
+is optimal using a simple program containing a single bug, assuming a
+uniform distribution for the tests cases.  In practice it significantly
+out-performs other methods on the Siemens test suite!  A paper on this
+topic is in preparation.
+
+<hr>
+<a href="http://people.eng.unimelb.edu.au/lee">
+lee</a>
+</body>
+</html>

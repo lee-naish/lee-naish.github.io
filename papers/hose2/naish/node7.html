@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Goals in Base Cases</TITLE>
+<META NAME="description" CONTENT="Goals in Base Cases">
+<META NAME="keywords" CONTENT="naish">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="naish.css">
+<LINK REL="next" HREF="node8.html">
+<LINK REL="previous" HREF="node6.html">
+<LINK REL="up" HREF="node6.html">
+<LINK REL="next" HREF="node8.html">
+</HEAD>
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html101"
+ HREF="node8.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/next_motif.gif"></A> 
+<A NAME="tex2html99"
+ HREF="node6.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/up_motif.gif"></A> 
+<A NAME="tex2html93"
+ HREF="node6.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html102"
+ HREF="node8.html">Mutual recursion</A>
+<B> Up:</B> <A NAME="tex2html100"
+ HREF="node6.html">Generalising Both Approaches</A>
+<B> Previous:</B> <A NAME="tex2html94"
+ HREF="node6.html">Generalising Both Approaches</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00061000000000000000">
+Goals in Base Cases</A>
+</H2>
+
+<P>
+The first (very simple) observation is that enhancements should allow
+general goals to be added to the base cases of enhancements.  For
+pedagogical reasons, the original presentation classified enhancements
+into different categories according to the kind of goal added to
+recursive clauses and only allowed additional unifications to be added
+to facts.  The limited abstraction simplifies learning but also
+restricts the scope of enhancements.
+<A NAME="sumsquare">&#160;</A>For example, to find the sum of the squares of the leaves of a tree using
+<code>foldrbt/4</code>
+we could use
+<code>foldrbt(plus, square, Tree, SumXX)</code>,
+where
+<code>square</code>
+takes a number and returns its square.  The optimised program (or
+enhanced skeleton) would have a call to
+<code>square</code>
+in the base case.
+
+<P>
+<BR><HR>
+<ADDRESS>
+<I>Lee Naish</I>
+<BR><I>2000-07-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,299 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.2beta8 (1.42)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Model-theoretic semantics</TITLE>
+<META NAME="description" CONTENT="Model-theoretic semantics">
+<META NAME="keywords" CONTENT="naishsem3">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.2beta8">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="naishsem3.css">
+
+<LINK REL="next" HREF="node18.html">
+<LINK REL="previous" HREF="node16.html">
+<LINK REL="up" HREF="node15.html">
+<LINK REL="next" HREF="node18.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html213"
+  HREF="node18.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/lib/latex2html/icons/next.png"></A> 
+<A NAME="tex2html211"
+  HREF="node15.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/lib/latex2html/icons/up.png"></A> 
+<A NAME="tex2html205"
+  HREF="node16.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/lib/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html214"
+  HREF="node18.html">Fixpoint semantics</A>
+<B> Up:</B> <A NAME="tex2html212"
+  HREF="node15.html">A semantics for normal</A>
+<B> Previous:</B> <A NAME="tex2html206"
+  HREF="node16.html">Operational semantics</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00052000000000000000"></A>
+<A NAME="sec_norm_mod"></A>
+<BR>
+Model-theoretic semantics
+</H2>
+
+<P>
+We define models for the completion of a program.  First, negation is
+defined by <!-- MATH
+ $\neg \textbf{T} = \textbf{F}, \neg \textbf{F} = \textbf{T},
+\neg \textbf{I} = \textbf{I}$
+ -->
+<IMG
+ WIDTH="176" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img106.png"
+ ALT="$\neg \textbf{T} = \textbf{F}, \neg \textbf{F} = \textbf{T},
+\neg \textbf{I} = \textbf{I}$">.  The existential quantification of a closed
+formula is <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img27.png"
+ ALT="$\textbf{T}$"> if any instance is <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img27.png"
+ ALT="$\textbf{T}$">, <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img28.png"
+ ALT="$\textbf{F}$">
+if all instances are <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img28.png"
+ ALT="$\textbf{F}$">, and <IMG
+ WIDTH="11" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img29.png"
+ ALT="$\textbf{I}$"> otherwise.
+
+<P>
+<P>
+<DIV><B>Definition  12</B> (model of <IMG
+ WIDTH="66" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img79.png"
+ ALT="$comp(P)$">)  &nbsp; 
+An interpretation is a <I>model</I> of <IMG
+ WIDTH="66" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img79.png"
+ ALT="$comp(P)$"> if it is a model of
+every clause in <IMG
+ WIDTH="66" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img79.png"
+ ALT="$comp(P)$">.
+
+<P>
+An interpretation is a <I>model</I> of <!-- MATH
+ $H \leftarrow B$
+ -->
+<IMG
+ WIDTH="56" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img80.png"
+ ALT="$H \leftarrow B$"> if for all
+head instances <!-- MATH
+ $H \theta \leftarrow B \theta$
+ -->
+<IMG
+ WIDTH="72" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img107.png"
+ ALT="$H \theta \leftarrow B \theta$">, if <IMG
+ WIDTH="26" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img108.png"
+ ALT="$H \theta$"> is
+<B>T</B> then <!-- MATH
+ $\exists(B \theta)$
+ -->
+<IMG
+ WIDTH="46" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img109.png"
+ ALT="$\exists(B \theta)$"> is <B>T</B> and if <IMG
+ WIDTH="26" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img108.png"
+ ALT="$H \theta$"> is
+<B>F</B> then <!-- MATH
+ $\exists(B \theta)$
+ -->
+<IMG
+ WIDTH="46" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img109.png"
+ ALT="$\exists(B \theta)$"> is <B>F</B> in the interpretation.</DIV><P></P>
+
+<P>
+That is, we avoid clause instances of the form
+<!-- MATH
+ $\textbf{F} \leftarrow \textbf{T}$
+ -->
+<IMG
+ WIDTH="53" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img37.png"
+ ALT="$\textbf{F} \leftarrow
+\textbf{T}$">,
+<!-- MATH
+ $\textbf{F} \leftarrow \textbf{I}$
+ -->
+<IMG
+ WIDTH="47" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img38.png"
+ ALT="$\textbf{F} \leftarrow \textbf{I}$">,
+<!-- MATH
+ $\textbf{T} \leftarrow \textbf{F}$
+ -->
+<IMG
+ WIDTH="53" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img83.png"
+ ALT="$\textbf{T} \leftarrow \textbf{F}$"> and
+<!-- MATH
+ $\textbf{T} \leftarrow \textbf{I}$
+ -->
+<IMG
+ WIDTH="49" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img84.png"
+ ALT="$\textbf{T} \leftarrow \textbf{I}$">.
+The first two cases can cause unsoundness for definite clauses, as
+discussed earlier.  The last two cases can cause unsoundness with
+negation as failure. Note that we only consider instantiation of head
+variables and use existential quantification in the bodies.  We allow
+the case where the instance of <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img18.png"
+ ALT="$H$"> is <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img27.png"
+ ALT="$\textbf{T}$"> and some but not
+all corresponding instances of <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img66.png"
+ ALT="$B$"> are <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img27.png"
+ ALT="$\textbf{T}$"> (corresponding
+to a true atom with a legitimate proof and one or more suspect proofs
+which use inadmissible or false atoms).  Adapting the definite clause
+model definition in a simpler way results in a stronger definition of a
+model, unnecessarily rejecting some programs for a given interpretation.
+
+<P>
+To summarise, the declarative semantics we propose for logic programs is
+Clark's completion with Kleene's strong three-valued logic used for the
+right sides of the arrow and the following truth table used for the arrow.
+
+<P>
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="CENTER"><IMG
+ WIDTH="20" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img82.png"
+ ALT="$\leftarrow$"></TD>
+<TH ALIGN="CENTER"><B>T</B></TH>
+<TH ALIGN="CENTER"><B>F</B></TH>
+<TH ALIGN="CENTER"><B>I</B></TH>
+</TR>
+<TR><TD ALIGN="CENTER"><B>T</B></TD>
+<TD ALIGN="CENTER"><B>T</B></TD>
+<TD ALIGN="CENTER"><B>F</B></TD>
+<TD ALIGN="CENTER"><B>F</B></TD>
+</TR>
+<TR><TD ALIGN="CENTER"><B>F</B></TD>
+<TD ALIGN="CENTER"><B>F</B></TD>
+<TD ALIGN="CENTER"><B>T</B></TD>
+<TD ALIGN="CENTER"><B>F</B></TD>
+</TR>
+<TR><TD ALIGN="CENTER"><B>I</B></TD>
+<TD ALIGN="CENTER"><B>T</B></TD>
+<TD ALIGN="CENTER"><B>T</B></TD>
+<TD ALIGN="CENTER"><B>T</B></TD>
+</TR>
+</TABLE>
+<BR>
+<P>
+The model intersection properties stated earlier do not generally hold
+for disjunctive normal programs.  We define strong models of completions
+in the typical way (see [<A
+ HREF="node22.html#apt94logic">Apt and BolApt and Bol1994</A>]), additionally avoiding clauses
+of the form <!-- MATH
+ $\textbf{I} \leftarrow \textbf{T}$
+ -->
+<IMG
+ WIDTH="49" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img39.png"
+ ALT="$\textbf{I} \leftarrow \textbf{T}$"> and <!-- MATH
+ $\textbf{I} \leftarrow
+\textbf{F}$
+ -->
+<IMG
+ WIDTH="47" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img85.png"
+ ALT="$\textbf{I}
+\leftarrow \textbf{F}$">:
+
+<P>
+<P>
+<DIV><B>Definition  13</B> (strong model of <IMG
+ WIDTH="66" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img79.png"
+ ALT="$comp(P)$">)  &nbsp; 
+An interpretation <IMG
+ WIDTH="21" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$M$"> is a <I>strong model</I> of <IMG
+ WIDTH="66" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img79.png"
+ ALT="$comp(P)$"> if every head
+clause instance has the same truth value for the head and body in <IMG
+ WIDTH="21" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$M$">.</DIV><P></P>
+
+<P>
+Our intended interpretation of <TT>merge/3</TT> is not a strong model
+even if extra tests are added.  Clauses such as <TT>merge([], Bs,
+Bs) :- sorted_list(Bs)</TT> have instances where the head is <B>I</B>
+and the body is <B>F</B>.  Strong models must precisely specify the
+behaviour of all predicates.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html213"
+  HREF="node18.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/lib/latex2html/icons/next.png"></A> 
+<A NAME="tex2html211"
+  HREF="node15.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/lib/latex2html/icons/up.png"></A> 
+<A NAME="tex2html205"
+  HREF="node16.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/lib/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html214"
+  HREF="node18.html">Fixpoint semantics</A>
+<B> Up:</B> <A NAME="tex2html212"
+  HREF="node15.html">A semantics for normal</A>
+<B> Previous:</B> <A NAME="tex2html206"
+  HREF="node16.html">Operational semantics</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+
+2005-08-02
+</ADDRESS>
+</BODY>
+</HTML>

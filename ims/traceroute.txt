@@ -1,0 +1,60 @@
+ ping www.google.com
+PING www.l.google.com (74.125.237.82) 56(84) bytes of data.
+64 bytes from 74.125.237.82: icmp_seq=1 ttl=55 time=26.6 ms
+64 bytes from 74.125.237.82: icmp_seq=2 ttl=55 time=25.2 ms
+
+ traceroute www.l.google.com
+traceroute: Warning: www.l.google.com has multiple addresses; using 74.125.237.82
+traceroute: Warning: Multiple interfaces found; using 128.250.37.102 @ e1000g0
+traceroute to www.l.google.com (74.125.237.82), 30 hops max, 40 byte packets
+ 1  128.250.37.66 (128.250.37.66)  0.557 ms  1.139 ms  0.357 ms
+ 2  * * *
+ 3  * * *
+ 4  * * *
+ 5  * * *
+ 6  tengigabitethernet2-3.er2.unimelb.cpe.aarnet.net.au (202.158.206.161)  0.657 ms  0.601 ms  0.475 ms
+ 7  ge-4-0-0.bb1.b.mel.aarnet.net.au (202.158.200.97)  0.519 ms  0.605 ms  0.467 ms
+ 8  so-0-1-0.bb1.b.cbr.aarnet.net.au (202.158.194.30)  8.373 ms  8.281 ms  8.474 ms
+ 9  ge-0-0-0.bb1.a.cbr.aarnet.net.au (202.158.194.205)  8.329 ms  8.409 ms  8.325 ms
+10  so-0-1-0.bb1.a.syd.aarnet.net.au (202.158.194.42)  12.355 ms  12.380 ms  12.375 ms
+11  tengigabitethernet2-1.pe1.a.syd.aarnet.net.au (202.158.202.19) 12.405 ms  12.613 ms  12.426 ms
+12  72.14.197.241 (72.14.197.241)  13.085 ms  63.734 ms  75.012 ms
+13  66.249.95.224 (66.249.95.224)  13.145 ms  13.193 ms  13.161 ms
+14  72.14.237.55 (72.14.237.55)  13.365 ms  13.442 ms  13.406 ms
+15  74.125.237.82 (74.125.237.82)  13.022 ms  13.061 ms  13.032 ms
+
+
+traceroute munnari.oz.au
+traceroute: Warning: Multiple interfaces found; using 128.250.37.102 @
+e1000g0
+traceroute to munnari.oz.au (202.29.151.3), 30 hops max, 40 byte packets
+ 1  128.250.37.66 (128.250.37.66)  1.518 ms  0.374 ms  0.330 ms
+ 2  * * *
+ 3  * * *
+ 4  * * *
+ 5  * * *
+ 6  tengigabitethernet2-3.er2.unimelb.cpe.aarnet.net.au (202.158.206.161)  0.689 ms  0.493 ms  0.475 ms
+ 7  ge-4-0-0.bb1.b.mel.aarnet.net.au (202.158.200.97)  0.506 ms  0.481 ms  0.467 ms
+ 8  ge-0-0-0.bb1.a.mel.aarnet.net.au (202.158.194.181)  0.646 ms  0.733 ms  0.642 ms
+ 9  so-2-0-0.bb1.a.adl.aarnet.net.au (202.158.194.17)  9.705 ms  9.784 ms  9.735 ms
+10  so-0-1-0.bb1.a.per.aarnet.net.au (202.158.194.5)  37.066 ms  37.032 ms  37.050 ms
+11  so-0-0-0.bb1.a.sin.aarnet.net.au (202.158.194.146)  84.883 ms 85.013 ms  84.912 ms
+12  sg-ge-02-v4.bb.tein3.net (202.179.249.61)  84.873 ms  84.921 ms 84.853 ms
+13  th-pr-v4.bb.tein3.net (202.179.249.66)  118.390 ms  118.471 ms 118.398 ms
+14  202.29.12.10 (202.29.12.10)  118.479 ms  118.364 ms  118.334 ms
+15  202.28.218.21 (202.28.218.21)  134.499 ms  135.061 ms  133.990 ms
+16  202.28.210.237 (202.28.210.237)  134.149 ms  134.081 ms  133.834 ms
+17  202.28.218.54 (202.28.218.54)  135.875 ms  135.876 ms  137.527 ms
+18  202.28.218.78 (202.28.218.78)  135.846 ms  135.572 ms  135.151 ms
+19  202.28.221.22 (202.28.221.22)  133.872 ms  133.934 ms  133.927 ms
+20  * * *
+21  202.12.74.129 (202.12.74.129)  134.602 ms  134.637 ms  134.599 ms
+22  202.12.74.129 (202.12.74.129)  142.765 ms  141.072 ms  141.417 ms
+23  coe-gw.psu.ac.th (202.29.149.70)  136.153 ms  135.137 ms  135.148 ms
+24  munnari.OZ.AU (202.29.151.3)  135.063 ms  134.837 ms  134.833 ms
+
+ping ww2.cs.mu.oz.au
+PING www-cs.cs.mu.oz.au (128.250.37.111) 56(84) bytes of data.
+64 bytes from www-cs.csse.unimelb.edu.au (128.250.37.111): icmp_req=1 ttl=241
+time=11.4 ms
+

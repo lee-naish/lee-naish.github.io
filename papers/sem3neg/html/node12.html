@@ -1,0 +1,533 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.2beta8 (1.42)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Model-theoretic semantics</TITLE>
+<META NAME="description" CONTENT="Model-theoretic semantics">
+<META NAME="keywords" CONTENT="naishsem3">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.2beta8">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="naishsem3.css">
+
+<LINK REL="next" HREF="node13.html">
+<LINK REL="previous" HREF="node11.html">
+<LINK REL="up" HREF="node10.html">
+<LINK REL="next" HREF="node13.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html161"
+  HREF="node13.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/lib/latex2html/icons/next.png"></A> 
+<A NAME="tex2html159"
+  HREF="node10.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/lib/latex2html/icons/up.png"></A> 
+<A NAME="tex2html153"
+  HREF="node11.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/lib/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html162"
+  HREF="node13.html">Fixpoint semantics</A>
+<B> Up:</B> <A NAME="tex2html160"
+  HREF="node10.html">A semantics for definite</A>
+<B> Previous:</B> <A NAME="tex2html154"
+  HREF="node11.html">Operational semantics</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00042000000000000000">
+Model-theoretic semantics</A>
+</H2>
+
+<P>
+We first define interpretations and models then discuss the motivation
+for these definitions and the properties of models.
+
+<P>
+<P>
+<DIV><B>Definition  2</B> &nbsp; 
+An <I>interpretation</I> is a mapping from ground atoms to the truth values
+<I>true</I>, <I>false</I> and <I>inadmissible</I>.  The interpretation
+of <IMG
+ WIDTH="37" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img26.png"
+ ALT="$=
+/ 2$"> is restricted to be (two-valued) syntactic equality.</DIV><P></P>
+
+<P>
+Conjunction and disjunction are defined as below -- the same as in
+Kleene's strong three-valued logic [<A
+ HREF="node22.html#Kleene">KleeneKleene1952</A>]:
+
+<P>
+<DIV ALIGN="CENTER">
+</DIV><TABLE  WIDTH="227">
+<TR><TD>
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="CENTER"><IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img35.png"
+ ALT="$\wedge$"></TD>
+<TH ALIGN="CENTER"><B>T</B></TH>
+<TH ALIGN="CENTER"><B>F</B></TH>
+<TH ALIGN="CENTER"><B>I</B></TH>
+</TR>
+<TR><TD ALIGN="CENTER"><B>T</B></TD>
+<TD ALIGN="CENTER"><B>T</B></TD>
+<TD ALIGN="CENTER"><B>F</B></TD>
+<TD ALIGN="CENTER"><B>I</B></TD>
+</TR>
+<TR><TD ALIGN="CENTER"><B>F</B></TD>
+<TD ALIGN="CENTER"><B>F</B></TD>
+<TD ALIGN="CENTER"><B>F</B></TD>
+<TD ALIGN="CENTER"><B>F</B></TD>
+</TR>
+<TR><TD ALIGN="CENTER"><B>I</B></TD>
+<TD ALIGN="CENTER"><B>I</B></TD>
+<TD ALIGN="CENTER"><B>F</B></TD>
+<TD ALIGN="CENTER"><B>I</B></TD>
+</TR>
+</TABLE></TD></TR>
+</TABLE>
+<DIV ALIGN="CENTER">
+</DIV><TABLE  WIDTH="227">
+<TR><TD>
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="CENTER"><IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img36.png"
+ ALT="$\vee$"></TD>
+<TH ALIGN="CENTER"><B>T</B></TH>
+<TH ALIGN="CENTER"><B>F</B></TH>
+<TH ALIGN="CENTER"><B>I</B></TH>
+</TR>
+<TR><TD ALIGN="CENTER"><B>T</B></TD>
+<TD ALIGN="CENTER"><B>T</B></TD>
+<TD ALIGN="CENTER"><B>T</B></TD>
+<TD ALIGN="CENTER"><B>T</B></TD>
+</TR>
+<TR><TD ALIGN="CENTER"><B>F</B></TD>
+<TD ALIGN="CENTER"><B>T</B></TD>
+<TD ALIGN="CENTER"><B>F</B></TD>
+<TD ALIGN="CENTER"><B>I</B></TD>
+</TR>
+<TR><TD ALIGN="CENTER"><B>I</B></TD>
+<TD ALIGN="CENTER"><B>T</B></TD>
+<TD ALIGN="CENTER"><B>I</B></TD>
+<TD ALIGN="CENTER"><B>I</B></TD>
+</TR>
+</TABLE></TD></TR>
+</TABLE>
+<DIV ALIGN="CENTER">
+</DIV>
+<P>
+<DIV ALIGN="CENTER">
+</DIV>
+
+<P>
+<P>
+<DIV><B>Definition  3</B> (model of <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$P$">)  &nbsp; 
+An interpretation is a <I>model</I> of a disjunctive definite program <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$P$">
+if no instance of a clause in <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$P$"> is mapped (by the interpretation and
+definitions of conjunction and disjunction) to <!-- MATH
+ $\textbf{F} \leftarrow
+\textbf{T}$
+ -->
+<IMG
+ WIDTH="53" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img37.png"
+ ALT="$\textbf{F} \leftarrow
+\textbf{T}$"> or <!-- MATH
+ $\textbf{F} \leftarrow \textbf{I}$
+ -->
+<IMG
+ WIDTH="47" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img38.png"
+ ALT="$\textbf{F} \leftarrow \textbf{I}$">.</DIV><P></P>
+
+<P>
+That is, if the head is <B>F</B>, the body is <B>F</B>.  Note that the
+traditional two-valued model theory is a special case of these definitions
+where the set of inadmissible atoms is empty.  This definition of a
+model can be seen as giving a two-valued interpretation to an implication
+connective.  It differs from Kleene's (weak and strong) logics, in which
+implications can have all three values.  In [<A
+ HREF="node22.html#przymusinski89every">PrzymusinskiPrzymusinski1989</A>],
+and [<A
+ HREF="node22.html#apt94logic">Apt and BolApt and Bol1994</A>], an alternative definition of a model is given --
+we refer to these as <I>strong models</I>:
+
+<P>
+<P>
+<DIV><B>Definition  4</B> (strong model of <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$P$">)  &nbsp; 
+An interpretation is a <I>strong model</I> of a disjunctive definite
+program <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$P$"> if it is a model of <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$P$"> and no instance of a clause in <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$P$">
+is mapped to <!-- MATH
+ $\textbf{I} \leftarrow \textbf{T}$
+ -->
+<IMG
+ WIDTH="49" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img39.png"
+ ALT="$\textbf{I} \leftarrow \textbf{T}$">.</DIV><P></P>
+
+<P>
+Strong models significantly restrict intended interpretations and/or
+programming style.  For example, they do not allow interpretations where
+instances of facts in the program are inadmissible.  Our interpretation
+of <TT>merge/3</TT> is not a strong model due to clause instances such
+as <TT>merge([],a,a)</TT>.  To make our intended interpretation a strong
+model of the first clause a test such as <code>sorted_list(Bs)</code> would have
+to be added.  We have attempted to make our definition of a model as weak
+as possible: it just avoids the two classes of bugs discussed earlier.
+The definitions of conjunction and disjunction follow the same principle.
+
+<P>
+For conjunction, the key question is whether <!-- MATH
+ $\textbf{I} \wedge
+\textbf{F}$
+ -->
+<IMG
+ WIDTH="40" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img40.png"
+ ALT="$\textbf{I} \wedge
+\textbf{F}$"> should equal <IMG
+ WIDTH="11" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img29.png"
+ ALT="$\textbf{I}$"> or <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img28.png"
+ ALT="$\textbf{F}$">.  A choice
+of <IMG
+ WIDTH="11" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img29.png"
+ ALT="$\textbf{I}$"> would be similar to strict type schemes in which
+a conjunction containing an ill-typed atom is ill-typed, whether it
+succeeds or fails.  Programs are restricted so that <I>all</I> derivations
+are well typed, not just successful ones (distinguishing between these
+two cases cannot be done statically).  The choice of <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img28.png"
+ ALT="$\textbf{F}$"> is
+similar to less restrictive type schemes which only restrict successful
+derivations; this is discussed further in [<A
+ HREF="node22.html#naish:90">NaishNaish1992b</A>].  It allows
+runtime checking of types (or other assertions) to be supported.
+The body of a clause instance can have checks which fail (have truth
+value <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img28.png"
+ ALT="$\textbf{F}$">) as well as inadmissible calls, that is, the clause
+is of the form <!-- MATH
+ $\textbf{F} \leftarrow \textbf{F} \wedge \textbf{I}$
+ -->
+<IMG
+ WIDTH="76" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img41.png"
+ ALT="$\textbf{F} \leftarrow \textbf{F} \wedge \textbf{I}$">.
+This would not be acceptable with the stricter definition of conjunction.
+
+<P>
+For disjunction, the key question is whether <!-- MATH
+ $\textbf{I} \vee \textbf{T}$
+ -->
+<IMG
+ WIDTH="41" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img42.png"
+ ALT="$\textbf{I} \vee \textbf{T}$">
+should equal <IMG
+ WIDTH="11" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img29.png"
+ ALT="$\textbf{I}$"> or <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img27.png"
+ ALT="$\textbf{T}$">.  In strict type schemes a
+disjunction containing an ill-typed atom is ill-typed even if a well-typed
+disjunct succeeds.  Even in the less strict scheme of [<A
+ HREF="node22.html#naish:90">NaishNaish1992b</A>]
+disjunctions must be implemented as separate clauses and each clause
+must be ``type correct''.  This is the reason we introduced disjunctive
+clauses: by choosing <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img27.png"
+ ALT="$\textbf{T}$"> we can have a less restrictive
+condition.
+
+<P>
+The structure of the set of all models is more complex than in the
+two-valued case.  There are several model intersection properties of
+interest.  The first relates models with the same set of inadmissible
+atoms:
+
+<P>
+<BR>
+<IMG
+ WIDTH="510" HEIGHT="36" ALIGN="BOTTOM" BORDER="0"
+ SRC="img43.png"
+ ALT="\begin{proposition}
+If $M_1 = \langle I,T_1\rangle $\ and $M_2 = \langle I,T_2\r...
+...$are models then $\langle I,T_1 \cap T_2\rangle $\ is a model.
+\end{proposition}">
+<BR>
+<BR>
+<IMG
+ WIDTH="555" HEIGHT="120" ALIGN="BOTTOM" BORDER="0"
+ SRC="img44.png"
+ ALT="\begin{proof}
+If there is a clause instance whose head is \textbf{F} in the inte...
+...ion of the truth tables
+and induction on the number of connectives).
+\end{proof}">
+<BR>
+
+<P>
+This proposition also holds for strong models.  It generalises the
+two-valued model intersection property (where <IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img31.png"
+ ALT="$I$"> is the empty set,
+<IMG
+ WIDTH="14" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img45.png"
+ ALT="$\phi$">).  If there are two models with no true atoms then a similar
+result holds for the intersection of sets of inadmissible atoms.
+This is generalised in the following proposition (which does not hold
+for strong models).
+
+<P>
+<BR>
+<IMG
+ WIDTH="504" HEIGHT="36" ALIGN="BOTTOM" BORDER="0"
+ SRC="img46.png"
+ ALT="\begin{proposition}
+If $M_1 = \langle I_1,T\rangle $\ and $M_2 = \langle I_2,T\r...
+...$are models then $\langle I_1 \cap I_2,T\rangle $\ is a model.
+\end{proposition}">
+<BR>
+<BR>
+<IMG
+ WIDTH="230" HEIGHT="37" ALIGN="BOTTOM" BORDER="0"
+ SRC="img47.png"
+ ALT="\begin{proof}
+Identical to the proof above.
+\end{proof}">
+<BR>
+
+<P>
+Models exist with no inadmissible atoms (for example, all atoms are
+true) and with no true atoms (for example, all atoms are inadmissible),
+so from the two propositions above it follows that a least model (with
+respect to <IMG
+ WIDTH="18" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img32.png"
+ ALT="$T$">) of the form <!-- MATH
+ $\langle \phi,T\rangle$
+ -->
+<IMG
+ WIDTH="47" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img48.png"
+ ALT="$\langle \phi,T\rangle $"> exists and a least
+model (with respect to <IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img31.png"
+ ALT="$I$">) of the form <!-- MATH
+ $\langle I,\phi\rangle$
+ -->
+<IMG
+ WIDTH="42" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img49.png"
+ ALT="$\langle I,\phi\rangle $"> exists.
+These two models have the same set of false atoms (just the role of true
+and inadmissible are swapped).  These models are equivalent to the least
+two-valued model of the program.
+
+<P>
+If the set of false atoms is the same in two models, either the true
+atoms or inadmissible atoms can be intersected and the result is a model.
+In fact, any partitioning of the true and inadmissible atoms is a model:
+
+<P>
+<BR>
+<IMG
+ WIDTH="554" HEIGHT="54" ALIGN="BOTTOM" BORDER="0"
+ SRC="img50.png"
+ ALT="\begin{proposition}
+If $M_1 = \langle I_1,T_1\rangle $\ is a model,
+$I_2 \cap T_...
+...T_2 \cup I_2$then $M_2 = \langle I_2,T_2\rangle $\ is a model.
+\end{proposition}">
+<BR>
+<BR>
+<IMG
+ WIDTH="555" HEIGHT="78" ALIGN="BOTTOM" BORDER="0"
+ SRC="img51.png"
+ ALT="\begin{proof}
+Any formula which is inadmissible or true according to $M_2$\ must...
+...xtbf{I}$\ or $\textbf{F} \leftarrow \textbf{T}$\ according to $M_2$.
+\end{proof}">
+<BR>
+
+<P>
+Thus we have a set of (at least two) minimal models (with respect to
+<IMG
+ WIDTH="18" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img32.png"
+ ALT="$T$">/<IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img31.png"
+ ALT="$I$">), all with the same set of false atoms (the false atoms of the
+least two-valued model).
+
+<P>
+<BR>
+<IMG
+ WIDTH="285" HEIGHT="37" ALIGN="BOTTOM" BORDER="0"
+ SRC="img52.png"
+ ALT="\begin{corollary}
+$\langle I,T\rangle $\ is a model iff $\langle \phi, I \cup T\rangle $is a model.
+\end{corollary}">
+<BR>
+
+<P>
+This result is essentially the reason why treating inadmissible atoms
+as true results in correct declarative diagnosis of wrong answers.
+For models of the completion this result does not hold.
+
+<P>
+There is another natural partial ordering of three-valued interpretations
+known as the information ordering (we treat the third truth value as
+``don't care'', but in some contexts ``don't know'' is appropriate).
+
+<P>
+<P>
+<DIV><B>Definition  5</B> (information ordering, <IMG
+ WIDTH="22" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img53.png"
+ ALT="$\subseteq_i$">)  &nbsp; 
+Given two interpretations, <IMG
+ WIDTH="26" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img54.png"
+ ALT="$M_1$"> and <IMG
+ WIDTH="26" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img55.png"
+ ALT="$M_2$">, <!-- MATH
+ $M_1 \subseteq_i M_2$
+ -->
+<IMG
+ WIDTH="74" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img56.png"
+ ALT="$M_1 \subseteq_i M_2$"> if <!-- MATH
+ $T_1
+\subseteq T_2 \wedge F_1 \subseteq F_2$
+ -->
+<IMG
+ WIDTH="136" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img57.png"
+ ALT="$T_1
+\subseteq T_2 \wedge F_1 \subseteq F_2$">, where <IMG
+ WIDTH="23" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img58.png"
+ ALT="$T_1$"> (<IMG
+ WIDTH="22" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img59.png"
+ ALT="$F_1$">) and <IMG
+ WIDTH="23" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img60.png"
+ ALT="$T_2$">
+(<IMG
+ WIDTH="22" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img61.png"
+ ALT="$F_2$">) are the true (false) atoms in <IMG
+ WIDTH="26" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img54.png"
+ ALT="$M_1$"> and <IMG
+ WIDTH="26" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img55.png"
+ ALT="$M_2$">, respectively.</DIV><P></P>
+
+<P>
+The <IMG
+ WIDTH="22" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img53.png"
+ ALT="$\subseteq_i$">-least model has all atoms inadmissible.  The
+<IMG
+ WIDTH="22" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img53.png"
+ ALT="$\subseteq_i$">-least strong model has the least two-valued model as the
+true atoms and all other atoms inadmissible, the same as the <IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img31.png"
+ ALT="$I$">-least
+model with <IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img31.png"
+ ALT="$I$"> and <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img62.png"
+ ALT="$F$"> swapped.  Atoms in the least two-valued model
+are true in all strong models.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html161"
+  HREF="node13.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/lib/latex2html/icons/next.png"></A> 
+<A NAME="tex2html159"
+  HREF="node10.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/lib/latex2html/icons/up.png"></A> 
+<A NAME="tex2html153"
+  HREF="node11.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/lib/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html162"
+  HREF="node13.html">Fixpoint semantics</A>
+<B> Up:</B> <A NAME="tex2html160"
+  HREF="node10.html">A semantics for definite</A>
+<B> Previous:</B> <A NAME="tex2html154"
+  HREF="node11.html">Operational semantics</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+
+2005-08-02
+</ADDRESS>
+</BODY>
+</HTML>

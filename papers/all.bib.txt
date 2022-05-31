@@ -1,0 +1,1211 @@
+
+@techreport{naish:82,
+	author =	{Naish, Lee},
+	title  =	{An introduction to {MU-Prolog}},
+	number =	{82/2},
+	institution =	{Department of Computer Science, University of Melbourne},
+	address =	{Melbourne, Australia},
+	year   =	{March 1982 (Revised July 1983)},
+	pages  =	{16}
+}
+
+@techreport{naish:83,
+	author =	{Naish, Lee and James A. Thom},
+	title  =	{The {MU-Prolog} deductive database},
+	number =	{83/10},
+	institution =	{Department of Computer Science, University of Melbourne},
+	address =	{Melbourne, Australia},
+	year   =	{November 1983},
+	pages  =	{16}
+}
+
+@article{naish:84,
+	author =	{Naish, Lee},
+	title  =	{Heterogeneous {SLD} resolution},
+	journal =	{Journal of Logic Programming},
+	volume =	{1},
+	number =	{4},
+	year   =	{December 1984},
+	pages  =	{297--303},
+	comment = {Technical report 84/1, Department of Computer Science,
+		University of Melbourne}
+}
+
+@inproceedings{naish:solns:85,
+	author =	{Naish, Lee},
+	title  =	{All solutions predicates in {Prolog}},
+	booktitle =	{Proceedings of the Second IEEE Symposium on
+				Logic Programming},
+	address =	{Boston, Massachusetts},
+	year   =	{July 1985},
+	pages  =	{73--77},
+	comment = {Technical report 84/4, Department of Computer Science,
+		University of Melbourne}
+}
+
+@inproceedings{naish:ctl:85,
+	author =	{Naish, Lee},
+	title  =	{Prolog control rules},
+	booktitle =	{Proceedings of the Ninth International Joint
+			Conference on Artificial Intelligence},
+	address =	{Los Angeles, California},
+	year   =	{September 1985},
+	pages  =	{720--722},
+	comment = {Technical report 84/13, Department of Computer Science,
+		University of Melbourne}
+}
+
+@article{naish:auto:85,
+	author =	{Naish, Lee},
+	title  =	{Automating control of logic programs},
+	journal =	{Journal of Logic Programming},
+	volume =	{2},
+	number =	{3},
+	year   =	{October 1985},
+	pages  =	{167--183},
+	comment = {Technical report 83/6, Department of Computer Science,
+		University of Melbourne}
+}
+
+@techreport{naish:85,
+	author =	{Naish, Lee},
+	title  =	{The {MU-Prolog} 3.2 reference manual},
+	number =	{ 85/11},
+	institution =	{Department of Computer Science, University of Melbourne},
+	address =	{Melbourne, Australia},
+	year   =	{October 1985},
+	pages  =	{17}
+}
+
+@techreport{naish-dont-care,
+        author =        {Naish, Lee},
+        title  =        {Don't care nondeterminism in logic
+			programming},
+        number =        { 86/4},
+        institution =   {Department of Computer Science, University of
+				Melbourne },
+        address =       {Melbourne, Australia},
+        year   =        {1986}
+}
+
+@inproceedings{naish:86,
+	author =	{Naish, Lee},
+	title  =	{Negation and quantifiers in {NU-Prolog}},
+	booktitle =	{Proceedings of the Third International Conference on Logic Programming},
+	address =	{London, England},
+	year   =	{July 1986},
+	editor =	{Ehud Shapiro},
+	comment   =	{Published as Lecture Notes in Computer Science 225
+			by Springer-Verlag},
+	pages  =	{624--634},
+	comment = {Technical report 85/13, Department of Computer Science,
+		University of Melbourne}
+}
+
+@book{naish:thesis:86,
+	author =	{Naish, Lee},
+	title  =	{Negation and control in {Prolog}},
+	series =	{Lecture Notes in Computer Science},
+	publisher =	{Springer-Verlag},
+	address =	{New York},
+	number =	{238},
+	year   =	{1986},
+	pages  =	{119},
+	comment = {Technical report 85/12, Department of Computer Science,
+		University of Melbourne}
+}
+
+@techreport{thom:zobel:86,
+	editor =	{James Thom and Justin Zobel},
+	key =		{James Thom and Justin Zobel},
+	title  =	{{NU-Prolog} reference manual, version 1.0},
+	number =	{ 86/10},
+	institution =	{Department of Computer Science, University of Melbourne},
+	address =	{Melbourne, Australia},
+	year   =	{1986}
+}
+
+@inproceedings{naish:thom:87,
+	author =	{Naish, Lee and James A. Thom and Kotagiri, Ramamohanarao},
+	title  =	{Concurrent database updates in {Prolog}},
+	booktitle =	{Proceedings of the Fourth International Conference on Logic Programming},
+	address =	{Melbourne, Australia},
+	year   =	{May 1987},
+	editor =	{Jean-Louis Lassez},
+	pages  =	{178--195},
+	comment = {Technical report 86/12, Department of Computer Science,
+		University of Melbourne}
+}
+
+@article{rao::naish:87,
+	author =	{Kotagiri, Ramamohanarao and John Shepherd and Isaac Balbin and Graeme Port and Naish, Lee and James Thom and Justin Zobel and Philip Dart},
+	title  =	{The {NU-Prolog} deductive database system},
+	journal =	{IEEE Data Engineering},
+	volume =	{10},
+	number =	{4},
+	year   =	{December 1987},
+	pages  =	{10--19},
+	comment = {Technical report 87/19, Department of Computer Science,
+		University of Melbourne}
+}
+
+@inproceedings{naish:types:87,
+	author =	{Naish, Lee},
+	title  =	{Specification = {P}rogram + {T}ypes},
+	booktitle =	{Proceedings of the 7th Conference on Foundations
+			of Software Technology and Theoretical Computer
+			Science},
+	address =	{Pune, India},
+	year   =	{December 1987},
+	comment = {Technical report 87/4, Department of Computer Science,
+		University of Melbourne}
+}
+
+@incollection{thom:naish:88,
+	author =	{James A. Thom and Kotagiri, Ramamohanarao and Naish, Lee},
+	title  =	{A superjoin algorithm for deductive databases},
+	booktitle  =	{Foundations of Deductive Databases and Logic Programming},
+	year   =	{1988},
+	editor =	{Jack Minker},
+	publisher =	{Morgan-Kaufmann},
+	address =	{Los Altos},
+	pages  =	{519--543},
+	comment =		{Also appeared in International Conference on
+			Very Large Databases},
+	comment = {Technical report 86/1, Department of Computer Science,
+		University of Melbourne}
+}
+
+@inproceedings{rao::naish:88,
+	author =	{Kotagiri Ramamohanarao and John Shepherd and Isaac Balbin and Graeme Port and Naish, Lee and James Thom and Justin Zobel and Philip Dart},
+	title  =	{An overview of the {NU-Prolog} deductive database system},
+	booktitle =	{Proceedings of the Eleventh Australian Computer Science Conference},
+	address =	{Brisbane, Australia},
+	year   =	{February 1988},
+	pages  =	{204--214}
+}
+
+@inproceedings{naish:PNU:88,
+	author =	{Naish, Lee},
+	title  =	{Parallelizing {NU-Prolog}},
+	booktitle =	{Proceedings of the Fifth International Conference/Symposium on Logic Programming},
+	address =	{Seattle, Washington},
+	year   =	{1988},
+	month = {August},
+	editor =	{Kenneth A. Bowen and Robert A. Kowalski},
+	pages  =	{1546--1564},
+	publisher =     {MIT Press},
+	comment = {Technical report 87/17, Department of Computer Science,
+		University of Melbourne}
+}
+
+@inproceedings{naish:89,
+	author =	{Naish, Lee and P. W. Dart and J. Zobel},
+	title  =	{The {NU-Prolog} debugging environment},
+	booktitle =	{Proceedings of the Sixth International Conference
+				on Logic Programming},
+	pages  =	{521--536},
+	address =	{Lisboa, Portugal},
+	year   =	{June 1989},
+	editor =	{Antonio Porto},
+        abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/nude/",
+	comment = {Technical report 88/31, Department of Computer Science,
+		University of Melbourne}
+}
+
+@article{naish:prove:89,
+	author =	{Naish, Lee},
+	title  =	{Proving properties of committed choice logic programs},
+	journal =	{Journal of Logic Programming},
+	volume =	{7},
+	number =	{1},
+	pages  =	{63--84},
+	year   =	{July 1989},
+	comment = {Revised versions of technical report 86/4,
+		Department of Computer Science,
+		University of Melbourne}
+}
+
+@inproceedings{naish:prune:89,
+	author =	{Naish, Lee},
+	title  =	{Pruning the search space of {Prolog}: cut and other primitives},
+	booktitle =	{Proceedings of Australian Joint Artificial Intelligence Conference},
+	pages  =	{238--253},
+	address =	{Melbourne, Australia},
+	year   =	{November 1989},
+	comment   =	{Technical Report 89/14, Department of Computer
+			Science, University of Melbourne}
+}
+
+@article{marriott:naish:90,
+	author =	{K. Marriott and Naish, Lee and J.L. Lassez},
+	title  =	{Most specific logic programs},
+	journal =	{Annals of mathematics and artificial intelligence},
+	volume =	{1},
+	number =	{2},
+	year   =	{1990},
+	comment   =	{Also in Proceedings of the Fifth International
+			Conference/Symposium on Logic Programming},
+	comment = {Technical report 87/16, Department of Computer Science,
+		University of Melbourne}
+}
+
+@article{yan:naish:90,
+	author =	{Song Yuan Yan and Naish, Lee},
+	title =		{Completeness of an improved declarative debugger},
+	journal =	{Applied Mathematical letters},
+	volume =	{4},
+	number =	{5},
+	year   =	{1991},
+	pages =	{7--12},
+	comment   =	{Also in {\em Advances in Computing and Information},
+			Canadian Scholar's Press, 1990},
+	comment = {Technical report 89/19, Department of Computer Science,
+		University of Melbourne}
+}
+
+@inproceedings{naish:NUA:91,
+	author =	{Doug Palmer and Naish, Lee},
+	title  =	{{NUA-Prolog} --- An extension to the {WAM} for parallel {Andorra}},
+	booktitle =	{Proceedings of the Seventh International Conference on Logic Programming},
+	address =	{Paris, France},
+	year   =	{June, 1991},
+	pages  =	{429--442},
+	comment   =	{Technical Report 90/12, Department of Computer
+			Science, University of Melbourne}
+}
+
+@inproceedings{naish:NUE:91,
+	author =	{Naish, Lee},
+	title  =	{Adding equations to {NU-Prolog}},
+	booktitle =	{Proceedings of The Third International Symposium on
+			Programming Language Implementation and Logic
+			Programming},
+	address =	{Passau, Germany},
+	publisher =	{Springer-Verlag},
+	series =	{Lecture notes in computer science},
+	number =	{528},
+	year   =	{August, 1991},
+	pages  =	{15--26},
+	abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/eq/",
+	comment   =	{Technical Report 91/2, Department of Computer
+			Science, University of Melbourne}
+}
+
+@incollection{naish:90,
+	author =	{Naish, Lee},
+	title  =	{Types and the intended meaning of logic programs},
+	pages  =	{189-216},
+	booktitle = 	{Types in logic programming},
+	editor = 	{Frank Pfenning},
+	publisher =     {MIT Press},
+	address =	{Cambridge, Massachusetts},
+	year =		{1992},
+	comment   =	{Technical Report 90/4, Department of Computer
+			Science, University of Melbourne}
+}
+
+@article{naish:88,
+	author =	{Naish, Lee},
+	title  =	{Declarative diagnosis of missing answers},
+	journal =	{New Generation Computing},
+	volume =	{10},
+	number =	{3},
+	year   =	{1992},
+	pages =		{255--285},
+	comment   =	{Technical Report 88/9 (revised),
+			Department of Computer
+			Science, University of Melbourne}
+}
+
+@techreport{naish:oop:92,
+        author =        {Fevzi Belli and Oliver Jack and Naish, Lee},
+        title  =        {Object-oriented programming in {P}rolog:
+			rationale and a case study },
+        number =        { 92/2},
+        institution =   {Department of electrical
+			and electronics engineering, University of
+				Paderborn },
+        address =       {Paderborn, Germany},
+        year   =        {1992},
+	abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/oolp/",
+        pages  =        {27}
+}
+
+@article{naish:andor:90,
+	author =	{Naish, Lee},
+	title  =	{Applying the {Andorra} principle},
+	journal =	{Australian Computer Science Communications},
+	volume =	{15},
+	number =	{1},
+	year	=	{1993},
+	pages	=	{191--201},
+	comment   =        {Also Technical report 90/25,
+			Department of Computer
+			Science, University of Melbourne}
+}
+
+@article{naish:ctl:92,
+	author =	{Naish, Lee},
+	title  =        {Coroutining and the construction of terminating
+                       logic programs},
+	journal =	{Australian Computer Science Communications},
+	volume =	{15},
+	number =	{1},
+	year	=	{1993},
+	pages	=	{181--190},
+	documentURL =
+"http://people.eng.unimelb.edu.au/lee/papers/term/tr.dvi.Z",
+	comment   =        {Also Technical report 92/5,
+			Department of Computer
+			Science, University of Melbourne}
+}
+
+@article{naish:ddfp:92,
+	author =	{Naish, Lee},
+        title  =        {Declarative debugging of lazy functional
+                        programs},
+	journal =	{Australian Computer Science Communications},
+	volume =	{15},
+	number =	{1},
+	year	=	{1993},
+	pages	=	{287--294},
+	abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/ddfp/",
+	comment   =        {Also Technical report 92/6,
+			Department of Computer
+			Science, University of Melbourne}
+}
+
+@incollection{naish:verif:90,
+	author =	{Naish, Lee},
+	title  =	{Verification of logic programs and imperative programs},
+	booktitle = 	{Constructing logic programs},
+	editor = 	{Jean-Marie Jacquet},
+	publisher =     {Wiley},
+	address =	{Chichester, England},
+	year   =	{1993},
+	pages  =	{143-164},
+	documentURL =
+"http://people.eng.unimelb.edu.au/lee/papers/verify/tr.ps.gz",
+	comment   =	{Technical Report 90/6, Department of Computer
+			Science, University of Melbourne}
+}
+
+@TechReport{trb,
+        Author = { Barbour, Timothy and Naish, Lee },
+        Title = { Declarative Debugging of a Logical-Functional
+                Language (Honours Thesis) },
+        Number = { 94/28 },
+        Institution = { Department of Computer Science, University of
+                Melbourne },
+        Address = { Melbourne, Australia },
+	pages = 14,
+        Month = dec,
+        Year = 1994
+}
+
+@inproceedings{nuedd,
+        Author = { Naish, Lee and Barbour, Timothy },
+        Title = { A Declarative Debugger for a Logical-Functional
+                Language },
+	booktitle = {Eighth International Conference on
+                 Industrial and Engineering Applications of
+                 Artificial Intelligence and Expert Systems
+		 --- Invited and Additional Papers},
+	publisher = {{DSTO} General Document 51},
+	organisation = {Defence Science and Technology Organisation},
+	editor = {Forsyth, Graham and Ali, Moonis },
+        Month = jun,
+        Year = 1995,
+	Volume = 2,
+	Pages = {91--99},
+	address = {Melbourne},
+	abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/nuedd/",
+	comment   =	{Technical Report 94/30, Department of Computer
+			Science, University of Melbourne, 14 pages}
+}
+
+@TechReport{prune,
+        Author = { Naish, Lee },
+        Title = { Pruning in logic programming },
+        Number = { 95/16 },
+        Institution = { Department of Computer Science, University of
+                Melbourne },
+        Address = { Melbourne, Australia },
+	pages = 15,
+        Month = jun,
+        Year = 1995,
+	abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/prune/",
+	comment   =	{Based on an advanced tutorial presented at the
+		International Conference on Logic Programming, June
+		1995}
+}
+
+@proceedings{impws,
+	editor =	{Somogyi, Z. and Henderson, F.J. and
+			Conway, T.C. and Naish, L.},
+	title =	{Proceedings of the ILPS '95 Postconference
+			Workshop on Sequential Implementation
+			Technologies for Logic Programming},
+	location =	{Portland, Oregon Germany},
+	month   =	{December},
+	year   =	{1995}
+}
+
+@article{pddfp,
+        Author = { Naish, Lee and Barbour, Timothy },
+        Title = { Towards a portable lazy functional declarative
+		debugger },
+	journal =	{Australian Computer Science Communications},
+	volume =	{18},
+	number =	{1},
+	year	=	{1996},
+        Month = jan,
+	pages	=	{401--408},
+	issn = {0157-3055},
+	subcat =  {F1},
+	authorcode = {433,13,00,FW,MD,M and 433,56,00,FW,MD,M},
+	abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/pddfp/",
+	comment   =        {Also Technical report 95/27,
+			Department of Computer
+			Science, University of Melbourne, 14 pages}
+}
+
+@TechReport{naish:ho,
+        Author = { Naish, Lee },
+        Title = { Higher-order logic programming in {Prolog}},
+        Number = { 96/2 },
+        Institution = { Department of Computer Science, University of
+                Melbourne },
+        Address = { Melbourne, Australia },
+	pages = 15,
+        Month = feb,
+        Year = 1996,
+	subcat =  {G1},
+	authorcode = {433,13,00,FS,MD,M},
+	abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/ho/",
+	comment   =	{In proceedings of workshop on multi-paradigm
+			logic programming, JICSLP'96, also
+			 Research report #96-28,  Fachbereich
+			Informatik, Technische Universitat Berlin}
+}
+
+@inproceedings{naish:modes,
+	author =	{Naish, Lee},
+        Title = { A declarative view of modes },
+	booktitle =	{Proceedings of the 1996 Joint International
+		Conference and Symposium on Logic Programming},
+	location =	{Bonn, Germany},
+        publisher =     {MIT Press},
+	place =	{Cambridge, Massachusetts},
+	month   =	{September},
+	year   =	{1996},
+	pages  =	{185--199},
+	isbn = {0-262-63173-3},
+	subcat =  {F1},
+	authorcode = {433,13,00,FU,MD,M},
+	abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/modes/",
+	comment   =	{Also Technical Report 96/7, Department of
+		Computer Science, University of Melbourne, 13 pages}
+}
+
+@article{ddscheme,
+      author={Lee Naish},
+      title={A Declarative Debugging Scheme},
+      journal={Journal of Functional and Logic Programming},
+      volume={1997},
+      number={3},
+      publisher={The MIT Press},
+      month={April},
+      year={1997},
+	isbn = {1080-5230},
+	subcat =  {C1},
+	authorcode = {433,13,00,FW,MD,M},
+      abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/dds/",
+      comment = {JFLP is an electronic journal so page numbers
+                        are not applicable},
+      comment = {Also Technical Report 95/1, Department of Computer
+                        Science, University of Melbourne, 16 pages}
+}
+
+@Proceedings{iclp97,
+	editor =	{Naish, Lee},
+	title  =	{Logic programming: {P}roceedings of the
+		fourteenth International Conference on Logic Programming},
+	location =	{Leuven, Belgium},
+	year   =	{1997},
+	month = {July},
+	isbn = {0-262-64035-X},
+	subcat =  {A2},
+	authorcode = {433,13,00,FU,MD,M},
+        publisher =     {MIT Press},
+	place =	{Cambridge, Massachusetts}
+}
+
+@TechReport{nudeman,
+        Author = { Thompson, Albert and Naish, Lee },
+        Title = { A Guide To The {NU-Prolog Debugging Environment}},
+        Number = { 96/38 },
+        Institution = { Department of Computer Science, University of
+                Melbourne },
+        Address = { Melbourne, Australia },
+        pages = {25?},
+        Month = {August},
+        Year = {1997},
+	subcat =  {G4},
+	authorcode = {433,23,01,FW,MD,M},
+	authorcode = {433,13,00,FW,MD,M},
+        abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/nudeman/"
+}
+
+@inproceedings{hose,
+        Author = { Naish, Lee and Sterling, Leon },
+        Title = { A higher order reconstruction of stepwise enhancement},
+	booktitle =	{Logic Programming Synthesis and Transformation:
+			7th International Workshop, LOPSTR'97},
+	location =	{Leuven, Belgium},
+	editor =	{Fuchs, N.E.},
+	publisher =	{Springer-Verlag},
+	address =	{Berlin},
+	series =	{Lecture notes in computer science},
+	number =	{1463},
+	month   =	{October},
+	year   =	{1998},
+	pages  =	{245--262},
+	abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/hose/",
+	isbn = {3-540-65074-1},
+	subcat =  {F1},
+	authorcode = {433,13,00,FS,MD,M},
+	authorcode = {433,13,00,FS,MD,M},
+	comment   =	{Technical Report 97/8, Department of Computer
+			Science, University of Melbourne}
+}
+
+@TechReport{modealg,
+        Author = { Naish, Lee },
+        Title = { Mode checking using constrained regular trees},
+        Number = { 98/3 },
+        Institution = { Department of Computer Science, University of
+                Melbourne },
+        Address = { Melbourne, Australia },
+        pages = 16,
+        Month = {March},
+        Year = {1998},
+	subcat =  {G4},
+	authorcode = {433,13,00,FW,MD,M},
+        abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/modealg/"
+}
+
+@TechReport{flounder,
+        Author = { Naish, Lee },
+        Title = { A declarative view of floundering},
+        Number = { 98/18 },
+        Institution = { Department of Computer Science, University of
+                Melbourne },
+        Address = { Melbourne, Australia },
+        pages = {12?},
+        Month = {January},
+        Year = {1999},
+	subcat =  {G4},
+	authorcode = {433,13,00,FW,MD,M},
+        abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/flounder/"
+}
+
+@InProceedings{Ste-Son-Nai,
+  author        = {L. Stern and H. S{\o}ndergaard and L. Naish},
+  title         = {A Strategy for Managing Content Complexity in
+                   Algorithm Animation},
+  editor        = {B. Manaris},
+  booktitle     = {Proceedings of the Fourth Annual SIGCSE/SIGCUE
+			Conference on Innovation and Technology
+			in Computer Science Education},
+  pages         = {127--130},
+  publisher     = {Association for Computing Machinery},
+  address       = {New York, NY},
+  year          = {1999},
+  location      = {Cracow, Poland},
+  isbn          = {1581130872},
+  subcat        = {F1},
+  authorcode    = {433,13,00,FJ,MG,F and 433,13,00,FJ,MG,M and
+                        433,13,00,FJ,MG,M},
+}
+
+@article{ddscheme3,
+        Author = { Naish, Lee },
+        Title = { A three-valued declarative debugging scheme },
+	journal =	{Australian Computer Science Communications},
+	volume =	{22},
+	number =	{1},
+	year	=	{2000},
+        Month = jan,
+	pages	=	{166--173},
+	isbn = {0-7695-0518-X},
+	publisher  = {IEEE},
+	subcat =  {F1},
+	authorcode = {433,13,00,FW,MD,M},
+        abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/dds3/",
+	comment = {Presented at 8th Workshop on
+	Logic Programming Environments, Leuven, July 1997;
+	Also Technical report 97/5, Department of Computer Science,
+		University of Melbourne}
+}
+
+@article{naish:sem3,
+        Author = { Naish, Lee },
+        Title = {  A three-valued semantics for Horn clause programs},
+	journal =	{Australian Computer Science Communications},
+	volume =	{22},
+	number =	{1},
+	year	=	{2000},
+        Month = jan,
+	pages	=	{174--180},
+	isbn = {0-7695-0518-X},
+	subcat =  {F1},
+	authorcode = {433,13,00,FW,MD,M},
+        abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/sem3/",
+	comment = {Technical report 98/4, Department of Computer Science,
+		University of Melbourne}
+}
+
+@article{hose2,
+           author={Lee Naish and Leon Sterling},
+           title={Stepwise Enhancement and Higher-Order Programming in {Prolog}},
+           journal={Journal of Functional and Logic Programming},
+           volume={2000},
+           number={4},
+           publisher={The MIT Press},
+           month={March},
+           year={2000},
+      abstractURL = "http://danae.uni-muenster.de/lehre/kuchen/JFLP/articles/2000/S00-01/S00-01.html",
+      comment = {JFLP is an electronic journal so page numbers
+                        are not applicable}
+         }
+
+@article{lpinternet,
+           author={Manuel Hermenegildo and Leon Sterling and Lee Naish},
+           title={Special issue on {Logic Programming and the Internet}},
+           journal={Theory and Practice of and Logic Programming},
+           volume={1},
+           number={3},
+           publisher={Cambridge University Press},
+        address={Cambridge UK},
+        issn={1471-0684},
+           month={May},
+           year={2001}
+         }
+
+
+@inproceedings{PopeNaishWFLP01,
+   author = {B. Pope and L. Naish},
+   title = {Specialisation of Higher-Order Functions for Debugging},
+   booktitle = {Proceedings of the International Workshop on Functional
+and (Constraint) Logic Programming (WFLP 2001)},
+    year = {2001},
+   editor = {M. Hanus},
+   pages = {87--100},
+}
+
+@inproceedings{PopeNaishSpec,
+    author = {B. Pope and L. Naish},
+    title = {Specialisation of Higher-Order Functions for Debugging},
+    booktitle = {Electronic Notes in Theoretical Computer Science},
+    volume = {64},
+    pages = {277--291},
+    publisher = {Elsevier Science Publishers},
+    editor = {M. Hanus},
+    month = {September},
+    year = {2002}
+}
+
+@unpublished{PopeNaishIFL01,
+   author = {B. Pope and L. Naish},
+   title = {Reification for Debugging},
+   year = {2001},
+   note = {Presented at the International Workshop on the Implementation
+of Functional Programming Languages (IFL 2001)},
+}
+
+@unpublished{PopeNaish02,
+   author = {B. Pope and L. Naish},
+   title =  {A Program Transformation for Declarative Debugging},
+   year = {2002}
+}
+
+@inproceedings{VisRepRec,
+	Author = {Stern, L. and Naish, Lee },
+	Title = {Visual Representations for Recursive Algorithms },
+	booktitle = {Proceedings of the 33rd {Annual} {SIGCSE} Technical
+		Symposium on Computer Science Education},
+	publisher = {ACM Press},
+	pages	= {196--200},
+ rfcd_num = {330107 Educational Technology and Media},
+	year	=	{2002}
+} 
+
+
+@article{AnimRec,
+	Author = {Stern, L. and Naish, Lee },
+        Title = {Animating Recursive Algorithms},
+	journal =	{Interactive Multimedia Electronic Journal
+		of Computer-Enhanced Learning},
+	volume = {4},
+	number = {2},
+ rfcd_num = {330107 Educational Technology and Media},
+	year	=	{2002},
+	comment = {Journal version of VisRepRec }
+}
+
+@article{naish:crt,
+        Author = { Naish, Lee },
+        Title = {  Approximating the success set
+			of logic programs using
+			constrained regular types},
+	journal =	{Australian Computer Science Communications},
+	volume =	{25},
+	number =	{1},
+	year	=	{2003},
+        Month = jan,
+	pages	=	{61--67},
+	editor = {Oudshoorn, M.},
+	publisher = {Australian Computer Society},
+	issn = {1445-1336},
+	isbn = {0-909925-94-1},
+	subcat =  {F1},
+	authorcode = {433,13,00,FW,MD,M},
+	comment = { AKA Proceedings of twenty-sixth Australian
+Computer Science Conference (ACSC2003) and Conferences in Research
+and Practice in Information Technology, Volume 16}
+}
+
+@article{PopeNaishACSC03,
+        Author = { Pope, B. and Naish, Lee },
+        Title = {  A Program Transformation for Debugging
+			{Haskell-98}},
+	journal =	{Australian Computer Science Communications},
+	volume =	{25},
+	number =	{1},
+	year	=	{2003},
+        Month = jan,
+	pages	=	{227--236},
+	editor = {Oudshoorn, M.},
+	publisher = {Australian Computer Society},
+	issn = {1445-1336},
+	isbn = {0-909925-94-1},
+	comment = { AKA Proceedings of the Twenty-Sixth Australian
+	Computer Science Conference (ACSC2003) and Conferences in
+	Research and Practice in Information Technology, Volume 16}
+}
+
+@inproceedings{PopeNaishPPDP,
+ author = { Pope, B. and Naish, Lee },
+ title = {Practical Aspects of Declarative Debugging in {Haskell-98}},
+ booktitle = {Fifth {ACM} {SIGPLAN} Conference on Principles and
+Practice of Declarative
+              Programming},
+ year    =       {2003},
+ pages   =       {230--240},
+ note = {ISBN:1-58113-705-2},
+ rfcd_num = {280302 Software Engineering},
+}
+
+@article{naish:sem3neg,
+        Author = { Naish, Lee },
+        Title = {  A three-valued semantics for logic programmers},
+	journal =	{Theory and Practice of Logic Programming},
+	month = {September},
+	volume =	{6},
+	number =	{5},
+	pages	=	{509--538},
+	year	=	{2006},
+        publisher={Cambridge University Press},
+        address={Cambridge UK},
+        issn={1471-0684},
+	subcat =  {F1},
+	authorcode = {433,13,00,FW,MD,M},
+ rfcd_num = {"280403 - Logics and Meanings of Programs 50%,
+		280303 - Programming Languages 50%"},
+ seo_num = {"700102 - Application tools and system utilities"},
+        abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/sem3neg/",
+	eprint = "cs.LO/0508004"
+}
+
+@inproceedings{naish:deadlock,
+	author =	{Naish, Lee},
+	title  =	{Resource-oriented deadlock analysis},
+	booktitle =	{Proceedings of the 23rd International Conference
+				on Logic Programming},
+	pages  =	{302--316},
+	address =	{Porto, Portugal},
+	month   =	{September },
+	year   =	{2007},
+	editor =	{Veronica Dalh and Ilkka Niemela},
+ rfcd_num = {"280302 Software Engineering 50%,
+		280303 - Programming Languages 50%"},
+ seo_num = {"700102 - Application tools and system utilities"},
+        abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/deadlock/"
+}
+
+@inproceedings{naish:ddf:wshop,
+	author =	{Naish, Lee},
+	title  =	{Declarative debugging of floundering},
+	booktitle =	{Proceedings of the 17th Workshop on
+		Logic-based methods in Programming Environments},
+	pages  =	{48--60},
+	address =	{Porto, Portugal},
+	month   =	{September },
+	year   =	{2007},
+	editor =	{Patricia Hill and Wim Vanhoof},
+ rfcd_num = {"280302 Software Engineering 50%,
+		280303 - Programming Languages 50%"},
+ seo_num = {"700102 - Application tools and system utilities"},
+        abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/ddf/",
+	eprint = "arXiv:0711.0048v1 [cs.PL]"
+}
+
+@article{jflp2008-01,
+      author={Lee Naish},
+      title={Probabilistic Declarative Debugging},
+      journal={Journal of Functional and Logic Programming},
+      volume={2008},
+      number={1},
+      publisher={EAPLS},
+      month={July},
+   abstractURL = "http://danae.uni-muenster.de/lehre/kuchen/JFLP/articles/2008/A2008-01/A2008-01.html",
+   myabstractURL = "http://people.eng.unimelb.edu.au/lee/papers/ddp/",
+      year={2008},
+ rfcd_num = {"280302 Software Engineering 70%,
+		280303 - Programming Languages 30%"},
+ seo_num = {"700102 - Application tools and system utilities"},
+    }
+
+@inproceedings{teague:stv,
+	author =	{Teague, Vanessa and Ramchen, Kim and Naish, Lee},
+	title  =	{Coercion-Resistant tallying for {STV} voting},
+	booktitle =	{Proceedings of the 2008 USENIX/ACCURATE
+		Electronic Voting Workshop},
+	pages  =	{1--14},
+	year   =	{2008},
+	publisher =	{ USENIX Association (California)}
+}
+
+# Monotonic Boolean functions for logic program analysis
+
+@inproceedings{bug-cons,
+  title={{Study of the Relationship of Bug Consistency with respect to
+Performance of Spectra Metrics}},
+  author={Hua Jie Lee and Lee Naish and Kotagiri Ramamohanarao},
+  booktitle={Proceedings of the 2nd International Conference on Computer
+Science and Information Technology},
+  pages={501-508},
+  year={2009},
+  publisher={IEEE},
+  address={Beijing,China}
+}
+
+@inproceedings{non-red-tests,
+  title={The Effectiveness of Using Non-redundant Test Cases with
+Program Spectra for Bug Localization},
+  author={Hua Jie Lee and Lee Naish and Kotagiri Ramamohanarao},
+  booktitle={Proceedings of the 2nd International Conference on Computer
+Science and Information Technology},
+  pages={127-134},
+  year={2009},
+  publisher={IEEE},
+  address={Beijing,China}
+}
+
+@article{spectra-model,
+  title={A Model for Spectra-based Software Diagnosis},
+  author={Lee Naish and Hua Jie Lee and Kotagiri, Ramamohanarao},
+  journal={ACM Transactions on software engineering and methodology
+	(TOSEM)},
+  volume = {20},
+  number = {3},
+  month = {August},
+  year={2011},
+  publisher={ACM},
+   URL = "http://dl.acm.org/citation.cfm?id=2000795",
+ rfcd_num = {"280302 Software Engineering 100%"},
+ seo_num = {"700102 - Application tools and system utilities"},
+   myabstractURL = "http://people.eng.unimelb.edu.au/lee/papers/model/"
+}
+
+@inproceedings{spectra-weights,
+  title={Spectral Debugging with Weights and Incremental Ranking},
+  author={Lee Naish and Hua Jie Lee and Kotagiri, Ramamohanarao},
+  booktitle={16th Asia-Pacific Software Engineering Conference, APSEC 2009},
+  pages={168--175},
+  publisher={IEEE},
+  month={December},
+  year={2009}
+}
+
+@article{stv:ieee,
+        author={Josh Benaloh and Tal Moran and Lee Naish and Kim Ramchen
+		and Vanessa Teague},
+        title  = {Shuffle-sum: Coercion-resistant verifiable tallying for
+		{STV} voting},
+        journal = {IEEE Transactions on Information Forensics and
+		Security},
+	volume={4},
+	number={4},
+        pages  = {685--69},
+        year   = {2009}
+}
+
+@inproceedings{lee_naish_rao_freq,
+  title={{Effective Software Bug Localization Using Spectral Frequency
+Weighting Function}},
+  author={Hua Jie Lee and Lee Naish and Kotagiri, Ramamohanarao},
+  booktitle={Proceedings of the 2010 34th Annual IEEE Computer Software
+and Applications Conference},
+  pages={218--227},
+  year={2010},
+  pub_url={http://www.computer.org/portal/web/csdl/doi/10.1109/COMPSAC.2010.26},
+  organization={IEEE Computer Society}
+}
+
+@inproceedings{spectra-pred,
+  title={Statements versus predicates in spectral bug localization},
+  author={Lee Naish and Hua Jie Lee and Kotagiri, Ramamohanarao},
+  booktitle={17th Asia-Pacific Software Engineering Conference, APSEC 2010},
+  conference_url={http://www.apsec2010.com/highlights.asp?ResearchPapers},
+  publisher={IEEE},
+  month={December},
+  year={2010}
+}
+
+@article{naish:sem3fp,
+        Author = { Naish, Lee },
+        Title = {Program verification and information ordering},
+	journal =	{Submitted for publication},
+	month = {December},
+	volume =	{},
+	number =	{},
+	pages	=	{},
+	year	=	{2010},
+        issn={},
+	subcat =  {F1},
+	authorcode = {433,13,00,FW,MD,M},
+ rfcd_num = {"280403 - Logics and Meanings of Programs 50%,
+		280303 - Programming Languages 50%"},
+ seo_num = {"700102 - Application tools and system utilities"}
+}
+
+@inproceedings{spectra-rational,
+  title={Spectral debugging: {How} much better can we do?},
+  author={Lee Naish and Hua Jie Lee and Kotagiri, Ramamohanarao},
+  booktitle={35th Australasian Computer Science
+	Conference (ACSC 2012), CRPIT Vol. 122},
+  editors={Mark Reynolds and Bruce Thomas},
+  publisher={CRPIT},
+  myurl={http://people.eng.unimelb.edu.au/lee/papers/relscr/},
+  year={2012}
+}
+# CRPIT =
+# Conferences in Research and Practice in Information Technology
+
+@inproceedings{naish:ddf,
+  author =	{Naish, Lee},
+  title  =	{Declarative debugging of floundering in {Prolog}},
+  booktitle={35th Australasian Computer Science
+        Conference (ACSC 2012), CRPIT Vol. 122},
+  editors={Mark Reynolds and Bruce Thomas},
+  publisher={CRPIT},
+  year={2012},
+  abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/ddf/"
+}
+
+@inproceedings{sem4lp,
+  author =	{Lee Naish and Harald S{\o}ndergaard and Benjamin Horsfall},
+  title  =	{Logic Programming: From Underspecification to Undefinedness},
+  booktitle={18th Computing: The Australasian Theory Symposium
+        (CATS 2012), CRPIT Vol. 128},
+  editor={Julian Mestre},
+  publisher={CRPIT},
+  year={2012},
+  abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/sem4lp/"
+}
+
+# AKA XXX
+# InProceedings{Nai-Son-Hor:CATS12,
+#   author    = {L. Naish and H. S{\o}ndergaard and B. Horsfall},
+#   title     = {Logic Programming: From Underspecification to
+# Undefinedness},
+#   editor    = {J. Mestre},
+#   booktitle = {Theory of Computing 2012},
+#   series    = {Conferences in Research and Practice in Information
+# Technology},
+#   volume    = {128},
+#   pages     = {49--58},
+#   year      = {2012},
+#   url       = {http://crpit.com/Vol128.html},
+# }
+
+@article{naish:flounder,
+        Author = { Naish, Lee },
+        Title = {  Transforming floundering into success},
+	journal =	{Theory and Practice of Logic Programming},
+	volume    = {14},
+	number = {02},
+	pages     = {215--238},
+	month = {March},
+	year = {2014},
+        publisher={Cambridge University Press},
+        address={Cambridge UK},
+        issn={1471-0684},
+        abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/flounder/",
+	eprint = "arXiv:1207.6816"
+}
+
+@inproceedings{pathreps,
+  author =	{Stephen P. Smith and Reeva Lederman and Paul Monagle
+	and Basil Alzougool and Lee Naish and Suelette Dreyfus},
+  title  =	{Individually tailored client-focused reports for
+	ubiquitous devices: An experimental analysis },
+  booktitle={23rd Australasian Conference on Information Systems},
+  editor={R. Scheepers and J. Lamp},
+  pages={1--9},
+  month={December},
+  year={2012},
+}
+#  publisher={?},
+
+@article{naish:grants,
+        Author = { Naish, Lee },
+        Title = {  Grants are not research outputs },
+	journal =	{Australian Universities review},
+	volume    = {55},
+	number    = {1},
+	pages={72--73},
+	month={Feb},
+	year = {2013},
+        issn={0818-8068},
+        publisher={NTEU},
+        address={South Melbourne, Australia},
+	rfcd_num = {"360203 Research, Science and Technology Policy"},
+	seo_num = {"9701 Expanding Knowledge"},
+        URL = {http://www.nteu.org.au/library/view/id/3410}
+}
+# following is too specific but best if we really need
+# six digit codes
+#	seo_num = {"970108 Expanding Knowledge in the Information and
+# Computing Sciences"}
+
+@inproceedings{spectra-dual,
+  title={Duals in Spectral Fault Localization},
+  author={Lee Naish and Hua Jie Lee},
+  booktitle={Proceedings of ASWEC 2013},
+  editors={Jens Dietrich and James Noble},
+  publisher={IEEE Press},
+  year={2013 }
+}
+# XXX delay in proceedings appearing online
+
+@article{info-order,
+  author =      {Lee Naish and Harald S{\o}ndergaard},
+  title  =      {Truth versus Information in Logic Programming},
+  abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/sem4lp/"
+	journal =	{Theory and Practice of Logic Programming},
+	year = {Published online 2013},
+        publisher={Cambridge University Press},
+        address={Cambridge UK},
+        issn={1471-0684},
+	eprint = "arXiv:1305.0141"
+}
+
+@article{naish:disclosure,
+        Author = { Naish, Lee },
+        Title = {  Partial Disclosure of Votes in {STV} Elections},
+	journal =	{Voting Matters},
+	volume    = {30},
+	year = {2013},
+	month={April},
+	pages={9--13},
+        publisher={McDougall Trust},
+        address={London, UK},
+	URL = {http://www.votingmatters.org.uk/ISSUE30/INDEX.HTM}
+}
+
+@article{Gan-Hor-Nai-Son:TCAD14,
+  author  = {Graeme Gange and Benjamin Horsfall and
+                Lee Naish and Harald S{\o}ndergaard},
+  title   = {Four-Valued Reasoning and Cyclic Circuits},
+  journal = {IEEE Transactions on Computer-Aided Design
+                of Integrated Circuits and Systems},
+  volume  = {33},
+  number  = {7},
+  pages   = {1003--1016},
+  month   = {july},
+  year    = {2014},
+  url     = {http://dx.doi.org/10.1109/TCAD.2014.2304176},
+  for     = {100603},
+  seo     = {970108},
+}
+
+@report{pawns-intro,
+  title={An informal introduction to {Pawns:} a
+	declarative/imperative language },
+  author={Lee Naish},
+  other={Submitted for publication},
+  abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/pawns/",
+  month   = {december},
+  year={2014}
+}
+
+@article{pawns-sharing,
+  author    = {Lee Naish},
+  title     = {Sharing analysis in the {Pawns} compiler},
+  journal   = {PeerJ Computer Science},
+  volume    = {1},
+  number     = {e22},
+  year      = {2015},
+  url       = {https://dx.doi.org/10.7717/peerj-cs.22},
+  abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/pawnsshare/",
+  doi       = {10.7717/peerj-cs.22}
+}
+
+
+@inproceedings{spectra-hyp,
+  title={Multiple Bug Spectral Fault Localization Using
+	Genetic Programming},
+  author={Lee Naish and Neelofar and Kotagiri, Ramamohanarao},
+  booktitle={Proceedings of ASWEC 2015},
+  editors={Haifeng Shen and Markus Stumptner},
+  publisher={IEEE Press},
+  abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/hyp/",
+  year={2015}
+}
+
+@article{adtpp,
+  title={Adtpp: lightweight efficient safe polymorphic
+	algebraic data types for {C} },
+  author={Lee Naish and Peter Schachte and Aleck MacNally},
+  journal={Software Practice and Experience},
+  abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/adtpp/",
+  doi={10.1002/spe},
+  year={2016}
+}
+
+@report{ssm,
+  title={Similarity to a single set },
+  author={Lee Naish},
+  other={Submitted for publication},
+  abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/ssm/",
+  month   = {january},
+  doi       = {10.7287/peerj.preprints.1713v1},
+  year={2016}
+}
+
+@techreport{NSWvotecount,
+	author =	{ Conway, Andrew and Blom, Michelle and
+	Gore, Rajeev and Lebedeva, Katya and Naish, Lee
+	and Teague, Vanessa },
+	title  =	{An analysis of {New South Wales}
+	electronic vote counting},
+	documentURL =
+"https://siliconeconometrics.github.io/PublicService/CountVotes/NSWLGE2012MillionRuns/TechReport.pdf",
+  month   = {june},
+  year={2016}
+}
+

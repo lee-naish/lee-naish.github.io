@@ -1,0 +1,218 @@
+
+@techreport{naish:oop:92,
+        author =        {Fevzi Belli and Oliver Jack and Lee Naish},
+        title  =        {Object-oriented programming in {P}rolog:
+                        rationale and a case study },
+        number =        { 92/2},
+        institution =   {Department of electrical
+                        and electronics engineering, University of
+                                Paderborn },
+        address =       {Paderborn, Germany},
+        year   =        {1992},
+        pages  =        {27}
+}
+
+@incollection{Davison93,
+        author = {Andrew Davison},
+        title = {A Survey of {LP}-Based Object-Oriented Languages},
+        booktitle = {Research Directions in Concurrent Object Oriented
+                Programming},
+        year = 1993,
+        page = {42--106},
+        Publisher = { MIT Press },
+        editor = {Peter Wegner and Akinori Yonezawa and Gul Agha}
+}
+
+
+\bibitem{belli:89}
+F.~Belli, H.~Bonin, H.~Gerdes, W.~Filipowicz, and P.~Jedrzejowicz.
+\newblock Some aspects on the development and validation of {FIREX} --- a
+  knowledge-based system for the transport of dangerous goods and fire
+  department consulting.
+\newblock In {\em Proceedings 2nd Intern. Conference of IEA/AIE-89}, pages
+  680--689, June 1989.
+
+\bibitem{belli:92}
+Fevzi Belli and Oliver Jack.
+\newblock {PROTest II}: Testing logic programs to validate rule-based expert
+  systems.
+\newblock To appear in: Proc. 2nd International Conf. on Software Quality,
+  Research Triangle Park, N.C., Oct 1992.
+
+\bibitem{clark:86}
+K.L. Clark and S.~Gregory.
+\newblock {PARLOG}: Parallel programming in logic.
+\newblock {\em ACM Transactions on Programming Languages and Systems},
+  8(1):1--49, 1986.
+
+\bibitem{clocksin:87}
+W.F. Clocksin and C.S. Mellish.
+\newblock {\em Programming in Prolog}.
+\newblock Springer Verlag, Berlin Heidelberg, 1987.
+
+\bibitem{cohen:88}
+J.~Cohen.
+\newblock A view of the origins and development of {Prolog}.
+\newblock {\em Communications of the ACM}, 31(1):26--36, 1988.
+
+\bibitem{colmerauer:89}
+A.~Colmerauer.
+\newblock Une introduction \'a {Prolog III}.
+\newblock {\em Journ\'ee de Synth\`ese AFECT, Etat de l' Art et Perspectives en
+  Programmation Language, INRIA}, pages 129--155, 1989.
+
+\bibitem{cox:86}
+Brad~J. Cox.
+\newblock {\em Object Oriented Programming --- An Evolutionary Approach}.
+\newblock Addison Wesley, 1986.
+
+\bibitem{dahl:68}
+O.J. Dahl, B.~Myhrhaug, and K.~Nygaard.
+\newblock {\em SIMULA 67 --- Common Base Language}.
+\newblock Technical report, Norwegian Computing Center, 1968.
+
+\bibitem{davison:89a}
+Andrew Davison.
+\newblock {\em Polka: A Parlog Object Oriented Language}.
+\newblock PhD thesis, Imperial College, Dept. of Computer Science, London,
+  September 1989.
+
+\bibitem{davison:91}
+Andrew Davison.
+\newblock From {Parlog} to {Polka} in two easy steps.
+\newblock In {\em PLILP'91: 3rd International Symposium on Programming Language
+  Implementation and Logic Programming}, pages 171--182. Springer Verlag, 1991.
+\newblock LNCS 528.
+
+\bibitem{exis:}
+{EXIS, Chemical and Hazardous Materials Information and Transport Regulations
+  Database}.
+\newblock Exis Ltd., London.
+
+\bibitem{fukunaga:86}
+Koichi Fukunaga and Shin-ishi Hirose.
+\newblock An experience with a {Prolog}-based object-oriented language.
+\newblock In {\em Proc. OOPSLA '86}, pages 224--231, 1986.
+
+\bibitem{goldberg:83}
+A.~Goldberg and D.~Robson.
+\newblock {\em {Smalltalk 80: The Language and its Implementation}}.
+\newblock Addison-Wesley, Reading, Ma., 1983.
+
+\bibitem{imdg:83}
+{IMDG-Code, International Maritime Dangerous Goods Code}.
+\newblock International Maritime Organization, London, 1983.
+
+\bibitem{koschmann:88}
+T.~Koschmann and M.~{Walton Evens}.
+\newblock Bridging the gap between object-oriented and logic programming.
+\newblock {\em IEEE Software}, pages 36--42, Jul. 1988.
+
+\bibitem{kowalski:70}
+R.~Kowalski and D.~Kuehner.
+\newblock Resolution with selection function.
+\newblock {\em Artificial Intelligence}, 2(3):227--260, 1970.
+
+\bibitem{lloyd:87}
+J.W. Lloyd.
+\newblock {\em Foundations of Logic Programming}.
+\newblock Springer Verlag, Berlin Heidelberg, 1987.
+
+\bibitem{mellender:88}
+F.~Mellender.
+\newblock An integration of logic and object-oriented programming.
+\newblock {\em ACM SIGPLAN Notices}, 23(10):181--185, 1988.
+
+\bibitem{meyer:88}
+Bertrand Meyer.
+\newblock {\em Object-Oriented Software Construction}.
+\newblock Prentice Hall, New York, 1988.
+
+\bibitem{chemdata:}
+{CHEMDATA}.
+\newblock National Chemical Emergency Centre, B7.22 Harwell Laboratory, United
+  Kingdom Atomic Energy Authority, Oxfordshire OX 11 ORA.
+
+\bibitem{nygaard:86}
+K.~Nygaard.
+\newblock Basic concepts in object oriented programming.
+\newblock {\em ACM SIGPLAN Notices}, 21(10):128--132, Oct. 1986.
+
+\bibitem{palaskas:89}
+Z.~Palaskas, P.~Loucopoulos, and F.~van Asshe.
+\newblock {AMORE} --- object oriented extensions to {Prolog}.
+\newblock In {\em TOOLS '89}, 1989.
+
+\bibitem{pascoe:86}
+G.A. Pascoe.
+\newblock Elements of object-oriented programming.
+\newblock {\em McGraw-Hill BYTE-Magazine}, pages 15--20, Aug. 1986.
+
+\bibitem{bundesgesbl:86}
+H.~Quester, editor.
+\newblock {\em Bundesgesetzblatt Teil I Nr. 30 vom 4. Juli 1986}.
+\newblock Verkehrsverlag, D\"usseldorf, 1986.
+\newblock Anlageband 2.
+
+\bibitem{rentsch:82}
+T.~Rentsch.
+\newblock Object oriented programming.
+\newblock {\em ACM SIGPLAN Notices}, 17(9):51--57, Sept. 1982.
+
+\bibitem{rizk:89}
+Antoine Rizk, Jean-Marc Fellous, and Michel Tueni.
+\newblock An object-oriented model in the concurrent logic programming language
+  {Parlog}.
+\newblock Technical Report 1067, Institut National de Recherche en Informatique
+  et en Automatique (INRIA), Domaine de Voluceau Rocquencourt, B.P.105, 7853
+  LeChesnay Cedex, France, August 1989.
+
+\bibitem{robson:81}
+D.~Robson.
+\newblock Object-oriented software systems.
+\newblock {\em McGraw-Hill BYTE Magazine}, 6(8):74--86, Aug. 1981.
+
+\bibitem{schmidt:90}
+A.~Schmidt and F.~Belli.
+\newblock An extension of {Prolog} for object-oriented programming in logic.
+\newblock In {\em Proceedings of the 3rd International Conference IEA/AIE},
+  pages 1153--1163, 1990.
+
+\bibitem{snyder:86}
+A.~Snyder.
+\newblock Encapsulation and inheritance in object-oriented programming
+  languages.
+\newblock In {\em Proc. OOPSLA '86}, pages 38--45, Sept. 1986.
+
+\bibitem{stefik:86}
+M.~Stefik and D.G. Bobrow.
+\newblock Object-oriented programming: Themes and variations.
+\newblock {\em AI Magazine}, 6(4):40--62, 1986.
+
+\bibitem{stowage:}
+{Stowage \& Segregation Guide to IMDG-Code}.
+\newblock K.O. Storck Verlag, Hamburg.
+\newblock See also \cite{imdg:83}.
+
+\bibitem{thom:88}
+J.~Thom and J.~Zobel.
+\newblock {NU-Prolog} reference manual, version 1.3.
+\newblock Technical Report 86/10, Department of Computer Science, University of
+  Melbourne, 1988.
+
+\bibitem{thomas:89}
+D.~Thomas.
+\newblock What's in an object.
+\newblock {\em McGraw-Hill BYTE Magazine}, 14(3):231--240, Mar. 1989.
+
+\bibitem{infuchs:}
+{INFUCHS, Informationssystem f\"ur Umweltchemikalien, Chemieanlagen und
+  St\"orf\"alle}.
+\newblock Umweltbundesamt, Gruppe Z2, Information und Dokumentation, UMPLIS,
+  Berlin.
+
+\bibitem{zaniolo:84}
+Carlo Zaniolo.
+\newblock Object-oriented programming in {Prolog}.
+\newblock In {\em IEEE Symposium on Logic Programming}, 1984.
+

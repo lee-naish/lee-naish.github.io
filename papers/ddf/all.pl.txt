@@ -1,0 +1,203 @@
+% Very simple declarative debugger for floundering
+% 
+% From DDS3 paper (NU-Prolog version):
+% debug(Root, Bug) :-
+%     erroneous(Root),
+%     (if some [Child, Bug1] (
+%         child(Root, Child),
+%         debug(Child, Bug1))
+%     then
+%         Bug = Bug1
+%     else if some [Child] (      % check
+%         child(Root, Child),     % for
+%         inadmissible(Child))    % i-bug
+%     then                        %
+%         Bug = i_bug(Root, Child)%
+%     else
+%         Bug = e_bug(Root)
+%     ).
+% 
+% Using standard Prolog constructs (commits to first bug found):
+debug(Root, Bug) :-
+	erroneous(Root),
+	(	% if some [Child, Bug1]
+		child(Root, Child1),
+		debug(Child1, Bug1)
+	->
+		Bug = Bug1
+	;	% if some [Child2]
+		child(Root, Child2),
+		inadmissible(Child2)
+	->
+		Bug = i_bug(Root, Child2)
+	;
+		Bug = e_bug(Root)
+	).
+
+% top level
+wrong(P) :-
+	solve_atom(P, _, _, PT),
+	debug(PT, Bug),
+	write_bug(Bug),
+	nl.
+
+% write bug nicely
+% For Incorrect delay annotation it would be nice to print the clause
+% instance for the parent.
+% In all cases it would be nice to print the source code and location
+write_bug(e_bug(node(AH, _, _, V))) :-
+	var(V),	 % floundered leaf
+	!,
+	writeln('BUG - incorrect delay annotation:'),
+	copy_term_no_attr(AH, AH1),
+	numbervars(AH1, 0, _),
+	print(AH1).
+write_bug(e_bug(node(AH, _, _, Ts))) :-
+	writeln('BUG - incorrect clause instance:'),
+	rm_when(AH, H),
+	trees_to_conj(Ts, B),
+	copy_term_no_attr((H :- B), (H1 :- B1)), % fix for bug below
+	portray_clause((H1 :- B1)). % BUG - calls numbervars etc
+write_bug(i_bug(node(AH, _, _, Ts), _)) :-
+	writeln('BUG - incorrect modes/types in clause instance:'),
+	rm_when(AH, H),
+	trees_to_conj(Ts, B),
+	copy_term_no_attr((H :- B), (H1 :- B1)), % fix for bug below
+	portray_clause((H1 :- B1)). % BUG - calls numbervars etc
+
+% remove when meta_call wrapper if it exists
+rm_when(when(_, A), A1) :-
+	!,
+	A1 = A.
+rm_when(A, A).
+
+% collect roots of list of trees into conjunction
+trees_to_conj([], true).
+trees_to_conj([node(A, _, _, _)], A).
+trees_to_conj([node(A, _, _, _), T|Ts], (A, As)) :-
+	trees_to_conj([T|Ts], As).
+
+% find child(ren) of node
+% simple version:
+% child(node(_, _, _, Cs), C) :- nonvar(Cs), member(C, Cs).
+% We can make the search a bit more clever (reduce number of questions)
+% by considering floundered children before non-floundered children.
+% Determining if an atom floundered requires no questions and such atoms
+% must be erroneous or inadmissible.
+child(node(_, _, _, Cs), C) :-
+	nonvar(Cs), % not a floundered leaf
+	(	member(C, Cs),
+		C = node(_, S0, S, _),
+		S0 \== S   % C is floundered
+	;
+		member(C, Cs),
+		C = node(_, S0, S, _),
+		S0 == S    % C is not floundered
+	).
+
+% Node is erroneous
+erroneous(N) :-
+	node_truth(N, e).
+
+% Node is inadmissible
+inadmissible(N) :-
+	node_truth(N, i).
+
+% Find truth value of node (by asking user)
+% Should maintain DB to avoid repeated questions, etc.
+node_truth(node(AAtom, C0, C, _Ts), TV) :-
+	repeat,
+	( C0 == C ->
+		write('(succeeded)  ')
+	;
+		write('(floundered) ')
+	),
+	rm_when(AAtom, Atom),
+	copy_term_no_attr(Atom, At), % avoid attributed vars (used for delays)
+	numbervars(At, 0, _),	% would break with attributed vars
+	print(At),	% numbervars+print prints vars nicely
+	write(' ...? '),
+	get_code(TC),
+	skip(0'\n),
+	( TC = 0'v ->
+		( C0 == C -> % not floundered
+			TV1 = v
+		;
+			TV1 = e
+		)
+	; TC = 0'e ->
+		TV1 = e
+	; TC = 0'i ->
+		TV1 = i
+	;
+		writeln('Is it valid, erroneous or inadmissible?'),
+		fail
+	),
+	!,
+	TV = TV1.
+
+% disgusting hack - builtin copy_term also
+% copies attributed vars, used for delays, and
+% this causes numbervars to break
+copy_term_no_attr(T0, T) :-
+	asserta(copy_term_no_attr_tmp(T0)),
+	retract(copy_term_no_attr_tmp(T)),
+	!.
+
+:- dynamic copy_term_no_attr_tmp/1.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Meta interpreter returning partial proof tree
+% (inefficient, doesn't handle all constructs, not steadfast,...)
+
+% solve_atom(A, C0, C, AT): A is an atomic goal
+% (possibly wrapped in a when meta-call)
+% which has succeeded or floundered,
+% AT is the corresponding partial proof tree with floundered
+% leaves having a variable as the list of children;
+% C0==C if A succeeded
+solve_atom(when(Cond, A), C0, C, AT) :-
+        !,
+	AT = node(when(Cond, A), C0, C, Ts),
+        when(Cond, solve_atom(A, C0, C,  node(_, _, _, Ts))).
+solve_atom(A, C, C, node(A, C, C, [])) :-
+	predicate_property(A, built_in),
+        !,
+        call(A).
+solve_atom(A, C0, C, node(A, C0, C, AsTs)) :-
+        clause(A, As),
+        solve_conj(As, C0, C, AsTs).
+
+% As above for conjunction; returns list of trees
+solve_conj(true, C, C, []) :-
+        !.
+solve_conj((A, As), C0, C, [AT|AsTs]) :-
+	!,
+	solve_atom(A, C0, C1, AT),
+	solve_conj(As, C1, C, AsTs).
+solve_conj(A, C0, C, [AT]) :-
+	solve_atom(A, C0, C, AT).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Source code of sample program to be debugged
+
+% perm(As0, As): As = permutation of list As0
+% As0 or As should be input
+perm([], []).
+perm([A0|As0], [A|As]) :-
+    when((nonvar(As1) ; nonvar(As)),
+        inserted(A0, As1, [A|As])),
+    when((nonvar(As0) ; nonvar(As1)),
+        perm(As0, As1)).
+
+% inserted(A, As0, As): As = list As0 with element A inserted
+%......% As0 should be input         %... Bug 2
+% As0 or As should be input
+inserted(A, As0, [A|As0]).
+inserted(A, [A1|As0], [A1|As]) :-
+%   when(nonvar(As0),                %... Bug 2
+    when((nonvar(As0) ; nonvar(A)),  %... Bug 1
+%   when((nonvar(As0) ; nonvar(As)),
+%      inserted(A, AS0, As)).       %... Bug 3
+       inserted(A, As0, As)).
+

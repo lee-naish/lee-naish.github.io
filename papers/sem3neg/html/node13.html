@@ -1,0 +1,316 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.2beta8 (1.42)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Fixpoint semantics</TITLE>
+<META NAME="description" CONTENT="Fixpoint semantics">
+<META NAME="keywords" CONTENT="naishsem3">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.2beta8">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="naishsem3.css">
+
+<LINK REL="next" HREF="node14.html">
+<LINK REL="previous" HREF="node12.html">
+<LINK REL="up" HREF="node10.html">
+<LINK REL="next" HREF="node14.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html171"
+  HREF="node14.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/lib/latex2html/icons/next.png"></A> 
+<A NAME="tex2html169"
+  HREF="node10.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/lib/latex2html/icons/up.png"></A> 
+<A NAME="tex2html163"
+  HREF="node12.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/lib/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html172"
+  HREF="node14.html">Relationships between semantics</A>
+<B> Up:</B> <A NAME="tex2html170"
+  HREF="node10.html">A semantics for definite</A>
+<B> Previous:</B> <A NAME="tex2html164"
+  HREF="node12.html">Model-theoretic semantics</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00043000000000000000">
+Fixpoint semantics</A>
+</H2>
+
+<P>
+After [<A
+ HREF="node22.html#Fitting85">FittingFitting1985</A>] (using the terminology of [<A
+ HREF="node22.html#apt94logic">Apt and BolApt and Bol1994</A>]),
+we define <IMG
+ WIDTH="36" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img63.png"
+ ALT="$T3_P$">, an analogue of <IMG
+ WIDTH="26" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$T_P$"> which maps interpretations to
+interpretations.  For simplicity, we define it in terms of the model
+theory (<IMG
+ WIDTH="26" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$T_P$"> could be defined in the same way -- the inadmissible
+case would never arise).
+
+<P>
+<P>
+<DIV><B>Definition  6</B> &nbsp; 
+<IMG
+ WIDTH="66" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img64.png"
+ ALT="$T3_P(M)$"> is the interpretation such that an atom <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img14.png"
+ ALT="$A$"> is 
+
+<OL>
+<LI>true, if there is a clause instance <!-- MATH
+ $A \leftarrow B$
+ -->
+<IMG
+ WIDTH="53" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img65.png"
+ ALT="$A \leftarrow B$">
+where <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img66.png"
+ ALT="$B$"> is true in <IMG
+ WIDTH="21" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$M$">, 
+</LI>
+<LI>false, if for all clause instances <!-- MATH
+ $A \leftarrow B$
+ -->
+<IMG
+ WIDTH="53" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img65.png"
+ ALT="$A \leftarrow B$">, <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img66.png"
+ ALT="$B$"> is false in <IMG
+ WIDTH="21" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$M$"> and
+</LI>
+<LI>inadmissible, otherwise.
+</LI>
+</OL></DIV><P></P>
+
+<P>
+<IMG
+ WIDTH="36" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img63.png"
+ ALT="$T3_P$"> generalises <IMG
+ WIDTH="26" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$T_P$">: if there are no inadmissible atoms in <IMG
+ WIDTH="21" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$M$">
+there are none in <IMG
+ WIDTH="66" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img64.png"
+ ALT="$T3_P(M)$">.  Various properties of <IMG
+ WIDTH="36" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img63.png"
+ ALT="$T3_P$"> are discussed
+in [<A
+ HREF="node22.html#apt94logic">Apt and BolApt and Bol1994</A>].  One important result is that a least fixpoint
+with respect to the information ordering exists.
+
+<P>
+Another immediate consequence operator, <IMG
+ WIDTH="36" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img67.png"
+ ALT="$T3^{+}_P$">, which retains the
+truth value of inadmissible atoms, was introduced in [<A
+ HREF="node22.html#naish:sem3">NaishNaish2000b</A>]
+(where it was called <IMG
+ WIDTH="26" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.png"
+ ALT="$C_P^{\prime}$">).  Essentially, inadmissible atoms
+are assumed to succeed.
+
+<P>
+<P>
+<DIV><B>Definition  7</B> &nbsp; 
+<IMG
+ WIDTH="66" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img69.png"
+ ALT="$T3^{+}_P(M)$"> is the interpretation such that an atom <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img14.png"
+ ALT="$A$"> is
+
+<OL>
+<LI>inadmissible, if <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img14.png"
+ ALT="$A$"> is inadmissible in <IMG
+ WIDTH="21" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$M$">,
+</LI>
+<LI>true, if <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img14.png"
+ ALT="$A$"> is admissible and there is a clause instance
+<!-- MATH
+ $A \leftarrow B$
+ -->
+<IMG
+ WIDTH="53" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img65.png"
+ ALT="$A \leftarrow B$"> where <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img66.png"
+ ALT="$B$"> is true or inadmissible in <IMG
+ WIDTH="21" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$M$">,
+</LI>
+<LI>false, otherwise.
+</LI>
+</OL></DIV><P></P>
+
+<P>
+Like <IMG
+ WIDTH="36" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img63.png"
+ ALT="$T3_P$">, <IMG
+ WIDTH="36" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img67.png"
+ ALT="$T3^{+}_P$"> generalises <IMG
+ WIDTH="26" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$T_P$">.  If <IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img31.png"
+ ALT="$I$"> is empty, <IMG
+ WIDTH="36" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img67.png"
+ ALT="$T3^{+}_P$">
+is equivalent to <IMG
+ WIDTH="26" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$T_P$"> and thus each fixpoint of <IMG
+ WIDTH="26" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$T_P$"> corresponds
+to a fixpoint of <IMG
+ WIDTH="36" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img67.png"
+ ALT="$T3^{+}_P$">.  Fixpoints of <IMG
+ WIDTH="36" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img63.png"
+ ALT="$T3_P$"> are also fixpoints
+of <IMG
+ WIDTH="36" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img67.png"
+ ALT="$T3^{+}_P$">.  Generally <IMG
+ WIDTH="36" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img67.png"
+ ALT="$T3^{+}_P$"> has additional fixpoints as well.
+It is particularly useful when the set of inadmissible atoms in the
+intended interpretation is known.  Using <IMG
+ WIDTH="36" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img67.png"
+ ALT="$T3^{+}_P$">, analysis can restrict
+attention to the behaviour of admissible atoms.  If (in)admissibility can
+be determined from the program, for example, from type/mode declarations,
+automatic analysis may benefit.  In any case it simplifies manual analysis
+and avoids analysis which can often be non-intuitive.
+
+<P>
+For example, suppose <IMG
+ WIDTH="21" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$M$"> is our intended interpretation for
+<TT>merge/3</TT>.  The inadmissible atoms in <IMG
+ WIDTH="66" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img69.png"
+ ALT="$T3^{+}_P(M)$"> are the
+same as those in <IMG
+ WIDTH="21" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$M$">.  To find the true atoms in <IMG
+ WIDTH="66" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img69.png"
+ ALT="$T3^{+}_P(M)$"> we
+consider each clause and determine what <I>admissible</I> atoms can
+be derived in one step from the true and inadmissible atoms in <IMG
+ WIDTH="21" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$M$">.
+For the first two clauses we can ignore inadmissible atoms such as
+<TT>merge([],a,a)</TT>.  For the last two clauses it is easy to show that
+if the clause head is admissible then the recursive call is admissible,
+so we can ignore inadmissible atoms such as <TT>merge([2,3], [2,1],
+[2,1,2,3])</TT>.  This ``forward'' reasoning essentially replaces reasoning
+about inadmissible atoms.  Forward reasoning is more procedural in nature
+[<A
+ HREF="node22.html#naish:verif:90">NaishNaish1993</A>] and essential for reasoning about instantiatedness
+of calls (something logic programmers must consider).  It is simple to
+establish that the true atoms in <IMG
+ WIDTH="66" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img69.png"
+ ALT="$T3^{+}_P(M)$"> are a subset of those in
+<IMG
+ WIDTH="21" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$M$"> (in fact, they are equal).  From this we can conclude <IMG
+ WIDTH="21" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$M$"> is a model
+(see below).
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html171"
+  HREF="node14.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/lib/latex2html/icons/next.png"></A> 
+<A NAME="tex2html169"
+  HREF="node10.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/lib/latex2html/icons/up.png"></A> 
+<A NAME="tex2html163"
+  HREF="node12.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/lib/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html172"
+  HREF="node14.html">Relationships between semantics</A>
+<B> Up:</B> <A NAME="tex2html170"
+  HREF="node10.html">A semantics for definite</A>
+<B> Previous:</B> <A NAME="tex2html164"
+  HREF="node12.html">Model-theoretic semantics</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+
+2005-08-02
+</ADDRESS>
+</BODY>
+</HTML>

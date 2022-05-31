@@ -1,0 +1,759 @@
+
+@article{martelli,
+      author={Martelli, M. and Tricomi, C. },
+      title={A new {SLDNF-tree}},
+      journal={Information Processing Letters},
+      volume={43},
+      number={2},
+      pages={57--62},
+      year={1992}
+}
+
+@article{mycroft,
+      author={Mycroft, Alan and O'Keefe, Richard },
+      title={A polymorphic type system for {Prolog}},
+      journal={Artificial Intelligence},
+      volume={23},
+      pages={295--307},
+      year={1984}
+}
+
+@article{ddscheme,
+      author={Lee Naish},
+      title={A Declarative Debugging Scheme},
+      journal={Journal of Functional and Logic Programming},
+      volume={1997},
+      number={3},
+      publisher={The MIT Press},
+      month={April},
+      year={1997},
+      abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/dds/",
+      comment = {Also Technical Report 95/1, Department of Computer
+                        Science, University of Melbourne, 16 pages}
+}
+
+@inproceedings{modes,
+        author =        {Naish, Lee},
+        Title = { A declarative view of modes },
+        booktitle =     {Proceedings of the 1996 Joint International
+                Conference and Symposium on Logic Programming},
+        location =      {Bonn, Germany},
+        publisher =     {MIT Press},
+        place = {Cambridge, Massachusetts},
+        month   =       {September},
+        year   =        {1996},
+        pages  =        {185--199},
+        isbn = {0-262-63173-3},
+        subcat =  {F1},
+        authorcode = {433,13,00,FU,YI,M},
+        abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/modes/",
+        comment   =     {Also Technical Report 96/7, Department of
+                Computer Science, University of Melbourne, 13 pages}
+}
+
+
+@incollection{naish:verif:90,
+        author =        {Naish, Lee},
+        title  =        {Verification of logic programs and imperative programs},
+        booktitle =     {Constructing logic programs},
+        editor =        {Jean-Marie Jacquet},
+        publisher =     {Wiley},
+        address =       {Chichester, England},
+        year   =        {1993},
+        pages  =        {143-164},
+        documentURL = "http://people.eng.unimelb.edu.au/lee/papers/verify/tr.ps",
+       comment   =     {Technical Report 90/6, Department of Computer
+                        Science, University of Melbourne}
+}
+
+
+@article{pddfp,
+        Author = { Naish, Lee and Barbour, Timothy },
+        Title = { Towards a portable lazy functional declarative
+                debugger },
+        journal =       {Australian Computer Science Communications},
+        volume =        {18},
+        number =        {1},
+        year    =       {1996},
+        Month = jan,
+        pages   =       {401--408},
+        abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/pddfp/",
+        comment   =        {Also Technical report 95/27,
+                        Department of Computer
+                        Science, University of Melbourne, 14 pages}
+}
+
+
+@article{naish:ddfp:92,
+	author =	{Lee Naish},
+        title  =        {Declarative debugging of lazy functional
+                        programs},
+	journal =	{Australian Computer Science Communications},
+	volume =	{15},
+	number =	{1},
+	year	=	{1993},
+	pages	=	{287--294},
+	comment   =        {Also Technical report 92/6,
+			Department of Computer
+			Science, University of Melbourne}
+}
+
+@TechReport{trb,
+        Author = { Timothy Barbour and Lee Naish },
+        Title = { Declarative Debugging of a Logical-Functional
+                Language (Honours Thesis) },
+        Number = { 94/28 },
+        Institution = { Department of Computer Science, University of
+                Melbourne },
+        Address = { Melbourne, Australia },
+        Month = dec,
+        Year = 1994
+}
+
+@inproceedings{nuedd,
+        Author = { Naish, Lee and Barbour, Timothy },
+        Title = { A Declarative Debugger for a Logical-Functional
+                Language },
+        booktitle = {Eighth International Conference on
+                 Industrial and Engineering Applications of
+                 Artificial Intelligence and Expert Systems
+                 --- Invited and Additional Papers},
+        publisher = {{DSTO} General Document 51},
+        organisation = {Defence Science and Technology Organisation},
+        editor = {Forsyth, Graham and Ali, Moonis },
+        Month = jun,
+        Year = 1995,
+        Volume = 2,
+        Pages = {91--99},
+        address = {Melbourne},
+        abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/nuedd/",
+        comment   =     {Technical Report 94/30, Department of Computer
+                        Science, University of Melbourne, 14 pages}
+}
+
+@Book{  Sha83,
+        Author = { Ehud Y. Shapiro },
+        Title = { Algorithmic program debugging },
+        Pages = 232,
+        Publisher = { MIT Press },
+        Address = { Cambridge, Massachusetts },
+        Year = 1983,
+        Keywords = { book }     }
+
+@InProceedings{	EdmTar83,
+	Author = { A. Edman and
+		Sten-{\AA}ke T{\"a}rnlund },
+	Title = { Mechanization of an oracle in a debugging system },
+	Booktitle = { Proceedings of Eighth IJCAI },
+	Pages = { 553-555 },
+	Address = { Karlsruhe, Germany },
+	Month = { August, },
+	Year = 1983	}
+
+@TechReport{	KanKawMae89,
+	Author = { T. Kanamori and
+		T. Kawamura and
+		M. Maeji and
+		K Horiuchi },
+	Type = { ICOT Technical report },
+	Title = { Logic program diagnosis from specification },
+	Number = {  TR-447 },
+	Institution = { Institute for New Generation Computer Technology },
+	Address = { Tokyo, Japan },
+	Month = { March, },
+	Year = 1989	}
+
+@TechReport{	MaeKan87,
+	Author = { M. Maeji and
+		T. Kanamori },
+	Type = { ICOT Technical report },
+	Title = { Top-down zooming diagnosis of logic programs },
+	Number = {  TR-290 },
+	Institution = { Institute for New Generation Computer Technology },
+	Address = { Tokyo, Japan },
+	Month = { August, },
+	Year = 1987	}
+
+@InProceedings{	Nai87,
+	Author = { Lee Naish },
+	Title = { Specification = program + types },
+	Booktitle = tcs,
+	Address = { Pune, India },
+	Month = { December, },
+	Year = 1987	}
+
+@TechReport{	ANON86,
+	Title = { {NU-Prolog} reference manual, version 1.0 },
+	Editor = { James Thom and
+		Justin Zobel },
+	Number = { 86/10 },
+	Institution = { Department of Computer Science, University of
+		Melbourne },
+	Address = { Melbourne, Australia },
+	Year = 1986	}
+
+@InProceedings{	naish-86,
+	Author = { Lee Naish },
+	Title = { Negation and quantifiers in {NU-Prolog} },
+	Editor = { Ehud Shapiro },
+	Booktitle = { Proceedings of the Third International Conference
+		on Logic Programming },
+	Pages = { 624-634 },
+	Note = { published as Lecture Notes in Computer Science 225 by
+		Springer-Verlag },
+	Address = { Imperial College of Science and Technology, London,
+		England },
+	Month = jul,
+	Year = 1986,
+	Keywords = { ilpc iclp ilpc86 iclp86 iclp3 london }	}
+
+@Article{	Nai85,
+	Author = { Lee Naish },
+	Title = { Automating control of logic programs },
+	Journal = { Journal of Logic Programming },
+	Volume = 2,
+	Number = 3,
+	Pages = { 167-183 },
+	Month = oct,
+	Year = 1985,
+	Keywords = { jlp }	}
+
+@Book{	Llo84,
+	Author = { John W. Lloyd },
+	Title = { Foundations of logic programming },
+	Series = { Springer series in symbolic computation },
+	Pages = 124,
+	Publisher = { Springer-Verlag },
+	Address = { New York },
+	Year = 1984,
+	Keywords = { book }	}
+
+@InProceedings{	Per86,
+	Author = { Luis Moniz Pereira },
+	Title = { Rational debugging in logic programming },
+	Editor = { Ehud Shapiro },
+	Booktitle = { Proceedings of the Third International Conference
+		on Logic Programming },
+	Pages = { 203-210 },
+	Note = { published as Lecture Notes in Computer Science 225 by
+		Springer-Verlag },
+	Address = { London, England },
+	Month = jul,
+	Year = 1986,
+	Keywords = { ilpc iclp ilpc86 iclp86 ilpc3 iclp3 }	}
+
+@Article{	Fer87,
+	Author = { Gerard Ferrand },
+	Title = { Error diagnosis in logic programming, an adaptation of
+		{E}.Y. Shapiro's method },
+	Journal = { Journal of Logic Programming },
+	Volume = 4,
+	Number = 3,
+	Pages = { 177-198 },
+	Month = sep,
+	Year = 1987,
+	Keywords = { jlp }	}
+
+@Article{	Llo87,
+	Author = { John W. Lloyd },
+	Title = { Declarative error diagnosis },
+	Journal = { New Generation Computing },
+	Volume = 5,
+	Number = 2,
+	Pages = { 133-154 },
+	Year = 1987,
+	Keywords = { ngc }	}
+
+@InCollection{	Cla78,
+	Author = { Keith L. Clark },
+	Title = { Negation as failure },
+	Booktitle = { Logic and data bases },
+	Editor = { Herve Gallaire and
+		Jack Minker },
+	Pages = { 293-322 },
+	Publisher = { Plenum Press },
+	Year = 1978	}
+
+@InProceedings{	Pla84,
+	Author = { David A. Plaisted },
+	Title = { An efficient bug location algorithm },
+	Editor = { Sten-{\AA}ke T{\"a}rnlund },
+	Booktitle = { Proceedings of the Second International Logic
+		Programming Conference },
+	Pages = { 151-157 },
+	Address = { Uppsala, Sweden },
+	Month = jul,
+	Year = 1984,
+	Keywords = { Prolog, debugging, performance },
+	Annote = { Sten-Ake Tarnlund (Hyphenated names not handled
+		properly, let alone the "funny" A - Hey it works
+		like a dream now) }	}
+
+@InProceedings{	Nic88,
+	Author = { A.E. Nicholson },
+	Title = { Declarative debugging of the parallel logic
+		programming language {GHC} },
+	Booktitle = { Proceedings of the Eleventh
+		{Australian} Computer Science Conference },
+	Pages = { 225-236 },
+	Address = { Brisbane, Australia },
+	Month = feb,
+	Year = 1988,
+	Keywords = { acsc acsc11 }	}
+
+@InProceedings{	DerLee87,
+	Author = { Nachum Dershowitz and
+		Yuh-Jeng Lee },
+	Title = { Deductive debugging },
+	Booktitle = { Proceedings of the Fourth IEEE Symposium on Logic
+		Programming },
+	Pages = { 298-306 },
+	Address = { San Francisco, California },
+	Month = aug,
+	Year = 1987,
+	Keywords = { islp islp4 islp87 }	}
+
+@InProceedings{	TakShi85,
+	Author = { Hidehisa Takahashi and
+		Etsuya Shibayama },
+	Title = { {PRESET} --- a debugging environment for {Prolog} },
+	Editor = { Eiiti Wada },
+	Booktitle = { Proceedings of the 4th Logic Programming
+		Conference },
+	Pages = { 90-99 },
+	Note = { published as Lecture Notes in Computer Science 221 by
+		Springer-Verlag },
+	Address = { Tokyo, Japan },
+	Month = jul,
+	Year = 1985,
+	Keywords = { lpc lpc4 }	}
+
+@InProceedings{	drabent,
+	Author = { Wlodek Drabent and
+		Simin Nadjm-Tehrani and
+		Jan Maluszynski },
+	Title = { The use of assertions in algorithmic debugging },
+	Booktitle = { Proceedings of the 1988 International Conference
+		on Fifth Generation Computer Systems },
+	Pages = { 573-581 },
+	Address = { Tokyo, Japan },
+	Month = dec,
+	Year = 1988,
+	Keywords = { fgcs fgcs88 logic }	}
+
+@InCollection{	DraNadMal89,
+	Author = { Wlodek Drabent and
+		Simin Nadjim-Tehrani and
+		Jan Maluszynski },
+	Title = { Algorithmic debugging with assertions },
+	Booktitle = { Meta-programming in Logic Programming },
+	Editor = { John W. Lloyd },
+	Publisher = { MIT Press },
+	Year = 1989,
+	Keywords = { metaw meta88 }	}
+
+@TechReport{	Nad89,
+	Author = { Simin Nadjm-Tehrani },
+	Type = { Thesis No. },
+	Title = { Contributions to the declarative approach to debugging
+		{Prolog} programs },
+	Number =  187,
+	Institution = { Department of Computer and Information Sciences,
+		University of Linkoping },
+	Address = { Linkoping, Sweden },
+	Year = 1989	}
+
+@InProceedings{	PerCal88,
+	Author = { Luis Moniz Pereira and
+		Miguel Calejo },
+	Title = { A framework for {Prolog} debugging },
+	Editor = { Kenneth A. Bowen and
+		Robert A. Kowalski },
+	Booktitle = { Proceedings of the Fifth International
+		Conference/Symposium on Logic Programming },
+	Pages = { 481-495 },
+	Address = { Seattle, Washington },
+	Month = aug,
+	Year = 1988,
+	Keywords = { declarative debugging, select {\&} query, suspects }	}
+
+@Book{	SteSha86,
+	Author = { Leon Sterling and
+		Ehud Shapiro },
+	Title = { The art of {Prolog}: advanced programming techniques },
+	Series = { Logic Programming series },
+	Pages = 427,
+	Publisher = { MIT Press },
+	Address = { Cambridge, Massachusetts },
+	Year = 1986,
+	Keywords = { book }	}
+
+@incollection{naish:90,
+        author =        {Naish, Lee},
+        title  =        {Types and the intended meaning of logic programs},
+        pages  =        {189-216},
+        booktitle =     {Types in logic programming},
+        editor =        {Frank Pfenning},
+        publisher =     {MIT Press},
+        address =       {Cambridge, Massachusetts},
+        year =          {1992},
+        comment   =     {Technical Report 90/4, Department of Computer
+                        Science, University of Melbourne}
+}
+
+
+@InProceedings{	NaiDarZob89,
+	Author = { L. Naish and
+		P. W. Dart and
+		J. Zobel },
+	Title = { The {NU}-{Prolog} debugging environment },
+	Editor = { Antonio Porto },
+	Booktitle = { Proceedings of the Sixth International Conference
+		on Logic Programming },
+	Address = { Lisboa, Portugal },
+	Month = jun,
+	Year = 1989,
+	Keywords = { ilpc iclp ilpc89 iclp89 islp89 ilpc6 iclp6 }	}
+
+@Book{	Kow80,
+	Author = { Robert A. Kowalski },
+	Title = { Logic for problem solving },
+	Publisher = { North Holland },
+	Address = { New York },
+	Year = 1980,
+	Keywords = { textbook, knowledge representation, deduction, problem solving planning, belief revision }	}
+
+@article{Davison91,
+        author =        {Andrew Davison},
+        title  =        {From {P}arlog to {P}olka in Two Easy Steps},
+        journal =       {Proceedings of The Third International
+			Symposium on
+                        Programming Language Implementation and Logic
+                        Programming},
+        address =       {Passau, Germany},
+        year   =        {August, 1991},
+        pages  =        {171-182}
+}
+
+@article{naish91,
+        author =        {Lee Naish},
+        title  =        {Adding equations to {NU-Prolog}},
+        journal =       {Proceedings of The Third International
+			Symposium on
+                        Programming Language Implementation and Logic
+                        Programming},
+        address =       {Passau, Germany},
+        year   =        {August, 1991},
+        pages  =        {15-26}
+}
+
+@article{naish-92,
+        author =        {Lee Naish},
+        title  =        {Declarative diagnosis of missing answers},
+        journal =       {New Generation Computing},
+        volume =        {10},
+        number =        {3},
+        year   =        {1992},
+        pages =         {255--285},
+        comment   =     {Technical Report 88/9 (revised),
+                        Department of Computer
+                        Science, University of Melbourne}
+}
+
+@article{nilsson,
+        author =        {Henrik Nilsson and Peter Fritzson},
+        title  =        {Algorithmic debugging of lazy functional
+			languages},
+        journal =       {Proceedings of The Fourth International
+			Symposium on
+                        Programming Language Implementation and Logic
+                        Programming},
+        address =       {Leuven, Belgium},
+        year   =        {to appear, August, 1992}
+}
+
+@InProceedings{	JafLas87,
+	Author = { Joxan Jaffar and
+		Jean-Louis Lassez },
+	Title = { From unification to constraints },
+	Editor = { K. Furukawa and
+		H. Tanaka and
+		T. Fujisaki },
+	Booktitle = { Proceedings of the Sixth Logic Programming
+		Conference },
+	Pages = { 1-18 },
+	Note = { published as Lecture Notes in Computer Science 315 by
+		Springer-Verlag },
+	Address = { Tokyo, Japan },
+	Month = jun,
+	Year = 1987,
+	Keywords = { CLP(R), scheme }	}
+
+@InProceedings{ Duc91,
+        Author = { Mireille Ducass{\'e} },
+        Title = { Abstract views of {Prolog} executions in {Opium} },
+        Booktitle = { Proceedings of the 1991 International Symposium on
+               Logic Programming },
+        Pages = { 18-34 },
+        Address = { San Diego, California },
+        Month = oct,
+        Year = 1991,
+        Keywords = { islp islp91 }      }
+
+@InProceedings{sparud,
+        author =        {Sparud, Jan and Nilsson, Hendrik},
+        title  =        {The architecture of a debugger for
+                        lazy functional languages},
+        Editor = {Mireille Ducass{\'e}},
+        Booktitle =       {Proceedings of {AADEBUG'95}},
+        address =       {Saint-Malo, France},
+        year   =        {May, 1995}
+}
+
+@inproceedings{boye95,
+        author = "J. Boye and J. Maluszynski",
+        title = "Two aspects of directional types",
+        booktitle = "Proceedings of the Twelfth International
+			Conference on Logic Programming",
+        year = 1995,
+        month = "June",
+        address = "Kanagawa, Japan",
+        editor = "Leon Sterling",
+        pages = "747--761"
+}
+
+@inproceedings{Aiken/sas/94
+,author="Alexander Aiken and T. K. Lakshman"
+,booktitle=sas94
+,series="LNCS 864"
+,pages="43--60"
+,title="Directional Type Checking of Logic Programs"
+,year="1994"
+,publisher=sv
+,keywords="logic programming, modes, types, set constraints"
+}
+
+@string{sas94="Proceedings of the First International Static Analysis Symposium" }
+
+
+@InProceedings{ FitBen88,
+        Author = { Melvin Fitting and
+                Marion Ben-Jacob },
+        Title = { Stratified and three-valued logic programming
+                semantics },
+        Editor = { Kenneth A. Bowen and
+                Robert A. Kowalski },
+        Booktitle = { Proceedings of the Fifth International
+                Conference/Symposium on Logic Programming },
+        Pages = { 1054-1069 },
+        Address = { Seattle, Washington },
+        Month = aug,
+        Year = 1988,
+        Keywords = { semantics of negation, weak stratification }
+}
+
+@Article{ Fitting85,
+        Author = { Melvin Fitting },
+        Title = { A {Kripke-Kleene} semantics for general logic programs },
+        Journal = { Journal of Logic Programming },
+        Volume = 2,
+        Pages = { 295--312 },
+        Year = 1985
+}
+
+@Article{       Kun87,
+        Author = { Kenneth Kunen },
+        Title = { Negation in logic programming },
+        Journal = { Journal of Logic Programming },
+        Volume = 4,
+        Number = 4,
+        Pages = { 289-308 },
+        Month = dec,
+        Year = 1987,
+        Keywords = { theory, soundness, completeness }  }
+
+@article{Drabent-88,
+        author =        {W{\l}odzimierz Drabent and Jan Maluszynski},
+        title  =        {Inductive assertions method for logic programs},
+        journal =       {Theoretical Computer Science},
+        volume =        {59},
+        year   =        {1988},
+        pages  =        {133-155}
+}
+
+@string{jicslp92="Proceedings of the Ninth Joint International
+Conference and Symposium on Logic Programming"}
+
+@inproceedings{Rouzaud/jicslp/92
+,author="Yann Rouzaud and Lan Nguyen-Phuong"
+,title="Integrating Modes and Subtypes into a {Prolog} Type-checker"
+,booktitle=jicslp92
+,pages="85--97"
+,year="1992"
+,keywords="logic programming, types, modes, prescriptive typing,
+           regular trees, implicational typing"
+}
+
+@InProceedings{ mercury,
+        Author = { Zoltan Somogyi and Fergus J. Henderson and
+                Thomas Conway },
+        Title = { Mercury: an efficient purely declarative logic
+                programming language },
+        Booktitle = { Proceedings of the {Australian} Computer Science
+                Conference },
+        Pages = { 499--512 },
+        Address = { Glenelg, Australia },
+        Month = feb,
+        Year = 1995
+}
+
+@Book{  goedel,
+        Author = { Patricia M. Hill and John W. Lloyd },
+        Title = { The {G\"{o}del} programming language },
+        Publisher = { MIT Press },
+        Address = { Cambridge, Massachusetts },
+        Year = 1994,
+        Keywords = { book }     }
+
+@inproceedings{DBLP:conf/discipl/PueblaBH00,
+   author    = {German Puebla and
+                Francisco Bueno and
+                Manuel V. Hermenegildo},
+   title     = {An Assertion Language for Constraint Logic Programs.},
+   booktitle = {Analysis and Visualization Tools for Constraint Programming},
+   year      = {2000},
+   pages     = {23-62},
+   crossref  = {DBLP:conf/discipl/2000},
+  editor    = {Pierre Deransart and
+               Manuel V. Hermenegildo and
+               Jan Maluszynski},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {1870},
+  isbn      = {3-540-41137-2},
+   bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@proceedings{DBLP:conf/discipl/2000,
+  editor    = {Pierre Deransart and
+               Manuel V. Hermenegildo and
+               Jan Maluszynski},
+  title     = {Analysis and Visualization Tools for Constraint Programming,
+               Constrain Debugging (DiSCiPl project)},
+  booktitle = {Analysis and Visualization Tools for Constraint Programming},
+  publisher = {Springer},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {1870},
+  year      = {2000},
+  isbn      = {3-540-41137-2},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@TechReport{prune,
+        Author = { Naish, Lee },
+        Title = { Pruning in logic programming },
+        Number = { 95/16 },
+        Institution = { Department of Computer Science, University of
+                Melbourne },
+        Address = { Melbourne, Australia },
+        pages = 15,
+        Month = jun,
+        Year = 1995,
+        abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/prune/",
+        comment   =     {Based on an advanced tutorial presented at the
+               International Conference on Logic Programming, June
+                1995}
+}
+
+
+@article{ apt94logic,
+    author = "Krzysztof R. Apt and Roland N. Bol",
+    title = "Logic Programming and Negation: A Survey",
+    journal = "Journal of Logic Programming",
+    volume = "19/20",
+    pages = "9-71",
+    year = "1994"
+}
+
+@Book{	Kleene,
+	Author = { S. Kleene },
+	Title = { Introduction to metamathematics },
+	Publisher = { North-Holland },
+	Address = { Amsterdam },
+	Year = 1952,
+	Keywords = { book }	}
+
+@inproceedings{ przymusinski89every,
+    author = "T. C. Przymusinski",
+    title = "Every logic program has a natural stratification and an iterated least fixed point model",
+        booktitle = {Proc. of 8th Symposium on Principles of Database Systems},
+        publisher = {ACM SIGACT-SIGMOD},
+    pages = "11--21",
+    year = "1989",
+    url = "citeseer.ist.psu.edu/przymusinski89every.html" }
+
+@article{ddscheme3,
+        Author = { Naish, Lee },
+        Title = { A three-valued declarative debugging scheme },
+        journal =       {Australian Computer Science Communications},
+        volume =        {22},
+        number =        {1},
+        year    =       {2000},
+        Month = jan,
+        pages   =       {166--173},
+        isbn = {0-7695-0518-X},
+        publisher  = {IEEE},
+        subcat =  {F1},
+        authorcode = {433,13,00,FW,MD,M},
+        abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/dds3/",
+        comment = {Presented at 8th Workshop on
+        Logic Programming Environments, Leuven, July 1997;
+        Also Technical report 97/5, Department of Computer Science,
+                University of Melbourne}
+}
+
+@article{naish:sem3,
+        Author = { Naish, Lee },
+        Title = {  A three-valued semantics for {Horn} clause programs},
+        journal =       {Australian Computer Science Communications},
+        volume =        {22},
+        number =        {1},
+        year    =       {2000},
+        Month = jan,
+        pages   =       {174--180},
+        isbn = {0-7695-0518-X},
+        subcat =  {F1},
+        authorcode = {433,13,00,FW,MD,M},
+        abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/sem3/",
+        comment = {Technical report 98/4, Department of Computer Science,
+                University of Melbourne}
+}
+
+@inproceedings{ drabent01proving,
+    author = "W{\l}odzimierz Drabent and Miros{\l}awa Mi{\l}kowska",
+    title = "Proving Correctness and Completeness of Normal Programs --- {A} Declarative Approach",
+    booktitle = "Proceedings of {ICLP01}",
+    series = "Lecture Notes in Computer Science",
+    volume = "2237",
+    publisher = "Springer Verlag",
+    pages = "284--299",
+    year = "2001",
+    url = "citeseer.ist.psu.edu/drabent01proving.html" }
+
+@article{ drabentTPLP,
+    author = "W{\l}odzimierz Drabent and Miros{\l}awa Mi{\l}kowska",
+    title = "Proving Correctness and Completeness of Normal Programs --- {A} Declarative Approach",
+    journal={Theory and Practice of Logic Programming},
+    publisher = "CUP",
+    year = "To appear",
+    url = "http://arxiv.org/abs/cs.LO/0501043" }
+
+@inproceedings{ stark96,
+    author = {R.F. St\"{a}rk},
+    title = "From logic programs to inductive definitions",
+    booktitle = "Logic: {From} foundations to applications, {European
+    Logic Colloqium'93}",
+    editor = "{W.A. Hodges et al.}",
+    publisher = "Clarendon Press",
+    pages = "453--481",
+    year = "1996" }
+

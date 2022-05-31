@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.2beta8 (1.42)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Intended interpretations are not models!</TITLE>
+<META NAME="description" CONTENT="Intended interpretations are not models!">
+<META NAME="keywords" CONTENT="naishsem3">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.2beta8">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="naishsem3.css">
+
+<LINK REL="next" HREF="node6.html">
+<LINK REL="previous" HREF="node4.html">
+<LINK REL="up" HREF="node3.html">
+<LINK REL="next" HREF="node6.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html89"
+  HREF="node6.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/lib/latex2html/icons/next.png"></A> 
+<A NAME="tex2html87"
+  HREF="node3.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/lib/latex2html/icons/up.png"></A> 
+<A NAME="tex2html81"
+  HREF="node4.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/lib/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html90"
+  HREF="node6.html">Types, assertions and preconditions</A>
+<B> Up:</B> <A NAME="tex2html88"
+  HREF="node3.html">Motivation and background</A>
+<B> Previous:</B> <A NAME="tex2html82"
+  HREF="node4.html">Conventional definite clause semantics</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00032000000000000000">
+Intended interpretations are not models!</A>
+</H2>
+
+<P>
+
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="fig_merge"></A><A NAME="56"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 1:</STRONG>
+Merging sorted lists of numbers</CAPTION>
+<TR><TD><IMG
+ WIDTH="557" HEIGHT="113" BORDER="0"
+ SRC="img13.png"
+ ALT="\begin{figure}\figrule
+\begin{verbatim}merge([], Bs, Bs).
+merge(A.As, [], A.As...
+...As, B.Bs, B.Cs) :- A &gt; B, merge(A.As, Bs, Cs).\end{verbatim}\figrule\end{figure}"></TD></TR>
+</TABLE>
+</DIV><P></P>
+
+<P>
+The major flaw in this otherwise beautiful picture is that, in practice,
+the intended interpretation is generally <I>not</I> a model.
+Consider the following informal predicate description.
+<PRE>
+merge(As, Bs, Cs): Cs is the sorted list of numbers
+which is the multiset union of sorted lists As and Bs
+</PRE>
+This would make a reasonable comment attached to some code (for example,
+Figure ) or a specification for a programmer (for example,
+an exercise in an introductory Prolog course).  In addition, it might
+be helpful to say that <TT>As</TT> and <TT>Bs</TT> are intended to be
+input, though there is no notion of input and output in the conventional
+declarative semantics.  Programmers have little difficulty with such
+descriptions of the intended behaviour of predicates.  It could be
+surmised that such descriptions correspond to intended interpretations of
+the model theory and that the primary job of a programmer is to construct
+programs for which such interpretations are models.  However, critical
+examination reveals this to be false, even for very simple programs.
+
+<P>
+First, the intended interpretation being a model only guarantees soundness
+(partial correctness or no wrong answers).  In reality, some form of
+completeness is also necessary: if every predicate always fails then
+the intended interpretation will be a model but the program will not be
+very useful!  Without considering negation, the most obvious way to avoid
+missing answers is for the intended interpretation to be the minimum model
+(which is the same as the success set).  We discuss another possibility
+in section <A HREF="node8.html#sec_bg_neg">3.5</A>.
+
+<P>
+Second, consider the first clause for <TT>merge/3</TT> (the same as
+the base case for the well known <TT>append/3</TT> program).  It can
+succeed with non-lists, and precisely which calls to <TT>merge/3</TT>
+containing non-lists succeed is a subtle property of the code and not
+dealt with at all in the predicate description (from the description
+we might assume that no such calls should succeed).  The description is
+symmetric with respect to the first two arguments but the code is not,
+and the set of successful calls with non-lists is not.  If the code was
+changed so the first two arguments of each <TT>merge/3</TT> atom were
+swapped, we would have a different definition with a different success
+set and minimum model.  Similarly, we could swap these two arguments
+in just recursive calls -- either or both of them.  Which (if any)
+of these is correct according to the (single) intended interpretation?
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html89"
+  HREF="node6.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/lib/latex2html/icons/next.png"></A> 
+<A NAME="tex2html87"
+  HREF="node3.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/lib/latex2html/icons/up.png"></A> 
+<A NAME="tex2html81"
+  HREF="node4.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/lib/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html90"
+  HREF="node6.html">Types, assertions and preconditions</A>
+<B> Up:</B> <A NAME="tex2html88"
+  HREF="node3.html">Motivation and background</A>
+<B> Previous:</B> <A NAME="tex2html82"
+  HREF="node4.html">Conventional definite clause semantics</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+
+2005-08-02
+</ADDRESS>
+</BODY>
+</HTML>

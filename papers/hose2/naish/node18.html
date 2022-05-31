@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Further Work</TITLE>
+<META NAME="description" CONTENT="Further Work">
+<META NAME="keywords" CONTENT="naish">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="naish.css">
+<LINK REL="next" HREF="node19.html">
+<LINK REL="previous" HREF="node14.html">
+<LINK REL="up" HREF="naish.html">
+<LINK REL="next" HREF="node19.html">
+</HEAD>
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html210"
+ HREF="node19.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/next_motif.gif"></A> 
+<A NAME="tex2html208"
+ HREF="naish.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/up_motif.gif"></A> 
+<A NAME="tex2html202"
+ HREF="node17.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html211"
+ HREF="node19.html">Conclusions</A>
+<B> Up:</B> <A NAME="tex2html209"
+ HREF="naish.html">Stepwise Enhancement and Higher</A>
+<B> Previous:</B> <A NAME="tex2html203"
+ HREF="node17.html">Other predicates</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00090000000000000000">
+Further Work</A>
+</H1>
+
+<P>
+A category theoretic reconstruction of our new transformations such as that
+for <code>foldl</code> (restricted to RUL programs) may produce some deeper
+insights and should extend the understanding of shape and polytypism for
+functional languages.  A more theoretical treatment of the higher order
+logic programs we derive may also be worthwhile.
+A language such as <IMG
+ WIDTH="16" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.gif"
+ ALT="$\lambda$">-Prolog (Nadathur and Miller, [<A
+ HREF="node20.html#Nadathur">NM88</A>]) 
+which has higher order constructs with well defined semantics is a
+potential basis, and has been used for characterisation of schemas
+(Gegg-Harrison, [<A
+ HREF="node20.html#Gegg-Harrison95">GH95</A>], [<A
+ HREF="node20.html#Gegg-Harrison96">GH96</A>]).
+Incorporating transformations such as those
+we have suggested into logic programming languages which support some
+notion of types would also enrich these languages.
+
+<P>
+The tools we have implemented could also be improved and extended.  The
+tool which converts from type definitions to Horn clauses should ideally
+support an expressive type language but always output the simplest possible
+Horn clause definitions.  The tool which generates higher order definitions
+could also be enhanced.  Instead of always producing code cotaining
+<TT>call/N</TT> there could be optional support for <TT>apply/3</TT>.
+Alternatively, ``<TT>??</TT>'' could be output instead of <TT>call</TT> and
+the extra higher order arguments could be avoided, supporting the stepwise
+enhancement paradigm.  Other ``shapely'' operations such as <code>zip2/3</code>
+(which takes two lists and returns a list of pairs) could also be
+generalised, as suggested by (Jay, [<A
+ HREF="node20.html#Jay">Jay95</A>]).  Further generalisations of
+<code>foldr</code> and <code>foldl</code> could also be devised (Belleannie et al
+[<A
+ HREF="node20.html#Belleannie">BBR97</A>]).  For example, we could add higher order calls to the
+start <EM>and</EM> end of each clause body, or even between each call as
+well.  We have identified one higher order predicate for lists,
+<TT>map_acc</TT>, which is a combination of <TT>foldr</TT> (map) and
+<TT>foldl</TT> (accumulators) and could be generalised to other data types.
+
+<P>
+We note that while the quest for more expressive constructs is alluring,
+the ``Holy Grail'' is not a single construct with ultimate expressive
+power: that is what we started with -- a general purpose programming
+language.  There is no benefit in replacing <code>foldr</code> and <code>foldl</code>
+by a more general predicate which is applicable in twenty percent more
+situations if each use is twice as complicated.  The ideal situation is to
+have a collection of higher order predicates or functions with a good
+tradeoff between applicability and complexity.  Such sets can be developed
+over time, based on coding patterns which occur in practice, and
+properties of different (sets of) primitives can be established.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html210"
+ HREF="node19.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/next_motif.gif"></A> 
+<A NAME="tex2html208"
+ HREF="naish.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/up_motif.gif"></A> 
+<A NAME="tex2html202"
+ HREF="node17.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html211"
+ HREF="node19.html">Conclusions</A>
+<B> Up:</B> <A NAME="tex2html209"
+ HREF="naish.html">Stepwise Enhancement and Higher</A>
+<B> Previous:</B> <A NAME="tex2html203"
+ HREF="node17.html">Other predicates</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>Lee Naish</I>
+<BR><I>2000-07-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

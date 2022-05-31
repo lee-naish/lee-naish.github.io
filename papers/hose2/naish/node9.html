@@ -1,0 +1,170 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Non-deterministic Skeletons</TITLE>
+<META NAME="description" CONTENT="Non-deterministic Skeletons">
+<META NAME="keywords" CONTENT="naish">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="naish.css">
+<LINK REL="next" HREF="node10.html">
+<LINK REL="previous" HREF="node8.html">
+<LINK REL="up" HREF="node6.html">
+<LINK REL="next" HREF="node10.html">
+</HEAD>
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html121"
+ HREF="node10.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/next_motif.gif"></A> 
+<A NAME="tex2html119"
+ HREF="node6.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/up_motif.gif"></A> 
+<A NAME="tex2html113"
+ HREF="node8.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html122"
+ HREF="node10.html">Polymorphic Types and Higher</A>
+<B> Up:</B> <A NAME="tex2html120"
+ HREF="node6.html">Generalising Both Approaches</A>
+<B> Previous:</B> <A NAME="tex2html114"
+ HREF="node8.html">Mutual recursion</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00063000000000000000">
+Non-deterministic Skeletons</A>
+</H2>
+
+<P>
+Algebraic types correspond to RUL programs, in which predicates are
+deterministic and only have a single argument.  The stepwise enhancement
+paradigm has no such restriction, hence nondeterministic skeletons such as
+<code>branch/1</code> (Program 2b) and <code>connected/2</code> (Program 9)
+can be used.
+
+<PRE>
+connected(A, A).
+connected(A0, A) :-
+    edge(A0, A1),
+    connected(A1, A).
+</PRE><B>Program 9</B>:  Transitive closure of the edge/2 relation
+<BR> 
+
+<P>
+As noted in (Naish, [<A
+ HREF="node20.html#Naish">Nai96</A>]), higher order logic programs can also be
+nondeterministic and nondeterministic analogues of <code>foldr</code> can be
+constructed.  A version of <code>foldr</code> for paths in a graph was
+written (using considerable intellectual effort) based on the simple
+transitive closure procedure <code>connected/2</code>, above.
+The close relationship between ``shape'' and stepwise enhancement we have
+uncovered can be used to generalise the transformation from algebraic
+types (or RUL programs) to <code>foldr</code> functions.  From an arbitrary skeleton
+(not necessarily a RUL program), we can generate an appropriate version
+of <code>foldr</code> as follows.
+
+<P>
+=1pc0
+ <I>Definition<I> 
+6.1.</I></I>(foldr transformation)
+A procedure with <EM>A</EM> arguments and <EM>C</EM> clauses leads to a
+higher order procedure with <EM>C+A+1</EM> arguments.  It has <EM>C</EM>
+``higher order'' arguments and one additional ``result'' argument.  The
+recursive calls in the clause bodies have the same higher order arguments
+as the head and new variables for their results.  Each clause also has an
+additional <code>call/N</code> with the higher order argument for that
+clause, the variables in the head which did not appear in any recursive body
+calls, result arguments of the body calls and the result argument of the
+head.  If this call has only two arguments then <code>call/2</code> is
+replaced by <code>=/2</code> (the higher order argument is simply a term
+which is returned for the base case; the call to <code>=/2</code> can then be
+optimised away, as in Program 7).
+<P>
+ 
+<P>
+Mutual recursion can be treated in the same way.  Each procedure in a
+set of (mutually recursive) procedures is transformed as above, where
+<EM>C</EM> is the number of clauses in the set of procedures.  In the
+description of the transformation above and other
+transformations in Section <A HREF="node14.html#newtrfs">8</A> we refer to ``recursive'' calls.
+This should be interpreted as including mutual recursion when
+transforming multiple procedures.  Our implementation of the tools
+introduced in Section <A HREF="node13.html#tools">7</A> has been made more flexible by using
+an even more liberal definition: a call to any procedure defined in the
+input to the tool is considered recursive and <EM>C</EM> is the number of
+clauses defined in procedures indirectly called by a specified procedure.
+
+<P>
+For <code>list/1</code> and <code>tree/1</code> the results are the
+<code>foldr/4</code> and <code>foldrbt/4</code> definitions given in
+Programs 7 and 8.  For <code>branch/1</code> and <code>connected/2</code>
+the results are in Program 10.  The <code>foldrcon/5</code> procedure here is
+actually more general than the manually constructed version (which had
+a base case of <code>V=FB</code> instead of <code>call/3</code>) and
+can be used in the applications described in (Naish, [<A
+ HREF="node20.html#Naish">Nai96</A>]).
+Section <A HREF="node7.html#sumsquare">6.1</A> gives an example where a call is needed in the
+base case.
+
+<P>
+<PRE>
+foldrb(FL, FR, FB, leaf(X), V) :-       
+    call(FB, X, V).                    
+foldrb(FL, FR, FB, t(L,R), V) :-      
+    foldrb(FL, FR, FB, L, V1),       
+    call(FL, R, V1, V).             
+foldrb(FL, FR, FB, t(L,R), V) :-   
+    foldrb(FL, FR, FB, R, V2),
+    call(FR, L, V2, V).
+
+foldrcon(FE, FB, A, A, V) :-
+    call(FB, A, V).
+foldrcon(FE, FB, A0, A, V) :-
+    edge(A0, A1),
+    foldrcon(FE, FB, A1, A, V1),
+    call(FE, A0, V1, V).
+</PRE><B>Program 10</B>:  Nondeterministic foldr for branch and connected
+<BR>
+<BR>
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html121"
+ HREF="node10.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/next_motif.gif"></A> 
+<A NAME="tex2html119"
+ HREF="node6.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/up_motif.gif"></A> 
+<A NAME="tex2html113"
+ HREF="node8.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html122"
+ HREF="node10.html">Polymorphic Types and Higher</A>
+<B> Up:</B> <A NAME="tex2html120"
+ HREF="node6.html">Generalising Both Approaches</A>
+<B> Previous:</B> <A NAME="tex2html114"
+ HREF="node8.html">Mutual recursion</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>Lee Naish</I>
+<BR><I>2000-07-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

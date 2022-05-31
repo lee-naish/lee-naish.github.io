@@ -1,0 +1,89 @@
+<html>
+<TITLE>NUE-Prolog</TITLE>
+<H1>NUE-Prolog</H1>
+<hr>
+
+<H3>
+		Adding equations to NU-Prolog
+</H3>
+<H3>
+			Lee Naish
+</H3>
+<br>
+
+This paper describes  an  extension  to  NU-Prolog  which  allows
+evaluable  functions  to be defined using equations.  We consider
+it to be the most  pragmatic  way  of  combining  functional  and
+relational  programming.   The implementation consists of several
+hundred  lines  of  Prolog  code  and   the   underlying   Prolog
+implementation  was  not modified at all.  However, the system is
+reasonably efficient  and  supports  coroutining,  optional  lazy
+evaluation,   higher  order  functions  and  parallel  execution.
+Efficiency is gained in several ways.  First,  we  use  some  new
+implementation techniques.  Second, we exploit some of the unique
+features of NU-Prolog, though these features are not essential to
+the  implementation.   Third, the language is designed so that we
+can take advantage of implicit mode and determinism  information.
+Although  we  have  not  concentrated  on  the  semantics  of the
+language, we believe  that  our  language  design  decisions  and
+implementation  techniques  will be useful in the next generation
+of combined functional and relational languages.
+<P>
+
+Keywords: logic programming, equations,  functions,  parallelism,
+indexing, lazy evaluation, higher order.
+<P>
+
+<UL>
+
+<LI>
+<A HREF="../../src/eq/">
+implementation/examples
+</A>
+
+<LI>
+<A HREF="./tr.dvi.gz">
+Tech report version:
+</A>
+gzipped dvi file (25k)
+
+<!-- <LI> -->
+<!-- Tech report version: -->
+<!-- <A HREF="tr.ps"> -->
+<!-- postscript -->
+<!-- </A> -->
+<!-- (137k) -->
+
+<LI>
+<A HREF="all.bib.txt">
+references
+</A>
+
+<LI>
+<A HREF="../ddfp/">
+Declarative debugger
+</A>
+for functional subset of NUE-Prolog
+
+<LI>
+<A HREF="../nuedd/">
+Declarative debugger
+</A>
+for full NUE-Prolog
+
+<LI>
+<A HREF="../dds/">
+A declarative debugging scheme
+</A>
+
+<LI>
+<A HREF="http://www-i2.informatik.rwth-aachen.de/hanus/FLP/">
+Functional Logic Programming home page
+</A>
+
+</UL>
+
+<br>
+<A HREF="http://people.eng.unimelb.edu.au/lee"> Lee </A>
+
+</HTML>

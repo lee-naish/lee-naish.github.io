@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.2beta8 (1.42)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Conclusion</TITLE>
+<META NAME="description" CONTENT="Conclusion">
+<META NAME="keywords" CONTENT="naishsem3">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.2beta8">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="naishsem3.css">
+
+<LINK REL="next" HREF="node22.html">
+<LINK REL="previous" HREF="node20.html">
+<LINK REL="up" HREF="naishsem3.html">
+<LINK REL="next" HREF="node22.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html251"
+  HREF="node22.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/lib/latex2html/icons/next.png"></A> 
+<A NAME="tex2html249"
+  HREF="naishsem3.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/lib/latex2html/icons/up.png"></A> 
+<A NAME="tex2html243"
+  HREF="node20.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/lib/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html252"
+  HREF="node22.html">Bibliography</A>
+<B> Up:</B> <A NAME="tex2html250"
+  HREF="naishsem3.html">A three-valued semantics for</A>
+<B> Previous:</B> <A NAME="tex2html244"
+  HREF="node20.html">Program verification</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00070000000000000000">
+Conclusion</A>
+</H1>
+
+<P>
+In the early days of logic programming, much was made of the closeness of
+logic programs and specifications.  Some people went as far as saying they
+were the same; others suggested logic programs were logical consequences
+of specifications.  One of the failings of this work was the lack of
+recognition that specifications don't typically define what is correct
+behaviour in all cases, whereas the two-valued declarative semantics
+of logic programs must.  The use of classical logic instead of Kleene's
+strong three-valued logic as the starting point for the declarative
+semantics was, we believe, a technical mistake (though it probably
+helped the early popularity of logic programming).  What was once an
+important selling point of logic programming has been largely discounted
+in recent times, but our work shows the relationship between logic programs
+and specifications <I>is</I> much closer than we have come to accept.
+
+<P>
+Unfortunately, there tends to be strong resistance to non-classical logics
+(having been part of the resistance in the past I'm now a collaborator).
+A typical Prolog programmer told ``if you learn about a variation of
+Kleene's strong three-valued logic applied to Clark's completion you
+will be able to verify your programs more easily'' is unlikely to jump
+at the opportunity.  Although the statement is true and the three-valued
+approach is significantly simpler than the alternatives, it does pose
+an educational challenge.  It may be possible to finesse this problem by
+describing techniques programmers can use without using technical jargon,
+something we have attempted to do.
+
+<P>
+Our work was motivated by the desire to find a better answer to the
+following question.  <I>What is the weakest condition a programmer
+should enforce which ensures correct behaviour of their programs?</I> In the
+current context we identify correct behaviour primarily with soundness and
+a form of completeness, though in general, termination, other forms of
+completeness and even efficiency are important.  The traditional answer
+is that the programmer should have a two-valued interpretation which is a
+model of the program (or completion).  A strictly weaker condition is
+that the programmer should have a three-valued interpretation which is a
+(strong) model.  Our answer is similar, but strictly weaker again due
+to our definition of a model.  This allows more natural interpretations
+without unduly restricting programming style. It is consistent with
+declarative debugging and other approaches to verification of logic
+programs which are not explicitly based on model theory.
+
+<P>
+From a more technical perspective, the model theory seems quite elegant.
+The fixpoint theory is more complex than the two-valued case but retains
+important relationships with the model theory.  Our semantics is very
+programmer-oriented, giving no immediate help to those interested in
+automatic program analysis.  However, various declarations concerning
+types, modes, assertions, <I>et cetera</I> can be seen as documenting
+(an approximation to) the set of inadmissible atoms in the intended
+interpretation and can be used for program analysis and optimisation.
+Such declarations are thus compatible with our semantics but we have
+argued that no formalism will precisely capture the intentions of
+programmers in all cases.
+
+<P>
+
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html251"
+  HREF="node22.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/lib/latex2html/icons/next.png"></A> 
+<A NAME="tex2html249"
+  HREF="naishsem3.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/lib/latex2html/icons/up.png"></A> 
+<A NAME="tex2html243"
+  HREF="node20.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/lib/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html252"
+  HREF="node22.html">Bibliography</A>
+<B> Up:</B> <A NAME="tex2html250"
+  HREF="naishsem3.html">A three-valued semantics for</A>
+<B> Previous:</B> <A NAME="tex2html244"
+  HREF="node20.html">Program verification</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+
+2005-08-02
+</ADDRESS>
+</BODY>
+</HTML>

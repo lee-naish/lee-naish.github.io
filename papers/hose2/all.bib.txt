@@ -1,0 +1,257 @@
+@article{hose2,
+           author={Lee Naish and Leon Sterling},
+           title={Stepwise Enhancement and Higher-Order Programming in Prolog},
+           journal={Journal of Functional and Logic Programming},
+           volume={2000},
+           number={4},
+           publisher={The MIT Press},
+           month={March},
+           year={2000},
+      abstractURL = "http://danae.uni-muenster.de/lehre/kuchen/JFLP/articles/2000/S00-01/S00-01.html",
+      comment = {JFLP is an electronic journal so page numbers
+                        are not applicable}
+         }
+
+
+@techreport{Belleannie,
+  author = {C. Belleannie and P. Brisset and O. Ridoux },
+  title = { A Pragmatic Reconstruction of {$\lambda$-Prolog}},
+  number = { Publication Interne IRISA no. 877},
+  institution = {{IRISA}},
+  year = {October 1994 (revised 1997)}
+}
+
+@inproceedings{Belle,
+  author = {G. Bell\'e and C.B. Jay and E. Moggi},
+  title = { Functorial ML},
+  booktitle = { Proc. PLILP '96, LNCS 1140},
+  publisher = {Springer Verlag}, 
+  pages = { 32--46},
+  year = {1996}
+}
+
+@inproceedings{Gegg-Harrison95,
+  author = {T. Gegg-Harrison },
+  title = {Representing Logic Program Schemata in {$\lambda$-Prolog}},
+  booktitle = { Proc.  12th ICLP},
+  editor = { L. Sterling}, 
+  pages = { 467--481},
+  publisher = {MIT Press},
+  year = {1995}
+}
+
+@inproceedings{Gegg-Harrison96,
+  author = {T. Gegg-Harrison },
+  title = {Extensible Logic Program Schemata},
+  booktitle = { Logic Programming Synthesis and Transformation:
+6th International Workshop, LOPSTR'96, LNCS 1207},
+  editor = { J.P. Gallagher}, 
+  pages = { 256--274 },
+  publisher = {Springer Verlag},
+  year = {1996}
+}
+
+@inproceedings{Jansson,
+  author = {P. Jansson and J. Jeuring},
+  title = {{PolyP} --- a polytypic programming language extension},
+  booktitle = {  Conference Record of POPL '97: The 24th ACM SIGPLAN-SIGACT
+Symposium on Principles of Programming Languages}, 
+  pages = { 470--482},
+  publisher = {ACM},
+  year = {1997}
+}
+
+@inproceedings{Jay94,
+  author = {C.B. Jay and J.R.B. Cockett},
+  title = {Shapely Types and Shape Polymorphism},
+  booktitle = { Proc. Programming Languages and Systems --- ESOP '94:
+5th European Symposium on Programming},
+  editor = { D. Sannella},
+  publisher = {Springer Verlag}, 
+  pages = { 302--316},
+  location = {Edinburgh, U.K.},
+  year = {April 1994}
+}
+
+@inproceedings{Kirschenbaum,
+  author = {M. Kirschenbaum and S. Michaylov and L.S. Sterling},
+  title = {Skeletons and Techniques as a Normative
+Approach to Program Development  in Logic-Based Languages},
+  booktitle = { Proc.  ACSC'96, Australian Computer Science Communications, 18(1)}, 
+  pages = { 516--524},
+  year = {1996}
+}
+
+@inproceedings{Nadathur,
+  author = {G. Nadathur and D. Miller},
+  title = {An Overview of {$\lambda$-Prolog}},
+  booktitle = { Proceedings of JICSLP},
+  editor = { K. Bowen and R. Kowlaski}, 
+  pages = { 810--827},
+  publisher = {MIT Press},
+  year = {1988}
+}
+
+
+@inproceedings{Power,
+  author = {A.J. Power and L.S. Sterling},
+  title = {A Notion of Map between Logic Programs},
+  booktitle = { Proceedings of 7th ICLP},
+  editor = { Warren and Szeredi},
+  pages = { 390--404},
+  publisher = {MIT Press},
+  year = {1990}
+}
+
+@inproceedings{Sterling93a,
+  author = {L.S. Sterling  and C. {Sitt Sen}},
+  title = {A Tool to Support Stepwise Enhancement in Prolog},
+  booktitle = { Workshop on Logic Programming Environments}, 
+  pages = { 21--26},
+  address = {Vancouver},
+  year = { October, 1993.}
+}
+%   location = {Vancouver},
+
+@inproceedings{Vasconcelos,
+  author = {W. Vasconcelos and N.E. Fuchs},
+  title = { An Opportunistic Approach for Logic
+Program Analysis and Optimisation using Enhanced Schema-based Transformations},
+  booktitle = { Proc.  LOPSTR'95},
+  editor = { M. Proietti},
+  publisher = {Springer Verlag}, 
+  pages = { 174--188},
+  year = {1995}
+}
+
+@phdthesis{Lakhotia,
+  author = {A. Lakhotia},
+  title = {A Workbench for Developing Logic Programs by Stepwise Enhancement},
+  type = { {Ph.D.}},
+  school = {Case Western Reserve University},
+  year = {1989}
+}
+%  institution = {Case Western Reserve University},
+
+@incollection{Jeuring,
+  author = {J. Jeuring and P. Jansson},
+  title = {Polytypic programming},
+  booktitle = { Advanced Functional Programming, LNCS 1129},
+  editor = {J. Launchbury and E. Meijer and T. Sheard},
+  pages = { 68--114},
+  publisher = {Springer-Verlag},
+  year = {1996}
+}
+
+@article{Yardeni,
+  author = {E. Yardeni and E.Y. Shapiro },
+  title = { A Type System for Logic Programs},
+  journal = { Journal of Logic Programming},
+  volume = {10},
+  number = {2},
+  pages = { 125--154},
+  year = { 1990}
+}
+
+@article{Sterling96,
+  author = {L.S. Sterling and U. {Yal\c{c}inalp}},
+  title = { Logic Programming and Software Engineering --- Implications
+for Software Design},
+  journal = { Knowledge Engineering Review},
+  volume = {11},
+  number = {4}, 
+  pages = { 333--345},
+  year = {1996}
+}
+
+@article{Jay,
+  author = {C.B. Jay},
+  title = { A semantics for shape},
+  journal = { Science of Computer Programming},
+  volume = {25},
+  pages = { 251--283},
+  year = { 1995}
+}
+
+
+
+
+@TechReport{Naish,
+        Author = { Naish, Lee },
+        Title = { Higher-order logic programming in {Prolog}},
+        Number = { 96/2 },
+        Institution = { Department of Computer Science, University of
+                Melbourne },
+        Address = { Melbourne, Australia },
+        pages = 15,
+        Month = feb,
+        Year = 1996,
+        subcat =  {G1},
+        authorcode = {433,13,00,FS,MD,M},
+        abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/ho/",
+        comment   =     {In proceedings of workshop on multi-paradigm
+                        logic programming, JICSLP'96, also
+                         Research report #96-28,  Fachbereich
+                        Informatik, Technische Universitat Berlin}
+}
+
+@inproceedings{hose1,
+        Author = { Naish, Lee and Sterling, Leon },
+        Title = { A higher order reconstruction of stepwise enhancement},
+        booktitle =     {Logic Programming Synthesis and Transformation:
+                       7th International Workshop, LOPSTR'97},
+        location =      {Leuven, Belgium},
+        editor =        {Fuchs, N.E.},
+        publisher =     {Springer-Verlag},
+        series =        {Lecture notes in computer science},
+        number =        {1463},
+        month   =       {October},
+        year   =        {1998},
+        pages  =        {245--262},
+        abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/hose/",
+        isbn = {3-540-65074-1},
+        subcat =  {F1},
+        authorcode = {433,13,00,FS,MD,M},
+        authorcode = {433,13,00,FS,MD,M},
+        comment   =     {Technical Report 97/8, Department of Computer
+                        Science, University of Melbourne}
+}
+%        address =       {Berlin},
+
+@INPROCEEDINGS{Sagonas,
+     AUTHOR = {Konstantinos Sagonas and David S. Warren},
+      TITLE = {Efficient Execution of {HiLog} in {WAM}-based {P}rolog
+               implementations},
+       YEAR = {1995},
+      MONTH = jun,
+  BOOKTITLE = {Proceedings of the 12th International Conference on Logic
+             Programming},
+    ADDRESS = {Japan},
+     EDITOR = {Leon Sterling},
+  PUBLISHER = {MIT Press},
+      PAGES = {349--363}
+}
+
+
+@InProceedings{Somogyi,
+        Author = { Zoltan Somogyi and Fergus J. Henderson and
+                Thomas Conway },
+        Title = { Mercury: an efficient purely declarative logic
+                programming language },
+        Booktitle = { Proceedings of the Australian Computer Science
+                Conference },
+        Pages = { 499--512 },
+        Address = { Glenelg, Australia },
+        Month = feb,
+        Year = 1995
+}
+
+@Book{  Sterling94,
+        Author = { Leon Sterling and
+                Ehud Shapiro },
+        Title = { The art of {Prolog}, 2nd edition },
+       Series = { Logic Programming series },
+        Publisher = { MIT Press },
+        Address = { Cambridge, Massachusetts },
+        Year = 1994
+             }

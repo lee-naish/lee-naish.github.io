@@ -1,0 +1,63 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Sharing analysis in the Pawns compiler
+</title>
+<link rev=made href="mailto:lee@unimelb.edu.au">
+</head>
+<body>
+<h1>Sharing analysis in the Pawns compiler
+</h1>
+
+<h3>
+			Lee Naish
+</h3>
+<br>
+Pawns is a programming language under development that supports
+algebraic data types, polymorphism, higher order functions and "pure"
+declarative programming. It also supports impure imperative features
+including destructive update of shared data structures via pointers,
+allowing significantly increased efficiency for some operations. A
+novelty of Pawns is that all impure "effects" must be made obvious in
+the source code and they can be safely encapsulated in pure functions
+in a way that is checked by the compiler. Execution of a pure function
+can perform destructive updates on data structures that are local to
+or eventually returned from the function without risking modification
+of the data structures passed to the function. This paper describes
+the sharing analysis which allows impurity to be encapsulated. Aspects
+of the analysis are similar to other published work, but in addition
+it handles explicit pointers and destructive update, higher order
+functions including closures and pre- and post-conditions concerning
+sharing for functions.
+<p>
+
+Keywords: functional programming language, destructive update,
+mutability, effects, algebraic data type, sharing analysis, aliasing
+analysis
+<p>
+
+<ul>
+
+<li>
+The paper (revised August 2015):
+<a href="./pawnsshare.pdf">
+PDF version</a>,
+<a href="https://peerj.com/articles/cs-22/">
+as published in Peerj Computer Science</a>
+
+<li>
+<a href="./talk.pdf">
+Slides for talk</a>
+at Melbourne University, October 2015
+
+<li>
+<a href="../../src/pawns">
+Pawns home</a>
+
+</ul>
+
+<br>
+<a href="http://people.eng.unimelb.edu.au/lee"> Lee </a>
+
+</body>
+</html>

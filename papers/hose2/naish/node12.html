@@ -1,0 +1,263 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Foldl</TITLE>
+<META NAME="description" CONTENT="Foldl">
+<META NAME="keywords" CONTENT="naish">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="naish.css">
+<LINK REL="previous" HREF="node11.html">
+<LINK REL="up" HREF="node6.html">
+<LINK REL="next" HREF="node13.html">
+</HEAD>
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html149"
+ HREF="node13.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/next_motif.gif"></A> 
+<A NAME="tex2html147"
+ HREF="node6.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/up_motif.gif"></A> 
+<A NAME="tex2html143"
+ HREF="node11.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html150"
+ HREF="node13.html">Tools for program development</A>
+<B> Up:</B> <A NAME="tex2html148"
+ HREF="node6.html">Generalising Both Approaches</A>
+<B> Previous:</B> <A NAME="tex2html144"
+ HREF="node11.html">Flexible Modes</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00066000000000000000">
+Foldl</A>
+</H2>
+
+<P>
+In many cases, the higher order function <code>foldl</code> is preferable to
+<code>foldr</code> since it is tail recursive rather than left recursive
+(and thus may be more efficient, at least for strict evaluation).
+Note that the complexity of <code>foldl</code> can actually be worse in some
+cases (depending on the operation) and if the operation is not
+associative the result of using <code>foldl</code> will generally be different
+from that using <code>foldr</code>.  It is not
+immediately obvious how to adapt <code>foldl</code> to general tree types
+rather than just lists.  One possibility, suggested by Barry Jay is to
+perform a breadth first traversal (<code>foldr</code> uses a depth first
+traversal).  This can be coded in a tail recursive fashion and is a
+familiar programming technique.
+
+<P>
+Another possibility, which we pursued initially and is used in
+(Belleannie et al [<A
+ HREF="node20.html#Belleannie">BBR97</A>]),
+is to use <code>foldr</code> with more complex data flow, using
+logic variables.  The result argument of <code>foldr</code> can be a pair
+of terms, one of which can be used as an input, and the accumulator
+style of programming can be used.  If the accumulator is a list, we can
+think of <code>foldr</code> returning a difference list
+(Sterling and Shapiro, [<A
+ HREF="node20.html#Sterling94">SS94</A>]) instead of a list.
+With this style of programming, the data dependencies are such that
+the instances of <code>call/N</code> in the <code>foldr</code> definitions can
+be executed before the recursive call(s), allowing tail recursion.
+
+<P>
+However, we believe the most elegant and natural generalisation of
+<code>foldl</code> is evident in the stepwise enhancement paradigm.
+We adapted stepwise enhancement to produce higher order
+<code>foldr</code> procedures using a generalisation of the calculate and
+build techniques.  By using <EM>accumulator techniques</EM> we can produce
+a <code>foldl</code> procedure for any skeleton.  Expert Prolog programmers
+use accumulators much
+more often than breadth first traversals and the code produced has
+simple data flow and can be translated into a functional language if the
+initial skeleton corresponds to an algebraic type.
+
+<P>
+=1pc0
+ <I>Definition<I> 
+6.2.</I></I>(foldl transformation)
+The transformation is similar to the one described for <code>foldr</code>.
+The same number of higher order arguments are used and there is one
+output argument, as before, but there is also an extra accumulator
+argument.  The <code>call/N</code> is the leftmost atom in the body and the
+accumulator and output arguments are ``threaded'' through this and the
+recursive calls in the clause body in the familiar way
+(Sterling and Shapiro, [<A
+ HREF="node20.html#Sterling94">SS94</A>]).
+<P>
+ 
+<P>
+The accumulator and output arguments can be made implicit by using the
+standard Definite Clause Grammar notation.  The resulting version of
+<code>foldl</code> for lists is as follows.
+
+<P>
+<PRE>
+% Explicit accumulator version
+foldl(FC, FB, [], A0, A) :-            
+    call(FB, A0, A).                  
+foldl(FC, FB, [X|Xs], A0, A) :-        
+    call(FC, X, A0, A1),            
+    foldl(FC, FB, Xs, A1, A).      
+
+% DCG (implicit accumulator) version
+foldl(FC, FB, []) --&gt;
+    call(FB).
+foldl(FC, FB, [X|Xs]) --&gt;
+    call(FC, X),
+    foldl(FC, FB, Xs).
+</PRE><B>Program 14</B>:  Automatically derived foldl for lists
+<BR>
+<BR>
+
+<P>
+There are two differences between this version of <code>foldl</code> and the
+standard <code>foldl</code> for lists defined in functional programming languages.
+The first is the argument order for
+the call to the <code>FC</code> ``function'' is swapped.  This is not essential
+but allows the accumulator and output arguments to be implicit using the
+DCG notation.  It is also consistent with <code>foldr</code>.  The second
+difference is the use of a function called in the base case.  The
+standard version of <code>foldl</code> simply returns the accumulator when
+the end of the list is reached.  This is equivalent to our version of
+<code>foldl</code> with the identity function (<code>=/2</code> in Prolog) as
+the function for the base case.
+
+<P>
+For data structure such as lists which are ``linear'' and have no data
+in the (only) leaf,
+calling a function when the base case is reached adds no real
+power.  The function can always be called at the top level after
+<code>foldl</code> has returned, with the same effect.  However, for tree
+structures or linear structures with data in the leaf,
+a function application at the base case is often essential.
+Below are the versions of <code>foldl</code> for the <code>bt</code> type and
+<code>connected/2</code> procedure.
+Note <code>prod_leaves/2</code> (<code>sum_leaves/2</code>) has the
+multiplication (addition) at the leaves, as in Program 5.
+These predicates are equivalent to the previous versions, in
+Program 8, if <code>plus/3</code> and <code>times/3</code> are associative.
+
+<P>
+<PRE>
+foldlbt(F, B, leaf(X)) --&gt;              
+    call(B, X).                        
+foldlbt(F, B, t(L,R)) --&gt;             
+    call(F),                         
+    foldlbt(F, B, L),               
+    foldlbt(F, B, R).              
+
+prod_leaves(T, P) :-              
+    foldlbt(=, times, T, 1, P).  
+                                
+sum_leaves(T, P) :-            
+    foldlbt(=, plus, T, 0, P).
+
+rev_traverse(Tree, Xs) :-
+    foldlbt(=, cons, Tree, [], Xs).
+</PRE>
+<PRE>
+foldlcon(F, B, A, A) --&gt;
+    call(B, A).
+foldlcon(F, B, A0, A) --&gt;
+    call(F, A0),
+    {edge(A0, A1)},
+    foldlcon(F, B, A1, A).
+
+% non-looping connected; returns path
+con_no_loop(A0, A, As) :-
+    foldlcon(cons_nm, cons, A0, A, [], As).
+
+cons_nm(A0, As, [A0|As]) :-
+    not member(A0, As).
+</PRE><B>Program 15</B>:  Versions of foldl for <code>is_tree/1</code> and <code>connected/2</code>
+<BR>
+
+<P>
+For <code>foldlcon/6</code>, the call to <code>edge/2</code> is not recursive, so
+accumulator arguments are not added (braces are used to indicate this in
+the DCG notation).
+From <code>foldlcon/2</code> it is simple to code <code>con_no_loop/3</code> which finds
+connected nodes but avoids cycles.  The accumulator is the list of nodes
+visited so far, in reverse order. The procedure which adds a new node
+to the accumulator, <code>cons_nm/3</code>, fails if the node is already on
+the path.  The path is also be returned at the top level.
+
+<P>
+Since the skeleton <code>is_tree/1</code> is a RUL program and
+hence equivalent to an algebraic type, <code>foldlbt/4</code> is
+deterministic and behaves as a higher order function over that type.
+The threading of the accumulator and result arguments in the body of a
+clause is equivalent to nesting of functional expressions.
+For comparison, we give the equivalent Haskell code in Program 16.
+
+<P>
+<PRE>
+&gt;data Bt a = Leaf a | Tree (Bt a) (Bt a)
+&gt;foldlbt :: (a-&gt;a)-&gt;(b-&gt;a-&gt;a)-&gt;(Bt b)-&gt;a-&gt;a
+&gt;foldlbt f b (Leaf x) a = b x a
+&gt;foldlbt f b (Tree l r) a =
+&gt;    foldlbt f b r (foldlbt f b l (f a))
+
+&gt;sum_leaves t = foldlbt (id) (+) t 0
+</PRE><B>Program 16</B>:  Haskell version of foldl for is_tree/type bt
+<BR>
+<BR>
+
+<P>
+There are actually two possible versions of <code>foldlbt/5</code>, depending
+on the order in which the two subtrees are visited.  By swapping the
+two recursive calls in the DCG version, the argument threading is also
+changed, leading to a logically different procedure.  The procedure
+<code>rev_traverse/2</code> in Program 15 returns the reverse of the
+traversal returned by Program 6.  Using the other version of
+<code>foldlbt/5</code> would result in the same traversal order. The choice of
+traversal orders and additional argument in <code>foldl</code>
+are consistent with the intuition that programming with accumulators
+or <code>foldl</code> is more complicated than
+using simple recursion or <code>foldr</code>.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html149"
+ HREF="node13.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/next_motif.gif"></A> 
+<A NAME="tex2html147"
+ HREF="node6.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/up_motif.gif"></A> 
+<A NAME="tex2html143"
+ HREF="node11.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/local/apps/latex2html-98/icons.gif/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html150"
+ HREF="node13.html">Tools for program development</A>
+<B> Up:</B> <A NAME="tex2html148"
+ HREF="node6.html">Generalising Both Approaches</A>
+<B> Previous:</B> <A NAME="tex2html144"
+ HREF="node11.html">Flexible Modes</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>Lee Naish</I>
+<BR><I>2000-07-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

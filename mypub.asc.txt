@@ -1,0 +1,10 @@
+PGP public key for Lee Naish <lee@unimelb.edu.au>
+
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+Version: 2.6.2i
+
+mQBNAzEnwMoAAAECAMuk5GQ23faTWxfR6/6HERTlMowXU2MXSr6USTcm3f/TRm7x
+K4Yf9FNt6zOXBO/YFJGYGyzxVqP+FxSxrI6USo0ABRO0G0xlZSBOYWlzaCA8bGVl
+QGNzLm11Lm96LmF1Pg==
+=AgxC
+-----END PGP PUBLIC KEY BLOCK-----
