@@ -1,4 +1,0 @@
-set base=lpt.html
-set base=index.html
-
-alias	vv	vim $base
