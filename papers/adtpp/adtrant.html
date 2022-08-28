@@ -1,0 +1,368 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+            "http://www.w3.org/TR/1998/REC-html40-19980424/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="keywords" content="Algebraic data type, ADT, mutability,
+destructive update, programming language, data structures, functional
+programming">
+<meta name="description" content="Algebraic data type rant">
+<meta name="maintained-by" content="Lee Naish dr.lee.naish@gmail.com">
+<meta name="expiry-date" content="9999-12-31">
+<title>Algebraic data type rant</title>
+<link rev=made href="dr.lee.naish@gmail.com">
+</head>
+<body>
+
+<h1>Mutable Algebraic Data Types, the Right Way</h1>
+
+<p>
+This is a rant, born out of years of frustration that so many programming
+languages either do not support user-defined algebraic data types (ADTs)
+at all, or support them poorly, in a way that forces the implementation to
+be inefficient. It assumes some familiarity with ADTs and C. I know that
+efficiency, and indeed data structures, do not have the importance they
+had for programmers in the 1970's, when I began my career as a computer
+scientist, but I hope I'm not alone in caring about them when it comes
+to programming language design.  The ways ADT values are constructed
+and examined can and should eliminate many potential programmer errors
+- this is one of their strengths. For example, ADTs can prevent access
+to the data in the root of a binary search tree without first ensuring
+the tree is not empty, eliminating the possibility of dereferencing a
+NULL pointer. Probably even more important is their expressive power.
+For example, an ADT can represent either a "normal" value or an error
+description, forcing code to check for errors before accessing the value
+returned from a function (trust me, errors are not actually abnormal;
+at my age they are not even uncommon).  I remember being amazed and
+excited studying mathematics when I first saw the formula for finding
+roots of a quadratic equation. Later I wrote corresponding code (in
+FORTRAN) which, quite predictably, was ugly and buggy. To write elegant,
+correct code to solve this problem it is important to first note there
+are four possibilities (two roots, one root, no roots or everything is a
+root), then decide how these possibilities are to be represented. ADTs
+provide a natural solution. With less expressive data types there are
+more opportunities for bugs.  ADTs are also often used with implicit
+dynamic memory allocation and garbage collection, eliminating further
+classes of errors.
+</p>
+
+<p>
+Some more modern languages avoid NULL pointer dereferencing by having
+"optional" values, which are a special case of ADTs, but there is
+no general ADT support. Others support user-defined ADTs but they are
+verbose, inelegant, expose too much of the (sometimes awfully inefficient)
+implementation and allow classes of errors that good ADT support can
+avoid.  Reading about such languages causes me to grit my teeth and
+emit involuntary "old man" noises. I know it takes substantial work to
+design and implement a programming language (I've done it a few times)
+and to make it usable and stable enough to support a significant user
+base is a huge effort. Far too much effort has gone into developing
+programming languages while missing opportunities for good ADT support.
+</p>
+
+<p>
+Functional programming languages have supported concise and elegant
+definition of ADTs and used efficient representations of values for close
+to fifty years, though with mutability (destructive update) severely
+restricted.  My contention is that the "right" way to support mutable
+algebraic data types is to allow mutability of just the arguments
+of data constructors. For example we may have a trie-like type (a
+binary tree with data only in the leaves) with two data constructors:
+trie_node(left, right) for internal nodes and trie_leaf(data) for leaf
+nodes. A programming language should support changing the data in a leaf
+node and changing the left and right subtrees in an internal node but
+it should not support the in-situ changing of a leaf node to an internal
+node or vice versa.
+</p>
+
+<h2>Algebraic Data Type basics</h2>
+
+<p>
+An ADT is defined by a set of data constructors, each with a fixed number
+of arguments of fixed types. Each value of the type is one of these
+data constructors with arguments of the defined types.  Testing which
+principal data constructor a value has and extracting the argument
+values is typically combined, using some form of pattern matching.
+For example, if binary search trees are defined as either tree_empty
+or tree_node(left, data, right), the data in the root can only be
+accessed via successful matching with a tree_node pattern.  ADT values
+are typically constructed by applying a data constructor to arguments.
+For example tree_node(l,x,r) will construct a tree with data x at the root
+and subtrees l and r. Allocating memory, initializing it appropriately
+and using pointers in the representation are all implicit.
+</p>
+
+<p>
+There can be sharing of representations of different ADT values (for
+example, the tree above will share the representation of the sub-trees
+l and r rather than copy them) so updating one ADT variable may also
+update other variables. This poses a challenge for languages that strive
+for a simple semantics (as most functional programming languages do).
+Destructive update can also be problematic if the type system is
+polymorphic, allowing "types" such as list of t, where t is a type
+variable that can be instantiated to any type, and polymorphic/generic code
+that can be used for lists with any type for the elements. Polymorphism
+is a very common and useful feature of languages with ADT support
+but we do not discuss it in detail here. Despite these challenges,
+destructive update of shared data structures is very useful and many
+important algorithms rely on it. Mutable ADTs require a well-defined
+memory model so it is clear what sharing exists, what variables will
+be changed if a data structure is updated and when the memory may be
+reclaimed.
+</p>
+
+<h2>Efficient Implementation</h2>
+
+<p>
+Functional programming languages typically represent ADT values using
+"tagged pointers" to a block of memory containing the data constructor
+arguments (there are many variations to the details).  Bits in the pointer
+that are normally unused can encode data constructors that have arguments
+(for example, least significant bits can be used for a tag if there is
+byte addressing but word alignment of data).  If there are not enough
+unused bits to encode all such data constructors, some are represented
+with an extra "secondary tag" that can be stored with the arguments. Data
+constructors with no arguments are represented by other values that
+cannot be valid pointers. For example, an empty binary search tree can be
+represented as zero (NULL) and a non-empty tree represented as (non-NULL)
+pointer to a block of three words - exactly the same representation
+that would normally be used in C with pointers to structs. For tries,
+a leaf node can be represented as a pointer to a single word of data
+and an internal node represented as a pointer to a block containing the
+left and right subtrees, where the least significant bit of the pointer
+is one - this is more efficient than can be done in portable C code.
+</p>
+
+<h2>Inefficient Orthodox Implementation</h2>
+
+<p>
+There is a portable general scheme for implementing ADTs in languages
+such as C.  The arguments of a data constructor can be implemented by a
+struct. Arguments of one of several different structs can be implemented
+as a union of structs. A small integer tag can be used to represent
+the data constructor itself, thus an ADT value can be represented as a
+pointer to a dynamically allocated struct containing a tag and a union
+of structs. Though this scheme works, it is cumbersome, uses unsafe
+features (unions and pointers) and allows many programmer errors that
+are impossible in languages with good ADT support.
+</p>
+
+<p>
+Furthermore, with this scheme the space used by every data constructor is
+the size of the tag plus the maximum size needed for the arguments of any
+data constructor (we will ignore any additional overheads associated with
+dynamic memory allocation).  An empty tree will typically be represented
+as a pointer to a dynamically allocated block of four words (enough
+space to fit a tag and the arguments of a tree_node).  A tree with
+N nodes (and N+1 empty trees) requires 8N+4 words for storage whereas
+the efficient representation requires only 3N words.  If the programming
+language allows an occurrence of one data constructor to be destructively
+updated to another this inefficient representation can't be avoided.
+</p>
+
+<p>
+Sadly, this inefficient representation is often chosen and the way ADTs
+are supported in the language exposes the representation so it cannot be
+changed to an efficient representation.  For example, if the language
+exposes the fact that ADTs are represented as pointers, it immediately
+begs the question "pointers to what?" and naturally leads to mutability of
+what is pointed to. If the language makes ADTs more opaque (for example,
+having application of data constructors to construct values and pattern
+matching to deconstruct values as essentially the only operations)
+there is greater flexibility in how ADTs are implemented, and generally
+less opportunity for programmers to make errors.
+</p>
+
+<h2>Mutability in functional programming languages</h2>
+
+<p>
+Functional programming languages generally encourage writing
+"pure" functions that behave as functions in the mathematical sense -
+they just take some inputs and return a result; nothing else. In pure
+code there are fewer dependencies between different parts of the code
+and reasoning about correctness is much simpler. Mutability conflicts
+with purity: a function is not pure if it destructively updates an
+argument that is passed in (which may also share representation with
+variables that appear elsewhere).  As mentioned earlier, it also causes
+potential problems with polymorphic types. Allowing mutability without
+destroying all guarantees of purity is very challenging. Typically,
+functional programming languages do not allow ADTs values to be updated
+except for a special type with a data constructor called ref (short for
+reference) whose single argument can be updated. The type has no other
+data constructors so a ref can be implemented as a pointer with no tag
+(note that a ref cannot be NULL so it is always safe to dereference it).
+Most code can operate on types that containing no refs and is therefore
+guaranteed to be pure. Code that uses refs (that may be updated in any
+function they are passed to) is potentially impure and is more difficult
+to reason about (in Haskell, refs are restricted to certain "monads",
+making the code pure in a technical sense, though no easier to reason
+about).
+</p>
+
+<p>
+Only allowing update of refs means that an extra layer of indirection
+is needed for mutable data structures. If we want a list of integers
+where the elements can be updated, we need to use a list of pointers to
+(that is, refs of) integers instead, decreasing efficiency and using a
+different type that is incompatible with (immutable) lists of integers.
+Similarly, if we want to be able to update the tail of the list another
+list type is required that uses pointers to pointers to list cells. If
+we want mutability of both elements and the list tail a fourth type
+is required.  Thus although functional programming languages provide
+efficient implementations of ADTs, their implementation of mutable ADTs
+is typically cumbersome and inefficient. Flexibility and efficiency are
+sacrificed so some guarantees of purity can be made.
+</p>
+
+<h2>Achieving efficiency, safety and flexibility</h2>
+
+<p>
+It is possible to achieve both the efficient representation used by
+functional programming languages and flexible mutability by allowing
+update of all data constructor arguments. Data structures that can be
+implemented using pointers to structs, such as linked lists and binary
+search trees, can be implemented with no loss of efficiency or flexibility
+but with the advantages ADTs have over lower level coding with explicit
+pointers. Data structures that benefit from tagged pointers, such as
+tries, can be implemented more efficiently than with portable C and can
+be updated without additional indirection. Programmers just need to know
+that when a new data constructor with arguments is created, the result is
+something like a pointer to a struct containing a field for each argument
+(there may be a tag somewhere but the details are not exposed).  With the
+possible exception of refs, all dereferencing is combined with a switch
+on the data constructor.  Please, if you are involved in the development
+of programming languages, consider supporting ADTs in this way. As
+inspiration, and a challenge to do better than my attempts (which is
+not hard), I'll describe two related projects I have been involved with.
+</p>
+
+<p>
+The first is <a href="https://lee-naish.github.io/papers/adtpp/">
+adtpp</a>, a tool that supports ADTs in C. It processes a file
+containing ADT definitions and other declarations and produces a C
+header file that contains C type definitions, macros, functions etc.
+Constructing an ADT value is done by applying a data constructor to zero
+or more arguments (implemented as a call to a function with a pragma
+suggesting it is inlined) and deconstructing can be done using several
+pattern matching constructs that test the data constructor and allow
+the arguments to be assigned to fresh variables, similar to functional
+programming languages. Mutability is achieved by pattern matching
+constructs that give pointers to arguments rather than the arguments
+themselves and the pointers can then be used for destructive update in the
+normal way.  There is no processing of C code; adtpp just relies on the
+C preprocessor and compiler (this greatly simplifies implementation
+and maintenance).  Although some effort is made to pick up potential
+errors at compile time, the error messages produced from the C compiler
+are far from ideal. Significant compromises are required for the syntax
+of pattern matching constructs, since we rely on C macros, and support
+of polymorphism, since the only type checking is done by the C compiler.
+Instead of the language implementation inferring instances of polymorphic
+types for data constructors and functions, the programmer must declare
+all such instances and use distinct names for them. Even as a "parent"
+of adtpp, I have to admit it is ugly, but it does demonstrate you can
+support efficient mutable ADTs in C with minimal effort (less than
+4000 lines of code).  Properly incorporating the basic ideas into a
+programming language that supports pointers and assignment would have
+a relatively small cost and large benefit.
+</p>
+
+<p>
+The second is <a href="https://lee-naish.github.io/src/pawns/"> Pawns</a>,
+a prototype functional programming language that compiles to C using
+adtpp. By default, Pawns code is pure and destructive update is not
+allowed. However, with suitable declarations and annotations, all data
+constructor arguments are mutable, allowing flexibility similar to an
+imperative programming language. One of the principles of Pawns is that
+all side-effects should be obvious from the code. If a function call
+may update a variable passed as an argument, it must be made obvious
+by an annotation on the argument. If the variable may also share with
+other variables, this must also be indicated by further annotations. The
+compiler does extensive analysis of the sharing of data structures in
+order to check that the code has sufficient annotations.  In addition,
+functions can have pre-conditions and post-conditions concerning sharing
+between arguments and the result returned; these are also checked by the
+compiler. Data structures can be built efficiently, using destructive
+update, then passed to pure code where reasoning about the code is
+relatively easy.  Potentially we can have the advantages of pure code
+while retaining flexibility and efficiency. The cost is the rather
+complex sharing analysis required.
+</p>
+
+<h2>Tagged pointers as a language feature, anyone?</h2>
+
+<p>
+The basic features of portable C (and many other programming languages)
+are not good for efficient implementation of ADTs and they are
+unsafe. Writing to one field of an undiscriminated union then reading
+from another has an undefined result. Similarly, dereferencing a NULL
+pointer typically yields a runtime error (my first programming language
+implementation was on a VAX computer which happily dereferenced NULL
+pointers but, conveniently, address zero always seemed to contain
+zero). Pointers that have a dereference operation but can also be NULL
+are attributed to Tony Hoare, who later described it as "the billion
+dollar mistake".  Such pointers can be made safe by either eliminating
+the reserved NULL value, like references in functional languages, or only
+allowing dereferencing when it is combined with a switch or conditional
+construct, like an option ADT.  It would be relatively easy to support
+"tagged pointer" types that are a discriminated union of several reference
+or (non-NULL) pointer types plus several reserved values like NULL. A
+tagged pointer could be created from one of the reference types or a
+reserved value. A switch or conditional construct could allow access to
+the reference (or what it points to).
+</p>
+
+<p> With tagged pointers, ADTs could be implemented by using pointers
+to a distinct struct type for each data constructor with arguments and
+a distinct reserved value for each other data constructor (this is how
+adtpp is implemented). For example, a trie could be represented by a
+discriminated union of a pointer to a struct containing the leaf data
+and a pointer to a struct containing the two sub-trees of an internal
+node. This scheme reduces the flexibility for how secondary tags are
+managed (when there are too many data constructors with arguments for
+the available spare bits in pointers) and I don't feel that exposing
+how ADTs are implemented is generally desirable.  However, having tagged
+pointers as an abstraction breaks to nexus between creation of a tagged
+pointer and allocating and initializing memory that can represent the
+arguments of a data constructor. This could allow more flexibility with
+memory allocation (for example, allocating on the stack rather than the
+heap), potentially increasing efficiency though raising issues of the
+lifetime of the struct and possibility of dangling pointers. A tagged
+pointer abstraction may also have uses unrelated to ADTs.
+</p>
+
+<h2>Conclusion</h2>
+
+<p> Algebraic data types are great. They are expressive and can help
+avoid many programmer errors. Unfortunately, very few programming
+languages support them well.  They were first developed for functional
+programming languages, which value guarantees of "purity" (lack of
+side-effects etc.) and polymorphic type systems. Both of these desirable
+features are difficult to combine with mutability of ADTs, though some
+approaches have been developed. However, ADTs are also a very useful
+feature for other programming language paradigms where purity and
+(to a lesser extent) polymorphic type systems are not important.
+If mutability is restricted to arguments of data constructors,
+ADTs can be implemented very efficiently - identical to pointers to
+structs for simple cases and more efficient than portable C code in
+more complex cases. The efficient representations use tagged pointers,
+which have been used extensively in the implementation of functional
+(and other) programming languages but no portable abstraction of them
+has been incorporated into mainstream programming languages. Pervasive
+abstractions such as Hoare-style pointers, structs and unions can be
+used to implement ADTs in a less efficient way and this seems to have
+significantly influenced designers of programming languages that support
+ADTs. If we value user-defined data structures in a programming language,
+ADTs should be supported. If we also value efficiency, only arguments of
+data constructors should be mutable and tagged pointers should be used
+in the representation. My hope is that with the creativity of those who
+design and implement programming languages, good support for ADTs will
+some day become far more common than Hoare-style pointers are today. All
+those hard working programmers deserve it.
+</p>
+
+<p>
+Rant finished - I don't know about you, but I feel better for it!
+</p>
+
+</body>
+</html>
