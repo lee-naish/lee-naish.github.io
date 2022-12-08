@@ -1,4 +1,4 @@
-alias ci='git commit -a ; git push'
+alias ci='git commit -a ; echo lee-naish; cat ~/repos/.git_token ; git push'
 alias upd='git pull'
 alias sy2wi='rsync -vauC --rsh=ssh ./index.html lee@queeg.csse.unimelb.edu.au:www_public'
 alias sy2hi='rsync -vauC --rsh=ssh lee@queeg.csse.unimelb.edu.au:www_public/index.html .'
