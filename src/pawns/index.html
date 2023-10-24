@@ -14,16 +14,17 @@ ref, reference, gloal variables, compiler, source code">
 </head>
 <body>
 <center>
-<img src="./Pawns1.png" width="50%" alt="Pawns (logo)">
+<img src="./Pawns1.png" width="20%" alt="Pawns (logo)">
 </center>
 <hr>
 
 <h1>What is Pawns?</h1>
 
 Pawns is a functional programming language. It supports algebraic data
-types, higher order programming and pure declarative code.  It is also an
-imperative programming language. It supports pointers, destructive update
-and global variables.  It combines these two programming paradigms in a
+types, polymorphism, higher order programming and pure declarative code.
+It is also an imperative programming language. It supports pointers,
+destructive update and a form of global variables.  It combines these
+two programming paradigms in a
 tricky way and ensures code that looks like a pure function definition
 really behaves as a pure function, even if it calls imperative code with
 "effects" for efficiency.
@@ -49,7 +50,7 @@ viewed in a purely functional way.
 
 <h1>What are the key ideas?</h1>
 
-A key challenge is to ensure code which uses imperative features behaves
+A key challenge is to ensure code that uses imperative features behaves
 in a purely functional way.  Pawns stands for "Pointer assignment
 without nasty surprises".  In a language like C we can have code such as
 <code>*ptr1 = val;</code> which changes what <code>ptr1</code> points to
@@ -72,7 +73,7 @@ side-effects, the programmer declares what sharing may occur between
 arguments when a function is called and what sharing may occur when it
 returns.  By tracking possible sharing we can determine if arguments of a
 function can be updated during its execution.  If update is restricted to
-variables which are local to the function execution, purely functional
+variables that are local to the function execution, purely functional
 behaviour is guaranteed.  For example, a data structure can be built
 locally using an imperative style, then returned. Thus imperative code
 can be encapsulated inside a declarative interface.  <p>
@@ -88,6 +89,10 @@ updated anywhere.
 <ul>
 
 <li>
+<a href="../../papers/pawns/overview.pdf">
+An overview of Pawns (PDF)</a>
+
+<li>
 A paper on
 Sharing analysis in the Pawns compiler:
 <a href="../../papers/pawnsshare">
@@ -97,8 +102,8 @@ as published in Peerj Computer Science</a>
 
 <li>
 <a href="../../papers/pawns">
-An introductory paper</a> (perhaps not the most readable but it covers
-most features)
+An introductory paper</a> (hard to read but it covers
+the features and language design issues in more depth)
 
 <li>
 <a href="../../papers/pawns/talkfpm.pdf">
@@ -139,7 +144,7 @@ Destructive update of shared data structures is not possible.  Programs
 look imperative but the semantics is more like a pure functional language.
 <p>
 
-The <a href="http://disciple.ouroborus.net/">Disciple</a> programming
+The <a href="http://www.discus-lang.org/">Discus</a> programming
 language supports similar low level imperative features to Pawns but uses
 "region" information rather than sharing information to limit interaction
 and effects.  Disciple does more inference of region and side effect
