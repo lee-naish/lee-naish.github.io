@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /tmp/
+
+Sitemap: https://lee-naish.github.io/sitemap.txt

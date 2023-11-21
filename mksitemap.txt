@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Quick hack to traverse directory tree and create simple sitemap file
+# (ignores files with no '.' in name, files more than three deep
+# in directory tree, tmp/*, *.gif, *.jpg, ...)
+#
+# XXX probably should output XML (see
+# https://www.sitemaps.org/protocol.html)
+# but I've run out of energy for now:(
+
+if test -e sitemap.txt
+then
+    cp sitemap.txt /tmp/$$.sitemap.txt.bak
+    echo cp sitemap.txt /tmp/$$.sitemap.txt.bak
+fi
+
+ls *.* */*.* */*/*.* */*/*/*.* > /tmp/sitemap.txt
+
+sed -e '/^tmp\//d
+/.*\.gif$/d
+/.*\.jpg$/d
+/.*\.JPG$/d
+/.*\.png$/d
+1,$s/^/https:\/\/lee-naish.github.io\//' /tmp/sitemap.txt > sitemap.txt
