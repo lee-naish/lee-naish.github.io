@@ -1,4 +1,4 @@
-PGP public key for Lee Naish <lee@unimelb.edu.au>
+PGP public key for Lee Naish <dr.lee.naish@gmail.com>
 
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 Version: 2.6.2i
