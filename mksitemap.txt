@@ -17,8 +17,13 @@ fi
 ls *.* */*.* */*/*.* */*/*/*.* > /tmp/sitemap.txt
 
 sed -e '/^tmp\//d
+/^TODO$/d
+/.*index.html$/s/index.html//
+/.*\.swp$/d
+/.*\.tar.gz$/d
 /.*\.gif$/d
 /.*\.jpg$/d
 /.*\.JPG$/d
 /.*\.png$/d
+/.*\.shar$/d
 1,$s/^/https:\/\/lee-naish.github.io\//' /tmp/sitemap.txt > sitemap.txt
