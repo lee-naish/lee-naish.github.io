@@ -9,7 +9,7 @@ destructive update, side effects, imperative programming language, pointer,
 ref, reference, gloal variables, compiler, source code">
 <meta name="maintained-by" content="Lee Naish dr.lee.naish@gmail.com">
 <meta name="expiry-date" content="9999-12-31">
-<title>Pawns home </title>
+<title>Pawns home page</title>
 <link rev=made href="mailto:dr.lee.naish@gmail.com">
 </head>
 <body>
@@ -71,12 +71,16 @@ declared, providing documentation and allowing the compiler to understand
 the sharing and check the declarations are correct.  As well as declaring
 side-effects, the programmer declares what sharing may occur between
 arguments when a function is called and what sharing may occur when it
-returns.  By tracking possible sharing we can determine if arguments of a
+returns.  By tracking possible sharing, the compiler can determine if
+arguments of a
 function can be updated during its execution.  If update is restricted to
 variables that are local to the function execution, purely functional
 behaviour is guaranteed.  For example, a data structure can be built
 locally using an imperative style, then returned. Thus imperative code
-can be encapsulated inside a declarative interface.  <p>
+can be encapsulated inside a declarative interface.  Pawns also supports
+a mechanism to declare and use mutable state, similar to global
+variables, which can also be encapsulated and allows a declarative
+view of IO. <p>
 
 Pure functional programming is the default in Pawns.  Arbitrary sharing
 of function arguments and results is possible and update of such data
