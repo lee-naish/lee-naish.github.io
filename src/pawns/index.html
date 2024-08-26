@@ -20,6 +20,7 @@ ref, reference, gloal variables, compiler, source code">
 
 <h1>What is Pawns?</h1>
 
+<p>
 Pawns is a functional programming language. It supports algebraic data
 types, polymorphism, higher order programming and pure declarative code.
 It is also an imperative programming language. It supports pointers,
@@ -28,10 +29,11 @@ two programming paradigms in a
 tricky way and ensures code that looks like a pure function definition
 really behaves as a pure function, even if it calls imperative code with
 "effects" for efficiency.
-<p>
+</p>
 
 <h1>Why bother?</h1>
 
+<p>
 Pure functional programming allows concise high level code that you
 can reason about very easily, so its a great way to program.  But there
 are some things for which imperative code is simpler and <em>much</em>
@@ -46,10 +48,11 @@ interface.  Some other functional languages support this general idea but do
 not encapsulate imperative code to the same extent - if a data structure
 is built using imperative features it is forever "tainted" and cannot be
 viewed in a purely functional way.
-<p>
+</p>
 
 <h1>What are the key ideas?</h1>
 
+<p>
 A key challenge is to ensure code that uses imperative features behaves
 in a purely functional way.  Pawns stands for "Pointer assignment
 without nasty surprises".  In a language like C we can have code such as
@@ -60,14 +63,16 @@ principles of Pawns is that if code can affect the value of a variable
 statement can have the annotation <code>!ptr2</code> to indicate it may affect
 variable <code>ptr2</code>.  Even imperative Pawns code avoids the problem
 of subtle undocumented interactions which can occur in other languages.
+</p>
 
 <!-- There can also be subtle interractions via global -->
 <!-- variables or other forms of "state". -->
-<p>
 
-Programming with pointers requires the programmer to understand pointer
-aliasing and sharing of data structures.  In Pawns, sharing information is
-declared, providing documentation and allowing the compiler to understand
+<p>
+Programming with pointers and destructive update requires the programmer
+to understand pointer aliasing and sharing of data structures.  For such
+code in Pawns, sharing information is declared. This provides documentation
+and allows the compiler to understand
 the sharing and check the declarations are correct.  As well as declaring
 side-effects, the programmer declares what sharing may occur between
 arguments when a function is called and what sharing may occur when it
@@ -80,13 +85,20 @@ locally using an imperative style, then returned. Thus imperative code
 can be encapsulated inside a declarative interface.  Pawns also supports
 a mechanism to declare and use mutable state, similar to global
 variables, which can also be encapsulated and allows a declarative
-view of IO. <p>
+view of IO.
+</p>
 
+<p>
 Pure functional programming is the default in Pawns.  Arbitrary sharing
-of function arguments and results is possible and update of such data
+of function arguments and results is possible and declaring the sharing
+is not required but update of such data
 structures is not allowed.  However, if enough extra declarations
 and annotations are supplied, there are no restrictions on what can be
-updated anywhere.
+updated. All Pawns code is safe and all dependencies and
+interractions are clear from the source code; the only exception is the
+foreign language interface, which allows Pawns functions to be defined
+by arbitrary C code and thus relies on the discipline of the programmer.
+</p>
 
 <h1>How can I find out more?</h1>
 
@@ -94,20 +106,21 @@ updated anywhere.
 
 <li>
 <a href="../../papers/pawns/overview.pdf">
-An overview of Pawns (PDF)</a>
+An overview of Pawns (PDF)</a> - the easiest place to start.
 
 <li>
 A paper on
 Sharing analysis in the Pawns compiler:
-<a href="../../papers/pawnsshare">
+<a href="../../papers/pawnsshare/index.html">
 local version (includes slides for talk)</a>, 
 <a href="https://peerj.com/articles/cs-22/">
 as published in Peerj Computer Science</a>
 
 <li>
-<a href="../../papers/pawns">
+<a href="../../papers/pawns/index.html">
 An introductory paper</a> (hard to read but it covers
-the features and language design issues in more depth)
+the features and language design issues in more depth than the
+overview).
 
 <li>
 <a href="../../papers/pawns/talkfpm.pdf">
@@ -136,34 +149,37 @@ are brave you can check out
 the Github repository</a>
 
 </ul>
-<p>
 
 <h1>Related languages</h1>
 
+<p>
 The <a href="http://mars-lang.appspot.com/">Mars</a> programming language
 has "assignment without nasty surprises" but no explicit pointers.
 Nasty surprises are avoided by copying data structures where necessary,
 as determined by sharing analysis (similar to that done in Pawns).
 Destructive update of shared data structures is not possible.  Programs
 look imperative but the semantics is more like a pure functional language.
-<p>
+</p>
 
+<p>
 The <a href="http://www.discus-lang.org/">Discus</a> programming
 language supports similar low level imperative features to Pawns but uses
 "region" information rather than sharing information to limit interaction
 and effects.  Disciple does more inference of region and side effect
 information than is done in Pawns, so there is more potential for "nasty
 surprises" and doesn't encapsulate effects to the same extent.
-<p>
+</p>
 
+<p>
 ML supports destructive update using data types containing
 <code>ref</code> and Haskell's <code>STRef</code> monad is similar.
 The type system limits interaction and effects.  This has similar
 consequences to the Disciple approach with respect to nasty surprises
 and encapsulation and can also lead to multiple versions of a data type
 and extra indirection in the representation.
-<p>
+</p>
 
+<p>
 The scripting language <a
 href="http://www.compuphase.com/pawn/pawn.htm">Pawn</a> has a similar
 name to Pawns but they are not at all closely related in other respects.
@@ -171,7 +187,7 @@ Both are influenced by C.  Pawn started life as a cut-down version of
 C and has no types or pointers (except it supports call by reference).
 Pawns combines C-style pointers with a nice type system and other benefits
 of pure functional programming.
-<p>
+</p>
 
 <hr>
 <br>
