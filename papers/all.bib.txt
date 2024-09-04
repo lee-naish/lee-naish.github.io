@@ -208,7 +208,7 @@
 	address =	{Lisboa, Portugal},
 	year   =	{June 1989},
 	editor =	{Antonio Porto},
-        abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/nude/",
+        abstractURL = "https://lee-naish.github.io/papers/nude/",
 	comment = {Technical report 88/31, Department of Computer Science,
 		University of Melbourne}
 }
@@ -287,7 +287,7 @@
 	number =	{528},
 	year   =	{August, 1991},
 	pages  =	{15--26},
-	abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/eq/",
+	abstractURL = "https://lee-naish.github.io/papers/eq/",
 	comment   =	{Technical Report 91/2, Department of Computer
 			Science, University of Melbourne}
 }
@@ -328,7 +328,7 @@
 				Paderborn },
         address =       {Paderborn, Germany},
         year   =        {1992},
-	abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/oolp/",
+	abstractURL = "https://lee-naish.github.io/papers/oolp/",
         pages  =        {27}
 }
 
@@ -355,7 +355,7 @@
 	year	=	{1993},
 	pages	=	{181--190},
 	documentURL =
-"http://people.eng.unimelb.edu.au/lee/papers/term/tr.dvi.Z",
+"https://lee-naish.github.io/papers/term/tr.dvi.Z",
 	comment   =        {Also Technical report 92/5,
 			Department of Computer
 			Science, University of Melbourne}
@@ -370,7 +370,7 @@
 	number =	{1},
 	year	=	{1993},
 	pages	=	{287--294},
-	abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/ddfp/",
+	abstractURL = "https://lee-naish.github.io/papers/ddfp/",
 	comment   =        {Also Technical report 92/6,
 			Department of Computer
 			Science, University of Melbourne}
@@ -386,7 +386,7 @@
 	year   =	{1993},
 	pages  =	{143-164},
 	documentURL =
-"http://people.eng.unimelb.edu.au/lee/papers/verify/tr.ps.gz",
+"https://lee-naish.github.io/papers/verify/tr.ps.gz",
 	comment   =	{Technical Report 90/6, Department of Computer
 			Science, University of Melbourne}
 }
@@ -420,7 +420,7 @@
 	Volume = 2,
 	Pages = {91--99},
 	address = {Melbourne},
-	abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/nuedd/",
+	abstractURL = "https://lee-naish.github.io/papers/nuedd/",
 	comment   =	{Technical Report 94/30, Department of Computer
 			Science, University of Melbourne, 14 pages}
 }
@@ -435,7 +435,7 @@
 	pages = 15,
         Month = jun,
         Year = 1995,
-	abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/prune/",
+	abstractURL = "https://lee-naish.github.io/papers/prune/",
 	comment   =	{Based on an advanced tutorial presented at the
 		International Conference on Logic Programming, June
 		1995}
@@ -465,7 +465,7 @@
 	issn = {0157-3055},
 	subcat =  {F1},
 	authorcode = {433,13,00,FW,MD,M and 433,56,00,FW,MD,M},
-	abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/pddfp/",
+	abstractURL = "https://lee-naish.github.io/papers/pddfp/",
 	comment   =        {Also Technical report 95/27,
 			Department of Computer
 			Science, University of Melbourne, 14 pages}
@@ -483,7 +483,7 @@
         Year = 1996,
 	subcat =  {G1},
 	authorcode = {433,13,00,FS,MD,M},
-	abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/ho/",
+	abstractURL = "https://lee-naish.github.io/papers/ho/",
 	comment   =	{In proceedings of workshop on multi-paradigm
 			logic programming, JICSLP'96, also
 			 Research report #96-28,  Fachbereich
@@ -504,7 +504,7 @@
 	isbn = {0-262-63173-3},
 	subcat =  {F1},
 	authorcode = {433,13,00,FU,MD,M},
-	abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/modes/",
+	abstractURL = "https://lee-naish.github.io/papers/modes/",
 	comment   =	{Also Technical Report 96/7, Department of
 		Computer Science, University of Melbourne, 13 pages}
 }
@@ -521,7 +521,7 @@
 	isbn = {1080-5230},
 	subcat =  {C1},
 	authorcode = {433,13,00,FW,MD,M},
-      abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/dds/",
+      abstractURL = "https://lee-naish.github.io/papers/dds/",
       comment = {JFLP is an electronic journal so page numbers
                         are not applicable},
       comment = {Also Technical Report 95/1, Department of Computer
@@ -555,7 +555,7 @@
 	subcat =  {G4},
 	authorcode = {433,23,01,FW,MD,M},
 	authorcode = {433,13,00,FW,MD,M},
-        abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/nudeman/"
+        abstractURL = "https://lee-naish.github.io/papers/nudeman/"
 }
 
 @inproceedings{hose,
@@ -572,7 +572,7 @@
 	month   =	{October},
 	year   =	{1998},
 	pages  =	{245--262},
-	abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/hose/",
+	abstractURL = "https://lee-naish.github.io/papers/hose/",
 	isbn = {3-540-65074-1},
 	subcat =  {F1},
 	authorcode = {433,13,00,FS,MD,M},
@@ -593,7 +593,7 @@
         Year = {1998},
 	subcat =  {G4},
 	authorcode = {433,13,00,FW,MD,M},
-        abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/modealg/"
+        abstractURL = "https://lee-naish.github.io/papers/modealg/"
 }
 
 @TechReport{flounder,
@@ -608,7 +608,7 @@
         Year = {1999},
 	subcat =  {G4},
 	authorcode = {433,13,00,FW,MD,M},
-        abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/flounder/"
+        abstractURL = "https://lee-naish.github.io/papers/flounder/"
 }
 
 @InProceedings{Ste-Son-Nai,
@@ -643,7 +643,7 @@
 	publisher  = {IEEE},
 	subcat =  {F1},
 	authorcode = {433,13,00,FW,MD,M},
-        abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/dds3/",
+        abstractURL = "https://lee-naish.github.io/papers/dds3/",
 	comment = {Presented at 8th Workshop on
 	Logic Programming Environments, Leuven, July 1997;
 	Also Technical report 97/5, Department of Computer Science,
@@ -662,7 +662,7 @@
 	isbn = {0-7695-0518-X},
 	subcat =  {F1},
 	authorcode = {433,13,00,FW,MD,M},
-        abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/sem3/",
+        abstractURL = "https://lee-naish.github.io/papers/sem3/",
 	comment = {Technical report 98/4, Department of Computer Science,
 		University of Melbourne}
 }
@@ -825,7 +825,7 @@ Practice of Declarative
  rfcd_num = {"280403 - Logics and Meanings of Programs 50%,
 		280303 - Programming Languages 50%"},
  seo_num = {"700102 - Application tools and system utilities"},
-        abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/sem3neg/",
+        abstractURL = "https://lee-naish.github.io/papers/sem3neg/",
 	eprint = "cs.LO/0508004"
 }
 
@@ -842,7 +842,7 @@ Practice of Declarative
  rfcd_num = {"280302 Software Engineering 50%,
 		280303 - Programming Languages 50%"},
  seo_num = {"700102 - Application tools and system utilities"},
-        abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/deadlock/"
+        abstractURL = "https://lee-naish.github.io/papers/deadlock/"
 }
 
 @inproceedings{naish:ddf:wshop,
@@ -858,7 +858,7 @@ Practice of Declarative
  rfcd_num = {"280302 Software Engineering 50%,
 		280303 - Programming Languages 50%"},
  seo_num = {"700102 - Application tools and system utilities"},
-        abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/ddf/",
+        abstractURL = "https://lee-naish.github.io/papers/ddf/",
 	eprint = "arXiv:0711.0048v1 [cs.PL]"
 }
 
@@ -871,7 +871,7 @@ Practice of Declarative
       publisher={EAPLS},
       month={July},
    abstractURL = "http://danae.uni-muenster.de/lehre/kuchen/JFLP/articles/2008/A2008-01/A2008-01.html",
-   myabstractURL = "http://people.eng.unimelb.edu.au/lee/papers/ddp/",
+   myabstractURL = "https://lee-naish.github.io/papers/ddp/",
       year={2008},
  rfcd_num = {"280302 Software Engineering 70%,
 		280303 - Programming Languages 30%"},
@@ -927,7 +927,7 @@ Science and Information Technology},
    URL = "http://dl.acm.org/citation.cfm?id=2000795",
  rfcd_num = {"280302 Software Engineering 100%"},
  seo_num = {"700102 - Application tools and system utilities"},
-   myabstractURL = "http://people.eng.unimelb.edu.au/lee/papers/model/"
+   myabstractURL = "https://lee-naish.github.io/papers/model/"
 }
 
 @inproceedings{spectra-weights,
@@ -999,7 +999,7 @@ and Applications Conference},
 	Conference (ACSC 2012), CRPIT Vol. 122},
   editors={Mark Reynolds and Bruce Thomas},
   publisher={CRPIT},
-  myurl={http://people.eng.unimelb.edu.au/lee/papers/relscr/},
+  myurl={https://lee-naish.github.io/papers/relscr/},
   year={2012}
 }
 # CRPIT =
@@ -1013,7 +1013,7 @@ and Applications Conference},
   editors={Mark Reynolds and Bruce Thomas},
   publisher={CRPIT},
   year={2012},
-  abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/ddf/"
+  abstractURL = "https://lee-naish.github.io/papers/ddf/"
 }
 
 @inproceedings{sem4lp,
@@ -1024,7 +1024,7 @@ and Applications Conference},
   editor={Julian Mestre},
   publisher={CRPIT},
   year={2012},
-  abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/sem4lp/"
+  abstractURL = "https://lee-naish.github.io/papers/sem4lp/"
 }
 
 # AKA XXX
@@ -1054,7 +1054,7 @@ and Applications Conference},
         publisher={Cambridge University Press},
         address={Cambridge UK},
         issn={1471-0684},
-        abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/flounder/",
+        abstractURL = "https://lee-naish.github.io/papers/flounder/",
 	eprint = "arXiv:1207.6816"
 }
 
@@ -1102,18 +1102,6 @@ and Applications Conference},
 }
 # XXX delay in proceedings appearing online
 
-@article{info-order,
-  author =      {Lee Naish and Harald S{\o}ndergaard},
-  title  =      {Truth versus Information in Logic Programming},
-  abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/sem4lp/"
-	journal =	{Theory and Practice of Logic Programming},
-	year = {Published online 2013},
-        publisher={Cambridge University Press},
-        address={Cambridge UK},
-        issn={1471-0684},
-	eprint = "arXiv:1305.0141"
-}
-
 @article{naish:disclosure,
         Author = { Naish, Lee },
         Title = {  Partial Disclosure of Votes in {STV} Elections},
@@ -1127,6 +1115,23 @@ and Applications Conference},
 	URL = {http://www.votingmatters.org.uk/ISSUE30/INDEX.HTM}
 }
 
+@article{info-order,
+  author =      {Lee Naish and Harald S{\o}ndergaard},
+  title  =      {Truth versus Information in Logic Programming},
+  abstractURL = "https://lee-naish.github.io/papers/sem4lp/",
+  volume={14},
+  DOI={10.1017/S1471068413000069},
+  number={6},
+  year = {2014},
+  pages={803–840},
+	journal =	{Theory and Practice of Logic Programming},
+	onlineyear = {Published online 2013},
+        publisher={Cambridge University Press},
+        address={Cambridge UK},
+        issn={1471-0684},
+	eprint = "arXiv:1305.0141"
+}
+
 @article{Gan-Hor-Nai-Son:TCAD14,
   author  = {Graeme Gange and Benjamin Horsfall and
                 Lee Naish and Harald S{\o}ndergaard},
@@ -1136,21 +1141,20 @@ and Applications Conference},
   volume  = {33},
   number  = {7},
   pages   = {1003--1016},
-  month   = {july},
+  month   = {July},
   year    = {2014},
   url     = {http://dx.doi.org/10.1109/TCAD.2014.2304176},
   for     = {100603},
   seo     = {970108},
 }
 
-@report{pawns-intro,
-  title={An informal introduction to {Pawns:} a
-	declarative/imperative language },
-  author={Lee Naish},
-  other={Submitted for publication},
-  abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/pawns/",
-  month   = {december},
-  year={2014}
+@misc{pawns,
+  author = {Lee Naish},
+  title = {An informal introduction to {Pawns}: a declarative/imperative
+        language},
+  year = 2015,
+  howpublished = {\url{https://lee-naish.github.io/papers/pawns/}},
+  note = {Accessed 2024-09-046}
 }
 
 @article{pawns-sharing,
@@ -1161,7 +1165,7 @@ and Applications Conference},
   number     = {e22},
   year      = {2015},
   url       = {https://dx.doi.org/10.7717/peerj-cs.22},
-  abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/pawnsshare/",
+  abstractURL = "https://lee-naish.github.io/papers/pawnsshare/",
   doi       = {10.7717/peerj-cs.22}
 }
 
@@ -1173,7 +1177,7 @@ and Applications Conference},
   booktitle={Proceedings of ASWEC 2015},
   editors={Haifeng Shen and Markus Stumptner},
   publisher={IEEE Press},
-  abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/hyp/",
+  abstractURL = "https://lee-naish.github.io/papers/hyp/",
   year={2015}
 }
 
@@ -1182,30 +1186,73 @@ and Applications Conference},
 	algebraic data types for {C} },
   author={Lee Naish and Peter Schachte and Aleck MacNally},
   journal={Software Practice and Experience},
-  abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/adtpp/",
-  doi={10.1002/spe},
+  abstractURL = "https://lee-naish.github.io/papers/adtpp/",
+  url = "http://onlinelibrary.wiley.com/doi/10.1002/spe.2407/abstract",
+  doi={10.1002/spe.2407},
   year={2016}
 }
 
-@report{ssm,
+# techreport{xxxssm,
+# more report than journal paper but has journal-like details
+
+@article{ssm,
   title={Similarity to a single set },
+  journal={PeerJ PrePrints},
+  volume={4},
+  number={e1713v1},
   author={Lee Naish},
   other={Submitted for publication},
-  abstractURL = "http://people.eng.unimelb.edu.au/lee/papers/ssm/",
-  month   = {january},
+  abstractURL = "https://lee-naish.github.io/papers/ssm/",
+  month   = {January},
   doi       = {10.7287/peerj.preprints.1713v1},
   year={2016}
 }
 
-@techreport{NSWvotecount,
-	author =	{ Conway, Andrew and Blom, Michelle and
+@inproceedings{NSWvotecount,
+    author =	{ Conway, Andrew and Blom, Michelle and
 	Gore, Rajeev and Lebedeva, Katya and Naish, Lee
 	and Teague, Vanessa },
-	title  =	{An analysis of {New South Wales}
+    title  =	{An analysis of {New South Wales}
 	electronic vote counting},
-	documentURL =
+    booktitle={40th Australasian Computer Science
+        Conference (ACSC 2017)},
+    editors={Peter Strazdins and Michael Hobbs},
+    documentURL =
 "https://siliconeconometrics.github.io/PublicService/CountVotes/NSWLGE2012MillionRuns/TechReport.pdf",
-  month   = {june},
-  year={2016}
+   arxivURL={"http://arxiv.org/abs/1611.02015"},
+  year={2017}
+}
+#??  publisher={CRPIT},
+
+@article{spectra-static,
+  title={Improving spectral-based fault localization using static analysis},
+  author={Neelofar, Neelofar and Naish, Lee and Lee, Jason and Ramamohanarao, Kotagiri},
+  journal={Software: Practice and Experience},
+  onlineyear={2017},
+  volume={47},
+  number={11},
+  month={November},
+  year={2017},
+  pages={1633--1655},
+  publisher={Wiley Online Library}
 }
 
+@article{spectra-hyp2,
+  title={Spectral Based Fault Localization Using Hyperbolic Function},
+  author={Neelofar and Lee Naish and Kotagiri, Ramamohanarao},
+  journal={Software: Practice and Experience},
+  volume={48},
+  number={3},
+  onlineyear={2017},
+  pages={641--664},
+  month={March},
+  year={2018},
+}
+
+@misc{pawns-overview,
+  author = {Lee Naish},
+  title = {A brief overview of the Pawns programming language},
+  year = 2024,
+  howpublished = {\url{https://lee-naish.github.io/src/pawns/}},
+  note = {Accessed 2024-09-046}
+}
