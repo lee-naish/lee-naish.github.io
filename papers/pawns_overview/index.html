@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+            "http://www.w3.org/TR/1998/REC-html40-19980424/loose.dtd">
+<html>
+<head> <link rel="canonical"
+href="https://lee-naish.github.io/papers/pawns_overview/index.html
+">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="description" content="A Brief Overview of the Pawns Programming Language">
+<meta name="keywords" content="Pawns functional programming language,
+destructive update, side effects, imperative programming language, pointer,
+ref, reference, gloal variables, compiler">
+<meta name="maintained-by" content="Lee Naish dr.lee.naish@gmail.com">
+<meta name="expiry-date" content="9999-12-31">
+<title>A Brief Overview of the Pawns Programming Language</title>
+<link rev=made href="mailto:dr.lee.naish@gmail.com">
+</head>
+<body>
+<h1>A Brief Overview of the Pawns Programming Language</h1>
+
+<h3>
+			Lee Naish
+</h3>
+
+<p> This paper describes the Pawns programming language, currently under
+development, which uses several novel features to combine the functional
+and imperative programming paradigms. It supports pure functional
+programming (including algebraic data types, higher-order programming and
+parametric polymorphism), where the representation of values need not be
+considered. It also supports lower-level C-like imperative programming
+with pointers and the destructive update of all fields of the structs
+used to represent the algebraic data types. All destructive update of
+variables is made obvious in Pawns code, via annotations on statements and
+in type signatures. Type signatures must also declare sharing between any
+arguments and result that may be updated. For example, if two arguments
+of a function are trees that share a subtree and the subtree is updated
+within the function, both variables must be annotated at that point in
+the code, and the sharing and update of both arguments must be declared
+in the type signature of the function. The compiler performs extensive
+sharing analysis to check that the declarations and annotations are
+correct. This analysis allows destructive update to be encapsulated: a
+function with no update annotations in its type signature is guaranteed to
+behave as a pure function, even though the value returned may have been
+constructed using destructive update within the function. Additionally,
+the sharing analysis helps support a constrained form of global variables
+that also allows destructive update to be encapsulated and safe update
+of variables with polymorphic types to be performed.  <p>
+
+Keywords: functional programming language, destructive update,
+mutability, effects, algebraic data type, sharing analysis
+</p>
+
+<ul>
+
+<li>
+Published version:
+<a href="https://www.mdpi.com/2674-113X/3/4/23">
+HTML/PDF</a>
+
+<li>
+Slightly older local version:
+<a href="./overview.pdf">
+PDF</a>
+
+<li>
+Previous introduction to Pawns paper (not easy to read):
+<a href="../pawns/pawns.pdf">
+PDF</a>
+
+<li>
+<a href="../pawns/talkfpm.pdf">
+Slides for a talk about Pawns at the Melbourne Functional
+Programming Meetup group, April 2016 (PDF)</a>
+
+<li>
+<a href="../pawns/talk.pdf">
+Slides for talk about Pawns at Melbourne Programming Languages Workshop,
+December 2013 (PDF)</a>
+(the first public presentation of Pawns)
+
+<li>
+<a href="../pawns/talksv.pdf">
+Slides for talk about state variables at Melbourne Uni,
+December 2015 (PDF)</a>
+
+<li>
+<a href="../../src/pawns/index.html">
+Pawns home</a>
+
+</ul>
+
+<br>
+<a href="../../index.html"> Lee </a>
+
+</body>
+</html>

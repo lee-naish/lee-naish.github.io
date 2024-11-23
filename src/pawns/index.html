@@ -110,7 +110,7 @@ A Brief Overview of the Pawns Programming Language (published version)</a> - the
 
 <li>
 <a href="../../papers/pawns/overview.pdf">
-local version if the overview of Pawns (PDF)</a>.
+Local version of the overview of Pawns (PDF)</a>.
 
 <li>
 A paper on
@@ -156,6 +156,18 @@ the Github repository</a>
 
 <h1>Related languages</h1>
 
+<p> The <a href="http://www.discus-lang.org/">Discus</a> (previously
+called Disciple) programming language supports similar low level
+imperative features to Pawns.  It is, as far as we know, the only
+other functional programming language that supports destructive
+update of all arguments of all data constructors, even when the data
+structure is shared.  It uses "region" information (what memory region
+data constructors occupy) rather than sharing information to limit
+interaction and effects.  Discus does more inference of region and side
+effect information than is done in Pawns, so there is more potential for
+"nasty surprises" and doesn't encapsulate effects to the same extent.
+</p>
+
 <p>
 The <a href="http://mars-lang.appspot.com/">Mars</a> programming language
 has "assignment without nasty surprises" but no explicit pointers.
@@ -165,13 +177,15 @@ Destructive update of shared data structures is not possible.  Programs
 look imperative but the semantics is more like a pure functional language.
 </p>
 
-<p>
-The <a href="http://www.discus-lang.org/">Discus</a> programming
-language supports similar low level imperative features to Pawns but uses
-"region" information rather than sharing information to limit interaction
-and effects.  Disciple does more inference of region and side effect
-information than is done in Pawns, so there is more potential for "nasty
-surprises" and doesn't encapsulate effects to the same extent.
+<p> The <a href="https://github.com/pschachte/wybe/">Wybe</a> programming
+language is is similar to Mars in that it avoids "nasty surprises"  by
+copying and supports assignment for data structures that the compiler
+determines are definitely not shared.  It is influenced by the logic
+programming paradigm, supporting predicates that describe the relationship
+between different values.  The distinction between input (the value of
+a variable is supplied) and output (a value is computed and assigned to
+a variable) is made by annotations on the code rather than the position
+within the code.
 </p>
 
 <p>

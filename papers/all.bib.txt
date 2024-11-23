@@ -1148,7 +1148,7 @@ and Applications Conference},
   seo     = {970108},
 }
 
-@misc{pawns,
+@misc{pawns-intro,
   author = {Lee Naish},
   title = {An informal introduction to {Pawns}: a declarative/imperative
         language},
@@ -1169,7 +1169,6 @@ and Applications Conference},
   doi       = {10.7717/peerj-cs.22}
 }
 
-
 @inproceedings{spectra-hyp,
   title={Multiple Bug Spectral Fault Localization Using
 	Genetic Programming},
@@ -1179,6 +1178,14 @@ and Applications Conference},
   publisher={IEEE Press},
   abstractURL = "https://lee-naish.github.io/papers/hyp/",
   year={2015}
+}
+
+@misc{pawns-intro,
+  author = {Lee Naish},
+  title = {An informal introduction to Pawns: a declarative/imperative language},
+  year = 2015,
+  howpublished = {\url{https://lee-naish.github.io/src/pawns/}},
+  note = {Accessed 2024-09-046}
 }
 
 @article{adtpp,
@@ -1249,10 +1256,30 @@ and Applications Conference},
   year={2018},
 }
 
-@misc{pawns-overview,
+@inbook{debugging-book,
+title = "Spectrum-based techniques for software fault localization",
+author = "Wong, {W. Eric} and Lee, {Hua Jie} and Ruizhi Gao and Lee Naish",
+year = "2023",
+doi = "10.1002/9781119880929.ch4",
+language = "English",
+isbn = "9781119291800",
+pages = "201--270",
+editor = "Wong, {W. Eric} and Tse, {T. H.}",
+booktitle = "Handbook of software fault localization",
+publisher = "John Wiley & Sons",
+address = "United States"
+}
+
+@article{pawns-overview,
   author = {Lee Naish},
-  title = {A brief overview of the Pawns programming language},
+  title = {A brief overview of the {Pawns} programming language},
+  journal={Software},
+  volume={3},
+  number={4},
+  pages={473---497},
+  month={November},
   year = 2024,
-  howpublished = {\url{https://lee-naish.github.io/src/pawns/}},
-  note = {Accessed 2024-09-046}
+  url = "https://www.mdpi.com/2674-113X/3/4/23",
+  ISSN = {2674-113X},
+  DOI = {10.3390/software3040023}
 }
