@@ -76,7 +76,9 @@ average speed is the area under the curve divided by the total time.
 Average active speed is the same except inactive periods are ignored. Our
 proposed metric, "positional average speed", can be viewed as taking
 the speed each metre (or suitably small distance interval) and taking
-the average.  More technically, if we plot a curve of the speed versus
+the average. Elsewhere this metric has been called Equivalent Speed -
+see <a href="#ES"> below</a>.
+More technically, if we plot a curve of the speed versus
 distance travelled, the positional average speed is the area under
 the curve divided by the total distance.  When the speed is zero,
 no distance is covered so stops are naturally ignored by this metric
@@ -122,12 +124,25 @@ an appropriate way of smoothing the noisey gpx data to the computed
 speeds are reasonably accurate.  We use the "distance" parameter of
 <code>gpsbabel</code> to filter out data points that are close together.
 It seems that most of the bike computer hardware and software systems
-use proprietary methods to smooth the data in some way.
+use <a href="https://en.wikipedia.org/wiki/Kalman_filter">
+Kalman filtering</a> to smooth the raw data but the data I had access to
+had not been smoothed.
+</p>
+
+<a name="ES"></a>
+<h2>Addendum - great minds think alike!</h2>
+
+<p> Years after writing the above I found out Scott Bollt also had the
+same idea and published
+<a href="https://www.researchgate.net/profile/Scott-Bollt/publication/353625461_Equivalent_Speed_A_New_Metric_For_Cycling_Performance_95/links/61e077135779d35951a62c4b/Equivalent-Speed-A-New-Metric-For-Cycling-Performance-95.pdf">
+a paper</a>
+about it. This paper names the metric Equivalent Speed (ES) and
+shows it is a very good approximation of effort.
 </p>
 
 <hr>
 <br>
-<a href="http://people.eng.unimelb.edu.au/lee/">Lee</a>
+<a href="../../">Lee</a>
 </body>
 </html>
 
