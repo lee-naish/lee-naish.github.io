@@ -21,7 +21,7 @@ statistics">
 <p>
 The most commonly used metric for average speed of a bike ride (or other
 activity) is vague, arbitrary and often gives a very poor indication of
-effort. Here we propose an elegant alternative that is a better indication
+effort. Here I propose an elegant alternative that is a better indication
 of effort and is very easily computed.
 </p>
 
@@ -57,17 +57,17 @@ discounted, moving very slowly (but above the threshold speed) for a
 relatively short distance can have a significant effect on the average.
 For example, if you do a flat ride at constant 30kph for 30km (1
 hour) but also include 500m at 5kph (6 minutes), your average active
-speed drops to 27.73kph (for simplicity we ignore accelleration and
+speed drops to 27.73kph (for simplicity, ignore accelleration and
 decelleration). Riding 30.5km at 27.73kph is significantly less effort.
 Similarly, average active speed greatly underestimates effort when
 there are hills. Suppose you grind up a climb at 12.5kph for 40 minutes
 (8.3km) then zoom back down at 50kph for 10 minutes (again, ignoring
-accelleration). The average active speed (and average speed) metric
+acceleration). The average active speed (and average speed) metric
 gives your climbing speed four times the weight of your descending speed
 because climbing takes four times as long, resulting in a 20kph average.
 </p>
 
-<h2>Positional average speed</h2>
+<h2>Positional average speed (aka equivalent speed)</h2>
 
 <p> Average speed can be viewed as taking the speed each second (or
 suitably small time interval) of the ride and taking the average.
@@ -82,13 +82,15 @@ More technically, if we plot a curve of the speed versus
 distance travelled, the positional average speed is the area under
 the curve divided by the total distance.  When the speed is zero,
 no distance is covered so stops are naturally ignored by this metric
-without the need for arbitrary thresholds. It is also a better measure of
+without the need for arbitrary thresholds. It is also a <em>much</em>
+better measure of
 effort than average active speed. In the flat ride example given above,
 the positional average speed is 29.51kph.  For the hilly ride, equal
 weight is given to the climbing and descending speed, giving an average
 of 31.25kph. It's hard to measure overall effort without additional
-information such as power output, but it seems positional average speed
-gives a significantly better indication than average active speed.
+information such as power output, but the analysis mentioned
+<a href="#ES">below</a> indicates the new metric is a good indication of
+power.
 If speed does not vary at all, average speed and positional average speed
 are identical, otherwise positional average speed is stricty greater.
 </p>
@@ -116,23 +118,28 @@ so approximation is inevitable.
 
 <h2>Experimentation with gpx files</h2>
 
-<p> We have written <a href="./avespeed.txt"> a simple script</a> that
-uses <a href="https://www.gpsbabel.org"> <code>gpsbabel</code></a> to
-read gpx files and compute speed data, which is then used to compute
-the average speed metrics.  The most difficult challenge is finding
-an appropriate way of smoothing the noisey gpx data to the computed
-speeds are reasonably accurate.  We use the "distance" parameter of
-<code>gpsbabel</code> to filter out data points that are close together.
-It seems that most of the bike computer hardware and software systems
-use <a href="https://en.wikipedia.org/wiki/Kalman_filter">
-Kalman filtering</a> to smooth the raw data but the data I had access to
-had not been smoothed.
+<p> I have written <a href="./avespeed.txt">a simple script</a> that uses
+<a href="https://www.gpsbabel.org"> <code>gpsbabel</code></a> to read gpx
+files and compute speed data, which is then used to compute the average
+speed metrics.  The most difficult challenge was finding an appropriate
+way of smoothing the noisy gpx data to the computed speeds are reasonably
+accurate. At the time the gpx files I obtained contained position data
+but not speed data (more recent gpx files give speed explicitly).
+The script uses the "distance" parameter of <code>gpsbabel</code>
+to filter out data points that are close together.  It seems that
+most of the bike computer hardware and software systems use <a
+href="https://en.wikipedia.org/wiki/Kalman_filter"> Kalman filtering</a>
+to smooth the raw data but the data I had access to had not been smoothed.
+More recently I cloned the <a href="https://www.sauce.llc/"> Sauce for
+Strava</a> repository (which adds functionality to the Strava web site)
+and implemented <a href="https://github.com/lee-naish/sauce4strava">
+a version with the new metric</a>.
 </p>
 
 <a name="ES"></a>
 <h2>Addendum - great minds think alike!</h2>
 
-<p> Years after writing the above I found out Scott Bollt also had the
+<p> Years after creating this page I found out Scott Bollt also had the
 same idea and published
 <a href="https://www.researchgate.net/profile/Scott-Bollt/publication/353625461_Equivalent_Speed_A_New_Metric_For_Cycling_Performance_95/links/61e077135779d35951a62c4b/Equivalent-Speed-A-New-Metric-For-Cycling-Performance-95.pdf">
 a paper</a>
