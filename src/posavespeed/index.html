@@ -6,23 +6,29 @@
 ">
 <meta name="keywords" content="average speed, bike computer, cycling
 statistics">
-<meta name="description" content="proposal for new average speed metric">
+<meta name="description" content="improved average speed metric">
 <meta name="maintained-by" content="Lee Naish dr.lee.naish@gmail.com">
 <meta name="expiry-date" content="9999-12-31">
-<title>A new average speed metric</title>
+<title>Equivalent Speed: An improved average speed metric</title>
 <link rev=made href="mailto:dr.lee.naish@gmail.com">
 </head>
 <body>
 
-<h1>A new average speed metric</h1>
+<h1>Equivalent Speed: An improved average speed metric</h1>
 
 <h2>Introduction</h2>
 
-<p>
-The most commonly used metric for average speed of a bike ride (or other
-activity) is vague, arbitrary and often gives a very poor indication of
-effort. Here I propose an elegant alternative that is a better indication
-of effort and is very easily computed.
+<p> The most commonly used metric for average speed of a bike ride
+(or other activity) is vague, arbitrary and often gives a very poor
+indication of effort. This page describes an elegant alternative that
+is a much better indication of effort and is very easily computed. It
+has been implemented in the <a href="https://www.sauce.llc/">Sauce
+for Strava</a> browser extension, which adds functionality
+to the <a href="https://www.strava.com/">Strava web site</a>
+(at the time of writing, it is in the <a
+href="https://github.com/SauceLLC/sauce4strava/"> github site</a>
+and should be in an official release soon. It may have more
+widespread use in the future.
 </p>
 
 <h2>Average Speed</h2>
@@ -42,7 +48,7 @@ Average "active" speed is a much more commonly used metric.  It is the
 total distance travelled divided by the total active time. The notion
 of active time is rather vague.  Typically there is some speed threshold
 and if the speed is below that threshold it is generally not considered
-active time. There may also be time threshold in the transition between
+active time. There may also be time threshold in the transitions between
 active and inactive time, so if the speed is low only briefly it is still
 considered active time.  Different hardware and software combinations
 on bike computers and activity tracking software have different ways
@@ -64,20 +70,21 @@ there are hills. Suppose you grind up a climb at 12.5kph for 40 minutes
 (8.3km) then zoom back down at 50kph for 10 minutes (again, ignoring
 acceleration). The average active speed (and average speed) metric
 gives your climbing speed four times the weight of your descending speed
-because climbing takes four times as long, resulting in a 20kph average.
+because climbing takes four times as long, resulting in a 20kph average
+(despite being much more effort than a flat 20kph ride of the same
+distance).
 </p>
 
-<h2>Positional average speed (aka equivalent speed)</h2>
+<h2>Equivalent Speed (ES)</h2>
 
 <p> Average speed can be viewed as taking the speed each second (or
 suitably small time interval) of the ride and taking the average.
 More technically, if we plot a curve of the speed versus time, the
 average speed is the area under the curve divided by the total time.
-Average active speed is the same except inactive periods are ignored. Our
-proposed metric, "positional average speed", can be viewed as taking
+Average active speed is the same except inactive periods are ignored.
+Equivalent Speed can be viewed as taking
 the speed each metre (or suitably small distance interval) and taking
-the average. Elsewhere this metric has been called Equivalent Speed -
-see <a href="#ES"> below</a>.
+the average.
 More technically, if we plot a curve of the speed versus
 distance travelled, the positional average speed is the area under
 the curve divided by the total distance.  When the speed is zero,
@@ -87,10 +94,7 @@ better measure of
 effort than average active speed. In the flat ride example given above,
 the positional average speed is 29.51kph.  For the hilly ride, equal
 weight is given to the climbing and descending speed, giving an average
-of 31.25kph. It's hard to measure overall effort without additional
-information such as power output, but the analysis mentioned
-<a href="#ES">below</a> indicates the new metric is a good indication of
-power.
+of 31.25kph.
 If speed does not vary at all, average speed and positional average speed
 are identical, otherwise positional average speed is strictly greater.
 </p>
@@ -100,51 +104,36 @@ are identical, otherwise positional average speed is strictly greater.
 <p> For any metric, it is advantageous if it can be computed in "real
 time", updating a display on a bike computer, using minimal storage and
 computational resources.  Data such as position and time are typically
-sampled at frequent intervals and speed is computed from these (using some
-method that attempts to overcome the significant noise in GPS position
-data) or other inputs. Average speed can be computed by regularly reading
+sampled at frequent intervals and speed is computed from these
+and/or other data. Average speed can be computed by regularly reading
 the speed and using just two accumulators: the sum of all speed readings
 so far and the number of speed readings.  The average speed is the former
 divided by the latter.  For average active speed, inactive periods
 can be ignored (with some suitable simple calculation of inactive).
-Positional average speed can also be computed using two accumulators:
+Equivalent speed can also be computed using two accumulators:
 the sum of all the speed readings and the the sum of the squares of all
-the speed readings. The positional average speed is the latter divided
+the speed readings. The equivalent speed is the latter divided
 by the former. Technically, such sampling methods are essentially a form
 of numerical integration, which results in an approximation to the true
-value. However, the position and speed data contains significant noise,
+value. However, the raw data is not completely accurate in any case
 so approximation is inevitable.
 </p>
 
-<h2>Experimentation with gpx files</h2>
+<h2>History</h2>
 
-<p> I have written <a href="./avespeed.txt">a simple script</a> that uses
-<a href="https://www.gpsbabel.org"> <code>gpsbabel</code></a> to read gpx
-files and compute speed data, which is then used to compute the average
-speed metrics.  The most difficult challenge was finding an appropriate
-way of smoothing the noisy gpx data to the computed speeds are reasonably
-accurate. At the time the gpx files I obtained contained position data
-but not speed data (more recent gpx files give speed explicitly).
-The script uses the "distance" parameter of <code>gpsbabel</code>
-to filter out data points that are close together.  It seems that
-most of the bike computer hardware and software systems use <a
-href="https://en.wikipedia.org/wiki/Kalman_filter"> Kalman filtering</a>
-to smooth the raw data but the data I had access to had not been smoothed.
-More recently I cloned the <a href="https://www.sauce.llc/"> Sauce for
-Strava</a> repository (which adds functionality to the Strava web site)
-and implemented <a href="https://github.com/lee-naish/sauce4strava">
-a version with the new metric</a>.
-</p>
-
-<a name="ES"></a>
-<h2>Addendum - great minds think alike!</h2>
-
-<p> Years after creating this page I found out Scott Bollt also had the
-same idea and published
-<a href="https://www.researchgate.net/profile/Scott-Bollt/publication/353625461_Equivalent_Speed_A_New_Metric_For_Cycling_Performance_95/links/61e077135779d35951a62c4b/Equivalent-Speed-A-New-Metric-For-Cycling-Performance-95.pdf">
-a paper</a>
-about it. This paper names the metric Equivalent Speed (ES) and
-shows it is a very good approximation of effort.
+<p> Quite a few years ago the idea of ES came to me (I called
+it positional average speed at the time) and eventually
+created the original version of this web page and did <a
+href="./avespeed.txt"> a primitive implementation</a> for analysis
+of gpx files that didn't include explicit speed data.  In 2024
+I found out Scott Bollt also had the same idea years ago and published <a
+href="https://www.researchgate.net/profile/Scott-Bollt/publication/353625461_Equivalent_Speed_A_New_Metric_For_Cycling_Performance_95/links/61e077135779d35951a62c4b/Equivalent-Speed-A-New-Metric-For-Cycling-Performance-95.pdf">
+a paper</a> about it. This paper used the term Equivalent Speed (ES) and
+showed it is a very good approximation of effort under various conditions
+(another even more accurate metric was proposed also). Scott and I
+communicated, he mentioned Sauce4Strava, I did the initial implementation
+which was then adapted for the official version.  I have made suggestions
+for its incorporation into other platforms.
 </p>
 
 <hr>
