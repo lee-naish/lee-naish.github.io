@@ -27,7 +27,7 @@ for Strava</a> browser extension, which adds functionality
 to the <a href="https://www.strava.com/">Strava web site</a>
 (at the time of writing, it is in the <a
 href="https://github.com/SauceLLC/sauce4strava/"> github site</a>
-and should be in an official release soon. It may have more
+and should be in an official release soon). It may have more
 widespread use in the future.
 </p>
 
@@ -35,7 +35,7 @@ widespread use in the future.
 
 <p>
 Often in cycling we are interested in some measure
-of our average speed over a ride or part thereof.  This simplest way to
+of our average speed over a ride or part thereof.  The simplest way to
 do this is divide the distance travelled by the elapsed time. This is
 rarely used because it it so influenced by breaks in the riding due to red
 lights, getting more fluids (or getting rid of fluids), rests, lunch, etc.
@@ -86,17 +86,16 @@ Equivalent Speed can be viewed as taking
 the speed each metre (or suitably small distance interval) and taking
 the average.
 More technically, if we plot a curve of the speed versus
-distance travelled, the positional average speed is the area under
+distance travelled, ES is the area under
 the curve divided by the total distance.  When the speed is zero,
 no distance is covered so stops are naturally ignored by this metric
 without the need for arbitrary thresholds. It is also a <em>much</em>
 better measure of
 effort than average active speed. In the flat ride example given above,
-the positional average speed is 29.51kph.  For the hilly ride, equal
-weight is given to the climbing and descending speed, giving an average
-of 31.25kph.
-If speed does not vary at all, average speed and positional average speed
-are identical, otherwise positional average speed is strictly greater.
+ES is 29.51kph.  For the hilly ride, equal
+weight is given to the climbing and descending speed, so ES is 31.25kph.
+If speed does not vary at all, average speed and ES
+are identical, otherwise ES is strictly greater.
 </p>
 
 <h2>Computing average speed metrics</h2>
@@ -110,9 +109,9 @@ the speed and using just two accumulators: the sum of all speed readings
 so far and the number of speed readings.  The average speed is the former
 divided by the latter.  For average active speed, inactive periods
 can be ignored (with some suitable simple calculation of inactive).
-Equivalent speed can also be computed using two accumulators:
+ES can also be computed using two accumulators:
 the sum of all the speed readings and the the sum of the squares of all
-the speed readings. The equivalent speed is the latter divided
+the speed readings. ES is the latter divided
 by the former. Technically, such sampling methods are essentially a form
 of numerical integration, which results in an approximation to the true
 value. However, the raw data is not completely accurate in any case
@@ -122,7 +121,7 @@ so approximation is inevitable.
 <h2>History</h2>
 
 <p> Quite a few years ago the idea of ES came to me (I called
-it positional average speed at the time) and eventually
+it positional average speed) and eventually
 created the original version of this web page and did <a
 href="./avespeed.txt"> a primitive implementation</a> for analysis
 of gpx files that didn't include explicit speed data.  In 2024
@@ -132,7 +131,7 @@ a paper</a> about it. This paper used the term Equivalent Speed (ES) and
 showed it is a very good approximation of effort under various conditions
 (another even more accurate metric was proposed also). Scott and I
 communicated, he mentioned Sauce4Strava, I did the initial implementation
-which was then adapted for the official version.  I have made suggestions
+and that was adapted for the official version.  I have made suggestions
 for its incorporation into other platforms.
 </p>
 
