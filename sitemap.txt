@@ -251,6 +251,7 @@ https://lee-naish.github.io/robots.txt
 https://lee-naish.github.io/shopping.html
 https://lee-naish.github.io/sitemap.txt
 https://lee-naish.github.io/spec.html
+https://lee-naish.github.io/src/aia/
 https://lee-naish.github.io/src/ddfp/ex.ne.txt
 https://lee-naish.github.io/src/ddfp/ex.nl.txt
 https://lee-naish.github.io/src/ddfp/ex.script.txt
