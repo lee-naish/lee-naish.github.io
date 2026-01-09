@@ -13,6 +13,12 @@ structure animation, pseudocode, stepwise refinement, teaching">
 </head>
 <body>
 
+<center>
+<img src="./logo.svg"
+width="10%"
+alt="AIA logo">
+</center>
+
 <h1>Algorithms in Action</h1>
 
 <p> Algorithms in Action (AIA) is an award winning algorithm animation
@@ -20,7 +26,7 @@ system.  It displays views of data structures in sync with highlighting
 lines of pseudocode as they execute. Sounds familiar, right? However, a
 <em>unique</em> feature is that the pseudocode can be viewed at different
 levels of abstraction, and the animation details adjust accordingly. For
-example, at the highest level of abstraction, Heap Sort can be described
+example, at the highest level of abstraction, heap sort can be described
 in just two lines of pseudocode: first, convert the unsorted array into a
 heap, then convert the heap into a sorted array.  The animation proceeds
 in just two steps, displaying both the array and tree views so the heap
@@ -39,13 +45,39 @@ but in the process they learn valuable lessons about how to think like
 a good programmer.
 </p>
 
+<p> Data for all the algorithms can be chosen by the user, along
+with some pre-defined examples and options such as sorting the input
+data.  Teaching staff can draw attention to particular features of
+an algorithm by choosing their own input data, suitable expansion
+of pseudocode and the execution step and creating a specialised
+hyperlink that can be used in lectures or by students.  For example, <a
+href='https://dev-aia.vercel.app/animation/?alg=BSTrec&mode=insertion&list=25,51,18,35,80,88,56,57,78,93,84,68&value=2&smallTable=&step=68&expand={"insertion":{"Main":true,"recurseLeft":true,"recurseRight":true},"search":{"Main":true,"recurseLeft":false,"recurseRight":false}}'>
+this link</a> allows you to step forwards in the execution of recursive
+BST code inserting a node and simply unwinding the recursion whereas <a
+href='https://dev-aia.vercel.app/animation/?alg=AVLTree&mode=insertion&list=25,51,18,35,80,88,56,57,78,93,84,68&value=2&smallTable=&step=86&expand={"insertion":{"Main":true,"recurseLeft":true,"recurseRight":true,"rotateIfNeeded":true},"search":{"Main":true}}'>
+this link</a> shows the additional steps AVL tree insertion performs in the
+same case.
+</p>
+
+<p> AIA also allows relationships between different algorithms to be
+clearly exposed.  For example, many graph search algorithms (DFS, BFS,
+Dijkstra's shortest path algorithm, heuristic search and Prim's minimal
+spanning tree algorithm) have similar overall structure and in AIA the
+highest level pseudocode is <em>identical</em> for all these algorithms.
+Similarly, AVL tree insertion is identical to the recursive coding of
+BST except for two additional steps just before the function returns the
+tree: adjusting the height of the root node and (possibly) performing
+rotations to balance the tree.  AIA provides exercises and additional
+hyperlinks to help engage students with these broader issues.
+</p>
+
 <p> AIA was first developed many years ago under the supervision
 of Linda Stern, Harald Sondergaard and myself, using a very early
 version of Java. It was gradually left behind as Java developed.
 The current system is a re-implementation of the original core ideas
 using Javascript and more modern software infrastructure (the React
 framework and Node.js). The core was developed by final year software
-engineering students and multiple students groups have contributed extra
+engineering students and many students groups have contributed extra
 functionality over the years.  More recently, I have been involved in
 coding to improve/extend functionality and remove some long-standing bugs.
 </p>
@@ -55,9 +87,12 @@ More details are available via:
 <ul>
 <li>
 <a href="https://dev-aia.vercel.app/mainmenu">
-The hosted executable</a> (currently hosted on a Vercel
+The hosted executable</a>. NOTE: it currently hosted on a Vercel
 hobby account; best download the source and install it locally/elsewhere
-if you want to do more than play around)
+if you want to do more than play around. Some algorithm animations may
+still be in development. If you host your own version it is very easy to
+turn off deployment of some algorithms (just a simple flag in the source
+code).
 <li>
 <a
 href="https://github.com/algorithms-in-action/algorithms-in-action.github.io">
