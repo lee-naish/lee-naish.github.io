@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+            "http://www.w3.org/TR/1998/REC-html40-19980424/loose.dtd">
+<html>
+<head> <link rel="canonical" href="https://lee-naish.github.io/src/aia/">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="description" content="SBFL models link page">
+<meta name="keywords" content="SBFL, debugging, STASS, set similarity:>
+<meta name="maintained-by" content="Lee Naish dr.lee.naish@gmail.com">
+<meta name="expiry-date" content="9999-12-31">
+<title>SBFL Models</title>
+<link rev=made href="mailto:dr.lee.naish@gmail.com">
+</head>
+<body>
+
+<h1>Spectral Based Fault Localisation (SBFL) Models</h1>
+
+<p> The general idea is to have a simple "model" program that has some
+buggy statements. There are multiple execution paths through the program
+and some of those which execute buggy statements lead to failure. The
+details of the model are expressed using a C .h file that can be generated
+from a high level description using some Prolog code. The C code
+simulates SBFL using the model to evaluate different approaches, notably
+different set similarity measures.
+</p>
+
+<p> The idea of SBFL is that we have a bunch of test cases (corresponding
+to a multiset of execution paths), some of which fail. Set similarity
+measures are used to compare the set of failed tests with the set of tests
+in which each respective statement is executed. This is used to rank the
+statements accoding to their "likelihood" of being buggy. Performance is
+measured based on where the bugs appear in the ranking (eg, the percentage
+of code required to be looked at in order to find the top ranked bug). The
+performance depends on the set of test cases so we pick a fixed number of
+tests T and generate multiple (eg 10000000) multisets of T execution paths
+to compute average performance (for small models and T we can use every
+possible multiset but generally we need this sampling approach). The
+code supports a large number of similarity measures and adding more is
+very easy. It also allows various other parameters to be adjusted and
+has been used for many experiments.
+</p>
+
+<p>
+More details are available via:
+<ul>
+<a
+href="https://github.com/lee-naish/SBFLmodels/">
+The source code repository</a>
+(open source - MIT licence)
+<li>
+<a href="../../papers/ssm/index.html">
+Similarity to a Single Set
+</a>
+<li>
+<a href="../../papers/wi/index.html">
+Spectral Debugging with Weights and Incremental Ranking 
+</a>
+<li>
+<a href="../../papers/predp/index.html">
+Statements versus predicates in spectral bug localization
+</a>
+<li>
+<a href="../../papers/dual/index.html">
+Duals in Spectral Fault Localization
+</a>
+<li>
+<a href="../../papers/hyp/index.html">
+Multiple Bug Spectral Fault Localization Using Genetic Programming
+</a>
+</ul> 
+</p>
+
+<br>
+<a href="https://lee-naish.github.io/"> Lee </a>
+
+</body>
+</html>
