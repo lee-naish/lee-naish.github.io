@@ -1201,7 +1201,7 @@ and Applications Conference},
 
 # techreport{xxxssm,
 # more report than journal paper but has journal-like details
-
+# see 2026 version below
 @article{ssm,
   title={Similarity to a single set },
   journal={PeerJ PrePrints},
@@ -1283,3 +1283,27 @@ address = "United States"
   ISSN = {2674-113X},
   DOI = {10.3390/software3040023}
 }
+
+@article{stass,
+  title={Similarity to a single set},
+  journal={Big Data and Cognitive Computing},
+  volume={10},
+  number={5},
+  ARTICLE-NUMBER = {164},
+  URL = "https://www.mdpi.com/2504-2289/10/5/164",
+  month   = {May},
+  doi       = {10.3390/bdcc10050164},
+  year={2026}
+}
+
+@article{isem,
+	doi = {10.20944/preprints202607.1206.v1},
+	url = {https://doi.org/10.20944/preprints202607.1206.v1},
+	year = 2026,
+	month = {July},
+	publisher = {Preprints},
+	author = {Lee Naish and Bernard Pope and Harald Søndergaard},
+	title = {A Mathematical Theory of Correct Computation},
+	journal = {Preprints}
+}
+
