@@ -12,47 +12,36 @@
 </h3>
 
 <br>
-Identifying patterns and associations in data is fundamental to
-discovery in science.  This work investigates a very simple but
-fundamental instance
-of the problem, where each data point consists of a vector of binary
-attributes.
-For example,
-each data point may correspond to a person and the attributes
-may be their sex, whether they smoke cigarettes, whether they have been
-diagnosed with lung cancer, etc.
-Our primary application is spectral based fault localisation (SBFL), in
-which
-each point represents a test case for a computer program and the
-attributes are
-whether the program failed the test and whether certain parts of the
-program
-were used during the test.
-Measuring similarity
-of attributes in the data is equivalent to measuring similarity of
-sets.
-Furthermore, there is one identified "base" set
-and only similarity to that set is considered---the other
-sets are just ranked according to how similar they are to the base set.
-For example, if the base set represents lung cancer sufferers, the set
-of smokers may well be high in the ranking.  In SBFL the base set
-represents the
-failed tests and the ranking is used to help find bugs.
-Identifying set similarity or correlation has many uses and is often the
-first step in determining relationship or causality.
-Set similarity is also the basis for
-comparing binary classifiers such as diagnostic tests for any data set.
+Identifying similarities in data is fundamental to discovery in
+science. Measuring or ranking similarity is a key way of reducing
+the dimensionality of data, is at the heart of many data intensive
+algorithms and can also be used directly for some applications. This
+paper extends our understanding of a relatively simple similarity problem.
+Our
+primary application is spectral based fault localisation (SBFL), in
+which a computer program is run with a large number of test cases and
+data is collected on which statements are executed in each test case.
+For each statement, the set of test cases in which it is executed is
+compared to the set of test cases that failed and this is used to rank
+the statements to help locate bugs, an instance of what we call the
+similarity to a single set (STASS) problem. This paper is primarily
+theoretical but some contributions are validated with SBFL experiments.
+Set similarity is equivalent to similarity
+of binary vectors or two by two contingency tables.  The problem is also
+equivalent to converting two-dimensional data with a "partial order",
+such as points on a rectangular grid, to a one-dimensional total order.
+Even when the raw data is not binary we are often interested in
+comparing binary classifiers for the data, such as diagnostic tests,
+and comparing binary classifiers is an instance of the STASS problem.
 More than a hundred set similarity measures have been proposed in the
-literature but there is very little understanding of how best
-to choose a similarity measure for a given domain.  This work discusses
-numerous properties that similarity measures can have and identifies
-important forms of symmetry which have not previously been
-considered.  It gives alternative versions of various previously defined
-properties so they are no longer incompatible,
-defines ordering relations over similarity measures
-and shows how some properties of a domain can be used to help choose
-a similarity measure which will perform well for that domain.
-
+literature and hundreds of thousands have been evaluated for SBFL but
+there is very little understanding of how best to choose a similarity
+measure for a given domain.  This work discusses numerous properties
+and forms of symmetry that similarity measures can have.  It refines
+previously identified properties so they are no longer incompatible,
+identifies new forms of symmetry, defines ordering relations over
+similarity measures and proposes a new statistic that can be used to
+help choose a good similarity measure for a given domain.
 
 <p>
 
