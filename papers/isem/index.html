@@ -22,25 +22,30 @@ element, however, was unused. Hence most subsequent applications of
 denotational semantics have used mathematical structures that avoid
 top elements. We suggest that the information ordering is relevant not
 only to semanticists, but also to working programmers, as a basis for
-determining if a program component or a computation is correct according
+determining if a program component or a computation is
+<em>correct</em> according
 to their intentions. We also suggest that a return to the use of complete
 lattices is called for if we wish to broaden formal semantics to allow it
-to encompass programmer intentions. That is because often those intentions
-permit more than one runtime behaviour for a given input. For example,
-several declarative debugging tools allow a programmer to declare
-that a runtime call is "inadmissible", loosely meaning the called
-program component should never be used with such input. If the input
-is garbage, the programmer does not care what garbage is output -
-all results are acceptable, which can be modeled by the top element of
-a complete lattice. In this paper we explore the connections between
+to encompass programmer intentions.
+That is because often
+those intentions permit more than one runtime behaviour for a given input.
+In this paper we explore the connections between
 the information ordering, correctness of computations and programs, and
-debugging. We present a general theory and describe several instances
-where the intention for what our logic/functional code computes plus
-what it actually computes can be described by elements in a complete
-lattice. This extends both the theoretical basis and practical flexibility
-of declarative debugging and reasoning about partial correctness and gives
-an attractive mathematical framework that encompasses our intentions,
-our programs and what they compute.
+debugging.  We present a general theory and describe
+several instances where the intention for what our logic/functional code
+computes plus what it actually computes can be described by elements
+in a complete lattice.
+For correct code, the information order relates (1)
+what is intended and what is computed, (2) successive states of a
+computation, and (3) the left and right sides of program component
+definitions. For bugs, the information order is violated.
+The technical results are a reasonably straightforward extension to
+previous denotational semantics work, but the scheme aligns much better with
+practical programming and software tools.
+The theory extends both the theoretical basis and
+practical flexibility of declarative debugging and reasoning about
+partial correctness and gives an attractive mathematical framework that
+encompasses our intentions, our programs and what they compute.
 <p>
 
 Keywords:
@@ -58,6 +63,8 @@ logic programming
 
 <li>
 The paper:
+<a href="https://www.mdpi.com/2227-7390/14/18/3292">
+Published version (September 2026)</a>,
 <a href="https://www.preprints.org/manuscript/202607.1206">
 Preprint (July 2026)</a>,
 

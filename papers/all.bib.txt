@@ -1307,3 +1307,18 @@ address = "United States"
 	journal = {Preprints}
 }
 
+@Article{correct-comp,
+AUTHOR = {Naish, Lee and Pope, Bernard and Søndergaard, Harald},
+TITLE = {A Mathematical Theory of Correct Computation},
+JOURNAL = {Mathematics},
+VOLUME = {14},
+YEAR = {2026},
+NUMBER = {18},
+ARTICLE-NUMBER = {3292},
+URL = {https://www.mdpi.com/2227-7390/14/18/3292},
+ISSN = {2227-7390},
+DOI = {10.3390/math14183292}
+}
+
+
+
